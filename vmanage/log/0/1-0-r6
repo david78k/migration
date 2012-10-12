@@ -1,0 +1,738 @@
+Log of time -p /nfs/vmanage/migratemultiple 1 0 
+Tue Sep  4 04:56:06 2012
+
+finish 1346702166 0
+rvms 8 cwnd 1 1
+rvms 8 nvms 0 cwnd 1 gra1-3
+Migration: [  0 %]Migration: [  0 %]Migration: [  4 %]Migration: [  4 %]Migration: [  8 %]Migration: [ 10 %]Migration: [ 10 %]Migration: [ 10 %]Migration: [ 17 %]summary 1 16000000 16000000
+rvms 8 nvms 1 cwnd 2 gra1-1
+Migration: [ 19 %]rvms 8 cwnd 2 2
+Migration: [ 19 %]Migration: [ 19 %]Migration: [ 19 %]Migration: [  3 %]Migration: [ 19 %]Migration: [  4 %]Migration: [ 19 %]Migration: [  6 %]Migration: [ 19 %]Migration: [  7 %]Migration: [ 29 %]Migration: [  9 %]Migration: [ 29 %]Migration: [  9 %]summary 2 14500000 -1500000
+rvms 8 cwnd 1 1
+Migration: [ 32 %]Migration: [ 13 %]Migration: [ 35 %]Migration: [ 15 %]Migration: [ 37 %]Migration: [ 17 %]Migration: [ 40 %]Migration: [ 20 %]Migration: [ 42 %]Migration: [ 20 %]Migration: [ 42 %]Migration: [ 23 %]Migration: [ 23 %]Migration: [ 42 %]Migration: [ 46 %]Migration: [ 25 %]Migration: [ 49 %]Migration: [ 27 %]summary 1 37000000 22500000
+Migration: [ 51 %]Migration: [ 30 %]rvms 8 cwnd 2 2
+Migration: [ 53 %]Migration: [ 34 %]Migration: [ 57 %]Migration: [ 35 %]Migration: [ 61 %]Migration: [ 40 %]Migration: [ 63 %]Migration: [ 43 %]Migration: [ 68 %]Migration: [ 49 %]Migration: [ 71 %]Migration: [ 51 %]Migration: [ 74 %]Migration: [ 56 %]Migration: [ 59 %]Migration: [ 77 %]summary 2 32500000 -4500000
+/nfs/vmanage/migrator: line 41: [: 2: unary operator expected
+rvms 8 nvms 2 cwnd gra1-5
+Migration: [ 80 %]Migration: [ 62 %]rvms 8 cwnd 1 1
+Migration: [ 80 %]Migration: [ 66 %]Migration: [ 68 %]Migration: [ 83 %]Migration: [ 86 %]Migration: [ 71 %]Migration: [ 89 %]Migration: [  0 %]Migration: [ 74 %]Migration: [ 79 %]Migration: [  3 %]Migration: [ 92 %]Migration: [  4 %]Migration: [ 83 %]Migration: [ 92 %]Migration: [  7 %]Migration: [ 87 %]Migration: [ 92 %]Migration: [ 90 %]Migration: [  7 %]Migration: [ 98 %]summary 1 65000000 32500000
+Migration: [ 94 %]Migration: [ 10 %]Migration: [100 %]
+finish 1346702195 29
+real 27.93
+user 0.04
+sys 0.03
+rvms 6 cwnd 2 2
+Migration: [ 16 %]Migration: [100 %]
+finish 1346702195 29
+real 22.68
+user 0.03
+sys 0.02
+rvms 8 nvms 1 cwnd 2 gra1-7
+Migration: [ 21 %]Migration: [ 23 %]Migration: [ 28 %]Migration: [  3 %]Migration: [ 29 %]Migration: [  5 %]Migration: [ 34 %]Migration: [ 10 %]Migration: [ 38 %]Migration: [ 13 %]Migration: [ 41 %]Migration: [ 16 %]Migration: [ 44 %]Migration: [ 19 %]summary 2 28500000 -36500000
+rvms 6 cwnd 1 1
+Migration: [ 22 %]Migration: [ 47 %]Migration: [ 25 %]Migration: [ 50 %]Migration: [ 28 %]Migration: [ 53 %]Migration: [ 56 %]Migration: [ 31 %]Migration: [ 59 %]Migration: [ 34 %]Migration: [ 62 %]Migration: [ 37 %]Migration: [ 65 %]Migration: [ 40 %]Migration: [ 68 %]Migration: [ 43 %]Migration: [ 71 %]Migration: [ 46 %]Migration: [ 74 %]Migration: [ 50 %]summary 1 68000000 39500000
+rvms 6 cwnd 2 2
+Migration: [ 78 %]Migration: [ 53 %]Migration: [ 82 %]Migration: [ 56 %]Migration: [ 85 %]Migration: [ 59 %]Migration: [ 62 %]Migration: [ 87 %]Migration: [ 65 %]Migration: [ 90 %]Migration: [ 93 %]Migration: [ 68 %]Migration: [ 95 %]Migration: [ 71 %]Migration: [ 73 %]Migration: [100 %]
+finish 1346702209 43
+real 20.49
+user 0.03
+sys 0.03
+rvms 6 nvms 1 cwnd 2 gra1-2
+Migration: [ 79 %]Migration: [ 80 %]Migration: [  1 %]summary 2 32000000 -36000000
+rvms 5 cwnd 1 1
+Migration: [ 85 %]Migration: [  4 %]Migration: [ 88 %]Migration: [  7 %]Migration: [ 91 %]Migration: [ 10 %]Migration: [ 94 %]Migration: [ 13 %]Migration: [ 95 %]Migration: [ 16 %]Migration: [ 17 %]Migration: [100 %]
+finish 1346702213 47
+real 17.97
+user 0.04
+sys 0.01
+Migration: [ 23 %]Migration: [ 26 %]Migration: [ 29 %]Migration: [ 32 %]summary 1 55000000 23000000
+rvms 4 cwnd 2 2
+rvms 5 nvms 1 cwnd 2 gra1-8
+Migration: [ 35 %]Migration: [ 38 %]Migration: [  1 %]Migration: [ 41 %]Migration: [  4 %]Migration: [ 44 %]Migration: [  7 %]Migration: [ 47 %]Migration: [ 10 %]Migration: [ 50 %]Migration: [ 13 %]Migration: [ 53 %]Migration: [ 16 %]Migration: [ 56 %]Migration: [ 19 %]Migration: [ 60 %]Migration: [ 23 %]Migration: [ 63 %]summary 2 31000000 -24000000
+rvms 4 cwnd 1 1
+Migration: [ 25 %]Migration: [ 66 %]Migration: [ 28 %]Migration: [ 69 %]Migration: [ 31 %]Migration: [ 72 %]Migration: [ 35 %]Migration: [ 75 %]Migration: [ 38 %]Migration: [ 78 %]Migration: [ 41 %]Migration: [ 81 %]Migration: [ 44 %]Migration: [ 84 %]Migration: [ 47 %]Migration: [ 88 %]Migration: [ 50 %]Migration: [ 90 %]Migration: [ 53 %]Migration: [ 93 %]summary 1 68000000 37000000
+Migration: [ 56 %]rvms 4 cwnd 2 2
+Migration: [ 96 %]Migration: [ 60 %]Migration: [100 %]
+finish 1346702227 61
+real 17.79
+user 0.03
+sys 0.02
+Migration: [ 62 %]rvms 4 nvms 1 cwnd 2 gra1-4
+Migration: [ 66 %]Migration: [ 68 %]Migration: [  1 %]Migration: [ 71 %]Migration: [  4 %]Migration: [ 75 %]Migration: [  7 %]Migration: [ 78 %]Migration: [ 10 %]Migration: [ 81 %]Migration: [ 13 %]Migration: [ 84 %]Migration: [ 16 %]Migration: [ 86 %]summary 2 30000000 -38000000
+rvms 3 cwnd 1 1
+Migration: [ 19 %]Migration: [ 89 %]Migration: [ 22 %]Migration: [ 93 %]Migration: [ 25 %]Migration: [ 95 %]Migration: [ 29 %]Migration: [ 95 %]Migration: [ 31 %]Migration: [100 %]
+finish 1346702233 67
+real 17.94
+user 0.04
+sys 0.02
+Migration: [ 34 %]Migration: [ 37 %]Migration: [ 40 %]Migration: [ 43 %]Migration: [ 47 %]Migration: [ 50 %]summary 1 51000000 21000000
+rvms 2 cwnd 2 2
+rvms 3 nvms 1 cwnd 2 gra1-6
+Migration: [ 53 %]Migration: [ 56 %]Migration: [ 59 %]Migration: [ 62 %]Migration: [ 65 %]Migration: [ 68 %]Migration: [  3 %]Migration: [ 71 %]Migration: [  6 %]Migration: [ 74 %]Migration: [  9 %]Migration: [ 77 %]Migration: [ 12 %]Migration: [ 80 %]summary 2 23000000 -28000000
+Migration: [ 15 %]rvms 2 cwnd 1 1
+Migration: [ 83 %]Migration: [ 18 %]Migration: [ 86 %]Migration: [ 21 %]Migration: [ 89 %]Migration: [ 24 %]Migration: [ 92 %]Migration: [ 27 %]Migration: [ 95 %]Migration: [ 30 %]Migration: [ 95 %]Migration: [ 33 %]Migration: [100 %]
+finish 1346702245 79
+real 17.99
+user 0.04
+sys 0.02
+Migration: [ 40 %]Migration: [ 43 %]Migration: [ 46 %]summary 1 62000000 39000000
+rvms 1 cwnd 1 1
+Migration: [ 49 %]Migration: [ 52 %]Migration: [ 55 %]Migration: [ 58 %]Migration: [ 61 %]Migration: [ 64 %]Migration: [ 67 %]Migration: [ 70 %]Migration: [ 73 %]Migration: [ 76 %]summary 1 34000000 -28000000
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 118: [: -eq: unary operator expected
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 124: [: -eq: unary operator expected
+(standard_in) 2: syntax error
+/nfs/vmanage/controller/controller-single: line 62: [: -eq: unary operator expected
+rvms 1 cwnd
+Migration: [ 79 %]Migration: [ 82 %]Migration: [ 85 %]Migration: [ 89 %]Migration: [ 91 %]Migration: [ 94 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [ 95 %](standard_in) 2: syntax error
+expr: syntax error
+summary -34000000
+/nfs/vmanage/controller/controller-single: line 111: [: 1: unary operator expected
+Migration: [100 %]total_summary # 0
+
+finish 1346702257 91
+real 20.55
+user 0.04
+sys 0.02
+rvms 8 cwnd 1 1
+rvms 8 nvms 0 cwnd 1 gra2-8
+Migration: [  0 %]Migration: [  3 %]Migration: [  6 %]Migration: [  6 %]Migration: [  6 %]Migration: [  6 %]Migration: [  6 %]Migration: [  6 %]summary 1 17000000 17000000
+rvms 8 nvms 1 cwnd 2 gra2-4
+rvms 8 cwnd 2 2
+Migration: [ 15 %]Migration: [ 15 %]Migration: [ 20 %]Migration: [ 22 %]Migration: [ 22 %]Migration: [ 22 %]Migration: [ 22 %]Migration: [  2 %]Migration: [ 22 %]Migration: [  4 %]Migration: [ 22 %]Migration: [  4 %]summary 2 11000000 -6000000
+Migration: [ 29 %]Migration: [  6 %]rvms 8 cwnd 1 1
+Migration: [  6 %]Migration: [ 29 %]Migration: [  6 %]Migration: [ 31 %]Migration: [ 31 %]Migration: [  9 %]Migration: [ 35 %]Migration: [ 11 %]Migration: [ 35 %]Migration: [ 11 %]Migration: [ 38 %]Migration: [ 14 %]Migration: [ 38 %]Migration: [ 14 %]Migration: [ 41 %]Migration: [ 17 %]Migration: [ 43 %]Migration: [ 17 %]Migration: [ 43 %]Migration: [ 17 %]summary 1 33000000 22000000
+rvms 8 nvms 2 cwnd gra2-6
+/nfs/vmanage/migrator: line 41: [: 2: unary operator expected
+rvms 8 cwnd 2 2
+Migration: [ 43 %]Migration: [ 22 %]Migration: [ 43 %]Migration: [ 23 %]Migration: [ 49 %]Migration: [ 23 %]Migration: [ 51 %]Migration: [ 25 %]Migration: [ 53 %]Migration: [ 29 %]Migration: [  0 %]Migration: [ 53 %]Migration: [  4 %]Migration: [ 30 %]Migration: [  7 %]Migration: [ 30 %]Migration: [ 53 %]Migration: [ 53 %]Migration: [ 12 %]Migration: [ 30 %]summary 2 21500000 -11500000
+Migration: [ 58 %]Migration: [ 14 %]Migration: [ 35 %]rvms 8 cwnd 1 1
+Migration: [ 36 %]Migration: [ 17 %]Migration: [ 61 %]Migration: [ 61 %]Migration: [ 19 %]Migration: [ 38 %]Migration: [ 61 %]Migration: [ 23 %]Migration: [ 38 %]Migration: [ 61 %]Migration: [ 27 %]Migration: [ 38 %]Migration: [ 31 %]Migration: [ 65 %]Migration: [ 43 %]Migration: [ 65 %]Migration: [ 44 %]Migration: [ 33 %]Migration: [ 68 %]Migration: [ 36 %]Migration: [ 44 %]Migration: [ 71 %]Migration: [ 48 %]Migration: [ 40 %]summary 1 62000000 40500000
+Migration: [ 72 %]Migration: [ 48 %]Migration: [ 45 %]rvms 8 cwnd 2 2
+Migration: [ 50 %]Migration: [ 72 %]Migration: [ 47 %]Migration: [ 52 %]Migration: [ 50 %]Migration: [ 76 %]Migration: [ 53 %]Migration: [ 76 %]Migration: [ 55 %]Migration: [ 59 %]Migration: [ 76 %]Migration: [ 53 %]Migration: [ 80 %]Migration: [ 61 %]Migration: [ 57 %]Migration: [ 82 %]Migration: [ 64 %]Migration: [ 59 %]Migration: [ 64 %]Migration: [ 82 %]Migration: [ 69 %]Migration: [ 67 %]Migration: [ 72 %]Migration: [ 82 %]Migration: [ 82 %]Migration: [ 76 %]Migration: [ 70 %]summary 2 33500000 -28500000
+Migration: [ 84 %]Migration: [ 78 %]Migration: [ 73 %]rvms 8 cwnd 1 1
+Migration: [ 77 %]Migration: [ 82 %]Migration: [ 84 %]Migration: [ 85 %]Migration: [ 79 %]Migration: [ 85 %]Migration: [ 83 %]Migration: [ 88 %]Migration: [ 89 %]Migration: [ 92 %]Migration: [ 86 %]Migration: [ 92 %]Migration: [ 94 %]Migration: [ 94 %]Migration: [ 89 %]Migration: [ 96 %]Migration: [ 96 %]Migration: [ 93 %]Migration: [ 94 %]Migration: [100 %]
+finish 1346702293 127
+real 36.23
+user 0.05
+sys 0.02
+Migration: [100 %]
+finish 1346702294 128
+real 20.59
+user 0.04
+sys 0.02
+Migration: [ 94 %]Migration: [100 %]
+finish 1346702294 128
+real 31.79
+user 0.05
+sys 0.02
+rvms 8 nvms 0 cwnd 1 gra2-1
+summary 1 76000000 42500000
+rvms 5 cwnd 2 2
+rvms 5 nvms 1 cwnd 2 gra2-3
+Migration: [  1 %]Migration: [  1 %]Migration: [  4 %]Migration: [  4 %]Migration: [  7 %]Migration: [  7 %]Migration: [ 10 %]Migration: [ 10 %]Migration: [ 13 %]Migration: [ 14 %]Migration: [ 17 %]Migration: [ 17 %]Migration: [ 20 %]Migration: [ 20 %]Migration: [ 23 %]Migration: [ 23 %]Migration: [ 26 %]summary 2 27000000 -49000000
+Migration: [ 26 %]rvms 5 cwnd 1 1
+Migration: [ 29 %]Migration: [ 29 %]Migration: [ 32 %]Migration: [ 32 %]Migration: [ 35 %]Migration: [ 35 %]Migration: [ 38 %]Migration: [ 38 %]Migration: [ 41 %]Migration: [ 41 %]Migration: [ 44 %]Migration: [ 44 %]Migration: [ 47 %]Migration: [ 47 %]Migration: [ 50 %]Migration: [ 50 %]Migration: [ 53 %]Migration: [ 53 %]Migration: [ 56 %]Migration: [ 56 %]summary 1 68000000 41000000
+Migration: [ 59 %]rvms 5 cwnd 2 2
+Migration: [ 59 %]Migration: [ 62 %]Migration: [ 62 %]Migration: [ 66 %]Migration: [ 65 %]Migration: [ 69 %]Migration: [ 68 %]Migration: [ 72 %]Migration: [ 72 %]Migration: [ 75 %]Migration: [ 75 %]Migration: [ 78 %]Migration: [ 78 %]Migration: [ 81 %]Migration: [ 81 %]Migration: [ 84 %]Migration: [ 84 %]Migration: [ 87 %]Migration: [ 87 %]Migration: [ 90 %]summary 2 34000000 -34000000
+rvms 5 cwnd 1 1
+Migration: [ 90 %]Migration: [ 93 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [ 94 %]Migration: [ 96 %]Migration: [100 %]
+finish 1346702312 146
+real 17.83
+user 0.03
+sys 0.02
+Migration: [100 %]
+finish 1346702312 146
+real 17.73
+user 0.04
+sys 0.02
+rvms 5 nvms 0 cwnd 1 gra2-7
+Migration: [  1 %]Migration: [  4 %]Migration: [  7 %]Migration: [ 10 %]summary 1 39000000 5000000
+rvms 3 nvms 1 cwnd 2 gra2-2
+rvms 3 cwnd 2 2
+Migration: [ 13 %]Migration: [ 16 %]Migration: [  1 %]Migration: [ 19 %]Migration: [  4 %]Migration: [ 22 %]Migration: [  7 %]Migration: [ 25 %]Migration: [ 10 %]Migration: [ 28 %]Migration: [ 13 %]Migration: [ 31 %]Migration: [ 16 %]Migration: [ 34 %]Migration: [ 19 %]Migration: [ 38 %]Migration: [ 22 %]Migration: [ 41 %]Migration: [ 25 %]summary 2 30500000 -8500000
+Migration: [ 44 %]rvms 3 cwnd 1 1
+Migration: [ 28 %]Migration: [ 47 %]Migration: [ 32 %]Migration: [ 50 %]Migration: [ 35 %]Migration: [ 53 %]Migration: [ 38 %]Migration: [ 56 %]Migration: [ 41 %]Migration: [ 59 %]Migration: [ 44 %]Migration: [ 62 %]Migration: [ 47 %]Migration: [ 65 %]Migration: [ 50 %]Migration: [ 68 %]Migration: [ 53 %]Migration: [ 71 %]Migration: [ 56 %]Migration: [ 74 %]summary 1 68000000 37500000
+rvms 3 cwnd 2 2
+Migration: [ 59 %]Migration: [ 77 %]Migration: [ 62 %]Migration: [ 80 %]Migration: [ 65 %]Migration: [ 83 %]Migration: [ 68 %]Migration: [ 86 %]Migration: [ 71 %]Migration: [ 90 %]Migration: [ 74 %]Migration: [ 92 %]Migration: [ 77 %]Migration: [ 95 %]Migration: [ 81 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702330 164
+real 17.81
+user 0.03
+sys 0.02
+Migration: [ 82 %]rvms 3 nvms 1 cwnd 2 gra2-5
+Migration: [ 87 %]summary 2 33000000 -35000000
+rvms 2 cwnd 1 1
+Migration: [ 90 %]Migration: [ 92 %]Migration: [ 96 %]Migration: [  2 %]Migration: [ 96 %]Migration: [  5 %]Migration: [ 96 %]Migration: [  7 %]Migration: [ 96 %]Migration: [ 10 %]Migration: [100 %]
+finish 1346702334 168
+real 18.96
+user 0.04
+sys 0.02
+Migration: [ 14 %]Migration: [ 17 %]Migration: [ 20 %]Migration: [ 23 %]summary 1 41000000 8000000
+rvms 1 cwnd 1 1
+Migration: [ 26 %]Migration: [ 29 %]Migration: [ 32 %]Migration: [ 35 %]Migration: [ 38 %]Migration: [ 41 %]Migration: [ 44 %]Migration: [ 47 %]Migration: [ 50 %]Migration: [ 53 %]summary 1 34000000 -7000000
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 118: [: -eq: unary operator expected
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 124: [: -eq: unary operator expected
+(standard_in) 2: syntax error
+rvms 1 cwnd
+/nfs/vmanage/controller/controller-single: line 62: [: -eq: unary operator expected
+Migration: [ 56 %]Migration: [ 59 %]Migration: [ 62 %]Migration: [ 65 %]Migration: [ 68 %]Migration: [ 72 %]Migration: [ 75 %]Migration: [ 78 %]Migration: [ 81 %]Migration: [ 84 %](standard_in) 2: syntax error
+expr: syntax error
+summary -34000000
+/nfs/vmanage/controller/controller-single: line 111: [: 1: unary operator expected
+rvms 1 cwnd 1 1
+Migration: [ 87 %]Migration: [ 90 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702349 183
+real 19.14
+user 0.04
+sys 0.02
+summary 1 17000000
+rvms 8 cwnd 1 1
+rvms 8 nvms 0 cwnd 1 gra3-3
+Migration: [  3 %]Migration: [  6 %]Migration: [  7 %]Migration: [ 10 %]Migration: [ 13 %]Migration: [ 13 %]Migration: [ 17 %]Migration: [ 20 %]summary 1 23000000 23000000
+rvms 8 nvms 1 cwnd 2 gra3-1
+rvms 8 cwnd 2 2
+Migration: [ 20 %]Migration: [ 20 %]Migration: [ 20 %]Migration: [ 27 %]Migration: [  4 %]Migration: [ 27 %]Migration: [  4 %]Migration: [ 27 %]Migration: [  4 %]Migration: [ 31 %]Migration: [  4 %]Migration: [ 32 %]Migration: [  4 %]summary 2 14500000 -8500000
+Migration: [ 34 %]Migration: [  4 %]rvms 8 cwnd 1 1
+Migration: [ 34 %]Migration: [ 11 %]Migration: [ 11 %]Migration: [ 38 %]Migration: [ 11 %]Migration: [ 38 %]Migration: [ 17 %]Migration: [ 38 %]Migration: [ 17 %]Migration: [ 43 %]Migration: [ 17 %]Migration: [ 43 %]Migration: [ 17 %]Migration: [ 43 %]Migration: [ 43 %]Migration: [ 23 %]Migration: [ 49 %]Migration: [ 23 %]summary 1 32000000 17500000
+rvms 8 cwnd 2 2
+Migration: [ 49 %]Migration: [ 26 %]Migration: [ 49 %]Migration: [ 28 %]Migration: [ 28 %]Migration: [ 49 %]Migration: [ 49 %]Migration: [ 33 %]Migration: [ 49 %]Migration: [ 33 %]Migration: [ 59 %]Migration: [ 33 %]Migration: [ 37 %]Migration: [ 61 %]Migration: [ 64 %]Migration: [ 37 %]Migration: [ 64 %]Migration: [ 40 %]summary 2 17500000 -14500000
+rvms 8 cwnd 1 1
+Migration: [ 67 %]Migration: [ 40 %]Migration: [ 70 %]Migration: [ 44 %]Migration: [ 73 %]Migration: [ 46 %]Migration: [ 75 %]Migration: [ 46 %]Migration: [ 77 %]Migration: [ 50 %]Migration: [ 80 %]Migration: [ 50 %]Migration: [ 82 %]Migration: [ 56 %]Migration: [ 82 %]Migration: [ 60 %]summary 1 42000000 24500000
+Migration: [ 89 %]Migration: [ 63 %]rvms 8 cwnd 2 2
+Migration: [ 67 %]Migration: [ 92 %]Migration: [ 95 %]Migration: [ 70 %]Migration: [ 73 %]Migration: [ 96 %]Migration: [100 %]
+finish 1346702380 214
+real 28.17
+user 0.03
+sys 0.03
+Migration: [ 76 %]rvms 8 nvms 1 cwnd 2 gra3-2
+Migration: [ 79 %]Migration: [ 82 %]Migration: [ 85 %]Migration: [  3 %]Migration: [ 89 %]Migration: [  6 %]Migration: [ 91 %]Migration: [  9 %]summary 2 29500000 -12500000
+Migration: [ 94 %]Migration: [ 12 %]rvms 7 cwnd 1 1
+Migration: [ 96 %]Migration: [ 16 %]Migration: [100 %]
+finish 1346702384 218
+real 26.96
+user 0.05
+sys 0.01
+Migration: [ 19 %]Migration: [ 22 %]Migration: [ 25 %]Migration: [ 28 %]Migration: [ 31 %]Migration: [ 34 %]Migration: [ 37 %]Migration: [ 40 %]Migration: [ 43 %]summary 1 41000000 11500000
+/nfs/vmanage/migrator: line 41: [: 1: unary operator expected
+rvms 7 nvms 1 cwnd gra3-7
+rvms 6 cwnd 2 2
+Migration: [ 45 %]Migration: [ 49 %]Migration: [ 51 %]Migration: [  3 %]Migration: [ 55 %]Migration: [  6 %]Migration: [ 58 %]Migration: [ 10 %]Migration: [ 61 %]Migration: [ 12 %]Migration: [ 64 %]Migration: [ 15 %]Migration: [ 68 %]Migration: [ 18 %]Migration: [ 71 %]Migration: [ 21 %]Migration: [ 74 %]summary 2 29000000 -12000000
+Migration: [ 24 %]rvms 6 cwnd 1 1
+Migration: [ 76 %]Migration: [ 28 %]Migration: [ 80 %]Migration: [ 31 %]Migration: [ 83 %]Migration: [ 34 %]Migration: [ 86 %]Migration: [ 37 %]Migration: [ 89 %]Migration: [ 40 %]Migration: [ 92 %]Migration: [ 43 %]Migration: [ 94 %]Migration: [ 46 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702398 232
+real 17.81
+user 0.04
+sys 0.02
+Migration: [ 49 %]Migration: [ 54 %]summary 1 66000000 37000000
+rvms 6 nvms 1 cwnd 2 gra3-8
+rvms 5 cwnd 2 2
+Migration: [ 56 %]Migration: [ 59 %]Migration: [  1 %]Migration: [ 62 %]Migration: [  4 %]Migration: [ 65 %]Migration: [  7 %]Migration: [ 68 %]Migration: [ 10 %]Migration: [ 72 %]Migration: [ 13 %]Migration: [ 75 %]Migration: [ 16 %]Migration: [ 78 %]Migration: [ 19 %]Migration: [ 81 %]Migration: [ 22 %]Migration: [ 84 %]Migration: [ 25 %]summary 2 28500000 -37500000
+rvms 5 cwnd 1 1
+Migration: [ 87 %]Migration: [ 29 %]Migration: [ 90 %]Migration: [ 32 %]Migration: [ 93 %]Migration: [ 35 %]Migration: [ 95 %]Migration: [ 38 %]Migration: [100 %]
+finish 1346702406 240
+real 17.87
+user 0.03
+sys 0.02
+Migration: [ 41 %]Migration: [ 44 %]Migration: [ 47 %]Migration: [ 50 %]Migration: [ 53 %]Migration: [ 56 %]summary 1 49000000 20500000
+rvms 5 nvms 1 cwnd 2 gra3-6
+rvms 4 cwnd 2 2
+Migration: [ 59 %]Migration: [ 62 %]Migration: [  1 %]Migration: [ 65 %]Migration: [  4 %]Migration: [ 68 %]Migration: [  7 %]Migration: [ 71 %]Migration: [ 10 %]Migration: [ 74 %]Migration: [ 13 %]Migration: [ 77 %]Migration: [ 16 %]Migration: [ 80 %]Migration: [ 19 %]Migration: [ 83 %]Migration: [ 22 %]Migration: [ 86 %]summary 2 31000000 -18000000
+Migration: [ 25 %]rvms 4 cwnd 1 1
+Migration: [ 89 %]Migration: [ 29 %]Migration: [ 92 %]Migration: [ 32 %]Migration: [ 95 %]Migration: [ 35 %]Migration: [ 95 %]Migration: [ 37 %]Migration: [100 %]
+finish 1346702417 251
+real 17.67
+user 0.04
+sys 0.02
+Migration: [ 41 %]Migration: [ 44 %]Migration: [ 47 %]Migration: [ 50 %]Migration: [ 54 %]summary 1 49000000 18000000
+Migration: [ 56 %]rvms 4 nvms 1 cwnd 2 gra3-5
+rvms 3 cwnd 2 2
+Migration: [ 60 %]Migration: [ 63 %]Migration: [  1 %]Migration: [ 66 %]Migration: [  4 %]Migration: [ 69 %]Migration: [  7 %]Migration: [ 72 %]Migration: [ 10 %]Migration: [ 75 %]Migration: [ 13 %]Migration: [ 78 %]Migration: [ 16 %]Migration: [ 81 %]Migration: [ 19 %]Migration: [ 84 %]Migration: [ 22 %]summary 2 29500000 -19500000
+Migration: [ 87 %]Migration: [ 25 %]rvms 3 cwnd 1 1
+Migration: [ 28 %]Migration: [ 90 %]Migration: [ 31 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [ 34 %]Migration: [100 %]Migration: [ 37 %]
+finish 1346702427 261
+real 17.77
+user 0.04
+sys 0.02
+Migration: [ 41 %]Migration: [ 44 %]Migration: [ 48 %]Migration: [ 51 %]Migration: [ 54 %]summary 1 52000000 22500000
+rvms 2 cwnd 2 2
+rvms 3 nvms 1 cwnd 2 gra3-4
+Migration: [ 57 %]Migration: [ 60 %]Migration: [ 63 %]Migration: [ 66 %]Migration: [ 69 %]Migration: [ 72 %]Migration: [  2 %]Migration: [ 75 %]Migration: [  5 %]Migration: [ 78 %]Migration: [  8 %]Migration: [ 81 %]Migration: [ 11 %]Migration: [ 84 %]summary 2 22000000 -30000000
+Migration: [ 14 %]Migration: [ 88 %]rvms 2 cwnd 1 1
+Migration: [ 17 %]Migration: [ 91 %]Migration: [ 20 %]Migration: [ 93 %]Migration: [ 23 %]Migration: [ 95 %]Migration: [ 26 %]Migration: [ 95 %]Migration: [ 29 %]Migration: [ 95 %]Migration: [ 33 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702439 273
+real 18.94
+user 0.03
+sys 0.02
+Migration: [ 36 %]Migration: [ 39 %]Migration: [ 42 %]Migration: [ 45 %]summary 1 48000000 26000000
+rvms 1 cwnd 1 1
+Migration: [ 47 %]Migration: [ 50 %]Migration: [ 53 %]Migration: [ 56 %]Migration: [ 60 %]Migration: [ 63 %]Migration: [ 66 %]Migration: [ 69 %]Migration: [ 72 %]Migration: [ 75 %]summary 1 34000000 -14000000
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 118: [: -eq: unary operator expected
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 124: [: -eq: unary operator expected
+(standard_in) 2: syntax error
+/nfs/vmanage/controller/controller-single: line 62: [: -eq: unary operator expected
+rvms 1 cwnd
+Migration: [ 78 %]Migration: [ 81 %]Migration: [ 84 %]Migration: [ 88 %]Migration: [ 91 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702450 284
+real 19.95
+user 0.05
+sys 0.02
+summary -34000000
+rvms 8 cwnd 1 1
+rvms 8 nvms 0 cwnd 1 gra4-8
+Migration: [  0 %]Migration: [  0 %]Migration: [  4 %]Migration: [  6 %]Migration: [  8 %]Migration: [ 11 %]Migration: [ 14 %]Migration: [ 17 %]Migration: [ 20 %]summary 1 23000000 23000000
+rvms 8 nvms 1 cwnd 2 gra4-1
+rvms 8 cwnd 2 2
+Migration: [ 22 %]Migration: [ 22 %]Migration: [ 25 %]Migration: [ 27 %]Migration: [ 27 %]Migration: [  1 %]Migration: [ 27 %]Migration: [  1 %]Migration: [ 31 %]Migration: [  3 %]Migration: [ 33 %]Migration: [  3 %]Migration: [  7 %]Migration: [ 33 %]Migration: [ 35 %]Migration: [  7 %]summary 2 13000000 -10000000
+rvms 8 nvms 2 cwnd gra4-7
+/nfs/vmanage/migrator: line 41: [: 2: unary operator expected
+rvms 8 cwnd 1 1
+Migration: [  7 %]Migration: [ 35 %]Migration: [ 38 %]Migration: [ 11 %]Migration: [ 40 %]Migration: [ 14 %]Migration: [ 15 %]Migration: [ 40 %]Migration: [  3 %]Migration: [ 17 %]Migration: [  7 %]Migration: [ 40 %]Migration: [ 10 %]Migration: [ 44 %]Migration: [ 17 %]Migration: [ 47 %]Migration: [ 12 %]Migration: [ 17 %]Migration: [ 47 %]Migration: [ 16 %]Migration: [ 22 %]summary 1 48000000 35000000
+Migration: [ 47 %]Migration: [ 22 %]Migration: [ 20 %]rvms 8 cwnd 2 2
+Migration: [ 51 %]Migration: [ 22 %]Migration: [ 25 %]Migration: [ 25 %]Migration: [ 51 %]Migration: [ 25 %]Migration: [ 54 %]Migration: [ 29 %]Migration: [ 27 %]Migration: [ 27 %]Migration: [ 32 %]Migration: [ 54 %]Migration: [ 27 %]Migration: [ 35 %]Migration: [ 56 %]Migration: [ 27 %]Migration: [ 37 %]Migration: [ 56 %]Migration: [ 59 %]Migration: [ 27 %]Migration: [ 42 %]Migration: [ 27 %]Migration: [ 59 %]Migration: [ 45 %]Migration: [ 27 %]Migration: [ 59 %]Migration: [ 48 %]summary 2 28500000 -19500000
+rvms 8 cwnd 1 1
+Migration: [ 59 %]Migration: [ 52 %]Migration: [ 34 %]Migration: [ 34 %]Migration: [ 55 %]Migration: [ 59 %]Migration: [ 59 %]Migration: [ 59 %]Migration: [ 34 %]Migration: [ 34 %]Migration: [ 59 %]Migration: [ 62 %]Migration: [ 37 %]Migration: [ 65 %]Migration: [ 59 %]Migration: [ 59 %]Migration: [ 70 %]Migration: [ 37 %]Migration: [ 68 %]Migration: [ 71 %]Migration: [ 40 %]Migration: [ 75 %]Migration: [ 68 %]Migration: [ 40 %]Migration: [ 68 %]Migration: [ 80 %]Migration: [ 40 %]summary 1 51000000 22500000
+/nfs/vmanage/migrator: line 41: [: 3: unary operator expected
+rvms 8 nvms 3 cwnd gra4-3
+Migration: [ 68 %]Migration: [ 83 %]Migration: [ 40 %]rvms 8 cwnd 2 2
+Migration: [ 40 %]Migration: [ 83 %]Migration: [ 68 %]Migration: [ 40 %]Migration: [ 89 %]Migration: [ 68 %]Migration: [ 68 %]Migration: [ 92 %]Migration: [  1 %]Migration: [ 40 %]Migration: [ 68 %]Migration: [ 94 %]Migration: [  4 %]Migration: [ 40 %]Migration: [  6 %]Migration: [ 73 %]Migration: [ 94 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 10 %]Migration: [100 %]Migration: [ 44 %]
+finish 1346702482 316
+real 20.44
+user 0.04
+sys 0.02
+summary 2 29000000 -22000000
+Migration: [ 75 %]Migration: [ 44 %]Migration: [ 20 %]rvms 7 cwnd 1 1
+Migration: [ 24 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 75 %]Migration: [ 28 %]Migration: [ 44 %]Migration: [ 44 %]Migration: [ 30 %]Migration: [ 75 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 35 %]Migration: [ 75 %]Migration: [ 38 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 44 %]Migration: [ 41 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 44 %]Migration: [ 49 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 53 %]summary 1 48000000 19000000
+rvms 8 nvms 3 cwnd gra4-6
+/nfs/vmanage/migrator: line 41: [: 3: unary operator expected
+rvms 7 cwnd 2 2
+Migration: [ 56 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 59 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 61 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 65 %]Migration: [  3 %]Migration: [ 75 %]Migration: [ 67 %]Migration: [ 44 %]Migration: [  5 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 71 %]Migration: [  8 %]Migration: [ 75 %]Migration: [ 10 %]Migration: [ 44 %]Migration: [ 74 %]Migration: [ 77 %]Migration: [ 75 %]Migration: [ 13 %]Migration: [ 44 %]summary 2 33500000 -14500000
+Migration: [ 44 %]Migration: [ 83 %]Migration: [ 19 %]Migration: [ 75 %]rvms 7 cwnd 1 1
+Migration: [ 89 %]Migration: [ 25 %]Migration: [ 44 %]Migration: [ 75 %]Migration: [ 44 %]Migration: [ 92 %]Migration: [ 29 %]Migration: [ 75 %]Migration: [ 58 %]Migration: [ 32 %]Migration: [ 94 %]Migration: [ 90 %]Migration: [ 61 %]Migration: [ 37 %]Migration: [100 %]
+finish 1346702496 330
+real 18.72
+user 0.03
+sys 0.02
+Migration: [ 90 %]Migration: [ 67 %]Migration: [ 42 %]Migration: [ 95 %]Migration: [ 70 %]Migration: [ 44 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702498 332
+real 46.78
+user 0.06
+sys 0.03
+Migration: [ 74 %]Migration: [ 49 %]Migration: [ 77 %]Migration: [ 51 %]summary 1 87000000 53500000
+rvms 5 cwnd 2 2
+Migration: [ 80 %]Migration: [ 55 %]Migration: [ 82 %]Migration: [ 58 %]Migration: [ 86 %]Migration: [ 61 %]Migration: [ 89 %]Migration: [ 64 %]Migration: [ 67 %]Migration: [ 92 %]Migration: [ 70 %]Migration: [ 94 %]Migration: [ 73 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702502 336
+real 45.89
+user 0.06
+sys 0.02
+rvms 7 nvms 1 cwnd 2 gra4-2
+Migration: [ 76 %]Migration: [ 79 %]Migration: [ 82 %]Migration: [  1 %]summary 2 31000000 -56000000
+Migration: [ 85 %]rvms 4 cwnd 1 1
+Migration: [  4 %]Migration: [ 88 %]Migration: [  7 %]Migration: [ 91 %]Migration: [ 10 %]Migration: [ 94 %]Migration: [ 13 %]Migration: [ 95 %]Migration: [ 16 %]Migration: [ 17 %]Migration: [100 %]
+finish 1346702507 341
+real 18.53
+user 0.04
+sys 0.02
+Migration: [ 22 %]Migration: [ 25 %]Migration: [ 28 %]Migration: [ 31 %]summary 1 56000000 25000000
+rvms 4 nvms 1 cwnd 2 gra4-5
+Migration: [ 34 %]rvms 3 cwnd 2 2
+Migration: [ 38 %]Migration: [ 41 %]Migration: [  1 %]Migration: [ 44 %]Migration: [  4 %]Migration: [ 47 %]Migration: [  7 %]Migration: [ 50 %]Migration: [ 10 %]Migration: [ 53 %]Migration: [ 13 %]Migration: [ 56 %]Migration: [ 16 %]Migration: [ 59 %]Migration: [ 19 %]Migration: [ 62 %]Migration: [ 22 %]Migration: [ 65 %]summary 2 31000000 -25000000
+Migration: [ 25 %]rvms 3 cwnd 1 1
+Migration: [ 68 %]Migration: [ 29 %]Migration: [ 71 %]Migration: [ 32 %]Migration: [ 74 %]Migration: [ 35 %]Migration: [ 77 %]Migration: [ 38 %]Migration: [ 80 %]Migration: [ 41 %]Migration: [ 83 %]Migration: [ 44 %]Migration: [ 86 %]Migration: [ 47 %]Migration: [ 89 %]Migration: [ 50 %]Migration: [ 93 %]Migration: [ 53 %]Migration: [ 95 %]Migration: [ 56 %]summary 1 68000000 37000000
+rvms 2 cwnd 2 2
+Migration: [ 95 %]Migration: [100 %]Migration: [ 59 %]
+finish 1346702520 354
+real 17.71
+user 0.04
+sys 0.01
+rvms 3 nvms 1 cwnd 2 gra4-4
+Migration: [ 64 %]Migration: [ 67 %]Migration: [ 70 %]Migration: [ 73 %]Migration: [ 76 %]Migration: [ 79 %]Migration: [  2 %]Migration: [ 82 %]Migration: [  5 %]Migration: [ 85 %]Migration: [  8 %]summary 2 24000000 -44000000
+Migration: [ 88 %]Migration: [ 11 %]rvms 2 cwnd 1 1
+Migration: [ 91 %]Migration: [ 14 %]Migration: [ 94 %]Migration: [ 17 %]Migration: [ 95 %]Migration: [ 20 %]Migration: [ 95 %]Migration: [ 23 %]Migration: [ 95 %]Migration: [ 26 %]Migration: [ 95 %]Migration: [ 29 %]Migration: [ 32 %]Migration: [100 %]
+finish 1346702529 363
+real 19.40
+user 0.04
+sys 0.02
+Migration: [ 36 %]Migration: [ 40 %]summary 1 51000000 27000000
+rvms 1 cwnd 1 1
+Migration: [ 43 %]Migration: [ 46 %]Migration: [ 49 %]Migration: [ 52 %]Migration: [ 55 %]Migration: [ 58 %]Migration: [ 61 %]Migration: [ 64 %]Migration: [ 67 %]Migration: [ 70 %]summary 1 34000000 -17000000
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 118: [: -eq: unary operator expected
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 124: [: -eq: unary operator expected
+(standard_in) 2: syntax error
+/nfs/vmanage/controller/controller-single: line 62: [: -eq: unary operator expected
+rvms 1 cwnd
+Migration: [ 73 %]Migration: [ 76 %]Migration: [ 79 %]Migration: [ 82 %]Migration: [ 86 %]Migration: [ 89 %]Migration: [ 92 %]Migration: [ 94 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702540 374
+real 19.55
+user 0.04
+sys 0.02
+summary -34000000
+rvms 8 cwnd 1 1
+rvms 8 nvms 0 cwnd 1 gra5-2
+Migration: [  0 %]Migration: [  1 %]Migration: [  3 %]Migration: [  5 %]Migration: [  8 %]Migration: [ 10 %]Migration: [ 10 %]Migration: [ 15 %]Migration: [ 17 %]summary 1 17000000 17000000
+rvms 8 nvms 1 cwnd 2 gra5-4
+rvms 8 cwnd 2 2
+Migration: [ 17 %]Migration: [ 20 %]Migration: [ 23 %]Migration: [ 26 %]Migration: [ 26 %]Migration: [  4 %]Migration: [ 29 %]Migration: [ 31 %]Migration: [  6 %]Migration: [  8 %]Migration: [ 31 %]Migration: [ 35 %]Migration: [ 11 %]summary 2 16000000 -1000000
+rvms 8 nvms 2 cwnd gra5-1
+/nfs/vmanage/migrator: line 41: [: 2: unary operator expected
+rvms 8 cwnd 1 1
+Migration: [ 11 %]Migration: [ 37 %]Migration: [ 14 %]Migration: [ 39 %]Migration: [ 39 %]Migration: [ 14 %]Migration: [ 43 %]Migration: [ 14 %]Migration: [  1 %]Migration: [ 43 %]Migration: [  3 %]Migration: [ 14 %]Migration: [ 46 %]Migration: [  5 %]Migration: [ 14 %]Migration: [ 47 %]Migration: [  5 %]Migration: [ 14 %]Migration: [ 50 %]Migration: [  5 %]Migration: [ 14 %]summary 1 36000000 20000000
+rvms 8 cwnd 2 2
+Migration: [ 52 %]Migration: [  9 %]Migration: [ 14 %]Migration: [ 52 %]Migration: [ 14 %]Migration: [ 13 %]Migration: [ 55 %]Migration: [ 25 %]Migration: [ 14 %]Migration: [ 55 %]Migration: [ 20 %]Migration: [ 25 %]Migration: [ 29 %]Migration: [ 58 %]Migration: [ 23 %]Migration: [ 60 %]Migration: [ 26 %]Migration: [ 30 %]Migration: [ 60 %]Migration: [ 30 %]Migration: [ 29 %]Migration: [ 33 %]Migration: [ 63 %]Migration: [ 33 %]Migration: [ 36 %]Migration: [ 63 %]Migration: [ 33 %]summary 2 30000000 -6000000
+/nfs/vmanage/migrator: line 41: [: 3: unary operator expected
+rvms 8 nvms 3 cwnd gra5-7
+Migration: [ 66 %]Migration: [ 36 %]Migration: [ 40 %]rvms 8 cwnd 1 1
+Migration: [ 66 %]Migration: [ 36 %]Migration: [ 43 %]Migration: [ 69 %]Migration: [ 39 %]Migration: [ 45 %]Migration: [  0 %]Migration: [ 69 %]Migration: [ 39 %]Migration: [ 50 %]Migration: [  0 %]Migration: [ 69 %]Migration: [ 39 %]Migration: [ 54 %]Migration: [ 73 %]Migration: [ 39 %]Migration: [ 56 %]Migration: [  0 %]Migration: [ 76 %]Migration: [ 60 %]Migration: [ 39 %]Migration: [  0 %]Migration: [ 76 %]Migration: [ 65 %]Migration: [  1 %]Migration: [ 39 %]Migration: [ 76 %]Migration: [ 39 %]Migration: [ 68 %]Migration: [  2 %]summary 1 62000000 32000000
+Migration: [ 47 %]Migration: [  3 %]Migration: [ 76 %]Migration: [ 73 %]rvms 8 cwnd 2 2
+Migration: [ 49 %]Migration: [  3 %]Migration: [ 76 %]Migration: [ 76 %]Migration: [ 81 %]Migration: [ 78 %]Migration: [  3 %]Migration: [ 49 %]Migration: [ 51 %]Migration: [ 84 %]Migration: [  6 %]Migration: [ 83 %]Migration: [  9 %]Migration: [ 88 %]Migration: [ 51 %]Migration: [ 88 %]Migration: [ 51 %]Migration: [ 91 %]Migration: [ 90 %]Migration: [  9 %]Migration: [ 56 %]Migration: [ 94 %]Migration: [ 93 %]Migration: [ 11 %]Migration: [ 95 %]Migration: [ 58 %]Migration: [ 12 %]Migration: [ 96 %]Migration: [ 62 %]Migration: [ 96 %]Migration: [ 16 %]Migration: [ 95 %]summary 2 44500000 -17500000
+Migration: [ 65 %]Migration: [ 18 %]Migration: [100 %]
+finish 1346702573 407
+real 21.89
+user 0.04
+sys 0.02
+Migration: [100 %]
+finish 1346702573 407
+real 32.53
+user 0.04
+sys 0.03
+rvms 6 cwnd 1 1
+Migration: [ 72 %]Migration: [ 25 %]Migration: [ 76 %]Migration: [ 28 %]Migration: [ 31 %]Migration: [ 79 %]Migration: [ 34 %]Migration: [ 82 %]Migration: [ 38 %]Migration: [ 84 %]Migration: [ 41 %]Migration: [ 87 %]Migration: [ 43 %]Migration: [ 91 %]Migration: [ 46 %]Migration: [ 93 %]Migration: [ 49 %]Migration: [ 95 %]summary 1 69000000 24500000
+Migration: [100 %]Migration: [ 52 %]
+finish 1346702579 413
+real 32.32
+user 0.04
+sys 0.03
+rvms 8 nvms 1 cwnd 2 gra5-5
+rvms 5 cwnd 2 2
+Migration: [ 57 %]Migration: [ 60 %]Migration: [  1 %]Migration: [ 63 %]Migration: [  3 %]Migration: [ 66 %]Migration: [  7 %]Migration: [ 69 %]Migration: [ 10 %]Migration: [ 72 %]Migration: [ 13 %]Migration: [ 75 %]Migration: [ 16 %]Migration: [ 78 %]Migration: [ 19 %]Migration: [ 22 %]Migration: [ 82 %]summary 2 29500000 -39500000
+Migration: [ 85 %]Migration: [ 25 %]rvms 5 cwnd 1 1
+Migration: [ 28 %]Migration: [ 88 %]Migration: [ 31 %]Migration: [ 91 %]Migration: [ 94 %]Migration: [ 34 %]Migration: [ 95 %]Migration: [ 37 %]Migration: [100 %]Migration: [ 39 %]
+finish 1346702586 420
+real 24.31
+user 0.04
+sys 0.02
+Migration: [ 43 %]Migration: [ 47 %]Migration: [ 50 %]Migration: [ 53 %]summary 1 55000000 25500000
+Migration: [ 56 %]rvms 4 cwnd 2 2
+rvms 5 nvms 1 cwnd 2 gra5-3
+Migration: [ 59 %]Migration: [ 62 %]Migration: [  1 %]Migration: [ 65 %]Migration: [  4 %]Migration: [ 68 %]Migration: [  7 %]Migration: [ 71 %]Migration: [ 10 %]Migration: [ 74 %]Migration: [ 13 %]Migration: [ 77 %]Migration: [ 16 %]Migration: [ 80 %]Migration: [ 19 %]Migration: [ 83 %]Migration: [ 22 %]Migration: [ 86 %]summary 2 28500000 -26500000
+Migration: [ 26 %]rvms 4 cwnd 1 1
+Migration: [ 90 %]Migration: [ 28 %]Migration: [ 93 %]Migration: [ 32 %]Migration: [ 95 %]Migration: [ 35 %]Migration: [100 %]Migration: [ 37 %]
+finish 1346702596 430
+real 17.87
+user 0.03
+sys 0.02
+Migration: [ 42 %]Migration: [ 46 %]Migration: [ 49 %]Migration: [ 52 %]Migration: [ 55 %]summary 1 47000000 18500000
+rvms 3 cwnd 2 2
+rvms 4 nvms 1 cwnd 2 gra5-8
+Migration: [ 58 %]Migration: [ 61 %]Migration: [  1 %]Migration: [ 64 %]Migration: [  4 %]Migration: [ 67 %]Migration: [  7 %]Migration: [ 70 %]Migration: [ 10 %]Migration: [ 73 %]Migration: [ 13 %]Migration: [ 76 %]Migration: [ 16 %]Migration: [ 79 %]Migration: [ 19 %]Migration: [ 82 %]Migration: [ 22 %]Migration: [ 85 %]summary 2 30500000 -16500000
+/nfs/vmanage/migrator: line 41: [: 2: unary operator expected
+rvms 3 nvms 2 cwnd gra5-6
+Migration: [ 25 %]rvms 3 cwnd 1 1
+Migration: [ 89 %]Migration: [ 28 %]Migration: [ 91 %]Migration: [ 31 %]Migration: [ 94 %]Migration: [ 34 %]Migration: [ 95 %]Migration: [ 37 %]Migration: [ 95 %]Migration: [ 40 %]Migration: [100 %]
+finish 1346702607 441
+real 18.19
+user 0.04
+sys 0.02
+Migration: [ 44 %]Migration: [ 48 %]Migration: [ 51 %]Migration: [  3 %]Migration: [ 54 %]Migration: [  6 %]summary 1 57000000 26500000
+rvms 2 cwnd 2 2
+Migration: [ 57 %]Migration: [  9 %]Migration: [ 60 %]Migration: [ 12 %]Migration: [ 63 %]Migration: [ 15 %]Migration: [ 66 %]Migration: [ 18 %]Migration: [ 69 %]Migration: [ 21 %]Migration: [ 72 %]Migration: [ 24 %]Migration: [ 75 %]Migration: [ 28 %]Migration: [ 78 %]Migration: [ 31 %]Migration: [ 82 %]Migration: [ 34 %]Migration: [ 84 %]Migration: [ 36 %]summary 2 33500000 -23500000
+Migration: [ 87 %]Migration: [ 39 %]rvms 2 cwnd 1 1
+Migration: [ 91 %]Migration: [ 43 %]Migration: [ 93 %]Migration: [ 46 %]Migration: [ 95 %]Migration: [ 48 %]Migration: [ 95 %]Migration: [ 50 %]Migration: [ 95 %]Migration: [ 52 %]Migration: [ 95 %]Migration: [ 55 %]Migration: [ 57 %]Migration: [100 %]
+finish 1346702619 453
+real 19.24
+user 0.04
+sys 0.02
+Migration: [ 62 %]Migration: [ 65 %]summary 1 49000000 15500000
+rvms 1 cwnd 1 1
+Migration: [ 68 %]Migration: [ 71 %]Migration: [ 74 %]Migration: [ 77 %]Migration: [ 80 %]Migration: [ 83 %]Migration: [ 86 %]Migration: [ 89 %]Migration: [ 92 %]Migration: [ 95 %]summary 1 34000000 -15000000
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 118: [: -eq: unary operator expected
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 124: [: -eq: unary operator expected
+total_summary #23 0
+Migration: [ 95 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702627 461
+real 22.25
+user 0.05
+sys 0.02
+rvms 8 cwnd 1 1
+rvms 8 nvms 0 cwnd 1 gra6-8
+Migration: [  3 %]Migration: [  4 %]Migration: [  7 %]Migration: [ 10 %]Migration: [ 14 %]Migration: [ 17 %]Migration: [ 19 %]Migration: [ 21 %]Migration: [ 23 %]summary 1 26000000 26000000
+rvms 8 nvms 1 cwnd 2 gra6-6
+rvms 8 cwnd 2 2
+Migration: [ 28 %]Migration: [ 32 %]Migration: [ 34 %]Migration: [ 37 %]Migration: [  3 %]Migration: [ 37 %]Migration: [  7 %]Migration: [ 41 %]Migration: [  7 %]Migration: [ 44 %]Migration: [ 10 %]Migration: [ 44 %]Migration: [ 12 %]summary 2 19000000 -7000000
+rvms 8 cwnd 1 1
+Migration: [ 47 %]Migration: [ 12 %]Migration: [ 47 %]Migration: [ 15 %]Migration: [ 51 %]Migration: [ 18 %]Migration: [ 54 %]Migration: [ 20 %]Migration: [ 54 %]Migration: [ 24 %]Migration: [ 57 %]Migration: [ 26 %]Migration: [ 61 %]Migration: [ 28 %]Migration: [ 61 %]Migration: [ 30 %]Migration: [ 64 %]Migration: [ 30 %]summary 1 40000000 21000000
+rvms 8 cwnd 2 2
+Migration: [ 67 %]Migration: [ 32 %]Migration: [ 69 %]Migration: [ 35 %]Migration: [ 69 %]Migration: [ 39 %]Migration: [ 73 %]Migration: [ 39 %]Migration: [ 76 %]Migration: [ 41 %]Migration: [ 79 %]Migration: [ 44 %]Migration: [ 82 %]Migration: [ 46 %]Migration: [ 50 %]Migration: [ 86 %]summary 2 22500000 -17500000
+Migration: [ 89 %]Migration: [ 53 %]rvms 8 cwnd 1 1
+Migration: [ 93 %]Migration: [ 57 %]Migration: [ 96 %]Migration: [ 60 %]Migration: [ 96 %]Migration: [ 64 %]Migration: [100 %]
+finish 1346702651 485
+real 23.63
+user 0.03
+sys 0.02
+Migration: [ 67 %]Migration: [ 70 %]Migration: [ 73 %]Migration: [ 76 %]Migration: [ 79 %]Migration: [ 82 %]Migration: [ 85 %]summary 1 49000000 26500000
+rvms 8 nvms 1 cwnd 2 gra6-3
+rvms 7 cwnd 2 2
+Migration: [ 88 %]Migration: [ 91 %]Migration: [  0 %]Migration: [ 93 %]Migration: [  4 %]Migration: [ 95 %]Migration: [  7 %]Migration: [100 %]
+rvms 7 nvms 1 cwnd 2 gra6-2
+finish 1346702657 491
+real 23.75
+user 0.04
+sys 0.03
+Migration: [ 10 %]Migration: [ 13 %]Migration: [  0 %]Migration: [ 16 %]Migration: [  3 %]Migration: [ 20 %]Migration: [  7 %]Migration: [ 22 %]summary 2 24500000 -24500000
+Migration: [  9 %]Migration: [ 26 %]rvms 6 cwnd 1 1
+Migration: [ 13 %]Migration: [ 29 %]Migration: [ 16 %]Migration: [ 32 %]Migration: [ 19 %]Migration: [ 34 %]Migration: [ 21 %]Migration: [ 38 %]Migration: [ 25 %]Migration: [ 41 %]Migration: [ 28 %]Migration: [ 44 %]Migration: [ 31 %]Migration: [ 47 %]Migration: [ 34 %]Migration: [ 50 %]Migration: [ 37 %]Migration: [ 53 %]Migration: [ 40 %]summary 1 68000000 43500000
+Migration: [ 56 %]rvms 6 cwnd 2 2
+Migration: [ 43 %]Migration: [ 59 %]Migration: [ 46 %]Migration: [ 62 %]Migration: [ 49 %]Migration: [ 65 %]Migration: [ 52 %]Migration: [ 68 %]Migration: [ 55 %]Migration: [ 71 %]Migration: [ 58 %]Migration: [ 74 %]Migration: [ 61 %]Migration: [ 77 %]Migration: [ 64 %]Migration: [ 80 %]Migration: [ 67 %]Migration: [ 83 %]Migration: [ 70 %]Migration: [ 86 %]summary 2 34000000 -34000000
+rvms 6 cwnd 1 1
+Migration: [ 73 %]Migration: [ 89 %]Migration: [ 76 %]Migration: [ 93 %]Migration: [ 79 %]Migration: [ 95 %]Migration: [ 82 %]Migration: [ 96 %]Migration: [100 %]
+Migration: [ 83 %]finish 1346702672 506
+real 17.84
+user 0.03
+sys 0.02
+Migration: [ 88 %]Migration: [ 91 %]Migration: [ 94 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702674 508
+real 17.71
+user 0.03
+sys 0.02
+rvms 6 nvms 0 cwnd 1 gra6-7
+summary 1 51000000 17000000
+rvms 4 cwnd 2 2
+rvms 4 nvms 1 cwnd 2 gra6-1
+Migration: [  1 %]Migration: [  2 %]Migration: [  4 %]Migration: [  5 %]Migration: [  7 %]Migration: [  8 %]Migration: [ 10 %]Migration: [ 11 %]Migration: [ 13 %]Migration: [ 14 %]Migration: [ 16 %]Migration: [ 17 %]Migration: [ 19 %]Migration: [ 20 %]Migration: [ 22 %]Migration: [ 23 %]summary 2 25000000 -26000000
+Migration: [ 26 %]rvms 4 cwnd 1 1
+Migration: [ 26 %]Migration: [ 28 %]Migration: [ 29 %]Migration: [ 31 %]Migration: [ 32 %]Migration: [ 35 %]Migration: [ 35 %]Migration: [ 38 %]Migration: [ 38 %]Migration: [ 41 %]Migration: [ 41 %]Migration: [ 44 %]Migration: [ 44 %]Migration: [ 47 %]Migration: [ 47 %]Migration: [ 50 %]Migration: [ 50 %]Migration: [ 53 %]Migration: [ 53 %]Migration: [ 56 %]summary 1 68000000 43000000
+Migration: [ 57 %]rvms 4 cwnd 2 2
+Migration: [ 59 %]Migration: [ 59 %]Migration: [ 62 %]Migration: [ 62 %]Migration: [ 65 %]Migration: [ 65 %]Migration: [ 68 %]Migration: [ 69 %]Migration: [ 71 %]Migration: [ 72 %]Migration: [ 74 %]Migration: [ 75 %]Migration: [ 77 %]Migration: [ 78 %]Migration: [ 80 %]Migration: [ 81 %]Migration: [ 83 %]Migration: [ 85 %]Migration: [ 87 %]summary 2 34000000 -34000000
+Migration: [ 88 %]rvms 4 cwnd 1 1
+Migration: [ 89 %]Migration: [ 91 %]Migration: [ 92 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [ 96 %]Migration: [100 %]
+finish 1346702692 526
+real 18.07
+user 0.04
+sys 0.02
+Migration: [100 %]
+finish 1346702693 527
+real 17.98
+user 0.03
+sys 0.02
+rvms 4 nvms 0 cwnd 1 gra6-5
+Migration: [  1 %]Migration: [  4 %]Migration: [  7 %]Migration: [ 10 %]summary 1 39000000 5000000
+rvms 2 nvms 1 cwnd 2 gra6-4
+rvms 2 cwnd 2 2
+Migration: [ 13 %]Migration: [ 16 %]Migration: [ 19 %]Migration: [  2 %]Migration: [ 22 %]Migration: [  5 %]Migration: [ 25 %]Migration: [  8 %]Migration: [ 28 %]Migration: [ 11 %]Migration: [ 31 %]Migration: [ 14 %]Migration: [ 34 %]Migration: [ 17 %]Migration: [ 37 %]Migration: [ 20 %]Migration: [ 40 %]summary 2 29000000 -10000000
+Migration: [ 23 %]rvms 2 cwnd 1 1
+Migration: [ 43 %]Migration: [ 26 %]Migration: [ 46 %]Migration: [ 29 %]Migration: [ 49 %]Migration: [ 32 %]Migration: [ 52 %]Migration: [ 35 %]Migration: [ 56 %]Migration: [ 38 %]Migration: [ 58 %]Migration: [ 42 %]Migration: [ 61 %]Migration: [ 45 %]Migration: [ 64 %]Migration: [ 48 %]Migration: [ 68 %]Migration: [ 50 %]Migration: [ 71 %]Migration: [ 53 %]summary 1 68000000 39000000
+rvms 2 cwnd 2 2
+Migration: [ 73 %]Migration: [ 56 %]Migration: [ 76 %]Migration: [ 59 %]Migration: [ 79 %]Migration: [ 62 %]Migration: [ 80 %]Migration: [ 63 %]Migration: [ 83 %]Migration: [ 67 %]Migration: [ 86 %]Migration: [ 70 %]Migration: [ 89 %]Migration: [ 72 %]Migration: [ 91 %]Migration: [ 75 %]Migration: [ 95 %]Migration: [ 78 %]Migration: [ 95 %]Migration: [ 82 %]summary 2 30500000 -37500000
+rvms 1 cwnd 1 1
+Migration: [ 95 %]Migration: [ 84 %]Migration: [ 95 %]Migration: [ 87 %]Migration: [100 %]
+finish 1346702712 546
+real 19.39
+user 0.04
+sys 0.02
+Migration: [ 88 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702715 549
+real 19.63
+user 0.04
+sys 0.02
+summary 1 30000000 -500000
+total_summary #25 0
+rvms 8 cwnd 1 1
+rvms 8 nvms 0 cwnd 1 gra7-7
+Migration: [  4 %]Migration: [  7 %]Migration: [  9 %]Migration: [ 13 %]Migration: [ 15 %]Migration: [ 19 %]summary 1 19000000 19000000
+Migration: [ 20 %]rvms 8 nvms 1 cwnd 2 gra7-5
+rvms 8 cwnd 2 2
+Migration: [ 23 %]Migration: [ 25 %]Migration: [ 25 %]Migration: [ 29 %]Migration: [  1 %]Migration: [  4 %]Migration: [ 29 %]Migration: [  7 %]Migration: [ 32 %]Migration: [ 34 %]Migration: [ 10 %]Migration: [ 10 %]Migration: [ 36 %]Migration: [ 36 %]Migration: [ 13 %]summary 2 18000000 -1000000
+rvms 8 cwnd 1 1
+Migration: [ 40 %]Migration: [ 13 %]Migration: [ 40 %]Migration: [ 16 %]Migration: [ 43 %]Migration: [ 19 %]Migration: [ 45 %]Migration: [ 19 %]Migration: [ 47 %]Migration: [ 22 %]Migration: [ 50 %]Migration: [ 24 %]Migration: [ 26 %]Migration: [ 50 %]Migration: [ 26 %]Migration: [ 52 %]Migration: [ 56 %]Migration: [ 29 %]summary 1 38000000 20000000
+rvms 8 nvms 2 cwnd gra7-3
+/nfs/vmanage/migrator: line 41: [: 2: unary operator expected
+Migration: [ 56 %]Migration: [ 29 %]rvms 8 cwnd 2 2
+Migration: [ 60 %]Migration: [ 33 %]Migration: [ 62 %]Migration: [ 35 %]Migration: [ 64 %]Migration: [ 36 %]Migration: [  0 %]Migration: [ 36 %]Migration: [  1 %]Migration: [ 65 %]Migration: [ 67 %]Migration: [  1 %]Migration: [ 36 %]Migration: [ 69 %]Migration: [  5 %]Migration: [ 36 %]Migration: [  8 %]Migration: [ 69 %]Migration: [ 36 %]Migration: [ 71 %]Migration: [ 11 %]Migration: [ 36 %]Migration: [ 74 %]Migration: [ 43 %]Migration: [ 12 %]summary 2 21000000 -17000000
+rvms 8 cwnd 1 1
+Migration: [ 46 %]Migration: [ 16 %]Migration: [ 76 %]Migration: [ 46 %]Migration: [ 19 %]Migration: [ 76 %]Migration: [ 80 %]Migration: [ 21 %]Migration: [ 48 %]Migration: [ 52 %]Migration: [ 83 %]Migration: [ 25 %]Migration: [ 86 %]Migration: [ 29 %]Migration: [ 53 %]Migration: [ 58 %]Migration: [ 90 %]Migration: [ 35 %]Migration: [ 94 %]Migration: [ 63 %]Migration: [ 38 %]Migration: [ 96 %]Migration: [ 65 %]Migration: [ 41 %]summary 1 89000000 68000000
+Migration: [100 %]Migration: [ 43 %]Migration: [ 68 %]
+finish 1346702743 577
+real 26.90
+user 0.04
+sys 0.02
+rvms 7 cwnd 2 2
+Migration: [ 49 %]Migration: [ 73 %]Migration: [ 76 %]Migration: [ 52 %]Migration: [ 55 %]Migration: [ 79 %]Migration: [ 58 %]Migration: [ 82 %]Migration: [ 61 %]Migration: [ 85 %]Migration: [ 89 %]Migration: [ 64 %]Migration: [ 92 %]Migration: [ 67 %]Migration: [ 94 %]Migration: [ 70 %]Migration: [ 96 %]Migration: [ 73 %]Migration: [100 %]summary 2 34000000 -55000000
+
+finish 1346702749 583
+real 26.23
+user 0.04
+sys 0.02
+Migration: [ 74 %]rvms 8 nvms 1 cwnd gra7-2
+/nfs/vmanage/migrator: line 41: [: 1: unary operator expected
+rvms 6 cwnd 1 1
+Migration: [ 79 %]Migration: [ 82 %]Migration: [  3 %]Migration: [ 86 %]Migration: [ 88 %]Migration: [  6 %]Migration: [ 92 %]Migration: [  8 %]Migration: [ 94 %]Migration: [ 13 %]Migration: [ 16 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702753 587
+real 19.69
+user 0.04
+sys 0.02
+Migration: [ 19 %]Migration: [ 22 %]summary 1 55000000 21000000
+Migration: [ 25 %]rvms 6 nvms 1 cwnd 2 gra7-6
+rvms 5 cwnd 2 2
+Migration: [ 28 %]Migration: [ 31 %]Migration: [  1 %]Migration: [ 34 %]Migration: [  4 %]Migration: [ 37 %]Migration: [  7 %]Migration: [ 40 %]Migration: [ 10 %]Migration: [ 43 %]Migration: [ 13 %]Migration: [ 46 %]Migration: [ 16 %]Migration: [ 49 %]Migration: [ 19 %]Migration: [ 52 %]Migration: [ 22 %]Migration: [ 55 %]summary 2 29500000 -25500000
+Migration: [ 25 %]rvms 5 cwnd 1 1
+Migration: [ 58 %]Migration: [ 28 %]Migration: [ 61 %]Migration: [ 31 %]Migration: [ 64 %]Migration: [ 34 %]Migration: [ 67 %]Migration: [ 37 %]Migration: [ 70 %]Migration: [ 41 %]Migration: [ 73 %]Migration: [ 44 %]Migration: [ 76 %]Migration: [ 47 %]Migration: [ 79 %]Migration: [ 50 %]Migration: [ 82 %]Migration: [ 53 %]Migration: [ 86 %]Migration: [ 56 %]summary 1 68000000 38500000
+rvms 5 cwnd 2 2
+Migration: [ 88 %]Migration: [ 59 %]Migration: [ 92 %]Migration: [ 62 %]Migration: [ 94 %]Migration: [ 65 %]Migration: [ 95 %]Migration: [ 68 %]Migration: [100 %]
+finish 1346702766 600
+real 17.82
+user 0.03
+sys 0.01
+rvms 5 nvms 1 cwnd 2 gra7-1
+Migration: [ 71 %]Migration: [ 74 %]Migration: [  1 %]Migration: [ 77 %]Migration: [  4 %]Migration: [ 80 %]Migration: [  7 %]Migration: [ 83 %]Migration: [ 10 %]Migration: [ 86 %]summary 2 31000000 -37000000
+rvms 4 cwnd 1 1
+Migration: [ 13 %]Migration: [ 89 %]Migration: [ 16 %]Migration: [ 92 %]Migration: [ 19 %]Migration: [ 95 %]Migration: [ 22 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702772 606
+real 17.70
+user 0.04
+sys 0.01
+Migration: [ 25 %]Migration: [ 28 %]Migration: [ 31 %]Migration: [ 34 %]Migration: [ 37 %]Migration: [ 40 %]summary 1 48000000 17000000
+rvms 3 cwnd 2 2
+Migration: [ 43 %]rvms 4 nvms 1 cwnd 2 gra7-4
+Migration: [ 46 %]Migration: [ 49 %]Migration: [  0 %]Migration: [ 52 %]Migration: [  3 %]Migration: [ 55 %]Migration: [  6 %]Migration: [ 58 %]Migration: [ 10 %]Migration: [ 62 %]Migration: [ 13 %]Migration: [ 65 %]Migration: [ 16 %]Migration: [ 68 %]Migration: [ 19 %]Migration: [ 70 %]Migration: [ 22 %]summary 2 30000000 -18000000
+Migration: [ 73 %]Migration: [ 25 %]rvms 3 cwnd 1 1
+Migration: [ 77 %]Migration: [ 28 %]Migration: [ 80 %]Migration: [ 31 %]Migration: [ 83 %]Migration: [ 34 %]Migration: [ 86 %]Migration: [ 37 %]Migration: [ 89 %]Migration: [ 40 %]Migration: [ 92 %]Migration: [ 43 %]Migration: [ 95 %]Migration: [ 46 %]Migration: [ 95 %]Migration: [ 49 %]Migration: [100 %]
+finish 1346702784 618
+real 17.67
+user 0.02
+sys 0.02
+Migration: [ 54 %]summary 1 66000000 36000000
+rvms 2 cwnd 2 2
+rvms 3 nvms 1 cwnd 2 gra7-8
+Migration: [ 57 %]Migration: [ 60 %]Migration: [ 63 %]Migration: [ 66 %]Migration: [  2 %]Migration: [ 69 %]Migration: [  5 %]Migration: [ 72 %]Migration: [  8 %]Migration: [ 75 %]Migration: [ 11 %]Migration: [ 79 %]Migration: [ 14 %]Migration: [ 82 %]Migration: [ 17 %]Migration: [ 85 %]summary 2 26000000 -40000000
+Migration: [ 19 %]rvms 2 cwnd 1 1
+Migration: [ 88 %]Migration: [ 23 %]Migration: [ 90 %]Migration: [ 26 %]Migration: [ 93 %]Migration: [ 29 %]Migration: [ 95 %]Migration: [ 32 %]Migration: [ 95 %]Migration: [ 35 %]Migration: [ 95 %]Migration: [ 38 %]Migration: [ 95 %]Migration: [ 41 %]Migration: [ 95 %]Migration: [ 43 %]Migration: [100 %]
+finish 1346702794 628
+real 19.57
+user 0.04
+sys 0.03
+Migration: [ 48 %]summary 1 54000000 28000000
+Migration: [ 50 %]rvms 1 cwnd 1 1
+Migration: [ 53 %]Migration: [ 56 %]Migration: [ 59 %]Migration: [ 62 %]Migration: [ 66 %]Migration: [ 69 %]Migration: [ 72 %]Migration: [ 75 %]Migration: [ 78 %]Migration: [ 81 %]summary 1 34000000 -20000000
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 118: [: -eq: unary operator expected
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 124: [: -eq: unary operator expected
+(standard_in) 2: syntax error
+/nfs/vmanage/controller/controller-single: line 62: [: -eq: unary operator expected
+rvms 1 cwnd
+Migration: [ 84 %]Migration: [ 87 %]Migration: [ 90 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702805 639
+real 19.65
+user 0.04
+sys 0.01
+summary -34000000
+cat: /tmp/cwnd: No such file or directory
+rvms 8 cwnd 1 1
+rvms 8 nvms 0 cwnd gra8-6
+/nfs/vmanage/migrator: line 41: [: 0: unary operator expected
+Migration: [  1 %]Migration: [  3 %]Migration: [  4 %]Migration: [  4 %]Migration: [  9 %]Migration: [ 12 %]Migration: [ 16 %]Migration: [ 18 %]summary 1 21000000 21000000
+rvms 8 cwnd 2 2
+rvms 8 nvms 1 cwnd 2 gra8-1
+Migration: [ 19 %]Migration: [ 19 %]Migration: [ 23 %]Migration: [ 26 %]Migration: [  1 %]Migration: [ 27 %]Migration: [  3 %]Migration: [ 29 %]Migration: [  3 %]Migration: [ 29 %]Migration: [  7 %]Migration: [ 29 %]Migration: [  7 %]Migration: [ 35 %]summary 2 13500000 -7500000
+/nfs/vmanage/migrator: line 41: [: 2: unary operator expected
+rvms 8 nvms 2 cwnd gra8-5
+Migration: [  7 %]rvms 8 cwnd 1 1
+Migration: [ 35 %]Migration: [  7 %]Migration: [ 38 %]Migration: [ 12 %]Migration: [ 40 %]Migration: [ 14 %]Migration: [ 40 %]Migration: [ 42 %]Migration: [ 14 %]Migration: [ 18 %]Migration: [ 43 %]Migration: [ 45 %]Migration: [ 18 %]Migration: [ 47 %]Migration: [  3 %]Migration: [ 20 %]summary 1 35000000 21500000
+Migration: [ 47 %]Migration: [ 20 %]Migration: [  7 %]rvms 8 cwnd 2 2
+Migration: [ 47 %]Migration: [  8 %]Migration: [ 20 %]Migration: [ 47 %]Migration: [ 25 %]Migration: [ 10 %]Migration: [ 47 %]Migration: [ 12 %]Migration: [ 26 %]Migration: [ 54 %]Migration: [ 16 %]Migration: [ 26 %]Migration: [ 56 %]Migration: [ 16 %]Migration: [ 30 %]Migration: [ 56 %]Migration: [ 16 %]Migration: [ 32 %]Migration: [ 20 %]Migration: [ 32 %]Migration: [ 56 %]Migration: [ 56 %]Migration: [ 36 %]Migration: [ 23 %]Migration: [ 36 %]Migration: [ 62 %]Migration: [ 28 %]summary 2 27500000 -7500000
+Migration: [ 63 %]Migration: [ 39 %]Migration: [ 31 %]rvms 8 cwnd 1 1
+Migration: [ 63 %]Migration: [ 33 %]Migration: [ 41 %]Migration: [ 63 %]Migration: [ 41 %]Migration: [ 37 %]Migration: [ 67 %]Migration: [ 44 %]Migration: [ 41 %]Migration: [ 67 %]Migration: [ 44 %]Migration: [ 46 %]Migration: [ 71 %]Migration: [ 49 %]Migration: [ 47 %]Migration: [ 52 %]Migration: [ 51 %]Migration: [ 75 %]Migration: [ 77 %]Migration: [ 55 %]Migration: [ 54 %]Migration: [ 79 %]Migration: [ 58 %]Migration: [ 59 %]Migration: [ 62 %]Migration: [ 61 %]summary 1 75000000 47500000
+Migration: [ 82 %]rvms 8 cwnd 2 2
+Migration: [ 65 %]Migration: [ 65 %]Migration: [ 85 %]Migration: [ 68 %]Migration: [ 68 %]Migration: [ 88 %]Migration: [ 71 %]Migration: [ 71 %]Migration: [ 91 %]Migration: [ 74 %]Migration: [ 74 %]Migration: [ 94 %]Migration: [ 77 %]Migration: [ 77 %]Migration: [ 95 %]Migration: [ 80 %]Migration: [ 79 %]Migration: [100 %]
+finish 1346702836 670
+real 30.30
+user 0.04
+sys 0.02
+Migration: [ 85 %]Migration: [ 85 %]Migration: [ 88 %]Migration: [ 88 %]Migration: [ 91 %]Migration: [ 91 %]Migration: [ 93 %]Migration: [ 94 %]summary 2 43000000 -32000000
+rvms 7 cwnd 1 1
+Migration: [ 95 %]Migration: [ 96 %]Migration: [100 %]
+finish 1346702840 674
+real 27.80
+user 0.04
+sys 0.02
+Migration: [100 %]
+finish 1346702840 674
+real 23.04
+user 0.04
+sys 0.03
+rvms 8 nvms 0 cwnd 1 gra8-8
+Migration: [  4 %]Migration: [  7 %]Migration: [ 10 %]Migration: [ 13 %]Migration: [ 16 %]summary 1 32000000 -11000000
+rvms 5 cwnd 2 2
+rvms 5 nvms 1 cwnd 2 gra8-3
+Migration: [ 19 %]Migration: [ 22 %]Migration: [  0 %]Migration: [ 26 %]Migration: [  4 %]Migration: [ 28 %]Migration: [  7 %]Migration: [ 31 %]Migration: [ 10 %]Migration: [ 35 %]Migration: [ 13 %]Migration: [ 37 %]Migration: [ 16 %]Migration: [ 40 %]Migration: [ 19 %]Migration: [ 44 %]Migration: [ 22 %]Migration: [ 47 %]summary 2 29000000 -3000000
+Migration: [ 25 %]rvms 5 cwnd 1 1
+Migration: [ 50 %]Migration: [ 28 %]Migration: [ 53 %]Migration: [ 31 %]Migration: [ 56 %]Migration: [ 34 %]Migration: [ 59 %]Migration: [ 37 %]Migration: [ 62 %]Migration: [ 40 %]Migration: [ 65 %]Migration: [ 43 %]Migration: [ 68 %]Migration: [ 46 %]Migration: [ 71 %]Migration: [ 49 %]Migration: [ 74 %]Migration: [ 52 %]Migration: [ 77 %]Migration: [ 55 %]summary 1 68000000 39000000
+rvms 5 cwnd 2 2
+Migration: [ 80 %]Migration: [ 58 %]Migration: [ 83 %]Migration: [ 61 %]Migration: [ 86 %]Migration: [ 64 %]Migration: [ 90 %]Migration: [ 67 %]Migration: [ 93 %]Migration: [ 70 %]Migration: [ 95 %]Migration: [ 73 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702858 692
+real 17.68
+user 0.03
+sys 0.02
+Migration: [ 75 %]rvms 5 nvms 1 cwnd 2 gra8-7
+Migration: [ 80 %]Migration: [ 83 %]Migration: [  1 %]Migration: [ 86 %]summary 2 31500000 -36500000
+Migration: [  4 %]rvms 4 cwnd 1 1
+Migration: [ 89 %]Migration: [  7 %]Migration: [ 92 %]Migration: [ 10 %]Migration: [ 95 %]Migration: [ 13 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702862 696
+real 17.73
+user 0.04
+sys 0.02
+Migration: [ 16 %]Migration: [ 21 %]Migration: [ 24 %]Migration: [ 27 %]Migration: [ 30 %]Migration: [ 33 %]summary 1 49000000 17500000
+rvms 4 nvms 1 cwnd 2 gra8-4
+rvms 3 cwnd 2 2
+Migration: [ 36 %]Migration: [ 40 %]Migration: [  1 %]Migration: [ 42 %]Migration: [  4 %]Migration: [ 45 %]Migration: [  7 %]Migration: [ 49 %]Migration: [ 10 %]Migration: [ 52 %]Migration: [ 13 %]Migration: [ 55 %]Migration: [ 16 %]Migration: [ 57 %]Migration: [ 19 %]Migration: [ 60 %]Migration: [ 22 %]Migration: [ 63 %]summary 2 30000000 -19000000
+Migration: [ 25 %]Migration: [ 66 %]rvms 3 cwnd 1 1
+Migration: [ 28 %]Migration: [ 70 %]Migration: [ 32 %]Migration: [ 73 %]Migration: [ 35 %]Migration: [ 76 %]Migration: [ 37 %]Migration: [ 79 %]Migration: [ 40 %]Migration: [ 82 %]Migration: [ 44 %]Migration: [ 85 %]Migration: [ 47 %]Migration: [ 88 %]Migration: [ 49 %]Migration: [ 91 %]Migration: [ 53 %]Migration: [ 93 %]Migration: [ 56 %]Migration: [ 95 %]summary 1 68000000 38000000
+rvms 2 cwnd 2 2
+Migration: [ 58 %]Migration: [ 95 %]Migration: [ 62 %]Migration: [ 95 %]Migration: [100 %]Migration: [ 64 %]
+finish 1346702876 710
+real 18.66
+user 0.04
+sys 0.02
+rvms 3 nvms 1 cwnd 2 gra8-2
+Migration: [ 68 %]Migration: [ 71 %]Migration: [ 75 %]Migration: [ 78 %]Migration: [ 81 %]Migration: [ 84 %]Migration: [ 88 %]summary 2 20500000 -47500000
+rvms 2 cwnd 1 1
+Migration: [ 90 %]Migration: [  1 %]Migration: [ 92 %]Migration: [  4 %]Migration: [ 95 %]Migration: [  7 %]Migration: [ 95 %]Migration: [  9 %]Migration: [ 95 %]Migration: [ 11 %]Migration: [ 95 %]Migration: [ 15 %]Migration: [100 %]
+finish 1346702883 717
+real 19.03
+user 0.04
+sys 0.02
+Migration: [ 16 %]Migration: [ 20 %]Migration: [ 23 %]Migration: [ 27 %]summary 1 44000000 23500000
+rvms 1 cwnd 1 1
+Migration: [ 29 %]Migration: [ 32 %]Migration: [ 36 %]Migration: [ 39 %]Migration: [ 42 %]Migration: [ 45 %]Migration: [ 48 %]Migration: [ 51 %]Migration: [ 54 %]Migration: [ 57 %]summary 1 34000000 -10000000
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 118: [: -eq: unary operator expected
+expr: syntax error
+/nfs/vmanage/controller/controller-single: line 124: [: -eq: unary operator expected
+(standard_in) 2: syntax error
+/nfs/vmanage/controller/controller-single: line 62: [: -eq: unary operator expected
+rvms 1 cwnd
+Migration: [ 60 %]Migration: [ 63 %]Migration: [ 66 %]Migration: [ 69 %]Migration: [ 72 %]Migration: [ 75 %]Migration: [ 79 %]Migration: [ 82 %]Migration: [ 85 %]Migration: [ 88 %](standard_in) 2: syntax error
+expr: syntax error
+summary -34000000
+/nfs/vmanage/controller/controller-single: line 111: [: 1: unary operator expected
+rvms 1 cwnd 1 1
+Migration: [ 91 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [100 %]
+finish 1346702898 732
+real 21.82
+user 0.04
+sys 0.03
+summary 1 14000000
+real 734.30
+user 0.12
+sys 0.08
+
+Tue Sep  4 05:08:21 2012
+----------------

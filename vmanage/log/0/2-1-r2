@@ -1,0 +1,586 @@
+Log of time -p /nfs/vmanage/migratemultiple 2 1 
+Mon Aug 27 11:18:37 2012
+
+finish 1346033917 0
+pm1
+ vm1
+pm2
+ vm1
+Migration: [  1 %]Migration: [  4 %]Migration: [  1 %]Migration: [  4 %]Migration: [  5 %]Migration: [  7 %]Migration: [  7 %]Migration: [ 10 %]Migration: [  7 %]Migration: [ 12 %]Migration: [ 11 %]Migration: [ 15 %]Migration: [ 13 %]Migration: [ 18 %]Migration: [ 15 %]Migration: [ 21 %]Migration: [ 18 %]Migration: [ 24 %]Migration: [ 20 %]Migration: [ 27 %]Migration: [ 24 %]Migration: [ 31 %]Migration: [ 26 %]Migration: [ 33 %]Migration: [ 28 %]Migration: [ 35 %]Migration: [ 31 %]Migration: [ 38 %]Migration: [ 32 %]Migration: [ 40 %]Migration: [ 34 %]Migration: [ 44 %]Migration: [ 34 %]Migration: [ 46 %]Migration: [ 38 %]Migration: [ 49 %]Migration: [ 41 %]Migration: [ 53 %]Migration: [ 44 %]Migration: [ 55 %]Migration: [ 47 %]Migration: [ 58 %]Migration: [ 50 %]Migration: [ 60 %]Migration: [ 54 %]Migration: [ 62 %]Migration: [ 57 %]Migration: [ 65 %]Migration: [ 60 %]Migration: [ 68 %]Migration: [ 64 %]Migration: [ 71 %]Migration: [ 66 %]Migration: [ 74 %]Migration: [ 68 %]Migration: [ 75 %]Migration: [ 72 %]Migration: [ 79 %]Migration: [ 74 %]Migration: [ 79 %]Migration: [ 78 %]Migration: [ 82 %]Migration: [ 82 %]Migration: [ 85 %]Migration: [ 85 %]Migration: [ 88 %]Migration: [ 88 %]Migration: [ 90 %]Migration: [ 91 %]Migration: [ 93 %]Migration: [ 92 %]Migration: [ 93 %]Migration: [ 92 %]Migration: [ 96 %]Migration: [100 %]
+real 21.39
+user 0.01
+sys 0.00
+finish 1346033938 21
+Migration: [ 98 %]Migration: [100 %]
+real 22.13
+user 0.01
+sys 0.00
+finish 1346033939 22
+
+pm1
+ vm2
+pm2
+ vm2
+Migration: [  1 %]Migration: [  2 %]Migration: [  3 %]Migration: [  6 %]Migration: [  4 %]Migration: [  4 %]Migration: [  8 %]Migration: [  4 %]Migration: [ 12 %]Migration: [  4 %]Migration: [ 14 %]Migration: [  4 %]Migration: [ 17 %]Migration: [  4 %]Migration: [ 20 %]Migration: [ 24 %]Migration: [  4 %]Migration: [ 27 %]Migration: [ 15 %]Migration: [ 30 %]Migration: [ 18 %]Migration: [ 33 %]Migration: [ 19 %]Migration: [ 36 %]Migration: [ 19 %]Migration: [ 39 %]Migration: [ 19 %]Migration: [ 42 %]Migration: [ 23 %]Migration: [ 45 %]Migration: [ 26 %]Migration: [ 48 %]Migration: [ 28 %]Migration: [ 51 %]Migration: [ 28 %]Migration: [ 54 %]Migration: [ 32 %]Migration: [ 57 %]Migration: [ 36 %]Migration: [ 60 %]Migration: [ 39 %]Migration: [ 63 %]Migration: [ 42 %]Migration: [ 66 %]Migration: [ 45 %]Migration: [ 70 %]Migration: [ 48 %]Migration: [ 73 %]Migration: [ 51 %]Migration: [ 76 %]Migration: [ 55 %]Migration: [ 79 %]Migration: [ 58 %]Migration: [ 82 %]Migration: [ 61 %]Migration: [ 85 %]Migration: [ 64 %]Migration: [ 88 %]Migration: [ 67 %]Migration: [ 91 %]Migration: [ 70 %]Migration: [ 94 %]Migration: [ 73 %]Migration: [ 94 %]Migration: [ 76 %]Migration: [100 %]
+real 17.96
+user 0.01
+sys 0.00
+finish 1346033957 40
+Migration: [ 79 %]Migration: [ 82 %]Migration: [ 85 %]Migration: [ 88 %]Migration: [ 91 %]Migration: [ 94 %]Migration: [ 95 %]Migration: [100 %]
+real 21.65
+user 0.01
+sys 0.00
+finish 1346033961 44
+
+pm1
+ vm3
+pm2
+ vm3
+Migration: [  0 %]Migration: [  1 %]Migration: [  3 %]Migration: [  4 %]Migration: [  6 %]Migration: [  7 %]Migration: [  9 %]Migration: [ 10 %]Migration: [ 12 %]Migration: [ 13 %]Migration: [ 15 %]Migration: [ 16 %]Migration: [ 18 %]Migration: [ 19 %]Migration: [ 21 %]Migration: [ 22 %]Migration: [ 25 %]Migration: [ 25 %]Migration: [ 28 %]Migration: [ 29 %]Migration: [ 31 %]Migration: [ 32 %]Migration: [ 34 %]Migration: [ 35 %]Migration: [ 37 %]Migration: [ 37 %]Migration: [ 40 %]Migration: [ 40 %]Migration: [ 43 %]Migration: [ 44 %]Migration: [ 47 %]Migration: [ 47 %]Migration: [ 50 %]Migration: [ 50 %]Migration: [ 53 %]Migration: [ 53 %]Migration: [ 56 %]Migration: [ 56 %]Migration: [ 59 %]Migration: [ 59 %]Migration: [ 62 %]Migration: [ 62 %]Migration: [ 65 %]Migration: [ 65 %]Migration: [ 68 %]Migration: [ 68 %]Migration: [ 72 %]Migration: [ 71 %]Migration: [ 75 %]Migration: [ 74 %]Migration: [ 78 %]Migration: [ 77 %]Migration: [ 81 %]Migration: [ 81 %]Migration: [ 84 %]Migration: [ 84 %]Migration: [ 87 %]Migration: [ 87 %]Migration: [ 90 %]Migration: [ 90 %]Migration: [ 93 %]Migration: [ 92 %]Migration: [ 94 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [100 %]
+real 17.70
+user 0.01
+sys 0.00
+finish 1346033978 61
+Migration: [100 %]
+real 17.95
+user 0.01
+sys 0.00
+finish 1346033979 62
+
+pm1
+ vm4
+pm2
+ vm4
+Migration: [  0 %]Migration: [  3 %]Migration: [  3 %]Migration: [  6 %]Migration: [  6 %]Migration: [  9 %]Migration: [  9 %]Migration: [ 12 %]Migration: [ 12 %]Migration: [ 15 %]Migration: [ 15 %]Migration: [ 18 %]Migration: [ 18 %]Migration: [ 21 %]Migration: [ 21 %]Migration: [ 24 %]Migration: [ 25 %]Migration: [ 28 %]Migration: [ 28 %]Migration: [ 31 %]Migration: [ 31 %]Migration: [ 34 %]Migration: [ 34 %]Migration: [ 37 %]Migration: [ 37 %]Migration: [ 40 %]Migration: [ 40 %]Migration: [ 43 %]Migration: [ 43 %]Migration: [ 46 %]Migration: [ 46 %]Migration: [ 49 %]Migration: [ 50 %]Migration: [ 52 %]Migration: [ 53 %]Migration: [ 56 %]Migration: [ 56 %]Migration: [ 58 %]Migration: [ 59 %]Migration: [ 61 %]Migration: [ 62 %]Migration: [ 64 %]Migration: [ 65 %]Migration: [ 68 %]Migration: [ 68 %]Migration: [ 71 %]Migration: [ 71 %]Migration: [ 74 %]Migration: [ 74 %]Migration: [ 77 %]Migration: [ 77 %]Migration: [ 79 %]Migration: [ 80 %]Migration: [ 83 %]Migration: [ 84 %]Migration: [ 86 %]Migration: [ 87 %]Migration: [ 89 %]Migration: [ 90 %]Migration: [ 92 %]Migration: [ 93 %]Migration: [ 94 %]Migration: [ 94 %]Migration: [ 94 %]Migration: [100 %]
+real 17.71
+user 0.01
+sys 0.00
+finish 1346033996 79
+Migration: [100 %]
+real 18.08
+user 0.01
+sys 0.00
+finish 1346033997 80
+
+pm1
+ vm5
+pm2
+ vm5
+Migration: [  1 %]Migration: [  0 %]Migration: [  4 %]Migration: [  3 %]Migration: [  7 %]Migration: [  6 %]Migration: [ 10 %]Migration: [  9 %]Migration: [ 13 %]Migration: [ 12 %]Migration: [ 17 %]Migration: [ 15 %]Migration: [ 19 %]Migration: [ 18 %]Migration: [ 23 %]Migration: [ 21 %]Migration: [ 26 %]Migration: [ 25 %]Migration: [ 29 %]Migration: [ 27 %]Migration: [ 32 %]Migration: [ 30 %]Migration: [ 35 %]Migration: [ 34 %]Migration: [ 38 %]Migration: [ 37 %]Migration: [ 41 %]Migration: [ 40 %]Migration: [ 44 %]Migration: [ 43 %]Migration: [ 47 %]Migration: [ 46 %]Migration: [ 50 %]Migration: [ 49 %]Migration: [ 50 %]Migration: [ 53 %]Migration: [ 50 %]Migration: [ 56 %]Migration: [ 56 %]Migration: [ 59 %]Migration: [ 60 %]Migration: [ 62 %]Migration: [ 62 %]Migration: [ 65 %]Migration: [ 65 %]Migration: [ 68 %]Migration: [ 68 %]Migration: [ 71 %]Migration: [ 72 %]Migration: [ 74 %]Migration: [ 74 %]Migration: [ 77 %]Migration: [ 78 %]Migration: [ 80 %]Migration: [ 81 %]Migration: [ 84 %]Migration: [ 84 %]Migration: [ 87 %]Migration: [ 87 %]Migration: [ 90 %]Migration: [ 90 %]Migration: [ 92 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [ 93 %]Migration: [ 95 %]Migration: [100 %]
+real 17.81
+user 0.01
+sys 0.00
+finish 1346034014 97
+Migration: [100 %]
+real 17.94
+user 0.01
+sys 0.00
+finish 1346034015 98
+
+pm1
+ vm6
+pm2
+ vm6
+Migration: [  1 %]Migration: [  4 %]Migration: [  3 %]Migration: [  7 %]Migration: [  7 %]Migration: [ 10 %]Migration: [ 10 %]Migration: [ 13 %]Migration: [ 13 %]Migration: [ 16 %]Migration: [ 16 %]Migration: [ 19 %]Migration: [ 19 %]Migration: [ 22 %]Migration: [ 22 %]Migration: [ 26 %]Migration: [ 25 %]Migration: [ 29 %]Migration: [ 28 %]Migration: [ 32 %]Migration: [ 31 %]Migration: [ 35 %]Migration: [ 34 %]Migration: [ 38 %]Migration: [ 38 %]Migration: [ 40 %]Migration: [ 41 %]Migration: [ 40 %]Migration: [ 44 %]Migration: [ 40 %]Migration: [ 47 %]Migration: [ 44 %]Migration: [ 50 %]Migration: [ 47 %]Migration: [ 53 %]Migration: [ 50 %]Migration: [ 56 %]Migration: [ 53 %]Migration: [ 59 %]Migration: [ 56 %]Migration: [ 62 %]Migration: [ 60 %]Migration: [ 65 %]Migration: [ 63 %]Migration: [ 69 %]Migration: [ 66 %]Migration: [ 72 %]Migration: [ 69 %]Migration: [ 75 %]Migration: [ 72 %]Migration: [ 78 %]Migration: [ 75 %]Migration: [ 81 %]Migration: [ 77 %]Migration: [ 84 %]Migration: [ 80 %]Migration: [ 86 %]Migration: [ 80 %]Migration: [ 90 %]Migration: [ 80 %]Migration: [ 92 %]Migration: [ 80 %]Migration: [ 95 %]Migration: [ 80 %]Migration: [100 %]
+real 17.62
+user 0.01
+sys 0.00
+finish 1346034032 115
+Migration: [ 80 %]Migration: [ 88 %]Migration: [ 91 %]Migration: [ 94 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [100 %]
+real 20.94
+user 0.01
+sys 0.00
+finish 1346034036 119
+
+pm1
+ vm7
+pm2
+ vm7
+Migration: [  0 %]Migration: [  3 %]Migration: [  1 %]Migration: [  6 %]Migration: [  4 %]Migration: [  9 %]Migration: [  5 %]Migration: [  9 %]Migration: [ 12 %]Migration: [  9 %]Migration: [ 15 %]Migration: [ 10 %]Migration: [ 18 %]Migration: [ 13 %]Migration: [ 21 %]Migration: [ 24 %]Migration: [ 15 %]Migration: [ 27 %]Migration: [ 18 %]Migration: [ 31 %]Migration: [ 22 %]Migration: [ 34 %]Migration: [ 25 %]Migration: [ 37 %]Migration: [ 27 %]Migration: [ 40 %]Migration: [ 30 %]Migration: [ 43 %]Migration: [ 33 %]Migration: [ 46 %]Migration: [ 36 %]Migration: [ 49 %]Migration: [ 40 %]Migration: [ 52 %]Migration: [ 43 %]Migration: [ 55 %]Migration: [ 46 %]Migration: [ 59 %]Migration: [ 49 %]Migration: [ 62 %]Migration: [ 52 %]Migration: [ 65 %]Migration: [ 55 %]Migration: [ 68 %]Migration: [ 58 %]Migration: [ 71 %]Migration: [ 61 %]Migration: [ 64 %]Migration: [ 74 %]Migration: [ 67 %]Migration: [ 78 %]Migration: [ 70 %]Migration: [ 81 %]Migration: [ 74 %]Migration: [ 83 %]Migration: [ 86 %]Migration: [ 77 %]Migration: [ 90 %]Migration: [ 80 %]Migration: [ 92 %]Migration: [ 83 %]Migration: [ 94 %]Migration: [ 86 %]Migration: [ 89 %]Migration: [100 %]
+real 17.52
+user 0.01
+sys 0.00
+finish 1346034053 136
+Migration: [ 92 %]Migration: [ 94 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [ 95 %]Migration: [100 %]
+real 20.94
+user 0.01
+sys 0.00
+finish 1346034057 140
+
+pm1
+ vm8
+pm2
+ vm8
+Migration: [  1 %]Migration: [  2 %]Migration: [  5 %]Migration: [  5 %]Migration: [  8 %]Migration: [  8 %]Migration: [ 11 %]Migration: [ 11 %]Migration: [ 15 %]Migration: [ 14 %]Migration: [ 18 %]Migration: [ 17 %]Migration: [ 21 %]Migration: [ 20 %]Migration: [ 23 %]Migration: [ 23 %]Migration: [ 26 %]Migration: [ 26 %]Migration: [ 29 %]Migration: [ 30 %]Migration: [ 32 %]Migration: [ 33 %]Migration: [ 36 %]Migration: [ 35 %]Migration: [ 39 %]Migration: [ 38 %]Migration: [ 42 %]Migration: [ 41 %]Migration: [ 46 %]Migration: [ 44 %]Migration: [ 47 %]Migration: [ 48 %]Migration: [ 50 %]Migration: [ 52 %]Migration: [ 53 %]Migration: [ 55 %]Migration: [ 57 %]Migration: [ 58 %]Migration: [ 60 %]Migration: [ 61 %]Migration: [ 63 %]Migration: [ 64 %]Migration: [ 66 %]Migration: [ 67 %]Migration: [ 69 %]Migration: [ 70 %]Migration: [ 72 %]Migration: [ 73 %]Migration: [ 75 %]Migration: [ 77 %]Migration: [ 78 %]Migration: [ 80 %]Migration: [ 81 %]Migration: [ 84 %]Migration: [ 84 %]Migration: [ 87 %]Migration: [ 87 %]Migration: [ 89 %]Migration: [ 90 %]Migration: [ 92 %]Migration: [ 93 %]Migration: [ 94 %]Migration: [ 94 %]Migration: [ 94 %]Migration: [ 94 %]Migration: [ 94 %]Migration: [ 94 %]Migration: [ 94 %]Migration: [100 %]
+real 19.06
+user 0.01
+sys 0.00
+finish 1346034076 159
+Migration: [100 %]
+real 19.18
+user 0.01
+sys 0.00
+finish 1346034076 159
+
+pm3
+ vm1
+pm4
+ vm1
+error: failed to get domain 'gra3-1'
+error: Domain not found: no domain with matching name 'gra3-1'
+
+real 0.13
+user 0.01
+sys 0.00
+error: failed to get domain 'gra4-1'
+error: Domain not found: no domain with matching name 'gra4-1'
+finish 1346034076 159
+
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034076 159
+
+pm3
+ vm2
+pm4
+ vm2
+error: failed to get domain 'gra3-2'
+error: Domain not found: no domain with matching name 'gra3-2'
+
+error: failed to get domain 'gra4-2'
+error: Domain not found: no domain with matching name 'gra4-2'
+real 0.13
+user 0.01
+sys 0.00
+
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034076 159
+finish 1346034076 159
+
+pm3
+ vm3
+pm4
+ vm3
+error: error: failed to get domain 'gra3-3'
+error: Domain not found: no domain with matching name 'gra3-3'
+failed to get domain 'gra4-3'
+error: Domain not found: no domain with matching name 'gra4-3'
+
+
+real 0.14
+real 0.14
+user 0.01
+user 0.01
+sys 0.00
+sys 0.00
+finish 1346034076 159
+finish 1346034076 159
+
+pm3
+ vm4
+pm4
+ vm4
+error: failed to get domain 'gra3-4'
+error: Domain not found: no domain with matching name 'gra3-4'
+
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034076 159
+error: failed to get domain 'gra4-4'
+error: Domain not found: no domain with matching name 'gra4-4'
+
+real 0.26
+user 0.01
+sys 0.00
+finish 1346034076 159
+
+pm3
+ vm5
+pm4
+ vm5
+error: failed to get domain 'gra3-5'
+error: Domain not found: no domain with matching name 'gra3-5'
+
+real 0.14
+user 0.01
+sys 0.00
+error: failed to get domain 'gra4-5'
+error: Domain not found: no domain with matching name 'gra4-5'
+finish 1346034077 160
+
+real 0.14
+user 0.00
+sys 0.00
+finish 1346034077 160
+
+pm3
+ vm6
+pm4
+ vm6
+error: failed to get domain 'gra3-6'
+error: Domain not found: no domain with matching name 'gra3-6'
+
+real 0.13
+user 0.01
+sys 0.00
+finish 1346034077 160
+error: failed to get domain 'gra4-6'
+error: Domain not found: no domain with matching name 'gra4-6'
+
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034077 160
+
+pm3
+ vm7
+pm4
+ vm7
+error: failed to get domain 'gra3-7'
+error: Domain not found: no domain with matching name 'gra3-7'
+
+real 0.13
+user 0.01
+sys 0.00
+finish 1346034077 160
+error: failed to get domain 'gra4-7'
+error: Domain not found: no domain with matching name 'gra4-7'
+
+real 0.16
+user 0.01
+sys 0.00
+finish 1346034077 160
+
+pm3
+ vm8
+pm4
+ vm8
+error: failed to get domain 'gra3-8'
+error: Domain not found: no domain with matching name 'gra3-8'
+error: failed to get domain 'gra4-8'
+error: Domain not found: no domain with matching name 'gra4-8'
+
+real 0.13
+user 0.01
+sys 0.00
+finish 1346034077 160
+
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034077 160
+
+pm5
+ vm1
+pm6
+ vm1
+error: failed to get domain 'gra6-1'
+error: Domain not found: no domain with matching name 'gra6-1'
+error: failed to get domain 'gra5-1'
+error: Domain not found: no domain with matching name 'gra5-1'
+
+
+real 0.14
+real 0.14
+user 0.00
+user 0.01
+sys 0.00
+sys 0.00
+finish 1346034077 160
+finish 1346034077 160
+
+pm5
+ vm2
+pm6
+ vm2
+error: failed to get domain 'gra6-2'
+error: Domain not found: no domain with matching name 'gra6-2'
+error: failed to get domain 'gra5-2'
+error: Domain not found: no domain with matching name 'gra5-2'
+
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034077 160
+
+real 0.20
+user 0.00
+sys 0.00
+finish 1346034077 160
+
+pm5
+ vm3
+pm6
+ vm3
+error: failed to get domain 'gra6-3'
+error: Domain not found: no domain with matching name 'gra6-3'
+
+error: failed to get domain 'gra5-3'
+error: Domain not found: no domain with matching name 'gra5-3'
+real 0.14
+user 0.01
+sys 0.00
+
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034078 161
+finish 1346034078 161
+
+pm5
+ vm4
+pm6
+ vm4
+error: failed to get domain 'gra6-4'
+error: Domain not found: no domain with matching name 'gra6-4'
+error: failed to get domain 'gra5-4'
+error: Domain not found: no domain with matching name 'gra5-4'
+
+
+real 0.14
+real 0.14
+user 0.01
+user 0.01
+sys 0.00
+sys 0.00
+finish 1346034078 161
+finish 1346034078 161
+
+pm5
+ vm5
+pm6
+ vm5
+error: failed to get domain 'gra6-5'
+error: Domain not found: no domain with matching name 'gra6-5'
+error: failed to get domain 'gra5-5'
+error: Domain not found: no domain with matching name 'gra5-5'
+
+
+real 0.14
+real 0.14
+user 0.01
+user 0.01
+sys 0.00
+sys 0.00
+finish 1346034078 161
+finish 1346034078 161
+
+pm5
+ vm6
+pm6
+ vm6
+error: failed to get domain 'gra5-6'
+error: Domain not found: no domain with matching name 'gra5-6'
+error: failed to get domain 'gra6-6'
+error: Domain not found: no domain with matching name 'gra6-6'
+
+
+real 0.14
+real 0.14
+user 0.01
+user 0.01
+sys 0.00
+sys 0.00
+finish 1346034078 161
+finish 1346034078 161
+
+pm5
+ vm7
+pm6
+ vm7
+error: failed to get domain 'gra6-7'
+error: Domain not found: no domain with matching name 'gra6-7'
+error: failed to get domain 'gra5-7'
+error: Domain not found: no domain with matching name 'gra5-7'
+
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034078 161
+
+real 0.17
+user 0.01
+sys 0.00
+finish 1346034078 161
+
+pm5
+ vm8
+pm6
+ vm8
+error: failed to get domain 'gra6-8'
+error: Domain not found: no domain with matching name 'gra6-8'
+
+real 0.13
+user 0.00
+sys 0.00
+error: failed to get domain 'gra5-8'
+error: Domain not found: no domain with matching name 'gra5-8'
+
+finish 1346034078 161
+real 0.13
+user 0.00
+sys 0.00
+finish 1346034078 161
+
+pm7
+ vm1
+pm8
+ vm1
+error: failed to get domain 'gra7-1'
+error: Domain not found: no domain with matching name 'gra7-1'
+
+real 0.14
+user 0.01
+sys 0.00
+error: failed to get domain 'gra8-1'
+error: Domain not found: no domain with matching name 'gra8-1'
+
+finish 1346034079 162
+real 0.15
+user 0.01
+sys 0.00
+finish 1346034079 162
+
+pm7
+ vm2
+pm8
+ vm2
+error: failed to get domain 'gra7-2'
+error: Domain not found: no domain with matching name 'gra7-2'
+error: failed to get domain 'gra8-2'
+error: Domain not found: no domain with matching name 'gra8-2'
+
+
+real 0.14
+real 0.14
+user 0.01
+user 0.00
+sys 0.00
+sys 0.00
+finish 1346034079 162
+finish 1346034079 162
+
+pm7
+ vm3
+pm8
+ vm3
+error: failed to get domain 'gra7-3'
+error: Domain not found: no domain with matching name 'gra7-3'
+
+error: failed to get domain 'gra8-3'
+error: Domain not found: no domain with matching name 'gra8-3'
+
+real 0.14
+user 0.01
+sys 0.00
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034079 162
+finish 1346034079 162
+
+pm7
+ vm4
+pm8
+ vm4
+error: failed to get domain 'gra7-4'
+error: Domain not found: no domain with matching name 'gra7-4'
+error: failed to get domain 'gra8-4'
+error: Domain not found: no domain with matching name 'gra8-4'
+
+
+real 0.14
+real 0.14
+user 0.00
+user 0.01
+sys 0.00
+sys 0.00
+finish 1346034079 162
+finish 1346034079 162
+
+pm7
+ vm5
+pm8
+ vm5
+error: failed to get domain 'gra8-5'
+error: Domain not found: no domain with matching name 'gra8-5'
+error: failed to get domain 'gra7-5'
+error: Domain not found: no domain with matching name 'gra7-5'
+
+
+real 0.14
+real 0.14
+user 0.00
+user 0.01
+sys 0.00
+sys 0.00
+finish 1346034079 162
+finish 1346034079 162
+
+pm7
+ vm6
+pm8
+ vm6
+error: failed to get domain 'gra7-6'
+error: Domain not found: no domain with matching name 'gra7-6'
+
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034079 162
+error: failed to get domain 'gra8-6'
+error: Domain not found: no domain with matching name 'gra8-6'
+
+real 0.15
+user 0.01
+sys 0.00
+finish 1346034079 162
+
+pm7
+ vm7
+pm8
+ vm7
+error: failed to get domain 'gra7-7'
+error: Domain not found: no domain with matching name 'gra7-7'
+
+real 0.14
+user 0.00
+sys 0.00
+finish 1346034079 162
+error: failed to get domain 'gra8-7'
+error: Domain not found: no domain with matching name 'gra8-7'
+
+real 0.18
+user 0.01
+sys 0.00
+finish 1346034080 163
+
+pm7
+ vm8
+pm8
+ vm8
+error: failed to get domain 'gra7-8'
+error: Domain not found: no domain with matching name 'gra7-8'
+
+error: failed to get domain 'gra8-8'
+error: Domain not found: no domain with matching name 'gra8-8'
+
+real 0.14
+user 0.01
+sys 0.00
+real 0.14
+user 0.01
+sys 0.00
+finish 1346034080 163
+finish 1346034080 163
+
+real 162.90
+user 0.79
+sys 0.57
+
+Mon Aug 27 11:21:20 2012
+----------------

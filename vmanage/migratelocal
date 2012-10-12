@@ -1,0 +1,39 @@
+vm=$1
+# dest=10.244.34.3
+dest=grb1
+host=`hostname -s`
+
+#echo $host
+
+dest=`echo ${host/a/b}`
+#echo ${host:0:3}
+prefix=`echo ${host:0:3}`
+if [ $prefix == "grb" ]; then
+	dest=`echo ${host/b/a}`
+fi
+
+#echo $dest
+
+#if [ $host == "grb2" ]; then
+#	dest=gra2
+#fi
+
+#if [ $HOSTNAME == "gra2.local" ]; then
+#        dest=grb2
+#elif [ $HOSTNAME == "gra3.local" ]; then
+#        dest=grb3
+#elif [ $HOSTNAME == "grb1.local" ]; then
+#        dest=gra1
+#elif [ $HOSTNAME == "gra8.local" ]; then
+#        dest=target
+#elif [ $HOSTNAME == "grb8.local" ]; then
+#        dest=target
+#fi
+
+virsh migrate --live $vm qemu+ssh://$dest/system --verbose
+
+if [ $# == 2 ]; then
+        end=`date +%s`
+        echo finish $end `expr $end - $2`
+fi
+

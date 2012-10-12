@@ -1,0 +1,45 @@
+#pms=( 1 2 )
+pms=( 1 2 3 4 5 6 7 8 )
+#vms=( 1 2 )
+#vms=( 1 2 3 4 5 6 7 8)
+
+#maxvms=2
+from=1
+to=8
+cvms=$1
+
+begin=`date +%s`
+echo finish $begin 0
+
+basedir=/nfs/vmanage
+
+for pm in ${pms[@]}
+do
+	echo $pm 	
+
+	for (( vm = $from ; vm <= $to ; ))
+        do
+
+		for (( i = 1 ; i <= $cvms ; i++ ))
+       		do
+			echo -n " $vm"	
+		        $basedir/migrate $pm $vm $begin &
+			vm=`expr $vm + 1`
+	        #$basedir/migrate $prefix-$i &
+	        done
+
+        	wait
+	
+		echo 
+
+	done
+
+#	for vm in ${vms[@]}
+#	do
+#		echo $pm $vm	
+#		./concurrent $pm $vm	
+		#./migrate $pm $vm	
+#	done
+
+done
+

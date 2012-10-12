@@ -1,0 +1,61 @@
+# another hosts to run this code
+hosts=( c11node8 )
+#hosts=( )
+
+expname=loss
+#expname=sampletime
+
+homedir=/root
+basedir=$homedir/exp/basic
+exppath=$basedir/$expname
+
+# packet loss rate
+losses=( 0.001 )
+#losses=( 0.001 0.005 0.01 0.05 0.1 0.5 1 )
+
+delays=( 20 )
+#delays=( 20 80 180 )
+
+# sleep time in seconds
+sampletimes=( 5 )
+#sampletimes=( 10 20 30 45 60 90 120 )
+
+# starting run point
+run0=1
+
+# sleep time in seconds
+sleep_time=60
+
+for delay in ${delays[@]}
+do
+	for sampletime in ${sampletimes[@]}
+	do
+		for loss in ${losses[@]}
+		do
+			cmd="$exppath $delay $loss $sampletime"
+
+			# run 1
+			run=$run0
+			#echo $cmd r$run $(( run + 1 ))
+			$cmd $run
+
+			run=`expr $run "+" 1`
+	
+			sleep $sleep_time
+
+			# run 2-4
+			for host in ${hosts[@]}
+			do
+				#echo $host $cmd r$run $(( run + 1 ))
+				ssh $host $cmd $run
+				run=`expr $run "+" 1`
+				sleep $sleep_time
+			done	
+		done
+	done
+	
+	# plot all with statistics
+	# vms total_migration_time avg_indiv_time variance stdev
+	# /genplotall
+	# genphp
+done
