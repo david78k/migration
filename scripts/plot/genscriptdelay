@@ -1,0 +1,89 @@
+# script file for generating gnuplot script "script.p"
+data=$1
+prefix=${data%\.*}
+name=$prefix.p
+data=$prefix.dat
+figure=$prefix.png
+terminal=png
+
+if [ $# -lt 1 ]; then
+	echo "usage: $0 script-name [eps]"
+	exit 1
+fi
+
+if [ $# -eq 2 ]; then
+	figure=$prefix.eps
+	terminal="postscript eps enhanced solid color"
+	#terminal="epslatex size 3in, 2in"
+fi
+
+cat >$name << GNUPLOT_EOF
+data = "$data"
+figure = "$figure"
+
+set terminal $terminal
+#set terminal png
+#set terminal postscript eps enhanced solid color
+set output figure 
+set   autoscale                        # scale axes automatically
+
+unset log                              # remove any log-scaling
+unset label                            # remove any previous labels
+set xtic auto                          # set xtics automatically
+set ytic auto                          # set ytics automatically
+
+set tmargin 1;
+#set multiplot;
+set size 1,1;
+#set origin 0.0,0.5;
+
+# first plot
+set y2tic auto
+set ytics nomirror
+#set y2tics
+#set tics out
+set autoscale y
+#set autoscale y2;
+#set key title "migration speed 40MB/s"
+#set key 0.01,100
+set key horizontal
+#set key left
+#set key center top
+#set label "Yield Point" at 0.003,260
+#set arrow from 0.0028,250 to 0.003,280
+#set xr [0.0:0.022]
+set yr [0:11]
+set y2r [0:200]
+
+set auto x
+set style histogram cluster gap 2
+#set xtic rotate by -45 scale 0
+#set xtic rotate by -45 scale 0 font ",8"
+
+#set style line 1 lt 1 lw 50
+
+set style fill solid border -1
+#set style fill solid 0.5 
+
+set boxwidth 0.3 absolute
+
+#set grid
+
+set xlabel "time (sec)"
+set ylabel "VM window"
+set y2label "delay (ms)"
+
+#plot data using 1 title 'VM window' with linespoints
+
+plot data using (\$0*5.4):2 title 'VM window' with linespoints, \\
+data using (\$0*5.134):(\$1*2) axis x1y2 title 'delay' with lines lc rgb "black"
+
+#plot data using 1:2 title 'VM window' smooth freq with linespoints, \\
+#data using 1:3 axis x1y2 title 'delay (ms)' smooth freq with linespoints
+
+#data using 0:(0):xticlabel(1) title '' w l
+
+# second plot
+#unset multiplot;
+
+GNUPLOT_EOF

@@ -1,0 +1,24 @@
+device=eth1
+dest=tsukuba.ac.jp
+delay=170ms
+
+#ping -c 4 $dest
+#ping -c 4 daum.net
+#ping -c 4 110.45.215.23
+
+tc qdisc add dev $device root netem delay $delay
+#tc qdisc add dev $device root netem delay 200ms
+#tc qdisc add dev eth1 root netem delay 200ms
+
+echo "delay=$delay"
+
+#ping -c 4 $dest
+#ping -c 4 110.45.215.23
+
+#tc -s qdisc ls dev $device
+#tc -s qdisc ls dev eth1
+
+# remove
+#tc qdisc del dev $device root netem delay 200ms
+#tc qdisc del dev eth0 root
+

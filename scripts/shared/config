@@ -1,0 +1,19 @@
+# node pair for migration
+pair1=c11node7,c11node8
+pair2=c11node9,c11node10
+
+# database
+dbtype=mysql
+dburl=c11node27
+
+# http web server
+httpurl=ssh.acis.ufl.edu:/migration/exp
+
+# sampling time in seconds
+sampletime=10
+
+# maximum available bandwidth in MB/s
+throttle=(100 75 50 40 30 20 10)
+
+# logging
+logdir=$httpurl/log

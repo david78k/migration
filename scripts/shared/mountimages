@@ -1,0 +1,2 @@
+mount -t nfs4 -o proto=tcp,port=2049 10.244.34.6:/kvm-images /var/lib/libvirt/images/nfs
+#mount -t nfs4 -o proto=tcp,port=2049 10.244.34.6:/controller /root/controller-nfs

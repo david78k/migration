@@ -1,0 +1,74 @@
+# another hosts to run this code
+#hosts=( c11node8 c11node9 c11node10 )
+hosts=( c11node8 )
+#hosts=( )
+
+#expname=parallel
+expname=congestion
+
+basedir=/root/exp
+exppath=$basedir/$expname
+
+# sleep time in seconds
+sleep_time=120
+
+#delays=( 20 )
+#delays=( 20 80 180 )
+
+# packet loss rate
+#losses=( 0.001 )
+
+# delay intervals
+intervals=50-50-50
+#intervals=30-30-30
+#intervals=100-100-100
+
+# number of concurrent vms to migrate
+# 0 indicates controller
+cwnds=( 0 )
+#cwnds=( 16 18 20 40 )
+#cwnds=( 1 2 4 6 8 10 12 )
+#cwnds=( 0 1 2 4 6 8 10 12 14 16 18 20 40 )
+
+sampletime=5
+
+# starting run point
+run0=5
+
+#for delay in ${delays[@]}
+#do
+#	for loss in ${losses[@]}
+#	do
+		for cwnd in ${cwnds[@]}
+		do
+			cmd="$exppath $cwnd $intervals"
+
+			if [ $cwnd -eq 0 ]; then
+				cmd="$basedir/controller/congestion $sampletime $intervals"
+			fi
+
+			# run 1
+			run=$run0
+			#echo $cmd r$run $(( run + 1 ))
+			$cmd $run
+
+			run=`expr $run "+" 1`
+	
+			sleep $sleep_time
+
+			# run 2-4
+			for host in ${hosts[@]}
+			do
+				#echo $host $cmd r$run $(( run + 1 ))
+				ssh $host $cmd $run
+				run=`expr $run "+" 1`
+				sleep $sleep_time
+			done	
+		done
+#	done
+	
+	# plot all with statistics
+	# vms total_migration_time avg_indiv_time variance stdev
+	# /genplotall
+	# genphp
+#done

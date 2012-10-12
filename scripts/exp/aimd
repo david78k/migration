@@ -1,0 +1,147 @@
+#!/bin/bash
+
+# aimd with slow start phase
+
+# base dir
+basedir=/root/exp
+#basedir=/home/tsugawa/controller
+
+sampletime=5
+
+# maximum number of concurrent vms
+max=12
+
+# initial window (number of vms) to migrate
+#cwnd=8
+cwnd=1
+total_cwnd=0
+cfile=/tmp/cwnd
+
+# threshold
+thresh=4
+
+# phase: ss (slow start), ca (congestion avoidance, aimd)
+phase=ss
+#phase=ca
+
+epsilon=0
+saturated=0
+
+# monitor throughput
+prev_thruput=0
+#prev_thruput=145 # for 4VMs
+total_time=0
+
+# number of vms running
+prefix=$HOSTNAME-
+rvms=`virsh list | grep running | grep $prefix | wc -l`
+#echo rvms $rvms
+rvms0=$rvms
+tmplog=/tmp/exptime
+
+echo $cwnd > $cfile
+
+while [ $rvms -ne 0 ]
+do
+        comp=`echo "$rvms < $cwnd" | bc -l`
+        if [ $comp -eq 1 ]; then
+                cwnd=$rvms
+		echo $cwnd > $cfile
+        fi
+
+        echo rvms $rvms cwnd ${cwnd/.*} $cwnd
+
+        # migrate and log
+        logsave $tmplog time -p $basedir/concurrent $cwnd
+
+        t=`grep real $tmplog | tail -1 | awk '{print $2}'`
+
+	# get total progress % sum
+        thruput=`./getprogress`
+        #thruput=`echo "3600 * $cwnd / $t" | bc -l`
+
+        total_time=`echo "$total_time + $t" | bc -l`
+        total_cwnd=`expr $total_cwnd "+" $cwnd`
+        echo summary $cwnd $t $thruput $total_time
+        #echo summary $cwnd $t $thruput $total_cwnd $total_time
+
+        # if not saturated
+        #       if delta < epsilon
+        #               saturated=true
+        #               cwnd=0.5*cwnd
+        #       else
+        #               cwnd++
+        # else
+        #       cwnd++
+        #       saturated=false
+
+        # if 10 < delta increase +1
+        # else if delta < -10 decrease -1
+        delta=`echo "$thruput - $prev_thruput" | bc -l`
+        comp=`echo "$delta < -$epsilon" | bc -l`
+
+        # not saturated
+        if [ $saturated == 0 ]; then
+                # congestion occurs
+                if [ $comp -eq 1 ]; then
+                        #cwnd=`expr $cwnd "-" 1`
+                        cwnd=`echo "$cwnd * 0.5" | bc -l`
+                        cwnd=${cwnd/.*}
+                        saturated=1
+                        thresh=$cwnd
+                else # no congestion
+                        if [ $phase == ss ]; then
+                                #echo slow start
+                                cwnd=`expr $cwnd "*" 2`
+                        else
+                                #echo congestion avoidance
+                                cwnd=`expr $cwnd "+" 1`
+                        fi
+                fi
+        else # saturated
+                cwnd=`expr $cwnd "+" 1`
+                # set the state as not-saturated
+                saturated=0
+        fi
+
+        if [ $cwnd -ge $thresh ]; then
+                phase=ca
+        fi
+
+        # non-positive
+        comp=`expr $cwnd "<" 1`
+        #if [ $cwnd -lt 1 ]; then
+        if [ $comp == 1 ]; then
+                cwnd=1
+        fi
+
+        #overbooked
+        comp=`expr $cwnd ">" $max`
+        if [ $comp == 1 ]; then
+                cwnd=$max
+        fi
+
+	echo $cwnd > $cfile
+
+        prev_thruput=$thruput
+
+        rvms=`virsh list | grep running | grep $prefix | wc -l`
+#       echo rvms $rvms
+
+       sleep $sampletime
+done
+
+# total summary
+# [total number of vms] [total time] [total throughput]
+#total_cwnd=`expr $rvms0 "-" $rvms`
+comp=`echo "$total_time == 0" | bc -l`
+
+if [ $comp -eq 1 ]; then
+        total_thruput=0
+else
+        total_thruput=`echo "3600 * $total_cwnd / $total_time" | bc -l`
+fi
+
+echo total_summary \#$total_cwnd $total_time $total_thruput
+
+

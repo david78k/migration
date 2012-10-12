@@ -1,0 +1,74 @@
+# script file for generating gnuplot script "script.p"
+data=$1
+prefix=${data%\.*}
+name=$prefix.p
+#data=$prefix.dat
+figure=$prefix.png
+terminal=png
+
+if [ $# -lt 1 ]; then
+	echo "usage: $0 script-name [eps]"
+	exit 1
+fi
+
+if [ $# -eq 2 ]; then
+	figure=$prefix.eps
+	terminal="postscript eps enhanced solid color"
+fi
+
+cat >$name << GNUPLOT_EOF
+data = "$data"
+figure = "$figure"
+
+set terminal $terminal
+#set terminal png
+#set terminal postscript eps enhanced solid color
+#set terminal hp500c 300 tiff
+set output figure 
+set   autoscale                        # scale axes automatically
+
+unset log                              # remove any log-scaling
+unset label                            # remove any previous labels
+set xtic auto                          # set xtics automatically
+set ytic auto                          # set ytics automatically
+
+set tmargin 1;
+#set multiplot;
+set size 1,1;
+#set origin 0.0,0.5;
+
+# first plot
+#set title "bandwidth limit 50 MB/s"
+#set title "PI controller with bandwidth limit change from unlimited to 50 MB/s"
+set xlabel "time period"
+set ylabel "bandwidth usage (MB/s)"
+#set y2label "migration time (sec)"
+#set y2tic auto
+set ytics nomirror
+#set y2tics
+set tics out
+set autoscale y
+#set autoscale y2;
+#set key title "migration speed 40MB/s"
+#set key 0.01,100
+#set key center 
+#set label "Yield Point" at 0.003,260
+#set arrow from 0.0028,250 to 0.003,280
+#set xr [0.0:0.022]
+set yr [0:120]
+#set format y "%gkm"
+
+plot data using 2 title '3vms' with linespoints, \\
+data using 1 title '4vms' with linespoints, \\
+data using 4 title '5vms' with linespoints, \\
+data using 6 title '6vms' with linespoints, \\
+data using 5 title '7vms' with linespoints, \\
+data using 3 title '8vms' with linespoints
+
+#plot data using 1 title 'recv' with linespoints
+#data using 1:2 axis x2y2 title 'total migration time (s)' with linespoints
+
+# second plot
+#unset multiplot;
+
+GNUPLOT_EOF

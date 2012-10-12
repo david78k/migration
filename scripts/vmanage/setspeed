@@ -1,0 +1,20 @@
+# migrate-setspeed <domain> <bandwidth> in MBps
+# max 125MB/s=1000Mbps
+bw=`expr $1 '*' 8`
+#bw=`echo $1*8 | bc`
+
+to=1
+#for (( i = 1 ; i <= $to ; i++ ))
+#do
+	#echo migrate-setspeed vm512-$i $bw
+#	virsh migrate-setspeed vm512-$i $bw
+#done
+
+vms=`virsh list | grep running | awk '{print $2}' | grep vm512-`
+
+for vm in ${vms[@]}
+do
+	virsh migrate-setspeed $vm $bw
+	#echo $vm $bw
+done
+

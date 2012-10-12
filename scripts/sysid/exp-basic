@@ -1,0 +1,21 @@
+# maximum number of concurrent VMs to migrate
+count=10
+#count=2
+
+# 39VMs
+#nvms=( 1 2 )
+nvms=( 1 2 4 6 7 8 )
+
+basedir=/root/vmanage
+
+sleep_time=1
+iter=0
+
+#for (( iter = 0; iter < $count; iter++ ))
+for iter in ${nvms[@]}
+do 
+	echo $iter 
+	time -p $basedir/concurrent $iter 
+	sleep $sleep_time
+done
+

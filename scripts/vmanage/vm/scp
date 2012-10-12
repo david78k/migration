@@ -1,0 +1,8 @@
+dest=192.168.122.1
+dest_dir=/root/vm
+
+#vms=`ssh $dest virsh list | grep running | awk '{print $2}' | grep vm512-`
+
+#echo $dest:$dest_dir/
+scp $1 $dest:$dest_dir/
+

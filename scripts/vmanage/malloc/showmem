@@ -1,0 +1,21 @@
+
+vm1=192.168.122.251
+vm2=192.168.122.2
+vm3=192.168.122.3
+vm4=192.168.122.4
+vm5=192.168.122.5
+vm6=192.168.122.6
+vm7=192.168.122.7
+vm8=192.168.122.8
+
+ssh $vm1 free -m | grep Mem | awk '{print $3}'
+ssh $vm2 free -m | grep Mem | awk '{print $3}'
+ssh $vm3 free -m | grep Mem | awk '{print $3}'
+ssh $vm4 free -m | grep Mem | awk '{print $3}'
+ssh $vm5 free -m | grep Mem | awk '{print $3}'
+ssh $vm6 free -m | grep Mem | awk '{print $3}'
+ssh $vm7 free -m | grep Mem | awk '{print $3}'
+ssh $vm8 free -m | grep Mem | awk '{print $3}'
+
+#scp $1 $dest:/root/
+

@@ -1,0 +1,4 @@
+tc qdisc del dev eth2 root
+tc qdisc add dev eth2 root handle 1: htb default 10
+tc class add dev eth2 parent 1: classid 1:10 htb rate 1000mbit
+tc qdisc add dev eth2 parent 1:10 handle 11: netem delay 90ms

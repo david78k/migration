@@ -1,0 +1,82 @@
+# script file for generating gnuplot script "script.p"
+data=$1
+prefix=${data%\.*}
+name=$prefix.p
+data=$prefix.dat
+figure=$prefix.png
+terminal=png
+
+if [ $# -lt 1 ]; then
+	echo "usage: $0 script-name [eps]"
+	exit 1
+fi
+
+if [ $# -eq 2 ]; then
+	figure=$prefix.eps
+	terminal="postscript eps enhanced solid color"
+fi
+
+cat >$name << GNUPLOT_EOF
+data = "$data"
+figure = "$figure"
+
+set terminal $terminal
+#set terminal png
+#set terminal postscript eps enhanced solid color
+#set terminal hp500c 300 tiff
+set output figure 
+set   autoscale                        # scale axes automatically
+
+unset log                              # remove any log-scaling
+unset label                            # remove any previous labels
+set xtic auto                          # set xtics automatically
+set ytic auto                          # set ytics automatically
+
+set tmargin 1;
+#set multiplot;
+set size 1,1;
+#set origin 0.0,0.5;
+
+# first plot
+#set title "bandwidth limit 50 MB/s"
+#set title "PI controller with bandwidth limit change from unlimited to 50 MB/s"
+set xlabel "# of VMs"
+set ylabel "migration time (sec)"
+#set y2tic auto
+set ytics nomirror
+#set y2tics
+set tics out
+set autoscale y
+#set autoscale y2;
+#set key title "migration speed 40MB/s"
+#set key 0.01,100
+set key left
+#set label "Yield Point" at 0.003,260
+#set arrow from 0.0028,250 to 0.003,280
+#set xr [0.0:0.022]
+#set y2r [0:700]
+#plot data using 1:(3600*\$1/\$2):xtic(1) axis x1y1 title 'throughput (VMs/hour)' with linespoints, \
+
+#plot data using 2 title 'run1' with linespoints
+
+#plot data using 1:6 title 'avg' with linespoints
+
+plot data using 5 title 'avg' with linespoints, \\
+data using 1 title 'run1' with linespoints, \\
+data using 2 title 'run2' with linespoints, \\
+data using 3 title 'run3' with linespoints, \\
+data using 4 title 'run4' with linespoints
+
+#data using 1:6 title '40MB/s' with linespoints, \\
+#data using 1:7 title '30MB/s' with linespoints, \\
+#data using 1:8 title '20MB/s' with linespoints, \\
+#data using 1:9 title '10MB/s' with linespoints
+
+#data using 1:(3600*\$1/\$4) title '75MB/s' with linespoints
+
+#data using 1:2 axis x2y2 title 'total migration time (s)' with linespoints
+
+# second plot
+#unset multiplot;
+
+GNUPLOT_EOF

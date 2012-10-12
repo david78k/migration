@@ -1,0 +1,18 @@
+vm=$1
+# dest=10.244.34.3
+dest=c11node8
+
+if [ $HOSTNAME == "c11node8" ]; then
+	dest=c11node7
+elif [ $HOSTNAME == "c11node9" ]; then
+	dest=c11node10
+elif [ $HOSTNAME == "c11node10" ]; then
+	dest=c11node9
+fi
+
+virsh migrate --live $vm qemu+ssh://$dest/system --verbose
+
+if [ $# == 2 ]; then
+	end=`date +%s`
+	echo finish real $end `expr $end - $2`
+fi

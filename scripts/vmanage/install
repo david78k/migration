@@ -1,0 +1,12 @@
+name=vm512
+
+virt-install \
+	--connect qemu:///system \
+	--virt-type kvm \
+	--name $name \
+	--ram 530 \
+	--os-variant=debiansqueeze \
+	--location http://ftp.us.debian.org/debian/dists/squeeze/main/installer-amd64/ \
+	--disk path=/var/lib/libvirt/images/nfs/$name.img,size=1 \
+	--extra-args console=ttyS0,115200 \
+	--nographics 

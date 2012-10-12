@@ -1,0 +1,44 @@
+# base location on the http server
+server="david78k@ssh.acis.ufl.edu"
+basedir="net/10.5.144.12/home/users/david78k"
+
+expdir=migration/wansim/1-1/controller/aimd/to40
+
+path=$server:/$basedir/$expdir/
+
+# data file *.dat
+file=$1
+prefix=${file%\.*}
+data=$file
+#data=$prefix.dat
+log=$prefix.log
+
+script=$prefix.p
+figures="$prefix.png $prefix.eps $prefix.tiff"
+trans=$prefix.tr
+webpage=$prefix.php
+net=$prefix.net
+all="$figures $data $trans $net $script $webpage"
+
+if [ $# -ne 1 ]; then
+	echo "usage: $0 [script prefix]"
+	exit 1
+fi
+
+#./gendata $log
+
+# make png
+./genscript $data
+gnuplot $script
+
+# make eps
+./genscript $data eps
+gnuplot $script
+
+./genphp $prefix
+
+#tar cf $prefix.tar $figures $data $script $webpage
+
+ssh $server "mkdir -p /$basedir/$expdir"
+scp $all $path
+

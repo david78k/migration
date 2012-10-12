@@ -1,0 +1,68 @@
+# migrate vms in parallel
+homedir=/root
+basedir=$homedir/vmanage
+exec=controller
+#exec=parallel
+
+delay=$1
+#limit=$2
+sampletime=$2
+round=$3
+loss=0.001
+
+title=${sampletime}r${round}
+#title=${delay}-r${round}
+
+wanem=c11node8
+if [ $HOSTNAME == "c11node8" ]; then
+        wanem=c11node7
+elif [ $HOSTNAME == "c11node9" ]; then
+        wanem=c11node10
+elif [ $HOSTNAME == "c11node10" ]; then
+        wanem=c11node9
+fi
+wanem=c11node28
+
+controller=$homedir/exp/controller/controller
+migrator=$homedir/vmanage/migrator
+
+webdir=1-1/sampletime/$delay/loss
+#logdir=$homedir/log/wansim/sampletime
+logdir=$homedir/log/wansim/$webdir
+#log=$logdir/$title.log
+
+#5-c-r1, 5-m-r1
+# 5cr1, 5mr1
+# 5c1, 5m1
+# 5r1c, 5r1m
+log1=$logdir/${title}c
+log2=$logdir/${title}m
+
+dstat=$logdir/$title.dstat
+
+genplot=$homedir/log/plot/genplot
+
+mkdir -p $logdir
+
+#ssh $wanem service tc start $limit $delay
+ssh $wanem service tc loss $delay $loss
+#ssh $wanem service tc delay 
+
+#dstat -nc --nocolor --noheaders > $dstat &
+
+mkdir -p $logdir
+
+logsave $log2 time -p $migrator &
+logsave $log1 time -p $controller $sampletime 
+#logsave $log time -p $basedir/$exec $vms
+
+wait
+
+sleep 3
+
+pgrep -fl dstat| awk '{print $1}' | xargs kill -9
+
+#service tc stop
+ssh $wanem service tc stop
+
+#$genplot $log $webdir

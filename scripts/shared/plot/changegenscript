@@ -1,0 +1,4 @@
+script=$1
+
+rm genscript
+ln -s $script genscript

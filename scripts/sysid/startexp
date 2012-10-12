@@ -1,0 +1,48 @@
+# another hosts to run this code
+hosts=( c11node8 c11node9 c11node10 )
+#hosts=( )
+
+expname=runexp
+
+basedir=/root/sysid
+filepath=$basedir/$expname
+
+# sleep time in seconds
+sleep_time=5
+
+# bandwidth limit throttled by tc 
+#limits=( 1000-40 )
+#limits=( 125 )
+limits=( 40 )
+#limits=( 125 100 75 50 )
+
+# number of vms to migrate
+vmss=( 5 )
+#vmss=( 1 2 4 6 7 8 )
+
+# starting run point
+run0=1
+
+for limit in ${limits[@]}
+do
+	for vms in ${vmss[@]}
+	do
+		cmd="$filepath $limit $vms"
+
+		# run 1
+		run=$run0
+		#echo $cmd run$run $(( run + 1 ))
+		$cmd $run
+
+		run=`expr $run "+" 1`
+	
+		# run 2-4
+		for host in ${hosts[@]}
+		do
+			sleep $sleep_time
+			#echo $host $cmd run$run $(( run + 1 ))
+			ssh $host $cmd $run
+			run=`expr $run "+" 1`
+		done	
+	done
+done

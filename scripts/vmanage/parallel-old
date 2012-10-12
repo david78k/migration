@@ -1,0 +1,51 @@
+# parallel migration
+basedir=/root/vmanage
+
+#prefix=$HOSTNAME
+prefix=vm512
+
+if [ $# -lt 1 ]; then
+	echo usage: $0 cwnd
+	exit
+fi
+
+# number of concurrent connections
+cwnd=$1
+
+from=1
+to=40
+
+# sleep time
+interval=0.1
+
+rvms=`virsh list | grep running | grep $prefix- | wc -l`
+vms=`virsh list | grep running | awk '{print $2}' | grep $prefix-` 
+#vms=`virsh list | grep running | awk '{print $2}' | grep $prefix- | head -$1` 
+
+#while [ $rvms -ne 0 ]
+#for (( i = $from ; i <= $to ; i++ ))
+#while [ -e $vms ]
+for vm in ${vms[@]}
+do
+        while [ $nvms -lt $cwnd ]
+	do
+	# number of vms in migration
+	nvms=`ps -ef | grep migrate | grep $prefix- | wc -l`
+#	echo rvms $rvms nvms $nvms
+
+        #if [ $nvms -lt $cwnd ]; then
+        	#vm=$prefix-$i
+       		time -p $basedir/migrate $vm &
+        else
+        	i=$((-- i))
+        fi
+
+        sleep $interval
+
+#        rvms=`virsh list | grep running | grep $prefix- | wc -l`
+
+	done
+done
+
+wait
+

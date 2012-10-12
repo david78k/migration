@@ -1,0 +1,56 @@
+# migrate vms in parallel
+homedir=/root
+basedir=$homedir/vmanage
+exec=controller
+#exec=parallel
+
+delay=$1
+loss=0
+sampletime=$2
+round=$3
+
+#title=${sampletime}r${round}
+title=0vms-r${round}
+#title=controller-r${round}
+
+#webdir=2-2/seq/$delay
+webdir=1-1/parallel/$delay
+logdir=$homedir/log/wansim/$webdir
+#log=$logdir/$title.log
+
+controller=$homedir/exp/controller/$exec
+migrator=$homedir/vmanage/migrator
+
+wanem=c11node28
+
+# 5r1c, 5r1.log (5r1m)
+logc=$logdir/${title}c
+log=$logdir/${title}.log
+
+dstat=$logdir/$title.dstat
+
+genplot=$homedir/log/plot/genplotconcurrency
+
+mkdir -p $logdir
+
+#ssh $wanem service tc start $limit $delay
+delay=`expr $delay / 2`
+ssh $wanem service tc loss $delay $loss
+
+dstat -nc --nocolor --noheaders > $dstat &
+
+mkdir -p $logdir
+
+logsave $log time -p $migrator &
+logsave $logc time -p $controller $sampletime 
+#logsave $log time -p $basedir/$exec $vms
+
+#wait
+
+sleep 3
+
+pgrep -fl dstat| awk '{print $1}' | xargs kill -9
+
+ssh $wanem service tc stop
+
+#$genplot $log $webdir

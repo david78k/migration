@@ -1,0 +1,31 @@
+# setmem <domain> <kilobytes> [--config] [--live] [--current]
+#if [ $# -lt 1 ]; then
+#	echo "usage: setmem size"
+#	exit
+#fi
+
+# 536MB - 24 = 512MB
+size=536
+mem=`expr $size '*' 1024`
+#mem=`expr $1 '*' 1024`
+#bw=`echo $1*8 | bc`
+
+if [ $# -eq 1 ]; then
+	virsh setmem $1 $mem
+	exit
+fi
+
+vms=`virsh list | grep running | awk '{print $2}' | grep vm512-`
+
+for vm in ${vms[@]}
+do
+	#echo virsh setmem $vm $mem
+	virsh setmem $vm $mem
+done
+
+to=1
+#for (( i = 1 ; i <= $to ; i++ ))
+#do
+	#echo migrate-setspeed vm512-$i $bw
+#	virsh migrate-setspeed vm512-$i $bw
+#done

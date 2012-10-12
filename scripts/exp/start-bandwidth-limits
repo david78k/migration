@@ -1,0 +1,63 @@
+# another hosts to run this code
+#hosts=( c11node8 c11node9 c11node10 )
+#hosts=( c11node8 )
+hosts=( )
+
+expname=parallel
+#expname=parallelexp
+
+basedir=/root/exp
+exppath=$basedir/$expname
+
+# sleep time in seconds
+sleep_time=60
+
+delays=( 180 )
+#delays=( 20 80 180 )
+
+# migration bandwidths set by KVM/QEMU
+limits=( 10 )
+#limits=( 40 30 20 10 )
+#limits=( 125 100 75 50 40 30 20 10 )
+
+# number of concurrent vms to migrate
+cwnds=( 1 )
+#cwnds=( 2 4 6 8 10 )
+#cwnds=( 1 2 4 6 8 10 12 14 16 18 20 )
+
+# starting run point
+run0=1
+
+for delay in ${delays[@]}
+do
+	for limit in ${limits[@]}
+	do
+		for cwnd in ${cwnds[@]}
+		do
+			cmd="$exppath $delay $limit $cwnd"
+
+			# run 1
+			run=$run0
+			#echo $cmd r$run $(( run + 1 ))
+			$cmd $run
+
+			run=`expr $run "+" 1`
+	
+			sleep $sleep_time
+
+			# run 2-4
+			for host in ${hosts[@]}
+			do
+				#echo $host $cmd r$run $(( run + 1 ))
+				ssh $host $cmd $run
+				run=`expr $run "+" 1`
+				sleep $sleep_time
+			done	
+		done
+	done
+	
+	# plot all with statistics
+	# vms total_migration_time avg_indiv_time variance stdev
+	# /genplotall
+	# genphp
+done

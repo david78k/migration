@@ -1,0 +1,22 @@
+vmnumber=$1
+hostname=vm512-$vmnumber
+
+# change eth0 to eth1
+echo "changine eth0 to eth1 and network address to $vmnumber ..."
+sleep 1
+sed -i "s/eth0/eth1/" /etc/network/interfaces
+#vi /etc/network/interfaces
+sed -i "s/252/$vmnumber/" /etc/network/interfaces
+cat /etc/network/interfaces
+
+#set hostname
+echo "setting hostname to $hostname ..."
+sleep 1
+sed -i "s/vm512/$hostname/" /etc/hostname
+hostname $hostname
+hostname
+
+echo "Rebooting ... "
+echo "After reboot run ./memtouch 474 4 & or just ./run"
+sleep 1
+reboot

@@ -1,0 +1,7 @@
+vms=`virsh list --all | grep "shut off" | awk '{print $2}' | grep vm512-`
+
+for vm in ${vms[@]}
+do
+	virsh start $vm 
+done
+

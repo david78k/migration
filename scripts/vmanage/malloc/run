@@ -1,0 +1,10 @@
+free -m | grep Mem | awk '{print $3}'
+gcc -o malloc malloc.c
+./malloc 400 
+free -m | grep Mem | awk '{print $3}'
+sleep 3
+free -m | grep Mem | awk '{print $3}'
+#sleep 10
+#free -m | grep Mem | awk '{print $3}'
+#skill malloc
+

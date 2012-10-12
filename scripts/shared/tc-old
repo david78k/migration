@@ -1,0 +1,136 @@
+#!/bin/bash
+#
+#  tc uses the following units when passed as a parameter.
+#  kbps: Kilobytes per second 
+#  mbps: Megabytes per second
+#  kbit: Kilobits per second
+#  mbit: Megabits per second
+#  bps: Bytes per second 
+#       Amounts of data can be specified in:
+#       kb or k: Kilobytes
+#       mb or m: Megabytes
+#       mbit: Megabits
+#       kbit: Kilobits
+#  To get the byte figure from bits, divide the number by 8 bit
+#
+TC=/sbin/tc
+#IF=eth0		    # Interface 
+IF=eth1		    # Interface 
+#IP=10.244.34.2     # Host IP
+IP=`hostname -i`     # Host IP
+DELAY=170ms         # delay 
+DNLD=118mbps         # DOWNLOAD Limit
+UPLD=118mbps         # UPLOAD Limit 
+U32="$TC filter add dev $IF protocol ip parent 1:0 prio 1 u32"
+ 
+if [ $# -eq 2 ]; then
+    UPLD=$2mbps
+    DNLD=$2mbps
+fi
+
+start() {
+
+    echo "$IP"
+
+#    $TC qdisc add dev $IF root netem delay $DELAY
+    $TC qdisc add dev $IF root handle 1: htb default 30
+    $TC class add dev $IF parent 1: classid 1:1 htb rate $DNLD
+    $TC class add dev $IF parent 1: classid 1:2 htb rate $UPLD
+    $U32 match ip dst $IP/32 flowid 1:1
+    $U32 match ip src $IP/32 flowid 1:2
+
+#    echo "delay = $DELAY"
+    echo "upload/download limit = $UPLD"
+
+}
+
+delay() {
+
+    $TC qdisc add dev $IF root netem delay $DELAY
+
+}
+
+stop() {
+
+    $TC qdisc del dev $IF root
+
+}
+
+restart() {
+
+    stop
+    sleep 1
+    start
+
+}
+
+show() {
+
+    $TC -s qdisc ls dev $IF
+
+}
+
+test() {
+
+#    wget http://cdimage.ubuntu.com/daily/current/precise-alternate-i386.iso
+     scp precise-alternate-i386.iso c11node9:/root/
+#     scp precise-alternate-i386.iso 10.244.34.7:/root/
+#    wget -o tc.log http://cdimage.ubuntu.com/daily/current/precise-alternate-i386.iso
+   # logsave tc.log wget http://cdimage.ubuntu.com/daily/current/precise-alternate-i386.iso
+
+}
+
+case "$1" in
+
+  start)
+
+    echo -n "Starting bandwidth shaping: "
+    start
+    echo "done"
+    ;;
+
+  stop)
+
+    echo -n "Stopping bandwidth shaping: "
+    stop
+    echo "done"
+    ;;
+
+  restart)
+
+    echo -n "Restarting bandwidth shaping: "
+    restart
+    echo "done"
+    ;;
+
+  show)
+    	    	    
+    echo "Bandwidth shaping status for $IF:\n"
+    show
+    echo ""
+    ;;
+
+   delay)
+
+    echo "Delaying $DELAY ..."
+    delay
+    echo "done"
+    ;;
+
+   test)
+
+    echo "Testing ..."
+    test
+    echo ""
+    ;;
+
+  *)
+
+    pwd=$(pwd)
+    echo "Usage: $(/usr/bin/dirname $pwd)/tc.bash {start|stop|restart|show|test}"
+    ;;
+
+esac
+
+exit 0
+

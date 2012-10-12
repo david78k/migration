@@ -1,0 +1,7 @@
+cp /root/shared/bashrc ~/.bashrc
+
+# any method below doesn't work
+. ~/.bashrc
+source ~/.bashrc
+. /root/.bashrc
+source /root/.bashrc

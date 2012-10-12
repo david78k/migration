@@ -1,0 +1,17 @@
+#cmd="/root/memtouch 455 4 &"
+
+maxmem=510
+
+vms=`virsh list | grep running | awk '{print $2}' | grep vm512-`
+
+echo "Press ctrl+c"
+
+for vm in ${vms[@]}
+do
+	mem=`ssh $vm free -m | grep Mem | awk '{print $3}'`
+	size=`expr $maxmem "-" $mem`
+	cmd="/root/memtouch $size 4 &"
+	echo $vm "$cmd"
+	ssh $vm "$cmd"
+done
+

@@ -1,0 +1,10 @@
+# odd numbered lines
+awk 'NR % 2' $1.dat > $1-odd.dat
+#awk 'NR % 2' $1.dat > $1-odd.dat
+#cat $1.dat | awk 'NR % 2' >> $1-odd.dat
+#cat $1 | grep real | awk '{print $NF}' | awk 'NR % 2' >> $1-odd.dat
+
+# even numbered lines
+#cat $1 | grep real | awk '{print $NF}' | awk '(NR + 1) % 2' >> $1-even.dat
+#cat $1 | grep real | awk '{print $NF}' | awk '(NR + 1) % 2' >> $1-even.dat
+

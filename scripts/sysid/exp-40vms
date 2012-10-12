@@ -1,0 +1,33 @@
+# base dir
+basedir=/root/sysid
+
+# number of vms to migrate concurrently
+vms0=$1
+
+# total number of vms migrated
+total_vms=0
+
+# number of vms running
+rvms=`virsh list | grep running | grep vm512- | wc -l`
+
+total_time=0
+
+# do until empty
+#while [ $rvms -ne 0 ] && [ $total_vms -lt 10 ]
+while [ $rvms -ne 0 ]
+do
+	vms=$vms0
+	comp=`echo "$rvms < $vms0" | bc -l`
+	if [ $comp -eq 1 ]; then
+		vms=$rvms
+	fi 
+
+	# migrate and log
+	time -p $basedir/concurrent $vms
+
+#	total_time=`echo "$total_time + $t" | bc -l`
+	total_vms=`expr ${total_vms/.*} "+" ${vms/.*}`
+
+	rvms=`virsh list | grep running | grep vm512- | wc -l`
+done
+

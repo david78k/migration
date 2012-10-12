@@ -1,0 +1,25 @@
+# migrate vms in parallel
+basedir=/root/vmanage
+
+vms=16
+round=5
+title=${vms}vms-r${round}
+
+webdir=1-1/parallel
+logdir=/root/log/lan/$webdir
+log=$logdir/$title.log
+dstat=$logdir/$title.dstat
+
+genplot=/root/log/plot/genplot
+
+exec=parallel
+
+dstat -nc --nocolor --noheaders > $dstat &
+
+logsave $log time -p $basedir/$exec $vms
+
+sleep 3
+
+pgrep -fl dstat| awk '{print $1}' | xargs kill -9
+
+$genplot $log $webdir
