@@ -1,0 +1,14 @@
+#pool window size
+pwnd=1
+vwnd=1
+
+# current pm id
+pm=1
+sampletime=5
+
+while [ true ]
+do
+	hosts="gra1 gra2 gra3" 
+	rocks run host $hosts "dstat -n -N eth1 $sampletime 1 | tail -1" collate=y	
+	sleep 1
+done
