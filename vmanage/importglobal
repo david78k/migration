@@ -1,0 +1,5 @@
+pmid=$1
+vmid=$2
+
+ssh gra$pmid /home/uf/vmanage/import gra$pmid-$vmid
+

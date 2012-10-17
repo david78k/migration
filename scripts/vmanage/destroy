@@ -1,0 +1,15 @@
+vms=`virsh list --all | grep "running" | awk '{print $2}' | grep vm512-`
+
+if [ $# -eq 2 ]; then
+	for (( i = $1 ; i <= $2 ; i++ ))
+	do
+		vm=vm512-$i
+	        #echo "./import vm512-$i"
+		virsh destroy $vm 
+	done
+else
+	for vm in ${vms[@]}
+	do
+		virsh destroy $vm 
+	done
+fi

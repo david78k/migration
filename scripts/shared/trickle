@@ -1,0 +1,13 @@
+#trickle -u virsh migrate 
+
+# only upload rate doesn't work
+#trickle -u 1000 scp precise-alternate-i386.iso c11node8:/root/
+
+# total = up + down
+#trickle -u 5000 -d 5000 scp precise-alternate-i386.iso c11node8:/root/
+#scp precise-alternate-i386.iso c11node8:/root/
+
+# test for download 10Kbps
+#trickle -u 10 -d 10 wget http://cdimage.ubuntu.com/daily/current/precise-alternate-i386.iso
+#wget http://cdimage.ubuntu.com/daily/current/precise-alternate-i386.iso
+#trickle -d 100000 wget http://cdimage.ubuntu.com/daily/current/precise-alternate-i386.iso

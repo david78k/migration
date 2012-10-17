@@ -1,0 +1,46 @@
+# migrate vms in parallel
+basedir=/root/vmanage
+exec=parallel
+
+delay=$1
+limit=$2
+vms=$3
+round=$4
+title=${vms}vms-r${round}
+
+wanem=c11node8
+if [ $HOSTNAME == "c11node8" ]; then
+        wanem=c11node7
+elif [ $HOSTNAME == "c11node9" ]; then
+        wanem=c11node10
+elif [ $HOSTNAME == "c11node10" ]; then
+        wanem=c11node9
+fi
+wanem=c11node28
+
+webdir=1-1/parallel/$delay/$limit
+logdir=/root/log/wansim/$webdir
+log=$logdir/$title.log
+dstat=$logdir/$title.dstat
+
+genplot=/root/log/plot/genplot
+
+mkdir -p $logdir
+
+delay=`expr $delay / 2`
+ssh $wanem service tc loss $delay $loss
+#ssh $wanem service tc delay 
+#service tc start $limit 
+
+dstat -nc --nocolor --noheaders > $dstat &
+
+logsave $log time -p $basedir/$exec $vms
+
+sleep 3
+
+pgrep -fl dstat| awk '{print $1}' | xargs kill -9
+
+#service tc stop
+ssh $wanem service tc stop
+
+#$genplot $log $webdir

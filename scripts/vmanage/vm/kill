@@ -1,0 +1,6 @@
+#skill malloc
+skill memtouch
+sleep 1
+free -m 
+#free -m | grep Mem | awk '{print $3}'
+

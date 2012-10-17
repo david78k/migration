@@ -1,0 +1,16 @@
+cmd="free -m | grep Mem | awk '{print $3}'"
+
+vms=`virsh list | grep running | awk '{print $2}' | grep vm512-`
+
+if [ $# -eq 1 ] 
+then
+	vm=vm512-$1
+	mem=`ssh $vm "free -m" | grep Mem | awk '{print "\t" $3 "\t" $2 "\t" $4 "\t" $5 "\t" $6}'`
+	echo "$vm $mem"
+else
+	for vm in ${vms[@]}
+	do
+		mem=`ssh $vm "free -m" | grep Mem | awk '{print "\t" $3 "\t" $2 "\t" $4 "\t" $5 "\t" $6}'`
+		echo "$vm $mem"
+	done
+fi

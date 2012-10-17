@@ -1,0 +1,57 @@
+# another hosts to run this code
+hosts=( c11node8 )
+#hosts=( )
+
+expname=sampletime
+#expname=controller
+
+homedir=/root
+basedir=$homedir/exp/basic
+exppath=$basedir/$expname
+
+delays=( 80 180 )
+#delays=( 20 80 180 )
+
+# sleep time in seconds
+sleep_time=60
+
+# sleep time in seconds
+#sampletimes=( 5 10 20 30 )
+sampletimes=( 5 10 20 30 45 60 90 120 )
+
+# starting run point
+run0=1
+
+for delay in ${delays[@]}
+do
+	for sampletime in ${sampletimes[@]}
+	do
+		#for cwnd in ${cwnds[@]}
+		#do
+			cmd="$exppath $delay $sampletime"
+
+			# run 1
+			run=$run0
+			#echo $cmd r$run $(( run + 1 ))
+			$cmd $run
+
+			run=`expr $run "+" 1`
+	
+			sleep $sleep_time
+
+			# run 2-4
+			for host in ${hosts[@]}
+			do
+				#echo $host $cmd r$run $(( run + 1 ))
+				ssh $host $cmd $run
+				run=`expr $run "+" 1`
+				sleep $sleep_time
+			done	
+		#done
+	done
+	
+	# plot all with statistics
+	# vms total_migration_time avg_indiv_time variance stdev
+	# /genplotall
+	# genphp
+done

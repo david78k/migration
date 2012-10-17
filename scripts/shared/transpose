@@ -1,0 +1,5 @@
+# for matrix in file
+sed -r '1{s/$/ /;s/ / \n/g};:a;$!N;s/$/ /;:b;s/\n(.*\n+)(\S+\s)/\2@!@\1/;tb;s/@!@/\n/g;${s/ \n/\n/g;s/\n+$//;q};ba' $1
+
+# for line
+#cat lim125.dat | sed ':a;N;$!ba;s/\n/ /g'

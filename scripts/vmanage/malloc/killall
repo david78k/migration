@@ -1,0 +1,10 @@
+cmd="skill memtouch"
+
+vms=`virsh list | grep running | awk '{print $2}' | grep vm512-`
+
+for vm in ${vms[@]}
+do
+#	echo $vm "$cmd"
+	ssh $vm "$cmd"
+done
+

@@ -1,0 +1,12 @@
+host=c11node8
+wanem=c11node28
+
+if [ $HOSTNAME == "c11node8" ]; then
+        host=c11node7
+elif [ $HOSTNAME == "c11node9" ]; then
+        host=c11node10
+elif [ $HOSTNAME == "c11node10" ]; then
+        host=c11node9
+fi
+
+route add -host $host netmask 0.0.0.0 gw $wanem

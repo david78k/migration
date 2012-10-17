@@ -1,0 +1,17 @@
+# extract vm names in migration progress
+vms=`ps -ef | grep migrate | awk '{print $11}'`
+vms=( vm-1 vm-2 vm-3 vm-4 )
+echo ${vms[@]}
+
+# total progress % sum
+totalprog=0
+
+for vm in ${vms[@]}
+do
+	file=/tmp/$vm
+	echo "Migration [  4 %]" > $file
+	prog=`grep % $file | tail -1 | awk '{print  $(NF - 1) }' | sed 's/\[//g'`	
+	#prog=5
+	totalprog=`expr $totalprog "+" $prog`
+	echo $totalprog
+done

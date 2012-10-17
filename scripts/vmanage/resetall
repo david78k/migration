@@ -1,0 +1,19 @@
+cmd="./reset 510"
+#cmd="./memtouch 400 4 &"
+
+vms=`virsh list | grep running | awk '{print $2}' | grep vm512-`
+
+for vm in ${vms[@]}
+do
+	#echo $vm "$cmd"
+#	printf "%s " $vm
+	#echo "Press ctrl+c"
+	
+	ssh $vm "$cmd" &
+
+done
+
+sleep 3
+
+pgrep -fl ssh | grep reset | awk '{print $1}' | xargs kill -9
+

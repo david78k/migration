@@ -1,0 +1,12 @@
+cmd="ps -ef | grep memtouch"
+#cmd="ps -ef | grep malloc"
+#cmd="./memtouch 400 4 &"
+
+vms=`virsh list | grep running | awk '{print $2}' | grep vm512-`
+
+for vm in ${vms[@]}
+do
+	#echo $vm "$cmd"
+	ssh $vm "$cmd"
+done
+

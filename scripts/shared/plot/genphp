@@ -1,0 +1,46 @@
+name=$1
+
+cat >$name.php << PHPGEN_EOF
+<html>
+<head>
+
+</head>
+<title>$name</title>
+<body>
+
+<h2>Single host controller AIMD $name (<a href=../>../UP</a>)</h2>
+
+<a href=$name.png><img src=$name.png></a>
+<a href=$name.tiff><img src=$name.tiff></a>
+<br />
+
+<a href=$name.eps>download $name.eps</a>
+<br />
+<a href=$name.tar>download all ($name.png, $name.dat, $name.p)</a>
+<br />
+
+<a href=$name.dat>$name.dat (data file)</a>
+<?php
+\$str = file_get_contents("$name.dat");
+echo "<pre>\$str</pre>";
+?>
+
+<a href=$name.p>$name.p (gnuplot script file)</a>
+<?php \$str = file_get_contents ("$name.p");
+echo "<pre>\$str</pre>";
+?>
+
+<a href=$name.log>$name-r*.log (log files)</a>
+
+<a href=$name.net>$name.net (dstat -cnm file)</a>
+<?php
+\$str = file_get_contents("$name.net");
+echo "<pre>\$str</pre>";
+?>
+
+<br />
+
+</body>
+</html>
+
+PHPGEN_EOF

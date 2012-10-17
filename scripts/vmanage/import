@@ -1,0 +1,29 @@
+if [ $# -lt 1 ]; then
+	echo usage: $0 vm-name
+	exit 1
+fi
+
+vm=$1
+ram=536
+source=vm512.img
+
+images=/var/lib/libvirt/images/nfs
+
+sourcepath=$images/$source
+
+vmpath=$images/$vm.img
+
+#if [ $HOSTNAME == "c11node9" ]; then
+#	images=$images/$HOSTNAME
+#fi
+
+echo "copying image $sourcepath to $vmpath ..."
+cp $sourcepath $vmpath
+
+virt-install \
+	--name $vm \
+	--ram $ram \
+	--disk $vmpath \
+	--import \
+        --nographics 
+

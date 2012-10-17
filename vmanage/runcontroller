@@ -1,0 +1,15 @@
+#if [ $# -lt 1 ]; then
+#	echo "usage: $0 sample_time"
+#	exit
+#fi
+
+begin=$1
+sampletime=5
+#sampletime=$1
+
+basedir=/nfs/vmanage
+
+$basedir/controller/controller-single $sampletime &
+
+$basedir/migrator $begin
+

@@ -1,0 +1,9 @@
+vm=$1
+
+virsh destroy $vm
+virsh undefine --managed-save $vm
+#virsh undefine $vm
+virsh list --all
+rm /var/lib/libvirt/images/nfs/$vm.img
+#ls -lh /var/lib/libvirt/images/nfs
+

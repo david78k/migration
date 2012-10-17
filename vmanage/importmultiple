@@ -1,0 +1,13 @@
+#pms=( 2 )
+pms=( 3 4 5 6 7 8 )
+#vms=( 8 )
+vms=( 2 3 4 5 6 7 8)
+
+for pm in ${pms[@]}
+do
+	for vm in ${vms[@]}
+	do
+		./import $pm $vm	
+	done
+done
+

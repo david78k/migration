@@ -1,0 +1,106 @@
+# generate a plot for all bandwidths in a directory
+#delays=( 20 )
+delays=( 20 80 180 )
+limit=125
+#vmss=( 1 )
+vmss=( 1 2 4 6 8 10 12 14 16 18 20 40 )
+rounds=( 5 6 )
+round0=5
+
+#basedir=/root/log/wansim/1-1/parallel/$limit
+basedir=/root/log/wansim/1-1/parallel
+genplot=/root/log/plot/genplot
+final=$basedir/index.dat
+
+rm $final
+
+# for each bandwidth limit
+for delay in ${delays[@]}
+do
+	echo "Processing $delay directory..."
+	
+	dir=$basedir/$delay
+
+	# take action on each file. $dir store current dir name
+	echo $dir
+  
+	# /125/20
+	#webdir="1-1/parallel/$limit/$delay"
+	webdir="1-1/parallel/$delay"
+	all=$dir/index.log
+	rm $all
+	#echo "#vms total_time average_time varaince stdev" > $all
+	
+	for vms in ${vmss[@]}
+	do
+		# get #total time in the last line >> vms.log
+		#for each round
+	#	echo $vms-r1.log
+#		echo $vms-r2.log
+		vmslog=$dir/$vms.log
+
+		echo $vmslog
+		#rm $vmslog
+		echo "Processing $vms.log ..."
+
+		for round in ${rounds[@]}; do
+			rdat=$dir/${vms}vms-r${round}.dat 
+			rlog=$dir/${vms}vms-r${round}.log 
+
+			#if [ ! -f $rdat ]; then
+				$genplot $rlog $webdir
+			#fi
+
+			line=`tail -1 $rdat | sed "s/#//g"`
+			if [ $round -eq $round0 ]; then
+				echo -n "$line " > $vmslog 
+			else
+				echo -n "$line " >> $vmslog 
+				#tail -1 $rdat >> $vmslog
+			fi
+		done
+		echo "" >> $vmslog
+		cat $vmslog
+		
+		if [ $delay -eq 20 ]; then
+			echo -n "$vms " >> $all
+			#echo -n "$vms " >> $final
+		fi
+	
+		# average vms-r1 and vms-r2
+		awk 'NF {s=0; for(i=1;i<=NF;i++) s+=$i;printf("%.2f\n", s/NF)}' $vmslog >> $all
+
+	done
+
+	echo "" >> $all
+	cat $all
+
+	#merge two files
+	tmp=/tmp/merged
+	/root/shared/merge $final $all > $tmp	
+	cp $tmp $final
+done
+  
+cat $final
+
+# plot all
+#genplotall=/root/log/plot/genplotall
+#webdir="1-1/parallel/$limit"
+#$genplotall $final $webdir
+
+# do something for all subdirectories
+function sub {
+    cd "$1"
+    #do something in this dir
+    for d in * .[!.]* ..?*; do
+        cd "$1"
+        test -d "$1/$d" && sub "$1/$d"
+	echo "$1/$d"
+    done
+}
+
+#sub $basedir
+#list "`pwd`"
+
+#FILES=/root/log/wansim/1-1/parallel/20/*
+
