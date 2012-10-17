@@ -1,0 +1,6 @@
+device=eth1
+
+# remove
+tc qdisc del dev $device root netem delay 200ms
+#tc qdisc del dev eth0 root
+

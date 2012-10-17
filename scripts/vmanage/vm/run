@@ -1,0 +1,11 @@
+maxmem=$1
+
+mem=`free -m | grep Mem | awk '{print $3}'`
+#free -m | grep Mem | awk '{print "\t" $3 "\t" $2 "\t" $4 "\t" $5 "\t" $6}'
+size=`expr $maxmem "-" $mem`
+
+./memtouch $size 4 &
+
+#sleep 3
+#free -m | grep Mem | awk '{print "\t" $3 "\t" $2 "\t" $4 "\t" $5 "\t" $6}'
+

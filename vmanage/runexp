@@ -1,0 +1,37 @@
+cpms=( 1 2 4 8 )
+#cpms=( 2 4 8 )
+#cvms=( 1 2 4 8 )
+cvms=( 0 )
+#rounds=( 3 4 )
+#delays=( 20 )
+delays=( 80 180 )
+sleeptime=300
+
+for delay in ${delays[@]}
+do
+	for cpm in ${cpms[@]}
+	do
+		for cvm in ${cvms[@]}
+		do
+			cmd="/nfs/vmanage/exp $cpm $cvm $delay"
+		#	if [ $cvm == 0 ]; then
+		#		cmd="/nfs/vmanage/startcontroller $cpm $delay"
+		#	fi	
+
+			$cmd 1 
+			sleep $sleeptime
+
+			ssh gr121 $cmd 2
+			sleep $sleeptime
+
+			$cmd 3 
+			#./exp $cpm $cvm 3 $delay
+			#./exp $cvm $round
+			sleep $sleeptime
+
+			ssh gr121 $cmd 4
+			#ssh gr121 /nfs/vmanage/exp $cpm $cvm 4 $delay
+			sleep $sleeptime
+		done	
+	done
+done

@@ -1,0 +1,9 @@
+nexthost=c11node9
+
+echo $HOSTNAME
+free -m
+
+if [ $HOSTNAME != "c11node7" ]; then
+	ssh $nexthost /root/exp/sshtest
+fi
+

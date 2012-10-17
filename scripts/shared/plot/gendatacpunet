@@ -1,0 +1,21 @@
+# dstat data
+data=$1
+
+prefix=${data%\.*}
+output=$prefix.net
+#output=$prefix.dat
+
+if [ $# -lt 1 ]; then
+	echo "usage: $0 [dstat data]"
+	exit 1
+fi
+
+#head -2 $data > $output
+more +3 $data | sed 's/- /0/g' | sed 's/M/000000/g' | sed 's/k/000/g' > $output
+#sed 's/M/000000/g' $data | sed 's/k/000/g' >> $output
+#sed 's/M/000000/g' $data | sed 's/k/000/g' 
+
+vi $output
+#head $output
+
+echo $output is generated

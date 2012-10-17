@@ -1,0 +1,26 @@
+#migrate from frontend
+pmid=$1
+vmid=$2
+
+src=gra$pmid
+dest=grb$pmid
+vm=$src-$vmid
+
+hostname=`hostname -s`
+
+if [ $hostname == "gr121" ]; then
+	src=grb$pmid
+	dest=gra$pmid
+fi
+
+time -p ssh $src virsh migrate --live $vm qemu+ssh://$dest/system --verbose
+#time -p ssh grb$pmid virsh migrate --live gra$pmid-$vmid qemu+ssh://gra$pmid/system --verbose
+#time -p ssh gra$pmid virsh migrate --live gra$pmid-$vmid qemu+ssh://grb$pmid/system --verbose
+
+# record the finishing time
+if [ $# == 3 ]; then
+        end=`date +%s`
+        echo finish $end `expr $end - $3`
+        #echo finish real $end `expr $end - $3`
+fi
+

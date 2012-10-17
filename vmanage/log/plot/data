@@ -1,0 +1,16 @@
+# generate data
+input=$1
+prefix=${input%\.*}
+output=$prefix.dat
+
+net=$prefix.net
+
+grep real $input | awk '{print $NF}' > $output
+#grep summary $input | awk '{print $2,$3,$4,$5,$6}' > $output
+
+# add comment # at the beginning of the last line
+sed -i '$s/^/#/g' $output
+
+echo $output is generated
+
+#vi $output

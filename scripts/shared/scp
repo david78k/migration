@@ -1,0 +1,17 @@
+#dest=c11node8
+dest=david78k@ssh.acis.ufl.edu
+
+basedir=/net/10.5.144.12/home/users/david78k
+target=migration/
+
+path=$dest:/$basedir/$target
+
+scp $1 $path
+
+#scp -r $1 $dest:$PWD/
+#scp $1 $dest:$PWD/
+
+#scp $1 david78k@ssh.acis.ufl.edu:/net/10.5.144.12/home/users/david78k/migration/
+#scp $1 david78k@ssh.acis.ufl.edu:/net/10.5.144.12/home/users/david78k/migration/controller
+#scp $1 david78k@ssh.acis.ufl.edu:/net/10.5.144.12/home/users/david78k/migration/
+

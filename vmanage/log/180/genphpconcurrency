@@ -1,0 +1,59 @@
+path=$1
+dir=$(dirname "$path")
+#echo $dir
+file=$(basename "$path")
+#echo $file
+name=${file%\.*}
+#echo $name
+
+cat >$dir/$name.php << PHPGEN_EOF
+<html>
+<head>
+
+</head>
+<title>$name</title>
+<body>
+
+<h2>WAN simulation $name (<a href=../>../UP</a>)</h2>
+
+<a href=$name.png><img src=$name.png></a>
+<a href=$name-detail.png><img src=$name-detail.png></a>
+<a href=$name-before.png><img src=$name-before.png></a>
+<a href=$name-net.png><img src=$name-net.png></a>
+<br />
+
+<a href=$name.eps>download $name.eps</a>, 
+<a href=$name-detail.eps>download $name-detail.eps</a>
+<a href=$name-before.eps>download $name-before.eps</a>
+<a href=$name-net.eps>download $name-net.eps</a>
+<br />
+<a href=$name.tar>download all ($name.png, $name.dat, $name.p)</a>
+<br />
+
+<a href=$name.dat>$name.dat (data file)</a>
+<?php
+\$str = file_get_contents("$name.dat");
+echo "<pre>\$str</pre>";
+?>
+
+<a href=$name.dstat>$name.dstat (network raw data file)</a>, 
+<a href=$name-net.dat>$name-net.dat (network modified data file)</a>
+<?php
+\$str = file_get_contents("$name.dstat");
+echo "<pre>\$str</pre>";
+?>
+
+<a href=$name.log>$name-r*.log (log files)</a>
+
+<a href=$name.net>$name.net (dstat -cnm file)</a>
+<?php
+\$str = file_get_contents("$name.net");
+echo "<pre>\$str</pre>";
+?>
+
+<br />
+
+</body>
+</html>
+
+PHPGEN_EOF

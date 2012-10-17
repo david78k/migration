@@ -1,0 +1,88 @@
+# usage: genplot file webdir
+basedir=/root/vmanage/log/plot
+
+# base location on the http server
+server="david78k@ssh.acis.ufl.edu"
+webdir="net/10.5.144.12/home/users/david78k/migration/wansim"
+
+expdir=$2
+#expdir=2-2/sysid
+
+path=$server:/$webdir/$expdir/
+
+genscript=genscriptcontroller
+genscriptime=genscriptsingle
+# data file *.dat
+# data file *.log
+file=$1
+prefix=${file%\.*}
+#data=$file
+vwnd=$prefix.vwnd
+data=$prefix.dat
+dstat=$prefix.dstat
+net=$prefix-net.dat
+#log=$prefix.log
+log=${prefix}c
+logm=${prefix}m
+
+script=$prefix.p
+netscript=$prefix-net.p
+figures="$prefix.png $prefix.eps $prefix.dstat $prefix-net.png $prefix-net.eps $prefix-vwnd.png $prefix-vwnd.eps"
+webpage=$prefix.php
+#net=$prefix.net
+all="$figures $vwnd $data $dstat $net $webpage"
+
+if [ $# -lt 2 ]; then
+	echo "usage: $0 file webdir"
+	exit 
+fi
+
+#=============== VM windows ====================
+# make dat
+#if [ ! -e $data ]; then
+	#$basedir/gendata $log
+	grep finish $log | awk '{print $3}' > $vwnd
+#fi
+$basedir/$genscript $vwnd
+gnuplot $script
+
+# make eps
+$basedir/$genscript $vwnd eps
+gnuplot $script
+
+#=============== migration time ====================
+	$basedir/gendata $logm
+	#grep real $logm 
+
+# make png
+$basedir/$genscriptime $data
+gnuplot $script
+
+# make eps
+$basedir/$genscriptime $data eps
+gnuplot $script
+
+#=============== dstat for cpu net ====================
+# make *-net.dat
+#if [ ! -e $net ]; then
+        $basedir/gendatacpunet $dstat
+#fi
+
+# make net png
+$basedir/genscriptcpunet $net
+gnuplot $netscript
+
+# make net eps
+$basedir/genscriptcpunet $net eps
+gnuplot $netscript
+
+#=============== web php upload ====================
+$basedir/genphpcontroller $prefix
+
+#tar cf $prefix.tar $figures $data $script $webpage
+
+echo uploading to "$path" ...
+
+ssh $server "mkdir -p /$webdir/$expdir"
+scp $all $path
+

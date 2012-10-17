@@ -1,0 +1,28 @@
+# .bashrc
+
+# User specific aliases and functions
+
+alias ls='ls -h --color=auto'
+alias free='free -m'
+alias df='df -h'
+alias rm='rm -rf'
+alias cp='cp -R'
+alias rebash='source ~/.bashrc'
+alias resource='source ~/.bashrc'
+alias vi='vim'
+alias vlist='virsh list --all'
+alias vrunning='virsh list | grep running | nl'
+alias showdstat="pgrep -fl dstat"
+alias killdstat="pgrep -fl dstat| awk '{print $1}' | xargs kill -9"
+
+export GDFONTPATH=/usr/share/fonts/liberation
+export GNUPLOT_DEFAULT_GDFONT=LiberationSans-Regular
+export GNUTERM=dumb 
+
+#export GDFONTPATH=/usr/share/fonts/dejavu
+#export GNUPLOT_DEFAULT_GDFONT=DejaVuSans
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi

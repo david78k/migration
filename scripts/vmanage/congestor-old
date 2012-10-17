@@ -1,0 +1,41 @@
+# make congestion at specified times in seconds
+# intervals in seconds
+#times=( 2 2 2 2 2 )
+times=( 50 50 50 )
+#times=( 100 100 100 )
+#times=( 100 150 150 )
+
+# delays in ms
+delays=( 20 80 180 )
+#delays=( 20 80 180 80 20 )
+
+# loss rates in %
+losses=( 0 0 0 0 0 )
+
+wanem=c11node28
+
+total=0
+
+tvms0=`virsh list --all | grep running | wc -l`
+echo $tvms0
+
+for (( i = 0 ; i < ${#delays[@]} ; i++ )); do
+
+	delay=`expr ${delays[$i]} / 2`
+
+	echo ${total}sec, ${times[$i]}sec, ${delay}ms, ${losses[$i]}%
+	#echo ${total}sec, ${times[$i]}sec, ${delays[$i]}ms, ${losses[$i]}%
+
+	ssh $wanem service tc loss ${delay} ${losses[$i]}
+
+	sleep ${times[$i]}
+	total=`expr $total + ${times[$i]}`
+
+	ssh $wanem service tc stop
+done
+
+#total vms migrated
+tvms=`virsh list --all | grep running | wc -l`
+echo $tvms
+mvms=`expr $tvms0 - $tvms`
+echo total $mvms

@@ -1,0 +1,2 @@
+# add comment # at the beginning of the last line
+sed -i '$s/^/#/g' $1

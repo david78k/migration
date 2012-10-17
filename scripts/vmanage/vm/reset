@@ -1,0 +1,5 @@
+skill memtouch
+
+sleep 3
+
+./run $1

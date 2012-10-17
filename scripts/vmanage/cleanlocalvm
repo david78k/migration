@@ -1,0 +1,8 @@
+vm=$1
+
+virsh destroy $vm
+virsh undefine $vm
+virsh list --all
+rm /var/lib/libvirt/images/$vm.img
+ls -lh /var/lib/libvirt/images
+

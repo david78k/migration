@@ -1,0 +1,28 @@
+#cvms=( 8 )
+cvms=( 1 2 4 8 )
+#rounds=( 3 4 )
+delays=( 80 180 )
+sleeptime=300
+
+for delay in ${delays[@]}
+do
+	for cvm in ${cvms[@]}
+	do
+#	for round in ${rounds[@]}
+#	do
+		./exp $cvm 1 $delay
+		sleep $sleeptime
+
+		ssh gr121 /nfs/vmanage/exp $cvm 2 $delay
+		sleep $sleeptime
+
+		./exp $cvm 3 $delay
+		#./exp $cvm $round
+		sleep $sleeptime
+
+		ssh gr121 /nfs/vmanage/exp $cvm 4 $delay
+		sleep $sleeptime
+		#ssh gr121 /nfs/vmanage/exp $cvm $round
+#	done	
+	done
+done

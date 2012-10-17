@@ -1,0 +1,21 @@
+input=$1
+prefix=${input%\.*}
+output=$prefix.net
+final=final.dat
+trans=$prefix.trans
+avg=$prefix.avg
+
+/root/shared/transpose $input > $trans
+/root/shared/average $trans > $avg
+/root/shared/merge $trans $avg > $output
+
+echo $output is generated
+
+cp $output $final
+
+vi $final
+echo $final is generated
+
+awk '{print $6}' $final > final.avg
+echo final.avg is generated
+vi final.avg

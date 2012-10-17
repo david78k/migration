@@ -1,0 +1,76 @@
+# usage: genplot file webdir
+basedir=/root/vmanage/log/plot
+
+# base location on the http server
+server="david78k@ssh.acis.ufl.edu"
+webdir="net/10.5.144.12/home/users/david78k/migration/wansim"
+#webdir="net/10.5.144.12/home/users/david78k/migration/lan"
+
+expdir=$2
+#expdir=2-2/sysid
+#expdir=migration/lan/1-1/aimd
+
+path=$server:/$webdir/$expdir/
+
+genscript=genscriptparallelindiv
+# data file *.dat
+# data file *.log
+file=$1
+prefix=${file%\.*}
+#data=$file
+data=$prefix.dat
+dstat=$prefix.dstat
+net=$prefix-net.dat
+log=$prefix.log
+
+script=$prefix.p
+netscript=$prefix-net.p
+figures="$prefix.png $prefix.eps $prefix.dstat"
+#figures="$prefix.png $prefix.eps $prefix.dstat $prefix-net.png $prefix-net.eps"
+webpage=$prefix.php
+all="$figures $data $dstat $script $webpage"
+#all="$figures $data $dstat $net $script $webpage"
+
+if [ $# -lt 2 ]; then
+	echo "usage: $0 file webdir"
+	exit 
+fi
+
+#=============== VMs ====================
+# make dat
+#if [ ! -e $data ]; then
+#	$basedir/gendata $log
+#fi
+
+# make png
+$basedir/$genscript $data
+gnuplot $script
+
+# make eps
+$basedir/$genscript $data eps
+gnuplot $script
+
+#=============== dstat for cpu net ====================
+# make *-net.dat
+#if [ ! -e $net ]; then
+#        $basedir/gendatacpunet $dstat
+#fi
+
+# make net png
+#$basedir/genscriptcpunet $net
+#gnuplot $netscript
+
+# make net eps
+#$basedir/genscriptcpunet $net eps
+#gnuplot $netscript
+
+#=============== web php upload ====================
+$basedir/genphp $prefix
+
+#tar cf $prefix.tar $figures $data $script $webpage
+
+echo uploading to "$path" ...
+
+ssh $server "mkdir -p /$webdir/$expdir"
+scp $all $path
+

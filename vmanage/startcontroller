@@ -1,0 +1,26 @@
+#if [ $# -lt 1 ]; then
+#	echo "usage: $0 sample_time"
+#	exit
+#fi
+
+basedir=/nfs/vmanage
+logdir=$basedir/log
+cpms=$1
+delay=$2
+round=$3
+logfile=$logdir/$delay/$cpms-0-r$round
+
+sampletime=5
+#sampletime=$1
+
+wanem=gr122
+
+mkdir -p $logdir
+
+delay=`expr $delay / 2`
+ssh $wanem service tc delay $delay
+
+logsave $logfile time -p $basedir/runcontroller
+#logsave $logfile time -p $basedir/runcontroller
+
+ssh $wanem service tc stop

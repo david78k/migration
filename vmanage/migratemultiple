@@ -1,0 +1,74 @@
+pms=( 4 )
+#pms=( 1 2 3 4 5 6 7 8 )
+#vms=( 1 2 )
+#vms=( 1 2 3 4 5 6 7 8)
+
+if [ $# -lt 2 ]; then
+	echo "usage: $0 cpms cvms"
+	exit
+fi
+
+# concurrent PMs
+pmfrom=1
+pmto=8
+cpms=$1
+
+vmfrom=1
+vmto=8
+cvms=$2
+
+begin=`date +%s`
+echo finish $begin 0
+
+basedir=/nfs/vmanage
+
+vm=$from
+host=`hostname -s`
+
+#for pm in ${pms[@]}
+for (( pm = $pmfrom ; pm <= $pmto ; ))
+do
+	pmend=`expr $pm + $cpms - 1`
+
+	if [ $cvms == 0 ]; then
+		for (( i = $pm ; i <= $pmend ; i++ ))
+	       	do
+			src=gra$i
+			if [ $host == "gr121" ]; then
+				src=grb$i
+			fi
+			ssh $src $basedir/runcontroller	$begin &
+			#$basedir/controller/controlle-single	
+		done
+		wait
+	else
+		for (( vm = $vmfrom ; vm <= $vmto ; ))
+		do
+			vmend=`expr $vm + $cvms - 1`
+			for (( i = $pm ; i <= $pmend ; i++ ))
+	       		do
+				echo pm$i	
+	
+				for (( j = $vm ; j <= $vmend ; j++ ))
+				do
+					echo -n " vm$j" 	
+			       		$basedir/migrate $i $j $begin &
+				done
+				
+				echo 
+
+			done
+
+			wait
+
+			echo 
+
+			vm=`expr $vm + $cvms`
+
+		done
+	fi
+
+	pm=`expr $pm + $cpms`
+	#pm=$pmend
+done
+

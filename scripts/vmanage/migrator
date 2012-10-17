@@ -1,0 +1,60 @@
+# parallel migration
+basedir=/root/vmanage
+
+#prefix=$HOSTNAME
+prefix=vm512
+
+#if [ $# -lt 1 ]; then
+#	echo usage: $0 cwnd
+#	exit
+#fi
+
+# sleep time
+interval=0.1
+
+# number of concurrent connections
+#cwnd=$1
+cwnd=1
+cfile=/tmp/cwnd
+
+begin=`date +%s`
+echo finish real $begin 0
+
+rvms=`virsh list | grep running | grep $prefix- | wc -l`
+#vms=`virsh list | grep running | awk '{print $2}' | grep $prefix- | head -$1` 
+
+#echo rvms $rvms
+
+vms=`virsh list | grep running | awk '{print $2}' | grep $prefix-` 
+
+for vm in ${vms[@]}
+do
+	# get congestion window
+	cwnd=`cat $cfile`
+	
+	# outstanding vms in migration
+	nvms=`ps -ef | grep migrate | grep $prefix- | wc -l`
+
+       	while [ $nvms -ge $cwnd ]
+	do
+       		sleep $interval
+
+		# number of vms in migration
+		nvms=`ps -ef | grep migrate | grep $prefix- | wc -l`
+		cwnd=`cat $cfile`
+	done
+
+        #if [ $nvms -lt $cwnd ]; then
+        	#vm=$prefix-$i
+
+        echo rvms $rvms nvms $nvms cwnd $cwnd $vm 
+
+       	time -p $basedir/migrate $vm $begin &
+
+#	vms=`virsh list | grep running | awk '{print $2}' | grep $prefix-` 
+        rvms=`virsh list | grep running | grep $prefix- | wc -l`
+done
+wait
+
+echo 1 > $cfile
+

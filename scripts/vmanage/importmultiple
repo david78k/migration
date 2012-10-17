@@ -1,0 +1,12 @@
+#if argc < 1
+#printf "usage: %s from to", argv[0]
+#endif
+
+for (( i = $1 ; i <= $2 ; i++ ))
+do
+	echo "./import vm512-$i"
+	./import vm512-$i 
+done
+
+#wait
+

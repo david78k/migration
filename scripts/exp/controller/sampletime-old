@@ -1,0 +1,21 @@
+#
+sampletime=$1
+round=$2
+
+homedir=/root
+
+controller=$homedir/exp/controller/controller
+migrator=$homedir/vmanage/migrator
+
+logdir=$homedir/log/wansim/sampletime
+# 5-c-r1, 5-m-r1
+# 5cr1, 5mr1
+# 5c1, 5m1 
+# 5r1c, 5r1m
+log1=$logdir/${sampletime}${round}c
+log2=$logdir/${sampletime}${round}m
+
+mkdir -p $logdir 
+
+logsave $log1 time -p $controller $sampletime &
+logsave $log2 time -p $migrator

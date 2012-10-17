@@ -1,0 +1,18 @@
+#mv /home/uf/.bashrc /home/uf/.bashrc.bak
+mv /root/.bashrc /root/.bashrc.bak
+ln -s /nfs/shared/.bashrc /root/.bashrc
+source /root/.bashrc
+. /root/.bashrc
+
+yum install vim
+
+ln -s /nfs/images /var/lib/libvirt/images/nfs
+
+cp /home/uf/.ssh/id_rsa ~/.ssh/
+cat /nfs/ssh/gr120/id_rsa.pub >> ~/.ssh/authorized_keys
+#cat /nfs/ssh/gr121/id_rsa.pub >> ~/.ssh/authorized_keys
+
+service libvirtd restart
+
+hostname=`hostname -s`
+#/nfs/vmanage/import $hostname-1
