@@ -4,11 +4,27 @@ vwnd=1
 
 # current pm id
 pm=1
-sampletime=5
+sampletime=3
+totalbw=0
 
 while [ true ]
 do
-	hosts="gra1 gra2 gra3" 
-	rocks run host $hosts "dstat -n -N eth1 $sampletime 1 | tail -1" collate=y	
+	for (( i = 1; i < pwnd; i++))
+	do
+		pm=pm+1
+		#if remaingVMsOnPM == 0
+		#pm
+	done
+
+	hosts="gra1 gra2 gra3"
+	bw=`rocks run host $hosts "dstat -n -N eth1 $sampletime 1 | tail -1 | awk '{print $2}' " collate=y`
+	echo $bw
+	bw=`echo $bw | awk '{print $3, $6, $9}' `
+	echo $bw
+
+	#totalbw=totalbw+bw	
+	#avg=totalbw/vwnd
+	#echo $totalbw
+	#rocks run host $hosts "virsh migrate --live qemu+ssh://$dest/system--verbose"
 	sleep 1
 done
