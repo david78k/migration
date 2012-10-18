@@ -1,0 +1,23 @@
+#
+NUM_PM=5
+pwnd=4
+pm=2
+pmptr=2
+
+while (( $pm < $NUM_PM ))
+do
+for (( i = 0; i < $pwnd; i ++ )) 
+do
+	#pmptr=$pmptr+$i 	
+	pmptr=`expr $pm + $i `		
+	echo $pmptr
+
+	host=gra$pmptr
+	echo $host
+	rocks run host $host "virsh list | tail -1"
+	#rocks run host $host "virsh migrate --live"
+	
+done
+	pm=`expr $pm + $pwnd`
+	sleep 3
+done
