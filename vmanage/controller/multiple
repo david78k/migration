@@ -1,12 +1,33 @@
+#!/bin/bash
 #pool window size
+NUM_PMs=8
 pwnd=1
 vwnd=1
 
 # current pm id
 pm=1
 sampletime=3
-totalbw=0
+#totalbw=0
 
+totalvms=64
+vms=0
+
+#function getBandwidth(){
+getBandwidth(){
+	local totalbw=0
+	for (( i = 1; i <= $pwnd; i++))
+	do
+		host=gra$i
+		bw=`rocks run host $host "dstat -n -N eth1 $sampletime 1" | tail -1 | awk '{print $2}' | sed 's/B//g;s/M/000000/g;s/k/000/g' `
+	#	echo $host=$bw
+		totalbw=`expr $totalbw + $bw`
+	done
+	echo $totalbw
+	#pwnd=`expr $pwnd + 1`	
+	#return $totalbw
+}
+
+#while [ $vms -lt $totalvms ]
 while [ true ]
 do
 	for (( i = 1; i < pwnd; i++))
@@ -17,14 +38,16 @@ do
 	done
 
 	hosts="gra1 gra2 gra3"
-	bw=`rocks run host $hosts "dstat -n -N eth1 $sampletime 1 | tail -1 | awk '{print $2}' " collate=y`
-	echo $bw
-	bw=`echo $bw | awk '{print $3, $6, $9}' `
-	echo $bw
+	totalbw=`getBandwidth`
+	#totalbw=`rocks run host $hosts "dstat -n -N eth1 $sampletime 1 | tail -1 | awk '{print $2}' " collate=y`
+	echo tatalbw=$totalbw,
+	#bw=`echo $bw | awk '{print $3, $6, $9}' `
+	#echo $bw
 
 	#totalbw=totalbw+bw	
 	#avg=totalbw/vwnd
 	#echo $totalbw
 	#rocks run host $hosts "virsh migrate --live qemu+ssh://$dest/system--verbose"
+	pwnd=`expr $pwnd + 1`	
 	sleep 1
 done
