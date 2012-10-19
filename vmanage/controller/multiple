@@ -18,13 +18,17 @@ getBandwidth(){
 	for (( i = 1; i <= $pwnd; i++))
 	do
 		host=gra$i
-		bw=`rocks run host $host "dstat -n -N eth1 $sampletime 1" | tail -1 | awk '{print $2}' | sed 's/B//g;s/M/000000/g;s/k/000/g' `
+		#bw=`rocks run host $host "dstat -n -N eth1 $sampletime 1" | tail -1 | awk '{print $2}' | sed 's/B//g;s/M/000000/g;s/k/000/g' `
 	#	echo $host=$bw
-		totalbw=`expr $totalbw + $bw`
+		#totalbw=`expr $totalbw + $bw`
+	#	totalbw=$(( $totalbw + $bw ))
 	done
-	echo $totalbw
+
+	bw=`rocks run host "dstat -n -N eth1 $sampletime 1 | tail -1" | awk '{print $2}' | sed 's/B//g;s/M/000000/g;s/k/000/g' `
+	
+	echo $bw
+	#echo $totalbw
 	#pwnd=`expr $pwnd + 1`	
-	#return $totalbw
 }
 
 #while [ $vms -lt $totalvms ]
@@ -49,5 +53,5 @@ do
 	#echo $totalbw
 	#rocks run host $hosts "virsh migrate --live qemu+ssh://$dest/system--verbose"
 	pwnd=`expr $pwnd + 1`	
-	sleep 1
+	#sleep 1
 done
