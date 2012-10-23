@@ -1,16 +1,19 @@
 #
 NUM_PMs=8
+NUM_VMs=8
 pwnd=4
 vwnd=1
 pmstart=1
-pm=2
-pmptr=2
+pm=1
 nextPM=1
 nextVM=()
 totalPMs=$NUM_PMs
 cvms=0 # current oustanding VMs in migration
 rvms=0 # number of remaining VMs
 offset=0 # pm offset
+vwndpipe=/tmp/vwndpipe
+vwndfile=/tmp/vwnd
+done=()
 
 for (( i = 1; i <= totalPMs; i ++ )); do
 	host=gra$i
@@ -18,9 +21,15 @@ for (( i = 1; i <= totalPMs; i ++ )); do
 	rvms=$(( rvms + vms ))
 	echo gra$i, vms=$vms, rvms = $rvms
 	nextVM[i]=1
+	done[i]=false
 done
 
-rvms=8
+#mkfifo $vwndpipe
+#echo 1 > $vwndpipe
+echo 1 > $vwndfile
+read vwnd <$vwndfile
+#vwnd=`read line <$vwndpipe`
+#rvms=8
 while (( $rvms > 0 ))
 do
 	echo rvms = $rvms
@@ -36,11 +45,18 @@ do
 			vms=`ssh $host ps -ef | grep migrate | wc -l`
 			cvms=$(( cvms + vms ))
 		done
+		read vwnd <$vwndfile
 		echo vwnd=$vwnd, cvms=$cvms
 	done
 
 	#rocks run host $host "virsh list | tail -1"
 	pm=`expr $pmstart + \( $offset % $pwnd \)`
+	echo pm = $pm
+	while (( done[$pm] )); do
+		pm=$(( pm + 1))
+	done
+	echo pm = $pm
+
 	host=gra$pm
 	dest=grb$pm
 	vm=gra$pm-${nextVM[$pm]}
@@ -50,8 +66,12 @@ do
 
 	rvms=$(( rvms - 1 ))
 	offset=$(( offset + 1 ))
+	nextVM[$pm]=$(( nextVM[$pm] + 1 ))
+	if (( nextVM[$pm] == NUM_VMs )); then
+		done[$pm]=true;
+	fi
 
-	sleep 2
+	sleep 1
 done
 
 wait
