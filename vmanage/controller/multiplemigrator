@@ -6,18 +6,21 @@ pmstart=1
 pm=2
 pmptr=2
 nextPM=1
+nextVM=()
 totalPMs=$NUM_PMs
 cvms=0 # current oustanding VMs in migration
 rvms=0 # number of remaining VMs
+offset=0 # pm offset
 
 for (( i = 1; i <= totalPMs; i ++ )); do
 	host=gra$i
 	vms=`ssh $host "virsh list | grep running | wc -l"`
 	rvms=$(( rvms + vms ))
 	echo gra$i, vms=$vms, rvms = $rvms
+	nextVM[i]=1
 done
 
-
+rvms=8
 while (( $rvms > 0 ))
 do
 	echo rvms = $rvms
@@ -37,15 +40,19 @@ do
 	done
 
 	#rocks run host $host "virsh list | tail -1"
+	pm=`expr $pmstart + \( $offset % $pwnd \)`
 	host=gra$pm
 	dest=grb$pm
-	vm=nextVM[$pm]
+	vm=gra$pm-${nextVM[$pm]}
 	#rocks run host $host "virsh migrate --live $vm qemu+ssh://$dest/system --verbose" &
-	#nextPM=$(( (nextPM + 1 ) * pwnd ))
-	#nextPM=$(( nextPM + 1 ))
-	#nextPM=$(( nextPM % pwnd ))
-	nextPM=`expr \( $nextPM + 1 \) % $pwnd`
-	echo migrate $vm from $host to $dest, pmstart=$pmstart, nextPM=$nextPM
-	echo nextPM = $nextPM
-	sleep 3
+	echo migrate $vm from $host to $dest 
+	echo pmstart = $pmstart, pm = $pm 
+
+	rvms=$(( rvms - 1 ))
+	offset=$(( offset + 1 ))
+
+	sleep 2
 done
+
+wait
+
