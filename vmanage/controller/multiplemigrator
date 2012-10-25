@@ -1,7 +1,7 @@
 #
 NUM_PMs=8
 NUM_VMs=8
-pwnd=4
+pwnd=1
 vwnd=1
 pmstart=1
 pm=1
@@ -23,16 +23,27 @@ for (( i = 1; i <= totalPMs; i ++ )); do
 	nextVM[$i]=1
 	#done[$i]=false
 	done[$i]=0
+	if (( $vms == 0 )); then
+		done[$i]=1
+		if (( pm == pmstart )); then 
+			pmstart=$(( pmstart + 1 ))
+		fi
+	fi
 done
 
 #mkfifo $vwndpipe
 #echo 1 > $vwndpipe
-echo 1 > $vwndfile
+echo 5 > $vwndfile
 read vwnd <$vwndfile
 #vwnd=`read line <$vwndpipe`
 #rvms=18
 while (( $rvms > 0 ))
 do
+	pwnd=$vwnd
+	if (( $vwnd > $NUM_PMs )); then
+		pwnd=$NUM_PMs
+	fi
+
 	echo rvms = $rvms
 	# wait (block) until not full
 	while [ $vwnd -le $cvms ]
@@ -52,11 +63,21 @@ do
 
 	#rocks run host $host "virsh list | tail -1"
 	pm=`expr $pmstart + \( $offset % $pwnd \)`
-	echo pm = $pm
+	echo -n "pm = $pm, "
 	while (( done[$pm] )); do
-		pm=$(( pm + 1))
+		#pm=$(( pm + 1))
+		pm=`expr \( 1 + $pm \) % $pwnd`
+		#if (( pm == NUM_PMs )); then 
+		#	pm=$pmstart
+		#fi
+		if (( pm == 0 )); then
+			echo pm=0, pwnd=$pwnd
+			pm=$pmstart
+			offset=0
+		#	pm=$(( pm + 1 ))
+		fi
 	done
-	echo pm = $pm
+#	echo pm = $pm
 
 	host=gra$pm
 	dest=grb$pm
@@ -72,15 +93,20 @@ do
 		done[$pm]=1;
 		echo $pm is done
 		if (( pm == pmstart )); then
-			pmstart=$(( pmstart + 1 ))
+			#if (( pmstart != NUM_VMs )); then
+				pmstart=$(( pmstart + 1 ))
+			#fi
 			offset=0
 		fi
+	#	if (( pm == NUM_PMs )); then
+	#		pm=pmstart
+	#	fi
 		#pm=$(( pm + 1 ))
 	fi
-
-	nextVM[$pm]=$(( nextVM[$pm] + 1 ))
-
-	sleep 1
+	#els
+		nextVM[$pm]=$(( nextVM[$pm] + 1 ))
+	#fi
+#	sleep 1
 done
 
 wait
