@@ -20,8 +20,9 @@ for (( i = 1; i <= totalPMs; i ++ )); do
 	vms=`ssh $host "virsh list | grep running | wc -l"`
 	rvms=$(( rvms + vms ))
 	echo gra$i, vms=$vms, rvms = $rvms
-	nextVM[i]=1
-	done[i]=false
+	nextVM[$i]=1
+	#done[$i]=false
+	done[$i]=0
 done
 
 #mkfifo $vwndpipe
@@ -29,7 +30,7 @@ done
 echo 1 > $vwndfile
 read vwnd <$vwndfile
 #vwnd=`read line <$vwndpipe`
-#rvms=8
+#rvms=18
 while (( $rvms > 0 ))
 do
 	echo rvms = $rvms
@@ -66,10 +67,18 @@ do
 
 	rvms=$(( rvms - 1 ))
 	offset=$(( offset + 1 ))
-	nextVM[$pm]=$(( nextVM[$pm] + 1 ))
+
 	if (( nextVM[$pm] == NUM_VMs )); then
-		done[$pm]=true;
+		done[$pm]=1;
+		echo $pm is done
+		if (( pm == pmstart )); then
+			pmstart=$(( pmstart + 1 ))
+			offset=0
+		fi
+		#pm=$(( pm + 1 ))
 	fi
+
+	nextVM[$pm]=$(( nextVM[$pm] + 1 ))
 
 	sleep 1
 done
