@@ -33,7 +33,7 @@ done
 
 #mkfifo $vwndpipe
 #echo 1 > $vwndpipe
-echo 5 > $vwndfile
+echo 8 > $vwndfile
 read vwnd <$vwndfile
 #vwnd=`read line <$vwndpipe`
 #rvms=18
@@ -44,7 +44,7 @@ do
 		pwnd=$NUM_PMs
 	fi
 
-	echo rvms = $rvms
+#	echo rvms = $rvms
 	# wait (block) until not full
 	while [ $vwnd -le $cvms ]
 	do
@@ -62,50 +62,57 @@ do
 	done
 
 	#rocks run host $host "virsh list | tail -1"
+	echo pmstart=$pmstart, pm=$pm, offset=$offset, pwnd=$pwnd
 	pm=`expr $pmstart + \( $offset % $pwnd \)`
+	if (( pm == NUM_PMs )); then
+		offset=0
+	fi
+	if (( pm > NUM_PMs )); then
+#		echo pm is over $NUM_PMs
+		pm=$pmstart
+		offset=0
+	fi
+	#pm=`expr $pmstart + \( $offset % $NUM_PMs \)`
 	echo -n "pm = $pm, "
 	while (( done[$pm] )); do
-		#pm=$(( pm + 1))
 		pm=`expr \( 1 + $pm \) % $pwnd`
-		#if (( pm == NUM_PMs )); then 
-		#	pm=$pmstart
-		#fi
+		echo while pm=$pm
 		if (( pm == 0 )); then
 			echo pm=0, pwnd=$pwnd
 			pm=$pmstart
 			offset=0
-		#	pm=$(( pm + 1 ))
 		fi
 	done
-#	echo pm = $pm
 
+	if (( pm > NUM_PMs )); then
+#		echo pm is over $NUM_PMs
+		pm=$pmstart
+	#	offset=0
+	fi
 	host=gra$pm
 	dest=grb$pm
 	vm=gra$pm-${nextVM[$pm]}
 	#rocks run host $host "virsh migrate --live $vm qemu+ssh://$dest/system --verbose" &
 	echo migrate $vm from $host to $dest 
-	echo pmstart = $pmstart, pm = $pm 
+	echo pmstart = $pmstart, pm = $pm, offset=$offset
 
 	rvms=$(( rvms - 1 ))
 	offset=$(( offset + 1 ))
+	#offset=$(( (offset + 1) % pwnd ))
+	#if (( pm == NUM_PMs )); then
+	#	offset=0
+	#fi
 
 	if (( nextVM[$pm] == NUM_VMs )); then
 		done[$pm]=1;
 		echo $pm is done
 		if (( pm == pmstart )); then
-			#if (( pmstart != NUM_VMs )); then
-				pmstart=$(( pmstart + 1 ))
-			#fi
+			pmstart=$(( pmstart + 1 ))
 			offset=0
 		fi
-	#	if (( pm == NUM_PMs )); then
-	#		pm=pmstart
-	#	fi
-		#pm=$(( pm + 1 ))
 	fi
-	#els
-		nextVM[$pm]=$(( nextVM[$pm] + 1 ))
-	#fi
+	nextVM[$pm]=$(( nextVM[$pm] + 1 ))
+	echo =================
 #	sleep 1
 done
 
