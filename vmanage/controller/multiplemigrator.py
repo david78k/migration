@@ -6,8 +6,8 @@ import socket
 from threading import Thread
 from collections import deque
 
-vwnd = 4
-pwnd = 4
+vwnd = 8
+pwnd = 8
 
 cmd = "rocks run host gra1 \"dstat -n 1 1 | tail -1\" collate=y | awk '{print $2}'"
 #bandwidth = os.system(cmd)
@@ -16,6 +16,7 @@ cmd = "rocks run host gra1 \"dstat -n 1 1 | tail -1\" collate=y | awk '{print $2
 pmstart = 0
 offset = 0
 rvms = 64
+origin = time.time()
 
 def gethostname():
         hostname = socket.gethostname()
@@ -40,31 +41,37 @@ def getCVMs():
 	#cmd = "ps -ef | grep migrate | grep live"
 	cvms = os.popen(cmd).read()
 	cvms = int(cvms) - 1
-	print "cvms =", cvms
+	#print "cvms =", cvms
 	return cvms		
 
+# migrate pm-vm
 def migrate(i, j):
 #        hostname = gethostname()
-        #print hostname
 	src = "gra" + str(i)
 	dest = "grb" + str(i)
         vm = "gra" + str(i) + "-" + str(j)
         if (hostname == "gr121"):
-        #if (hostname is "gr121"):
                 src = "grb" + str(i)
                 dest = "gra" + str(i)
 
         cmd = "ssh " + src + " \"virsh migrate --live " + vm + " qemu+ssh://" + dest + "/system\""
-        #cmd = "ssh gra1 \"virsh migrate --live gra1-1 qemu+ssh://grb1/system\""
         print cmd
-        #os.popen(cmd)
+	start = time.time()
+        os.popen(cmd)
+	end = time.time()
+	elapsed = end - start
+	total_elapsed = end - origin
+	print "finish", elapsed, total_elapsed
 
+sleep_interval = 0.1
+
+origin = time.time()
 i = 0
 #while ( pms ):
 while ( rvms > 0 ):
 	cvms = getCVMs()
 	while (cvms >= vwnd):
-		time.sleep(1)
+		time.sleep(sleep_interval)
 		cvms = getCVMs()
 	vms = pms[i]
 	while ( not vms ):
@@ -75,20 +82,14 @@ while ( rvms > 0 ):
 	
 	vm = vms.pop(0)
 
-	src = "gra" + str(i + 1)
-	dest = "grb" + str(i + 1)
-	cmd = "ssh " + src + " \"virsh migrate --live " + src + "-" + str(vm) + " qemu+ssh://" + dest + "/system\""
-	#print cmd
-#	migrate(vm)
         t = Thread(target=migrate, args=(i + 1, vm))
         t.start()
-#	os.popen(cmd)
 	
 	if ( not vms and i == pmstart):
 		pmstart += 1
 	#	pms.pop(i)
 	#print "i=", i, ", len(pms)=", len(pms), ", vms=", vms
-	print "pm =", i, ", vm =", vm, ", rvms =", rvms, ", pmstart =", pmstart
+	print "pwnd=", pwnd, ", vwnd=", vwnd, ", pm=", i, ", vm=", vm, ", rvms=", rvms, ", pmstart=", pmstart
 	#print "pm =", i, ", vm =", vm, ", offset =", offset
 	
 	i += 1	
