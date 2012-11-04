@@ -55,7 +55,7 @@ start() {
 }
 
 delay() {
-
+	stop
     $TC qdisc add dev $IF0 root netem delay $DELAY
     $TC qdisc add dev $IF1 root netem delay $DELAY
 
