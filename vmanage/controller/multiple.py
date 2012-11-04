@@ -8,7 +8,6 @@ vwnd = 1
 pwnd = 1
 sampletime = 5
 sleep_interval = 0.1
-#offset = 0
 NUM_PMs = 8
 rvms = 64
 origin = time.time()
@@ -29,11 +28,13 @@ for i in xrange(1, 9):
 	print i, pms[i - 1]
 print
 
-def getCVMs():
+def getCVMs(i):
 	cvms = 0
-	cmd = "ps -ef | grep migrate | grep live | wc -l"
-	#cmd = "ps -ef | grep migrate | grep live"
+	cmd = "ps -ef | grep migrate | grep live | grep gra" + str(i) + " | wc -l"
+	#cmd = "ps -ef | grep migrate | grep live | wc -l"
 	cvms = os.popen(cmd).read()
+	if not cvms:
+		return 0
 	cvms = int(cvms) - 1
 	#print "cvms =", cvms
 	return cvms		
@@ -51,7 +52,7 @@ def migrate(i, j):
         cmd = "ssh " + src + " \"virsh migrate --live " + vm + " qemu+ssh://" + dest + "/system\""
         #print cmd
 	start = time.time()
-        #os.popen(cmd)
+        os.popen(cmd)
 	end = time.time()
 	elapsed = end - start
 	total_elapsed = end - origin
@@ -68,10 +69,10 @@ def migrate_multiple():
 	rvms = getRVMs()
 	i = 0
 	while ( rvms > 0 ):
-		cvms = getCVMs()
+		cvms = getCVMs(i + 1)
 		while (cvms >= vwnd):
 			time.sleep(sleep_interval)
-			cvms = getCVMs()
+			cvms = getCVMs(i + 1)
 		vms = pms[i]
 		while ( not vms ):
 			i += 1
@@ -79,11 +80,14 @@ def migrate_multiple():
 				i = pmstart
 			vms = pms[i]
 	
+		#for (j = 0; j < vwnd; j ++):
+		#for j in range(0, vwnd):
 		vm = vms.pop(0)
-
-	        t = Thread(target=migrate, args=(i + 1, vm))
+	       	t = Thread(target=migrate, args=(i + 1, vm))
      		t.start()
-	
+		#	if not vms:
+		#		break
+			
 		if ( not vms and i == pmstart):
 			pmstart += 1
 	#	pms.pop(i)
@@ -97,14 +101,6 @@ def migrate_multiple():
 			i = pmstart
 		rvms -= 1
 		#time.sleep(1)
-
-#	print
-#	print pms	
-
-#	print getCVMs()
-#	print getRVMs()
-
-#migrate_multiple()
 
 def getBandwidth():
 	total = 0
@@ -146,6 +142,7 @@ while True:
 	                #vwnd=$(( vwnd * alpha ))
 		else:
 			pwnd += 1
+			vwnd += 1
 			congested = False
 	else:	
 	        if ( avg < avgprev ):
