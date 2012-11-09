@@ -1,0 +1,12 @@
+cpms=1
+cvms=1
+run=2
+logfile=log/20-80-180/$cpms-$cvms-r$run
+#logfile=log/20-80-180/$run
+
+./congestor &
+
+#time -p ./multiple-without-controller.py $cpms $cvms
+logsave $logfile time -p ./multiple-without-controller.py $cpms $cvms
+
+wait

@@ -1,15 +1,13 @@
 # make congestion at specified times in seconds
 # intervals in seconds
 # repeat a pattern until there are no VMs to migrate
-times=( 2 2 2 )
-#times=( 30 30 30 30 30 30)
-#times=( 50 50 50 )
-#times=( 100 100 100 )
+#times=( 10 10 10 )
+#times=( 2 2 2 )
+times=( 50 50 50 )
 
 # delays in ms
 #delays=( 180 80 20 )
 delays=( 20 80 180 )
-#delays=( 20 80 180 180 80 20 )
 
 # loss rates in %
 #losses=( 0 0 0 0 0 0 )
@@ -20,7 +18,6 @@ wanem=gr122
 total=0
 
 rvms=`rocks run host "virsh list" | grep running | wc -l`
-#tvms0=`virsh list --all | grep running | wc -l`
 
 while [ $rvms -gt 0 ]; do
         for (( i = 0 ; i < ${#delays[@]} ; i++ )); do
@@ -29,7 +26,6 @@ while [ $rvms -gt 0 ]; do
                 delay=`expr ${delays[$i]} / 2`
 
                 echo ${total}sec, ${times[$i]}sec, ${delay}ms 
-                #echo ${total}sec, ${times[$i]}sec, ${delay}ms, ${losses[$i]}%
 
                 ssh $wanem service tc delay ${delay} 
                 #ssh $wanem service tc loss ${delay} ${losses[$i]}
@@ -38,7 +34,6 @@ while [ $rvms -gt 0 ]; do
                 total=`expr $total + ${times[$i]}`
 
 		rvms=`rocks run host "virsh list" | grep running | wc -l`
-                #rvms=`virsh list --all | grep running | wc -l`
                 if [ $rvms -eq 0 ]; then
                         break
                 fi
@@ -47,9 +42,6 @@ done
 
 ssh $wanem service tc stop
 
-# total migration time
-#
-#
 # #total vms migrated
 # #tvms=`virsh list --all | grep running | wc -l`
 # #echo $tvms
