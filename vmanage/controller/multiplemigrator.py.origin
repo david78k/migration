@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import sys
 import os
 import subprocess
@@ -37,48 +35,6 @@ for i in xrange(1, 9):
 	print i, pms[i - 1]
 print
 
-# get VMs to migrate
-vms = [ ("1-1", 512),
-	("1-2", 512),
-	("1-3", 1024),
-	("1-4", 2048),
-	("2-1", 512)
- ]
-def getVMs():
-	vms = []
-	npms = 8
-	for i in xrange(1, npms + 1):
-		pmname = "gra" + str(i)
-		j = 1
-		cmd = "ssh " + pmname + " \"virsh list | grep running\" | awk '{print $2}'"
-		pvms = os.popen(cmd).read().strip()
-		#print pvms
-		vmlist = pvms.split("\n")
-		for vmname in vmlist:
-			vmname = vmname.strip()
-			#print vmname,
-			#print vmname.strip()
-		
-			#vmname = pmname + "-" + str(j)
-		#cmd = "ssh gra" + str(i) + " \"virsh dommemstat gra" + str(i) + "-" + str(j) + " | grep actual\" "
-			cmd = "ssh " + pmname + " \"virsh dommemstat " + vmname + " | grep actual\" | awk '{print $2}'"
-		#	print cmd 
-			mem = os.popen(cmd).read().strip()
-			#print mem
-			vms.append((pmname, vmname, int(mem)))
-#	vms.append("1-1")
-	return vms
-
-#list = sorted(student_tuples, key=lambda student: student[2])   # sort by age
-vms = getVMs()
-list = sorted(vms, key=lambda vm: vm[2])   # sort by memory size
-
-#print list
-	
-for item in list:
-	print item
-
-# get the number of concurrent VMs in transit
 def getCVMs():
 	cvms = 0
 	cmd = "ps -ef | grep migrate | grep live | wc -l"
@@ -111,8 +67,6 @@ sleep_interval = 0.1
 
 origin = time.time()
 i = 0
-
-'''
 #while ( pms ):
 while ( rvms > 0 ):
 	cvms = getCVMs()
@@ -152,4 +106,4 @@ print
 print pms	
 
 print getCVMs()
-'''
+
