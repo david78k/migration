@@ -8,8 +8,17 @@ import socket
 from threading import Thread
 from collections import deque
 
+# total number of physical machines (pms)
+npms = 8
+# vm window
 vwnd = 8
+# pm window
 pwnd = 8
+
+src_prefix = "gra"
+dest_prefix = "grb"
+
+sleep_interval = 0.1
 
 cmd = "rocks run host gra1 \"dstat -n 1 1 | tail -1\" collate=y | awk '{print $2}'"
 
@@ -37,9 +46,10 @@ print
 # get VMs to migrate
 def getVMs():
 	vms = []
-	npms = 8
+	#npms = 8
 	for i in xrange(1, npms + 1):
-		pmname = "gra" + str(i)
+		pmname = src_prefix + str(i)
+		#pmname = "gra" + str(i)
 		j = 1
 		cmd = "ssh " + pmname + " \"virsh list | grep running\" | awk '{print $2}'"
 		pvms = os.popen(cmd).read().strip()
@@ -50,14 +60,12 @@ def getVMs():
 			cmd = "ssh " + pmname + " \"virsh dommemstat " + vmname + " | grep actual\" | awk '{print $2}'"
 			mem = os.popen(cmd).read().strip()
 			vms.append((i, pmname, vmname, int(mem)))
-#	vms.append("1-1")
 	return vms
 
 # get the number of concurrent VMs in transit
 def getCVMs():
 	cvms = 0
 	cmd = "ps -ef | grep migrate | grep live | wc -l"
-	#cmd = "ps -ef | grep migrate | grep live"
 	cvms = os.popen(cmd).read()
 	cvms = int(cvms) - 1
 	#print "cvms =", cvms
@@ -65,7 +73,6 @@ def getCVMs():
 
 # migrate pm-vm
 def migrate(i, j):
-#        hostname = gethostname()
 	src = "gra" + str(i)
 	dest = "grb" + str(i)
         vm = "gra" + str(i) + "-" + str(j)
@@ -82,7 +89,10 @@ def migrate(i, j):
 	total_elapsed = end - origin
 	print "finish", elapsed, total_elapsed
 
-sleep_interval = 0.1
+if (hostname == "gr121"):
+	tmp = src_prefix
+	src_prefix = dest_prefix
+	dest_prefix = tmp
 
 origin = time.time()
 i = 0
@@ -99,9 +109,8 @@ for vminfo in list:
 	mem = vminfo[3]
 	print pmid, pm, vm, mem
 
-	dest = "grb" + str(pmid)
-#	if (hostname == "121"):
-		#dest = 
+	src = src_prefix + str(pmid)
+	dest = dest_prefix + str(pmid)
         cmd = "ssh " + pm + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
         print cmd
         os.popen(cmd)
