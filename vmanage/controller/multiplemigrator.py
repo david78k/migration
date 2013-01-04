@@ -58,8 +58,9 @@ def getVMs():
 			vmname = vmname.strip()
 		
 			cmd = "ssh " + pmname + " \"virsh dommemstat " + vmname + " | grep actual\" | awk '{print $2}'"
-			mem = os.popen(cmd).read().strip()
-			vms.append((i, pmname, vmname, int(mem)))
+			if vmname:
+				mem = os.popen(cmd).read().strip()
+				vms.append((i, pmname, vmname, int(mem)))
 	return vms
 
 # get the number of concurrent VMs in transit
@@ -89,6 +90,13 @@ def migrate(i, j):
 	total_elapsed = end - origin
 	print "finish", elapsed, total_elapsed
 
+def migrate_hetero(pmid, vm):
+	src = src_prefix + str(pmid)
+	dest = dest_prefix + str(pmid)
+        cmd = "ssh " + pm + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
+        print cmd
+	os.popen(cmd)
+
 if (hostname == "gr121"):
 	tmp = src_prefix
 	src_prefix = dest_prefix
@@ -112,8 +120,12 @@ for vminfo in list:
 	src = src_prefix + str(pmid)
 	dest = dest_prefix + str(pmid)
         cmd = "ssh " + pm + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
-        print cmd
-        os.popen(cmd)
+#        print cmd
+#        os.popen(cmd)
+
+        t = Thread(target=migrate_hetero, args=(pmid, vm))
+        t.start()
+	time.sleep(sleep_interval)
 
 #while ( pms ):
 '''
