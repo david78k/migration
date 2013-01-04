@@ -5,13 +5,14 @@ import os
 import subprocess
 import time
 import socket
+import threading
 from threading import Thread
 from collections import deque
 
 # total number of physical machines (pms)
 npms = 8
 # vm window
-vwnd = 8
+vwnd = 2
 # pm window
 pwnd = 8
 
@@ -25,7 +26,11 @@ cmd = "rocks run host gra1 \"dstat -n 1 1 | tail -1\" collate=y | awk '{print $2
 pmstart = 0
 offset = 0
 rvms = 64
+# current VMs in transit
+cvms = 0
 origin = time.time()
+
+cond = threading.Condition()
 
 def gethostname():
         hostname = socket.gethostname()
@@ -96,6 +101,11 @@ def migrate_hetero(pmid, vm):
         cmd = "ssh " + pm + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
         print cmd
 	os.popen(cmd)
+	global cvms
+	cond.acquire()
+	cvms = cvms - 1
+	cond.notify()
+	cond.release()
 
 if (hostname == "gr121"):
 	tmp = src_prefix
@@ -125,49 +135,15 @@ for vminfo in list:
 
         t = Thread(target=migrate_hetero, args=(pmid, vm))
         t.start()
+	cvms = cvms + 1
 	time.sleep(sleep_interval)
 
-#while ( pms ):
-'''
-while ( rvms > 0 ):
-	cvms = getCVMs()
-	while (cvms >= vwnd):
-		time.sleep(sleep_interval)
-		cvms = getCVMs()
-	vms = pms[i]
-	while ( not vms ):
-		i += 1
-		if ( i == 8 ):
-			i = pmstart
-		vms = pms[i]
-	
-	vm = vms.pop(0)
-
-        t = Thread(target=migrate, args=(i + 1, vm))
-        t.start()
-	
-	if ( not vms and i == pmstart):
-		pmstart += 1
-	#	pms.pop(i)
-	#print "i=", i, ", len(pms)=", len(pms), ", vms=", vms
-	print "pwnd=", pwnd, ", vwnd=", vwnd, ", pm=", i, ", vm=", vm, ", rvms=", rvms, ", pmstart=", pmstart
-	#print "pm =", i, ", vm =", vm, ", offset =", offset
-	
-	i += 1	
-	if (i == pwnd):
-		i = pmstart
-	if (i == 8):
-		i = pmstart
-	rvms -= 1
-	#offset += 1
-	#if ( offset == pwnd ):
-#		offset = 0
-
-print
-print pms	
-
-print getCVMs()
-'''
+	cond.acquire()
+	while True:
+		if (cvms < vwnd):
+			break
+		cond.wait()
+	cond.release()
 
 # migrate VMs with homogeneous memeory size
 '''
