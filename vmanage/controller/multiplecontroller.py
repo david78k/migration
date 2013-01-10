@@ -87,55 +87,63 @@ def migrate(i, j):
 	total_elapsed = end - origin
 	print "finish", elapsed, total_elapsed
 
+# migrate a vm with a pm id
 def migrate_hetero(pmid, vm):
+	global cvms, cond
 	src = src_prefix + str(pmid)
 	dest = dest_prefix + str(pmid)
-        cmd = "ssh " + pm + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
+        cmd = "ssh " + src + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
         print cmd
+
+	start = time.time()
 	os.popen(cmd)
-	global cvms
+
+	#time.sleep(5)
+
 	cond.acquire()
+	#print 'cvms',cvms
 	cvms = cvms - 1
 	cond.notify()
 	cond.release()
 
-def migrate_multiple():
-	global cvms
+	end = time.time()
+	elapsed = end - start
+	total_elapsed = end - origin
+	print "finish", elapsed, total_elapsed
+
+# migrate multiple vms
+def migrate_multiple(list):
+	global cvms, vwnd, cond
+	i = 0
 	for vminfo in list:
+		i += 1
 		#print vminfo
 		pmid = vminfo[0]
 		pm = vminfo[1]
 		vm = vminfo[2]
 		mem = vminfo[3]
-		print pmid, pm, vm, mem
-
-		src = src_prefix + str(pmid)
-		dest = dest_prefix + str(pmid)
-	        cmd = "ssh " + pm + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
-#        print cmd
-#        os.popen(cmd)
+		print '[',i, pm, vm, mem,']'
 
 	        t = Thread(target=migrate_hetero, args=(pmid, vm))
-#	        t.start()
+	        t.start()
 
 		cvms = cvms + 1
 		time.sleep(sleep_interval)
-'''
 		cond.acquire()
 		while True:
 			if (cvms < vwnd):
 				break
 			cond.wait()
 		cond.release()
-'''
 
 def control():
+	global vwnd
 	totalprev = 0
 	avgprev = 0
 	congested = False
 
 	mt = Thread(target=migrate_multiple, args=())
-	mt.start()
+	#mt.start()
 
 	print "rvms total avg pwnd vwnd totalvms"
 	while True:
@@ -178,44 +186,43 @@ def control():
         	avgprev = avg
 	
 def main(argv):
-	sched = "LF"
-	sched = "SF"
-#sched = "rand"
+	sched = "lf"
+	sched = "sf"
+	#sched = "rand"
 
 	global vwnd
 
 	inputfile = ''
 	outputfile = ''
 
+	filename = os.path.basename(__file__)
+	usage = filename + ' -s <schedule> -v <vmwindow>' 
+
 	try:
-		opts, args = getopt.getopt(argv,"hs:v:d:",["sfile=","vfile=","dfile="])
+		opts, args = getopt.getopt(argv,"hs:v:d:",["sched=","vwnd=","delay="])
 		#opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
 	except getopt.GetoptError:
-		print 'test.py -i <inputfile> -o <outputfile>'
+		print usage
 		sys.exit(2)
 	for opt, arg in opts:
 		if opt == '-h':
-			print 'test.py -s <schedule> -v <vmwindow> -d <delay>'
+			print usage
+			#print 'test.py -s <schedule> -v <vmwindow> -d <delay>'
 			sys.exit()
 		elif opt in ("-s", "--sched"):
 			sched = arg
 		elif opt in ("-v", "--vwnd"):
-			vwnd = arg
+			vwnd = int(arg)
 		elif opt in ("-d", "--delay"):
 			delay = arg
-	print 'schedule is', sched
+	print 'scheduling is', sched
 	print 'vm window is', vwnd
 	#print 'delay is', delay
 
 	hostname = gethostname()
 
-#	pms = deque()
-#	for i in xrange(1, 9):
-#		vms = [x for x in range (1, 9)]
-#		pms.append(vms)
-#	print
-
 	if (hostname == "gr121"):
+		global src_prefix, dest_prefix
 		tmp = src_prefix
 		src_prefix = dest_prefix
 		dest_prefix = tmp
@@ -224,26 +231,27 @@ def main(argv):
 	i = 0
 
 	# migrate heterogeneous VMs
-'''
 	vms = getVMs()
+	list =[]
 
-	if (sched == "SF"):
+	if (sched == "sf"):
 		list = sorted(vms, key=lambda vm: vm[3])   # sort by memory size
-	elif (sched == "LF"):
+	elif (sched == "lf"):
 		list = sorted(vms, key=lambda vm: vm[3], reverse=True)   # sort by memory size
 	elif (sched == "rand"):
 		list = sorted(vms)
 		random.shuffle(list)
 	else: 
 		list = vms
-'''
 	
+# migrate VMs with the controller for homogeneous memeory size
+	if (vwnd == 0):
+		control()
+
+	migrate_multiple(list)
+	#mt = Thread(target=migrate_multiple, args=())
+	#mt.start()
+
 if __name__ == "__main__":
    main(sys.argv[1:])
-
-# migrate VMs with the controller for homogeneous memeory size
-#if (vwnd == 0):
-#	control()
-
-#migrate_multiple()
 
