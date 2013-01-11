@@ -1,0 +1,77 @@
+#!/bin/bash
+cpms=( 4 8 )
+#cpms=( 1 )
+cvms=( 1 2 4 8 )
+#cvms=( 1 2 )
+#rounds=( 3 4 )
+delays=( 20-80-180 )
+#delays=( 80 180 )
+sleeptime=300
+
+basedir=/nfs/vmanage/controller
+exe=$basedir/multiple-without-controller.py
+
+function exp(){
+	local cpms=$1
+	local cvms=$2
+	local delay=$3
+	local run=$4
+#	exe=$basedir/multiple-without-controller.py
+	logfile=$basedir/log/$delay/$cpms-$cvms-r$run
+
+	$basedir/congestor &
+
+#	echo logsave $logfile time -p $exe $cpms $cvms
+	logsave $logfile time -p $exe $cpms $cvms
+	
+	wait
+}
+
+function expssh(){
+	local cpms=$1
+	local cvms=$2
+	local delay=$3
+	local run=$4
+	host=gr121
+	logfile=$basedir/log/$delay/$cpms-$cvms-r$run
+
+	$basedir/congestor &
+
+	#echo ssh $host logsave $logfile time -p $exe $cpms $cvms
+	ssh $host logsave $logfile time -p $exe $cpms $cvms
+
+	wait
+}
+
+for delay in ${delays[@]}
+do
+	for cpm in ${cpms[@]}
+	do
+		for cvm in ${cvms[@]}
+		do
+			cmd="exp $cpm $cvm $delay"
+			cmdssh="expssh $cpm $cvm $delay"
+			#cmd="$basedir/exp $cpm $cvm"
+			#cmd="/nfs/vmanage/exp $cpm $cvm $delay"
+		#	if [ $cvm == 0 ]; then
+		#		cmd="/nfs/vmanage/startcontroller $cpm $delay"
+		#	fi	
+
+			#$cmd 1 
+			$cmd 3 
+			sleep $sleeptime
+
+			#ssh gr121 $cmd 2
+			#$cmdssh 2
+			$cmdssh 4
+			sleep $sleeptime
+
+#			$cmd 3 
+			#sleep $sleeptime
+
+			#ssh gr121 $cmd 4
+			#ssh gr121 /nfs/vmanage/exp $cpm $cvm 4 $delay
+			#sleep $sleeptime
+		done	
+	done
+done
