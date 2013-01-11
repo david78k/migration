@@ -1,44 +1,59 @@
 #!/bin/bash
 cpms=( 4 8 )
-scheds=( sf lf rand )
-vwnds=( 1 5 10 30 )
+scheds=( sf lf )
+#scheds=( sf lf rand )
+vwnds=( 1 5 )
+#vwnds=( 1 5 10 30 )
 #rounds=( 3 4 )
 #delays=( 20-80-180 )
-delays=( 20 80 180 )
-sleeptime=200
+delays=( 20 80 )
+sleeptime=100
+#network=dynamic
+network=static
 
 basedir=/nfs/vmanage/controller
 exe=$basedir/multiplecontroller.py
 #exe=$basedir/multiple-without-controller.py
 
 function exp(){
-	local cpms=$1
-	local vwnds=$2
+	local sched=$1
+	local vwnd=$2
 	local delay=$3
 	local run=$4
 #	exe=$basedir/multiple-without-controller.py
-	logfile=$basedir/log/$delay/$cpms-$vwnds-r$run
+	logfile=$basedir/log/$delay/$sched-$vwnds-r$run
 
-	$basedir/congestor &
+	if [ $network == "dynamic" ]; then
+		echo "$basedir/congestor &"
+		#$basedir/congestor &
+	fi
+	
+	cmd="logsave $logfile time -p $exe -s $sched -v $vwnd"
+	echo $cmd
 
-#	echo logsave $logfile time -p $exe $cpms $vwnds
-	logsave $logfile time -p $exe $cpms $vwnds
+	$cmd
+	#logsave $logfile time -p $exe $sched $vwnds
 	
 	wait
 }
 
 function expssh(){
-	local cpms=$1
-	local vwnds=$2
+	local sched=$1
+	local vwnd=$2
 	local delay=$3
 	local run=$4
 	host=gr121
-	logfile=$basedir/log/$delay/$cpms-$vwnds-r$run
+	logfile=$basedir/log/$delay/$sched-$vwnds-r$run
 
-	$basedir/congestor &
-
-	#echo ssh $host logsave $logfile time -p $exe $cpms $vwnds
-	ssh $host logsave $logfile time -p $exe $cpms $vwnds
+	if [ $network == "dynamic" ]; then
+		echo "$basedir/congestor &"
+		#$basedir/congestor &
+	fi
+	
+	cmd="ssh $host logsave $logfile time -p $exe -s $sched -v $vwnd"
+	echo $cmd
+	$cmd
+	#ssh $host logsave $logfile time -p $exe $cpms $vwnd
 
 	wait
 }
@@ -57,14 +72,14 @@ do
 		#		cmd="/nfs/vmanage/startcontroller $cpm $delay"
 		#	fi	
 
-			echo $cmd
-			#$cmd 1 
+			#echo $cmd
+			$cmd 1 
 #			$cmd 3 
 #			sleep $sleeptime
 
 			#ssh gr121 $cmd 2
-			echo $cmdssh
-			#$cmdssh 2
+			#echo $cmdssh
+			$cmdssh 2
 #			$cmdssh 4
 #			sleep $sleeptime
 
