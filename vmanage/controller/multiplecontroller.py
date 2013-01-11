@@ -97,19 +97,18 @@ def migrate_hetero(pmid, vm):
 
 	start = time.time()
 	os.popen(cmd)
-
 	#time.sleep(5)
+	end = time.time()
+	elapsed = end - start
+	total_elapsed = end - origin
 
 	cond.acquire()
 	#print 'cvms',cvms
 	cvms = cvms - 1
+	print "finish", elapsed, total_elapsed
+
 	cond.notify()
 	cond.release()
-
-	end = time.time()
-	elapsed = end - start
-	total_elapsed = end - origin
-	print "finish", elapsed, total_elapsed
 
 # migrate multiple vms
 def migrate_multiple(list):
@@ -122,7 +121,7 @@ def migrate_multiple(list):
 		pm = vminfo[1]
 		vm = vminfo[2]
 		mem = vminfo[3]
-		print '[',i, pm, vm, mem,']'
+	#	print '[',i, pm, vm, mem,']'
 
 	        t = Thread(target=migrate_hetero, args=(pmid, vm))
 	        t.start()
