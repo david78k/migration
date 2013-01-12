@@ -1,13 +1,13 @@
 #!/bin/bash
-cpms=( 4 8 )
-scheds=( sf lf )
+scheds=( lf )
 #scheds=( sf lf rand )
-vwnds=( 1 5 )
-#vwnds=( 1 5 10 30 )
+vwnds=( 1 )
+#vwnds=( 30 10 5 1 )
 #rounds=( 3 4 )
 #delays=( 20-80-180 )
-delays=( 20 80 )
-sleeptime=100
+delays=( 80 )
+sleeptime=300
+#sleeptime=1
 #network=dynamic
 network=static
 
@@ -15,13 +15,20 @@ basedir=/nfs/vmanage/controller
 exe=$basedir/multiplecontroller.py
 #exe=$basedir/multiple-without-controller.py
 
+wanem=gr122
+
 function exp(){
+	host=gr121
+	local cmd
 	local sched=$1
 	local vwnd=$2
 	local delay=$3
 	local run=$4
 #	exe=$basedir/multiple-without-controller.py
-	logfile=$basedir/log/$delay/$sched-$vwnds-r$run
+	logdir=$basedir/log/$delay
+	logfile=$logdir/$sched-$vwnd-r$run
+
+	mkdir -p $logdir
 
 	if [ $network == "dynamic" ]; then
 		echo "$basedir/congestor &"
@@ -29,13 +36,51 @@ function exp(){
 	fi
 	
 	cmd="logsave $logfile time -p $exe -s $sched -v $vwnd"
-	echo $cmd
-
-	$cmd
-	#logsave $logfile time -p $exe $sched $vwnds
+	if [ -n "$5" ]; then
+		echo "not empty"
+		cmd="ssh $5 $cmd"
+	else
+		echo "empty"
+	fi
 	
+	echo $cmd
+	$cmd
+
 	wait
 }
+
+for delay in ${delays[@]}
+do
+	d=`expr $delay / 2`
+	ssh $wanem service tc delay $d
+
+	for sched in ${scheds[@]}
+	do
+		for vwnd in ${vwnds[@]}
+		do
+			cmd="exp $sched $vwnd $delay"
+			#cmdssh="expssh $sched $vwnd $delay"
+		#	if [ $vwnd == 0 ]; then
+		#		cmd="/nfs/vmanage/startcontroller $cpm $delay"
+		#	fi	
+
+			echo $cmd 1
+			$cmd 1
+			sleep $sleeptime
+
+			echo $cmd 2 gr121
+			$cmd 2 gr121
+#			sleep $sleeptime
+
+#			$cmd 3 
+			#sleep $sleeptime
+
+			#ssh gr121 $cmd 4
+			#sleep $sleeptime
+		done	
+	done
+	ssh $wanem service tc stop
+done
 
 function expssh(){
 	local sched=$1
@@ -43,52 +88,20 @@ function expssh(){
 	local delay=$3
 	local run=$4
 	host=gr121
-	logfile=$basedir/log/$delay/$sched-$vwnds-r$run
+	logfile=$basedir/log/$delay/$sched-$vwnd-r$run
 
 	if [ $network == "dynamic" ]; then
 		echo "$basedir/congestor &"
 		#$basedir/congestor &
 	fi
 	
-	cmd="ssh $host logsave $logfile time -p $exe -s $sched -v $vwnd"
+	cmd="logsave $logfile time -p $exe -s $sched -v $vwnd"
+	cmd="ssh $host $cmd"
+	#cmd="ssh $host logsave $logfile time -p $exe -s $sched -v $vwnd"
 	echo $cmd
-	$cmd
+	#$cmd
 	#ssh $host logsave $logfile time -p $exe $cpms $vwnd
 
 	wait
 }
 
-for delay in ${delays[@]}
-do
-	for sched in ${scheds[@]}
-	do
-		for vwnd in ${vwnds[@]}
-		do
-			cmd="exp $sched $vwnd $delay"
-			cmdssh="expssh $sched $vwnd $delay"
-			#cmd="$basedir/exp $cpm $vwnd"
-			#cmd="/nfs/vmanage/exp $cpm $vwnd $delay"
-		#	if [ $vwnd == 0 ]; then
-		#		cmd="/nfs/vmanage/startcontroller $cpm $delay"
-		#	fi	
-
-			#echo $cmd
-			$cmd 1 
-#			$cmd 3 
-#			sleep $sleeptime
-
-			#ssh gr121 $cmd 2
-			#echo $cmdssh
-			$cmdssh 2
-#			$cmdssh 4
-#			sleep $sleeptime
-
-#			$cmd 3 
-			#sleep $sleeptime
-
-			#ssh gr121 $cmd 4
-			#ssh gr121 /nfs/vmanage/exp $cpm $vwnd 4 $delay
-			#sleep $sleeptime
-		done	
-	done
-done
