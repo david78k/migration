@@ -1,11 +1,11 @@
 #!/bin/bash
-scheds=( lf )
+scheds=( rand )
 #scheds=( sf lf rand )
-vwnds=( 1 )
+vwnds=( 0 )
 #vwnds=( 30 10 5 1 )
 #rounds=( 3 4 )
 #delays=( 20-80-180 )
-delays=( 80 )
+delays=( 180 )
 sleeptime=300
 #sleeptime=1
 #network=dynamic
@@ -59,7 +59,6 @@ do
 		for vwnd in ${vwnds[@]}
 		do
 			cmd="exp $sched $vwnd $delay"
-			#cmdssh="expssh $sched $vwnd $delay"
 		#	if [ $vwnd == 0 ]; then
 		#		cmd="/nfs/vmanage/startcontroller $cpm $delay"
 		#	fi	
@@ -81,27 +80,4 @@ do
 	done
 	ssh $wanem service tc stop
 done
-
-function expssh(){
-	local sched=$1
-	local vwnd=$2
-	local delay=$3
-	local run=$4
-	host=gr121
-	logfile=$basedir/log/$delay/$sched-$vwnd-r$run
-
-	if [ $network == "dynamic" ]; then
-		echo "$basedir/congestor &"
-		#$basedir/congestor &
-	fi
-	
-	cmd="logsave $logfile time -p $exe -s $sched -v $vwnd"
-	cmd="ssh $host $cmd"
-	#cmd="ssh $host logsave $logfile time -p $exe -s $sched -v $vwnd"
-	echo $cmd
-	#$cmd
-	#ssh $host logsave $logfile time -p $exe $cpms $vwnd
-
-	wait
-}
 
