@@ -17,6 +17,10 @@ npms = 8
 vwnd = 1
 # pm window
 pwnd = 8
+# decrement factor
+alpha = 0.75
+threshold = 8
+sampletime = 5
 
 src_prefix = "gra"
 dest_prefix = "grb"
@@ -33,6 +37,7 @@ cvms = 0
 origin = time.time()
 
 cond = threading.Condition()
+done = False
 
 def gethostname():
         hostname = socket.gethostname()
@@ -112,7 +117,7 @@ def migrate_hetero(pmid, vm):
 
 # migrate multiple vms
 def migrate_multiple(list):
-	global cvms, vwnd, cond
+	global cvms, vwnd, cond, done
 	i = 0
 	for vminfo in list:
 		i += 1
@@ -123,71 +128,110 @@ def migrate_multiple(list):
 		mem = vminfo[3]
 	#	print '[',i, pm, vm, mem,']'
 
-	        t = Thread(target=migrate_hetero, args=(pmid, vm))
-	        t.start()
-
+		if (susQ is empty):
+		        t = Thread(target=migrate_hetero, args=(pmid, vm))
+		        t.start()
+		else:
+			vminfo = susQ.remove()
+			resume (vminfo)
 		cvms = cvms + 1
 		time.sleep(sleep_interval)
 		cond.acquire()
 		while True:
 			if (cvms < vwnd):
 				break
+			else if (cvms > vwnd ):
+				vminfo = mQ.remove()
+				suspend(vminfo)
+			
+				susQ.add(vminfo)	
 			cond.wait()
 		cond.release()
+	done = True
+
+def getBandwidth():
+        total = 0
+        cmd = "rocks run host \"dstat -n -N eth1 " + str(sampletime) + " 1 | tail -1\" | awk '{print $2}' | sed 's/B//g;s/M/000000/g;s/k/000/g'"
+        #print cmd
+        #os.system(cmd)
+        #subprocess.call([cmd])
+
+        p = os.popen(cmd,"r")
+        while 1:
+                line = p.readline().strip()
+                if not line: break
+#               print line.strip()
+                total += int(line)
+        return total
+
+# suspend vms in a vminfo list
+def suspend(vminfolist):
+	for vminfo in vminfolist:
+		pm = vminfo[1]
+		vm = vminfo[2]
+		suspend(pm, vm)	
+
+# suspend specific vm on pm
+def suspend(pm, vm):
+	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " 0"	
+
+def resume(pm, vm):
+	maxbandwidth = 120 # MB
+	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " " + maxbandwidth	
 
 def control():
-	global vwnd
+	global vwnd, threshold, done
+	vwnd = 1
+	# total bandwidth of the previous iteration
 	totalprev = 0
+	# average bandwidth of the previous iteration
 	avgprev = 0
 	congested = False
+	phase = "ss" # slow start 
 
-	mt = Thread(target=migrate_multiple, args=())
-	#mt.start()
-
-	print "rvms total avg pwnd vwnd totalvms"
-	while True:
-	        rvms = getRVMs()
-	        if (rvms == 0):
-	                break
-
+	print "phase vwnd total avg totalvms threshold"
+	while not done:
 	        total = getBandwidth()
-        	totalvms = pwnd * vwnd
+		#totalvms = getCVMs()
+		totalvms = vwnd
        	 	avg = total / totalvms
 
-	        print "controller", rvms, total, avg, pwnd, vwnd, totalvms
+	        print "controller", phase, vwnd, total, avg, totalvms, threshold
+	        #print "controller", rvms, total, avg, vwnd, totalvms
 
-		if congested:
-                	if ( avg < avgprev ):
-                	        pwnd -= 1
-                        #vwnd=$(( vwnd * alpha ))
-               		else:
-                	        pwnd += 1
-                	        vwnd += 1
-                	        congested = False
+		cond.acquire()
+		if (phase == "ss"):
+			# if congestion occurs
+			if ( avg < avgprev):
+				vwnd = vwnd * alpha
+				threshold = vwnd
+				phase = "ca"	
+			else:
+				if ( vwnd >= threshold):
+					phase = "ca"
+					
+					vwnd += 1
+				else:
+                			vwnd *= 2
        		else:
                 	if ( avg < avgprev ):
-                       		vwnd -= 1
-                        #vwnd=$(( vwnd * alpha ))
-                        	congested = True
+				vwnd = vwnd * alpha
+				threshold = vwnd
+				#suspend(vm)
                 	else:
                         	vwnd += 1
-                        	pwnd += 1
+
         	if ( vwnd < 1 ):
                 	vwnd = 1
 
-        	if ( pwnd < 1 ):
-                	pwnd = 1
-
-        	if ( pwnd > NUM_PMs ):
-                	pwnd = NUM_PMs
+		cond.notify()
+		cond.release()
 
         	totalprev = total
         	avgprev = avg
 	
 def main(argv):
 	sched = "lf"
-	sched = "sf"
-	#sched = "rand"
 
 	global vwnd
 
@@ -216,7 +260,6 @@ def main(argv):
 			delay = arg
 	print 'scheduling is', sched
 	print 'vm window is', vwnd
-	#print 'delay is', delay
 
 	hostname = gethostname()
 
@@ -243,13 +286,15 @@ def main(argv):
 	else: 
 		list = vms
 	
+	#mt = Thread(target=migrate_multiple, args=(list))
+	#mt.start()
 # migrate VMs with the controller for homogeneous memeory size
 	if (vwnd == 0):
-		control()
+		ct = Thread(target=control, args=())
+		ct.start()
+	#	control()
 
 	migrate_multiple(list)
-	#mt = Thread(target=migrate_multiple, args=())
-	#mt.start()
 
 if __name__ == "__main__":
    main(sys.argv[1:])
