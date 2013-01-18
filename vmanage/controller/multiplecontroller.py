@@ -31,7 +31,7 @@ cmd = "rocks run host gra1 \"dstat -n 1 1 | tail -1\" collate=y | awk '{print $2
 
 pmstart = 0
 offset = 0
-rvms = 64
+rvms = 6
 # current VMs in transit
 cvms = 0
 origin = time.time()
@@ -92,6 +92,30 @@ def migrate(i, j):
 	total_elapsed = end - origin
 	print "finish", elapsed, total_elapsed
 
+# migrate a vm with a vminfo
+def migrate(vminfo):
+	global cvms, cond
+	src = src_prefix + str(pmid)
+	dest = dest_prefix + str(pmid)
+        cmd = "ssh " + src + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
+        print cmd
+
+	start = time.time()
+	os.popen(cmd)
+	#time.sleep(5)
+	end = time.time()
+	elapsed = end - start
+	total_elapsed = end - origin
+
+	cond.acquire()
+	#print 'cvms',cvms
+	cvms = cvms - 1
+	mq.remove(vminfo)
+	print "finish", elapsed, total_elapsed
+
+	cond.notify()
+	cond.release()
+
 # migrate a vm with a pm id
 def migrate_hetero(pmid, vm):
 	global cvms, cond
@@ -110,6 +134,7 @@ def migrate_hetero(pmid, vm):
 	cond.acquire()
 	#print 'cvms',cvms
 	cvms = cvms - 1
+	#mq.remove(vminfo)
 	print "finish", elapsed, total_elapsed
 
 	cond.notify()
@@ -118,6 +143,9 @@ def migrate_hetero(pmid, vm):
 # migrate multiple vms
 def migrate_multiple(list):
 	global cvms, vwnd, cond, done
+	mq = deque() # migration queue
+	susq = deque() # suspended queue
+
 	i = 0
 	for vminfo in list:
 		i += 1
@@ -128,23 +156,29 @@ def migrate_multiple(list):
 		mem = vminfo[3]
 	#	print '[',i, pm, vm, mem,']'
 
-		if (susQ is empty):
-		        t = Thread(target=migrate_hetero, args=(pmid, vm))
+		if not susq:
+		        #t = Thread(target=migrate_hetero, args=(pmid, vm))
+		        t = Thread(target=migrate_hetero, args=(vminfo))
 		        t.start()
+			mq.append(vminfo)
 		else:
-			vminfo = susQ.remove()
+			vminfo = susq.pop()
 			resume (vminfo)
+			mq.append(vminfo)
 		cvms = cvms + 1
 		time.sleep(sleep_interval)
 		cond.acquire()
 		while True:
 			if (cvms < vwnd):
 				break
-			else if (cvms > vwnd ):
-				vminfo = mQ.remove()
-				suspend(vminfo)
-			
-				susQ.add(vminfo)	
+			elif (cvms > vwnd ):
+				rest = int(cvms) - int(vwnd)
+				print cvms, vwnd, rest, len(mq)
+				rest = max(rest, len(mq))
+				for j in range(int(rest)):
+					vminfo = mq.popleft()
+					suspend(vminfo)
+					susq.append(vminfo)	
 			cond.wait()
 		cond.release()
 	done = True
@@ -223,6 +257,7 @@ def control():
 
         	if ( vwnd < 1 ):
                 	vwnd = 1
+		vwnd = int(vwnd)
 
 		cond.notify()
 		cond.release()
