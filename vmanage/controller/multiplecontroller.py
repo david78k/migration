@@ -39,6 +39,24 @@ origin = time.time()
 cond = threading.Condition()
 done = False
 
+mq = deque() # migration queue
+susq = deque() # suspended queue
+
+"""VM information class"""
+class VMINFO:
+	#def __init__(self, realpart, imagpart):
+		#self.r = realpart
+		#self.i = imagpart
+	def __init__(self, pmid, pm, vm, memory):
+		self.pmid = pmid
+		self.pm = pm
+		self.vm = vm
+		self.mem = memory
+
+	i = 12345
+	def f(self):
+		return 'hello world'
+
 def gethostname():
         hostname = socket.gethostname()
         cmd = "hostname -s"
@@ -75,7 +93,7 @@ def getCVMs():
 	return cvms		
 
 # migrate pm-vm
-def migrate(i, j):
+def migrate_old(i, j):
 	src = "gra" + str(i)
 	dest = "grb" + str(i)
         vm = "gra" + str(i) + "-" + str(j)
@@ -93,10 +111,17 @@ def migrate(i, j):
 	print "finish", elapsed, total_elapsed
 
 # migrate a vm with a vminfo
-def migrate(vminfo):
-	global cvms, cond
+#def migrate(vminfo):
+def migrate(pmid, pm, vm, memory):
+	global cvms, cond, mq
+	#pmid = vminfo[0]
+	#pm = vminfo[1]
+	#vm = vminfo[2]
+	vminfo = (pmid, pm, vm, int(memory))
+
 	src = src_prefix + str(pmid)
 	dest = dest_prefix + str(pmid)
+
         cmd = "ssh " + src + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
         print cmd
 
@@ -110,7 +135,15 @@ def migrate(vminfo):
 	cond.acquire()
 	#print 'cvms',cvms
 	cvms = cvms - 1
-	mq.remove(vminfo)
+	print mq, vminfo
+	try:
+		mq.remove(vminfo)
+	except ValueError:
+		print "Could not remove vminfo from mq."
+	except:
+		print "Unexpected error:", sys.exc_info()[0]
+	#except:
+		#pass
 	print "finish", elapsed, total_elapsed
 
 	cond.notify()
@@ -119,6 +152,7 @@ def migrate(vminfo):
 # migrate a vm with a pm id
 def migrate_hetero(pmid, vm):
 	global cvms, cond
+	vminfo = [pmid, vm]
 	src = src_prefix + str(pmid)
 	dest = dest_prefix + str(pmid)
         cmd = "ssh " + src + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
@@ -142,9 +176,9 @@ def migrate_hetero(pmid, vm):
 
 # migrate multiple vms
 def migrate_multiple(list):
-	global cvms, vwnd, cond, done
-	mq = deque() # migration queue
-	susq = deque() # suspended queue
+	global cvms, vwnd, cond, done, mq, susq
+	#mq = deque() # migration queue
+	#susq = deque() # suspended queue
 
 	i = 0
 	for vminfo in list:
@@ -156,15 +190,17 @@ def migrate_multiple(list):
 		mem = vminfo[3]
 	#	print '[',i, pm, vm, mem,']'
 
+		# check if suspended queue is empty
 		if not susq:
 		        #t = Thread(target=migrate_hetero, args=(pmid, vm))
-		        t = Thread(target=migrate_hetero, args=(vminfo))
+		        t = Thread(target=migrate, args=(vminfo))
 		        t.start()
-			mq.append(vminfo)
 		else:
 			vminfo = susq.pop()
 			resume (vminfo)
-			mq.append(vminfo)
+		mq.append(vminfo)
+		print mq
+
 		cvms = cvms + 1
 		time.sleep(sleep_interval)
 		cond.acquire()
@@ -174,11 +210,11 @@ def migrate_multiple(list):
 			elif (cvms > vwnd ):
 				rest = int(cvms) - int(vwnd)
 				print cvms, vwnd, rest, len(mq)
-				rest = max(rest, len(mq))
+				rest = min(rest, len(mq))
 				for j in range(int(rest)):
 					vminfo = mq.popleft()
 					suspend(vminfo)
-					susq.append(vminfo)	
+	#				susq.append(vminfo)	
 			cond.wait()
 		cond.release()
 	done = True
@@ -199,19 +235,29 @@ def getBandwidth():
         return total
 
 # suspend vms in a vminfo list
-def suspend(vminfolist):
+def suspendvms(vminfolist):
 	for vminfo in vminfolist:
 		pm = vminfo[1]
 		vm = vminfo[2]
 		suspend(pm, vm)	
 
 # suspend specific vm on pm
-def suspend(pm, vm):
+#def suspend(pm, vm):
+def suspend(vminfo):
+	pm = vminfo[1]
+	vm = vminfo[2]
 	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " 0"	
+	#mq.remove(vminfo)
+	susq.append(vminfo)		
 
-def resume(pm, vm):
+#def resume(pm, vm):
+def resume(vminfo):
+	pm = vminfo[1]
+	vm = vminfo[2]
 	maxbandwidth = 120 # MB
-	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " " + maxbandwidth	
+	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " " + str(maxbandwidth)
+	#susq.remove(vminfo)
+	#mq.append(vminfo)
 
 def control():
 	global vwnd, threshold, done
