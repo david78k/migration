@@ -177,8 +177,6 @@ def migrate_hetero(pmid, vm):
 # migrate multiple vms
 def migrate_multiple(list):
 	global cvms, vwnd, cond, done, mq, susq
-	#mq = deque() # migration queue
-	#susq = deque() # suspended queue
 
 	i = 0
 	for vminfo in list:
@@ -214,10 +212,14 @@ def migrate_multiple(list):
 				for j in range(int(rest)):
 					vminfo = mq.popleft()
 					suspend(vminfo)
+					cvms = cvms - 1
 	#				susq.append(vminfo)	
+			print "waiting ..."
 			cond.wait()
 		cond.release()
+		print "released."
 	done = True
+	print "migrator done."
 
 def getBandwidth():
         total = 0
@@ -249,6 +251,7 @@ def suspend(vminfo):
 	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " 0"	
 	#mq.remove(vminfo)
 	susq.append(vminfo)		
+	print "suspended."
 
 #def resume(pm, vm):
 def resume(vminfo):
@@ -258,6 +261,7 @@ def resume(vminfo):
 	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " " + str(maxbandwidth)
 	#susq.remove(vminfo)
 	#mq.append(vminfo)
+	print "resumed."
 
 def control():
 	global vwnd, threshold, done
