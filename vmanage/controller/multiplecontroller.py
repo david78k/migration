@@ -66,6 +66,7 @@ def gethostname():
 # get VMs to migrate
 def getVMs():
 	vms = []
+	k = 0
 	#npms = 8
 	for i in xrange(1, npms + 1):
 		pmname = src_prefix + str(i)
@@ -80,7 +81,12 @@ def getVMs():
 			cmd = "ssh " + pmname + " \"virsh dommemstat " + vmname + " | grep actual\" | awk '{print $2}'"
 			if vmname:
 				mem = os.popen(cmd).read().strip()
-				vms.append((i, pmname, vmname, int(mem)))
+				k += 1
+				vminfo = (i, pmname, vmname, int(mem))
+				#vminfo = (k, i, pmname, vmname, int(mem))
+				vms.append(vminfo)
+				#vms.append((i, pmname, vmname, int(mem)))
+				print k,vminfo
 	return vms
 
 # get the number of concurrent VMs in transit
@@ -236,15 +242,7 @@ def getBandwidth():
                 total += int(line)
         return total
 
-# suspend vms in a vminfo list
-def suspendvms(vminfolist):
-	for vminfo in vminfolist:
-		pm = vminfo[1]
-		vm = vminfo[2]
-		suspend(pm, vm)	
-
-# suspend specific vm on pm
-#def suspend(pm, vm):
+# suspend specific vm on pm with vminfo
 def suspend(vminfo):
 	pm = vminfo[1]
 	vm = vminfo[2]
@@ -253,7 +251,6 @@ def suspend(vminfo):
 	susq.append(vminfo)		
 	print "suspended."
 
-#def resume(pm, vm):
 def resume(vminfo):
 	pm = vminfo[1]
 	vm = vminfo[2]
