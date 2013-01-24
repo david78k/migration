@@ -43,16 +43,16 @@ mq = deque() # migration queue
 susq = deque() # suspended queue
 
 """VM information class"""
-class VMINFO:
+class VMInfo:
 	#def __init__(self, realpart, imagpart):
 		#self.r = realpart
 		#self.i = imagpart
 	def __init__(self, id, pmid, pm, vm, memory):
-		self.id = id
+		self.id = str(id)
 		self.pmid = pmid
 		self.pm = pm
 		self.vm = vm
-		self.memory = memory
+		self.memory = int(memory)
 
 	def __repr__(self):
 		return repr((self.id, self.pmid, self.pm, self.vm, self.memory))
@@ -86,11 +86,11 @@ def getVMs():
 			if vmname:
 				mem = os.popen(cmd).read().strip()
 				k += 1
-				vminfo = (i, pmname, vmname, int(mem))
+				vminfo = VMInfo(k, i, pmname, vmname, int(mem))
 				#vminfo = (k, i, pmname, vmname, int(mem))
 				vms.append(vminfo)
 				#vms.append((i, pmname, vmname, int(mem)))
-				print k,vminfo
+			#	print vminfo
 	return vms
 
 # get the number of concurrent VMs in transit
@@ -102,32 +102,14 @@ def getCVMs():
 	#print "cvms =", cvms
 	return cvms		
 
-# migrate pm-vm
-def migrate_old(i, j):
-	src = "gra" + str(i)
-	dest = "grb" + str(i)
-        vm = "gra" + str(i) + "-" + str(j)
-        if (hostname == "gr121"):
-                src = "grb" + str(i)
-                dest = "gra" + str(i)
-
-        cmd = "ssh " + src + " \"virsh migrate --live " + vm + " qemu+ssh://" + dest + "/system\""
-        print cmd
-	start = time.time()
-        os.popen(cmd)
-	end = time.time()
-	elapsed = end - start
-	total_elapsed = end - origin
-	print "finish", elapsed, total_elapsed
-
 # migrate a vm with a vminfo
-#def migrate(vminfo):
-def migrate(pmid, pm, vm, memory):
+#def migrate(pmid, pm, vm, memory):
+def migrate(vminfo):
 	global cvms, cond, mq
-	#pmid = vminfo[0]
-	#pm = vminfo[1]
-	#vm = vminfo[2]
-	vminfo = (pmid, pm, vm, int(memory))
+	#vminfo = (pmid, pm, vm, int(memory))
+
+	pmid = vminfo.pmid
+	vm = vminfo.vm
 
 	src = src_prefix + str(pmid)
 	dest = dest_prefix + str(pmid)
@@ -145,7 +127,11 @@ def migrate(pmid, pm, vm, memory):
 	cond.acquire()
 	#print 'cvms',cvms
 	cvms = cvms - 1
-	print mq, vminfo
+	#printVMInfoIDs(mq)
+	#printVMInfoIDs(mq)
+	#print vminfo
+	#print mq, vminfo
+
 	try:
 		mq.remove(vminfo)
 	except ValueError:
@@ -159,55 +145,34 @@ def migrate(pmid, pm, vm, memory):
 	cond.notify()
 	cond.release()
 
-# migrate a vm with a pm id
-def migrate_hetero(pmid, vm):
-	global cvms, cond
-	vminfo = [pmid, vm]
-	src = src_prefix + str(pmid)
-	dest = dest_prefix + str(pmid)
-        cmd = "ssh " + src + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
-        print cmd
-
-	start = time.time()
-	os.popen(cmd)
-	#time.sleep(5)
-	end = time.time()
-	elapsed = end - start
-	total_elapsed = end - origin
-
-	cond.acquire()
-	#print 'cvms',cvms
-	cvms = cvms - 1
-	#mq.remove(vminfo)
-	print "finish", elapsed, total_elapsed
-
-	cond.notify()
-	cond.release()
-
 # migrate multiple vms
 def migrate_multiple(list):
-	global cvms, vwnd, cond, done, mq, susq
+	global cvms, vwnd, cond, done, mq, susq, vminfolist
 
+	vminfolist = list
 	i = 0
-	for vminfo in list:
+	#for vminfo in list:
+	while list or susq:
 		i += 1
 		#print vminfo
-		pmid = vminfo[0]
-		pm = vminfo[1]
-		vm = vminfo[2]
-		mem = vminfo[3]
-	#	print '[',i, pm, vm, mem,']'
 
 		# check if suspended queue is empty
-		if not susq:
-		        #t = Thread(target=migrate_hetero, args=(pmid, vm))
-		        t = Thread(target=migrate, args=(vminfo))
-		        t.start()
-		else:
+		if susq:
 			vminfo = susq.pop()
 			resume (vminfo)
-		mq.append(vminfo)
-		print mq
+			mq.append(vminfo)
+		elif list:
+		        #t = Thread(target=migrate_hetero, args=(pmid, vm))
+			vminfo = list.pop(0)
+		        t = Thread(target=migrate, args=(vminfo,))
+		        t.start()
+			print vminfo.id + " has started."
+			mq.append(vminfo)
+		else:
+			continue
+		#print mq
+		printQueues()
+		#printVMInfoIDs(mq)
 
 		cvms = cvms + 1
 		time.sleep(sleep_interval)
@@ -217,7 +182,8 @@ def migrate_multiple(list):
 				break
 			elif (cvms > vwnd ):
 				rest = int(cvms) - int(vwnd)
-				print cvms, vwnd, rest, len(mq)
+				print "cvms=" + str(cvms) + " vwnd=" + str(vwnd) + " rest=" + str(rest) + " len(mq)=" + str(len(mq))
+				#print cvms, vwnd, rest + " len(mq)=" + len(mq)
 				rest = min(rest, len(mq))
 				for j in range(int(rest)):
 					vminfo = mq.popleft()
@@ -248,21 +214,22 @@ def getBandwidth():
 
 # suspend specific vm on pm with vminfo
 def suspend(vminfo):
-	pm = vminfo[1]
-	vm = vminfo[2]
+	pm = vminfo.pm
+	vm = vminfo.vm
 	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " 0"	
 	#mq.remove(vminfo)
 	susq.append(vminfo)		
-	print "suspended."
+	print vminfo.id + " has been suspended."
+	printQueues()
 
 def resume(vminfo):
-	pm = vminfo[1]
-	vm = vminfo[2]
+	pm = vminfo.pm
+	vm = vminfo.vm
 	maxbandwidth = 120 # MB
 	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " " + str(maxbandwidth)
 	#susq.remove(vminfo)
 	#mq.append(vminfo)
-	print "resumed."
+	print vminfo.id + " has been resumed."
 
 def control():
 	global vwnd, threshold, done
@@ -316,6 +283,36 @@ def control():
         	totalprev = total
         	avgprev = avg
 	
+def printList(list):
+	for item in list:
+		print item
+
+def printQueues():
+	global mq, susq, vminfolist
+
+	print "list=[",
+	for item in vminfolist:
+		print item.id,
+	print "]",
+
+	print "mq=[",
+	for item in mq:
+		print item.id,
+	print "]", 
+
+	print "susq=[",
+	for item in susq:
+		print item.id,
+	print "]"
+
+
+def printVMInfoIDs(list):
+	print "[",
+	for item in list:
+		print item.id,
+	print "]"
+
+
 def main(argv):
 	sched = "lf"
 
@@ -356,22 +353,31 @@ def main(argv):
 		dest_prefix = tmp
 
 	origin = time.time()
-	i = 0
 
 	# migrate heterogeneous VMs
 	vms = getVMs()
 	list =[]
 
 	if (sched == "sf"):
-		list = sorted(vms, key=lambda vm: vm[3])   # sort by memory size
+		list = sorted(vms, key=lambda vminfo: vminfo.memory)   # sort by memory size
+		#list = sorted(vms, key=lambda vm: vm[3])   # sort by memory size
 	elif (sched == "lf"):
-		list = sorted(vms, key=lambda vm: vm[3], reverse=True)   # sort by memory size
+		list = sorted(vms, key=lambda vminfo: vminfo.memory, reverse=True)   # sort by memory size
+		#list = sorted(vms, key=lambda vm: vm[3], reverse=True)   # sort by memory size
 	elif (sched == "rand"):
 		list = sorted(vms)
 		random.shuffle(list)
 	else: 
 		list = vms
 	
+	#setIDs(list)
+	i = 0
+	for item in list:
+		i += 1
+		item.id = str(i)
+
+	printList(list)
+
 	#mt = Thread(target=migrate_multiple, args=(list))
 	#mt.start()
 # migrate VMs with the controller for homogeneous memeory size
