@@ -1,5 +1,7 @@
 migration
 =========
+Experiments done on machines gr120 and gr121 at AIST
+
 Structure
 - /scripts
 - /shared
