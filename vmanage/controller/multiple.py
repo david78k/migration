@@ -284,6 +284,58 @@ def control():
         	totalprev = total
         	avgprev = avg
 	
+def golden_section():
+	global vwnd, threshold, done
+	vwnd = 1
+	# total bandwidth of the previous iteration
+	totalprev = 0
+	# average bandwidth of the previous iteration
+	avgprev = 0
+	congested = False
+	phase = "ss" # slow start 
+
+	print "phase vwnd total avg totalvms threshold"
+	while not done:
+	        total = getBandwidth()
+		#totalvms = getCVMs()
+		totalvms = vwnd
+       	 	avg = total / totalvms
+
+	        print "controller", phase, vwnd, total, avg, totalvms, threshold
+	        #print "controller", rvms, total, avg, vwnd, totalvms
+
+		cond.acquire()
+		if (phase == "ss"):
+			# if congestion occurs
+			if ( avg < avgprev):
+				vwnd = vwnd * alpha
+				threshold = vwnd
+				phase = "ca"	
+			else:
+				if ( vwnd >= threshold):
+					phase = "ca"
+					
+					vwnd += 1
+				else:
+                			vwnd *= 2
+       		else:
+                	if ( avg < avgprev ):
+				vwnd = vwnd * alpha
+				threshold = vwnd
+				#suspend(vm)
+                	else:
+                        	vwnd += 1
+
+        	if ( vwnd < 1 ):
+                	vwnd = 1
+		#vwnd = int(vwnd)
+
+		cond.notify()
+		cond.release()
+
+        	totalprev = total
+        	avgprev = avg
+	
 def printList(list):
 	for item in list:
 		print item
