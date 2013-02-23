@@ -178,11 +178,12 @@ def migrate_multiple(list):
 		time.sleep(sleep_interval)
 		cond.acquire()
 		while True:
-			if (cvms < vwnd):
+			rvwnd = round(vwnd)
+			if (cvms < rvwnd):
 				break
-			elif (cvms > vwnd ):
-				rest = int(cvms) - int(vwnd)
-				print "cvms=" + str(cvms) + " vwnd=" + str(vwnd) + " rest=" + str(rest) + " len(mq)=" + str(len(mq))
+			elif (cvms > rvwnd ):
+				rest = int(cvms) - int(rvwnd)
+				print "cvms=" + str(cvms) + " rvwnd=" + str(rvwnd) + " rest=" + str(rest) + " len(mq)=" + str(len(mq))
 				#print cvms, vwnd, rest + " len(mq)=" + len(mq)
 				rest = min(rest, len(mq))
 				for j in range(int(rest)):
@@ -275,7 +276,7 @@ def control():
 
         	if ( vwnd < 1 ):
                 	vwnd = 1
-		vwnd = int(vwnd)
+		#vwnd = int(vwnd)
 
 		cond.notify()
 		cond.release()
