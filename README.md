@@ -10,7 +10,7 @@ Experiments done on machines gr120 and gr121 at AIST
   /multiple.py : controller for multiple VMs with migrator included
 
 ```python
-./multiple.py -s [schedule] -v [vm window]
+    ./multiple.py -s [schedule] -v [vm window]
 ```
 
 Pyechonest is an open source Python library for the Echo Nest API.  With Pyechonest you have Python access to the entire set of API methods including:
