@@ -3,7 +3,7 @@
 import sys
 import os
 import subprocess
-import time
+import time, math
 import socket
 import threading
 import random
@@ -283,9 +283,41 @@ def control():
 
         	totalprev = total
         	avgprev = avg
+
+def G(N):
+        return -2*((N - 6)**2) + 72
 	
-def golden_section():
-	global vwnd, threshold, done
+def search_bracket():
+        #global alpha
+        iter = 1
+        N = 1; N_1 = 1; N_2 = 1
+
+        G_N = 0; G_N_1 = 0; G_N_2 = 0
+        print "iter, N, G_N, G_N_1, G_N_2, (G_N >= G_N_1)"
+
+        while True:
+                G_N = -2*((N-6)**2) + 72
+                G_N = G(N)
+#               G_N = -2*(N-6)*(N-6) + 72
+                print iter, N, G_N, G_N_1, G_N_2, (G_N >= G_N_1)
+                if G_N < G_N_1:
+                        break
+
+                G_N_1 = G_N
+                N_2 = N_1
+                N_1 = N
+                N *= 2
+                iter += 1
+                #time.sleep(1)
+        return (N_2, N_1, N)
+
+def golden_section_search():
+	global vwnd, threshold, done, golden_ratio
+	golden_ratio = (3 - math.sqrt(5))/2
+
+	bracket = search_bracket()
+	print bracket
+
 	vwnd = 1
 	# total bandwidth of the previous iteration
 	totalprev = 0
@@ -295,6 +327,7 @@ def golden_section():
 	phase = "ss" # slow start 
 
 	print "phase vwnd total avg totalvms threshold"
+'''
 	while not done:
 	        total = getBandwidth()
 		#totalvms = getCVMs()
@@ -335,6 +368,7 @@ def golden_section():
 
         	totalprev = total
         	avgprev = avg
+'''
 	
 def printList(list):
 	for item in list:
@@ -435,11 +469,12 @@ def main(argv):
 	#mt.start()
 # migrate VMs with the controller for homogeneous memeory size
 	if (vwnd == 0):
-		ct = Thread(target=control, args=())
+		#ct = Thread(target=control, args=())
+		ct = Thread(target=golden_section_search, args=())
 		ct.start()
 	#	control()
 
-	migrate_multiple(list)
+#	migrate_multiple(list)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
