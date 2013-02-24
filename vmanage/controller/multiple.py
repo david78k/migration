@@ -42,6 +42,8 @@ done = False
 mq = deque() # migration queue
 susq = deque() # suspended queue
 
+golden_ratio = (3 - math.sqrt(5))/2
+
 """VM information class"""
 class VMInfo:
 	#def __init__(self, realpart, imagpart):
@@ -285,7 +287,15 @@ def control():
         	avgprev = avg
 
 def G(N):
-        return -2*((N - 6)**2) + 72
+        #time.sleep(1)
+	cond.acquire()
+	vwnd = N
+	cond.notify()
+	cond.release()
+
+	total = getBandwidth()
+        return total/N
+        #return -2*((N - 6)**2) + 72
 	
 def search_bracket():
         #global alpha
@@ -296,9 +306,8 @@ def search_bracket():
         print "iter, N, G_N, G_N_1, G_N_2, (G_N >= G_N_1)"
 
         while True:
-                G_N = -2*((N-6)**2) + 72
                 G_N = G(N)
-#               G_N = -2*(N-6)*(N-6) + 72
+                #G_N = getBandwidth()
                 print iter, N, G_N, G_N_1, G_N_2, (G_N >= G_N_1)
                 if G_N < G_N_1:
                         break
@@ -309,14 +318,15 @@ def search_bracket():
                 N *= 2
                 iter += 1
                 #time.sleep(1)
-        return (N_2, N_1, N)
+        return (N_2, N_1, N, G_N_1)
 
-def golden_section_search():
-	global vwnd, threshold, done, golden_ratio
-	golden_ratio = (3 - math.sqrt(5))/2
-
+def golden_section_control():
 	bracket = search_bracket()
 	print bracket
+	golden_section_search(bracket)
+
+def golden_section_search((l, m, r, G_m)):
+	global vwnd, threshold, done, golden_ratio
 
 	vwnd = 1
 	# total bandwidth of the previous iteration
@@ -324,18 +334,33 @@ def golden_section_search():
 	# average bandwidth of the previous iteration
 	avgprev = 0
 	congested = False
-	phase = "ss" # slow start 
 
-	print "phase vwnd total avg totalvms threshold"
-'''
+	print "vwnd total avg totalvms"
 	while not done:
+                N = m + (r - m)*golden_ratio
+                if (r - m) < (m - l):
+                        N = l + (m - l)*golden_ratio
+                N = round(N)
+		
+                G_N = G(N)
+                #G_m = G(m)
+                print N, G_N, G_m
+                if G_N > G_m:
+                        if N > m:
+                                golden_section_search((m, N, ri, G_m))
+                        else:
+                                golden_section_search((l, N, m, G_m))
+                else:
+                        if N > m:
+                                golden_section_search((l, m, N, G_m))
+                        else:
+                                golden_section_search((N, m, r, G_m))
+
+'''
 	        total = getBandwidth()
 		#totalvms = getCVMs()
 		totalvms = vwnd
        	 	avg = total / totalvms
-
-	        print "controller", phase, vwnd, total, avg, totalvms, threshold
-	        #print "controller", rvms, total, avg, vwnd, totalvms
 
 		cond.acquire()
 		if (phase == "ss"):
@@ -366,7 +391,6 @@ def golden_section_search():
 		cond.notify()
 		cond.release()
 
-        	totalprev = total
         	avgprev = avg
 '''
 	
@@ -470,7 +494,7 @@ def main(argv):
 # migrate VMs with the controller for homogeneous memeory size
 	if (vwnd == 0):
 		#ct = Thread(target=control, args=())
-		ct = Thread(target=golden_section_search, args=())
+		ct = Thread(target=golden_section_control, args=())
 		ct.start()
 	#	control()
 
