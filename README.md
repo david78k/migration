@@ -11,7 +11,7 @@ Experiments done on machines gr120 and gr121 at AIST
 
 ```python
     ./multiple.py -s [schedule] -v [vm window]
-    where schedule is one of lf, sf, rand and
+    where schedule is one of lf(largest first), sf(smallest first), rand(randomly chosen) VM scheduling algorithm and
           vm window 0 indicates controller
 ```
 
