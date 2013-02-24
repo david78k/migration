@@ -11,6 +11,8 @@ Experiments done on machines gr120 and gr121 at AIST
 
 ```python
     ./multiple.py -s [schedule] -v [vm window]
+    where schedule is one of lf, sf, rand and
+          vm window 0 indicates controller
 ```
 
 Pyechonest is an open source Python library for the Echo Nest API.  With Pyechonest you have Python access to the entire set of API methods including:
