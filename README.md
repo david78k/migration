@@ -1,19 +1,17 @@
-migration
+# Live Migration
 =========
 Experiments done on machines gr120 and gr121 at AIST
 
-Structure
-- /scripts
-- /shared
-- /vmanage/controller/congestor   : script for congestion
-- /exp         : script for experiments
-- /multiple.py : controller for multiple VMs with migrator included
+## Structure
+* /scripts
+* /shared
+* /vmanage/controller/congestor   : script for congestion
+  /exp         : script for experiments
+ /multiple.py : controller for multiple VMs with migrator included
+
 ```python
 ./multiple.py -s [schedule] -v [vm window]
 ```
-# Pyechonest
-
-Tap into [The Echo Nest's](http://the.echonest.com/) Musical Brain for the best music search, information, recommendations and remix tools on the web.
 
 Pyechonest is an open source Python library for the Echo Nest API.  With Pyechonest you have Python access to the entire set of API methods including:
 
