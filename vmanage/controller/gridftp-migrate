@@ -1,0 +1,28 @@
+#!/bin/bash
+host=`hostname -s`
+dest=c11node8
+vm=vm512-1
+dir=/root/vmstate
+vstat=$dir/$vm.vstat
+# number of parallel connections
+parnum=1
+
+if [ $host == "c11node8" ]; then
+        dest=c11node7
+fi
+
+#mkdir -p $dir
+#ssh $dest mkdir -p $dir
+
+rm -rf $vstat
+ssh $dest rm -rf $vmstat
+
+echo "saving $vm to $vstat ... "
+time -p virsh save $vm $vstat
+
+echo -n "transferring $vstat ... "
+time -p globus-url-copy -p $parnum $vstat sshftp://$dest/$vstat
+
+echo "restoring $vstat from $dest ... "
+time -p ssh $dest virsh restore $vstat
+
