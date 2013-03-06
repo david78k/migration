@@ -20,7 +20,7 @@ pwnd = 8
 # decrement factor
 alpha = 0.75
 threshold = 8
-sampletime = 5
+sampletime = 10
 
 src_prefix = "gra"
 dest_prefix = "grb"
@@ -104,11 +104,32 @@ def getCVMs():
 	#print "cvms =", cvms
 	return cvms		
 
+def migrate_gridftp(vminfo):
+	dest=c11node8
+	vm=vm512-1
+	dir=/root/vmstate
+	vstat=$dir/$vm.vstat
+	# number of parallel connections
+	parnum=1
+
+	#mkdir -p $dir
+	#ssh $dest mkdir -p $dir
+
+	rm -rf $vstat
+	ssh $dest rm -rf $vmstat
+
+	echo "saving $vm to $vstat ... "
+	time -p virsh save $vm $vstat
+
+	echo -n "transferring $vstat ... "
+	time -p globus-url-copy -p $parnum $vstat sshftp://$dest/$vstat
+
+	echo "restoring $vstat from $dest ... "
+	time -p ssh $dest virsh restore $vstat
+
 # migrate a vm with a vminfo
-#def migrate(pmid, pm, vm, memory):
 def migrate(vminfo):
 	global cvms, cond, mq
-	#vminfo = (pmid, pm, vm, int(memory))
 
 	pmid = vminfo.pmid
 	vm = vminfo.vm
@@ -130,8 +151,6 @@ def migrate(vminfo):
 	#print 'cvms',cvms
 	cvms = cvms - 1
 	#printVMInfoIDs(mq)
-	#printVMInfoIDs(mq)
-	#print vminfo
 	#print mq, vminfo
 
 	try:
@@ -286,15 +305,18 @@ def control():
         	totalprev = total
         	avgprev = avg
 
+#golden section search
 def G(N):
+	global vwnd
         #time.sleep(1)
 	cond.acquire()
 	vwnd = N
 	cond.notify()
 	cond.release()
 
-	total = getBandwidth()
-        return total/N
+	bw = getBandwidth()
+        return bw
+        #return bw/N
         #return -2*((N - 6)**2) + 72
 	
 def search_bracket():
@@ -308,7 +330,8 @@ def search_bracket():
         while True:
                 G_N = G(N)
                 #G_N = getBandwidth()
-                print iter, N, G_N, G_N_1, G_N_2, (G_N >= G_N_1)
+                print iter, N, G_N, G_N/N, G_N_1, G_N_2, (G_N >= G_N_1)
+                #if G_N < G_N_1 and iter > 10:
                 if G_N < G_N_1:
                         break
 
@@ -323,20 +346,15 @@ def search_bracket():
 def golden_section_control():
 	bracket = search_bracket()
 	print bracket
+	#print "vwnd total avg"
+        #print "iter, N, G_N, G_N_1, G_N_2, (G_N >= G_N_1)"
 	golden_section_search(bracket)
 
 def golden_section_search((l, m, r, G_m)):
-	global vwnd, threshold, done, golden_ratio
+	global done, golden_ratio
 
-	vwnd = 1
-	# total bandwidth of the previous iteration
-	totalprev = 0
-	# average bandwidth of the previous iteration
-	avgprev = 0
-	congested = False
-
-	print "vwnd total avg totalvms"
-	while not done:
+	if not done:
+	#while not done:
                 N = m + (r - m)*golden_ratio
                 if (r - m) < (m - l):
                         N = l + (m - l)*golden_ratio
@@ -344,56 +362,18 @@ def golden_section_search((l, m, r, G_m)):
 		
                 G_N = G(N)
                 #G_m = G(m)
-                print N, G_N, G_m
+                print N, G_N, G_N/N, G_m
                 if G_N > G_m:
                         if N > m:
-                                golden_section_search((m, N, ri, G_m))
+                                golden_section_search((m, N, r, G_N))
                         else:
-                                golden_section_search((l, N, m, G_m))
+                                golden_section_search((l, N, m, G_N))
                 else:
                         if N > m:
                                 golden_section_search((l, m, N, G_m))
                         else:
                                 golden_section_search((N, m, r, G_m))
 
-'''
-	        total = getBandwidth()
-		#totalvms = getCVMs()
-		totalvms = vwnd
-       	 	avg = total / totalvms
-
-		cond.acquire()
-		if (phase == "ss"):
-			# if congestion occurs
-			if ( avg < avgprev):
-				vwnd = vwnd * alpha
-				threshold = vwnd
-				phase = "ca"	
-			else:
-				if ( vwnd >= threshold):
-					phase = "ca"
-					
-					vwnd += 1
-				else:
-                			vwnd *= 2
-       		else:
-                	if ( avg < avgprev ):
-				vwnd = vwnd * alpha
-				threshold = vwnd
-				#suspend(vm)
-                	else:
-                        	vwnd += 1
-
-        	if ( vwnd < 1 ):
-                	vwnd = 1
-		#vwnd = int(vwnd)
-
-		cond.notify()
-		cond.release()
-
-        	avgprev = avg
-'''
-	
 def printList(list):
 	for item in list:
 		print item
@@ -498,7 +478,7 @@ def main(argv):
 		ct.start()
 	#	control()
 
-#	migrate_multiple(list)
+	migrate_multiple(list)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
