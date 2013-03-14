@@ -1,0 +1,63 @@
+#!/usr/bin/python
+
+import os, time
+
+# migrate using gridftp
+# save vm on local disk and restore from remote
+def gridftp(vminfo):
+	#host = "gr120"
+	src = "grb1"
+        dest = "gra1"
+        vm = "gra1-1"
+        #dir = "/home/uf/vmstate"
+        dir = "/root/vmstate"
+        vstat = dir + "/" + vm + ".vstat"
+        # number of parallel connections
+        parnum=1
+
+	#if not os.path.exists(dir):
+	#	os.makedirs(dir)
+        #mkdir -p $dir
+        cmd = "ssh " + src + " \"mkdir -p " + dir + "; ssh " + dest + " mkdir -p " + dir + "\""
+	print cmd
+	os.popen(cmd)
+
+        #rm -rf $vstat
+	#try:
+        #	os.remove(vstat)
+	#except OSError:
+#		pass
+
+        #cmd = "ssh $dest rm -rf $vstat"
+        cmd = "ssh " + src + " \"rm -rf " + vstat + "; ssh " + dest + " rm -rf " + vstat + "\""
+	print cmd
+	os.popen(cmd)
+
+        print "saving " + vm + " to " + vstat + " ... "
+        begin = time.time()
+        cmd = "ssh " + src + " virsh save " + vm + " " + vstat
+	print cmd
+	os.popen(cmd)
+        end = time.time()
+        saving_time = end - begin
+
+        print "transferring " + vstat + " to " + dest + " ... "
+        begin = time.time()
+        cmd = "ssh " + src + " globus-url-copy -p " + str(parnum) + " " + vstat + " sshftp://" + dest +"/" + vstat
+	print cmd
+	os.popen(cmd)
+        end = time.time()
+        transfer_time = end - begin
+
+        print "restoring " + vstat + " from " + dest + "... "
+        begin = time.time()
+        cmd = "ssh " + src + " ssh " + dest + " virsh restore " + vstat
+	print cmd
+	os.popen(cmd)
+        end = time.time()
+        restore_time = end - begin
+
+	total_time = saving_time + transfer_time + restore_time
+	print total_time,saving_time,transfer_time,restore_time
+
+gridftp(0)

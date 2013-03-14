@@ -104,28 +104,40 @@ def getCVMs():
 	#print "cvms =", cvms
 	return cvms		
 
-def migrate_gridftp(vminfo):
-	dest=c11node8
-	vm=vm512-1
-	dir=/root/vmstate
-	vstat=$dir/$vm.vstat
+# migrate using gridftp
+# save vm on local disk and restore from remote
+def gridftp(vminfo):
+	dest = "c11node8"
+	vm = "vm512-1"
+	dir = "/root/vmstate"
+	vstat = dir + "/" + "vm.vstat"
 	# number of parallel connections
 	parnum=1
 
 	#mkdir -p $dir
 	#ssh $dest mkdir -p $dir
 
-	rm -rf $vstat
-	ssh $dest rm -rf $vmstat
+	#rm -rf $vstat
+	os.remove(vstat)
+	cmd = "ssh $dest rm -rf $vstat"
 
-	echo "saving $vm to $vstat ... "
-	time -p virsh save $vm $vstat
+	print "saving $vm to $vstat ... "
+	begin = time.time() 
+	cmd = "ssh $src virsh save $vm $vstat"
+	end = time.time()
+	saving_time = end - begin
 
-	echo -n "transferring $vstat ... "
-	time -p globus-url-copy -p $parnum $vstat sshftp://$dest/$vstat
+	print "transferring $vstat ... "
+	begin = time.time()
+	cmd = "ssh $src globus-url-copy -p $parnum $vstat sshftp://$dest/$vstat"
+	end = time.time()
+	transfer_time = end - begin
 
-	echo "restoring $vstat from $dest ... "
-	time -p ssh $dest virsh restore $vstat
+	print "restoring $vstat from $dest ... "
+	begin = time.time()
+	cmd = "ssh $dest virsh restore $vstat"
+	end = time.time()
+	transfer_time = end - begin
 
 # migrate a vm with a vminfo
 def migrate(vminfo):
@@ -142,6 +154,9 @@ def migrate(vminfo):
 
 	start = time.time()
 	os.popen(cmd)
+
+#	migrate_gridftp(vminfo)
+
 	#time.sleep(5)
 	end = time.time()
 	elapsed = end - start
