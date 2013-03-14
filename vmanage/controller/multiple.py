@@ -46,9 +46,6 @@ golden_ratio = (3 - math.sqrt(5))/2
 
 """VM information class"""
 class VMInfo:
-	#def __init__(self, realpart, imagpart):
-		#self.r = realpart
-		#self.i = imagpart
 	def __init__(self, id, pmid, pm, vm, memory):
 		self.id = str(id)
 		self.pmid = pmid
@@ -106,38 +103,50 @@ def getCVMs():
 
 # migrate using gridftp
 # save vm on local disk and restore from remote
-def gridftp(vminfo):
-	dest = "c11node8"
-	vm = "vm512-1"
-	dir = "/root/vmstate"
-	vstat = dir + "/" + "vm.vstat"
-	# number of parallel connections
-	parnum=1
+#def gridftp(vminfo):
+def gridftp(src, dest, vm):
+	#src = "grb1"
+        #dest = "gra1"
+        #vm = "gra1-1"
+        dir = "/root/vmstate"
+        vstat = dir + "/" + vm + ".vstat"
+        # number of parallel connections
+        parnum=1
 
-	#mkdir -p $dir
-	#ssh $dest mkdir -p $dir
+        cmd = "ssh " + src + " \"mkdir -p " + dir + "; ssh " + dest + " mkdir -p " + dir + "\""
+	print cmd
+	os.popen(cmd)
 
-	#rm -rf $vstat
-	os.remove(vstat)
-	cmd = "ssh $dest rm -rf $vstat"
+        cmd = "ssh " + src + " \"rm -rf " + vstat + "; ssh " + dest + " rm -rf " + vstat + "\""
+	print cmd
+	os.popen(cmd)
 
-	print "saving $vm to $vstat ... "
-	begin = time.time() 
-	cmd = "ssh $src virsh save $vm $vstat"
-	end = time.time()
-	saving_time = end - begin
+        print "saving " + vm + " to " + vstat + " ... "
+        begin = time.time()
+        cmd = "ssh " + src + " virsh save " + vm + " " + vstat
+	print cmd
+	os.popen(cmd)
+        end = time.time()
+        saving_time = end - begin
 
-	print "transferring $vstat ... "
-	begin = time.time()
-	cmd = "ssh $src globus-url-copy -p $parnum $vstat sshftp://$dest/$vstat"
-	end = time.time()
-	transfer_time = end - begin
+        print "transferring " + vstat + " to " + dest + " ... "
+        begin = time.time()
+        cmd = "ssh " + src + " globus-url-copy -p " + str(parnum) + " " + vstat + " sshftp://" + dest +"/" + vstat
+	print cmd
+	os.popen(cmd)
+        end = time.time()
+        transfer_time = end - begin
 
-	print "restoring $vstat from $dest ... "
-	begin = time.time()
-	cmd = "ssh $dest virsh restore $vstat"
-	end = time.time()
-	transfer_time = end - begin
+        print "restoring " + vstat + " from " + dest + "... "
+        begin = time.time()
+        cmd = "ssh " + src + " ssh " + dest + " virsh restore " + vstat
+	print cmd
+	os.popen(cmd)
+        end = time.time()
+        restore_time = end - begin
+
+	total_time = saving_time + transfer_time + restore_time
+	print "gridftp",total_time,saving_time,transfer_time,restore_time
 
 # migrate a vm with a vminfo
 def migrate(vminfo):
@@ -153,9 +162,9 @@ def migrate(vminfo):
         print cmd
 
 	start = time.time()
-	os.popen(cmd)
+#	os.popen(cmd)
 
-#	migrate_gridftp(vminfo)
+	gridftp(src, dest, vm)
 
 	#time.sleep(5)
 	end = time.time()
@@ -428,10 +437,10 @@ def main(argv):
 	outputfile = ''
 
 	filename = os.path.basename(__file__)
-	usage = filename + ' -s <schedule> -v <vmwindow>' 
+	usage = filename + ' -s <schedule> -v <vm window> -g <number of gridftp parallel connections>' 
 
 	try:
-		opts, args = getopt.getopt(argv,"hs:v:d:",["sched=","vwnd=","delay="])
+		opts, args = getopt.getopt(argv,"hs:v:d:g:",["sched=","vwnd=","delay=","gridftp="])
 		#opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
 	except getopt.GetoptError:
 		print usage
@@ -445,6 +454,8 @@ def main(argv):
 			sched = arg
 		elif opt in ("-v", "--vwnd"):
 			vwnd = int(arg)
+		elif opt in ("-g", "--gridftp"):
+			parnum = int(arg)
 		elif opt in ("-d", "--delay"):
 			delay = arg
 	print 'scheduling is', sched
