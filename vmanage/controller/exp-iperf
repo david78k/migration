@@ -1,0 +1,11 @@
+#!/bin/bash
+
+Ns=( 1 2 4 6 8 10 12 14 16 18 20 30 40 50 60 )
+
+for N in ${Ns[@]}
+do
+	cmd="iperf -c grb1 -f MB -P $N"
+	echo $cmd
+	$cmd
+	sleep 10
+done

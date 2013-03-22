@@ -1,0 +1,105 @@
+#!/bin/bash
+scheds=( rand )
+#scheds=( sf lf rand )
+vwnds=( 1 )
+#vwnds=( 0 30 10 5 1 )
+#rounds=( 3 4 )
+# RTT
+delays=( 180 )
+#delays=( 20-80-180 )
+#sleeptime=300
+sleeptime=5
+#network=dynamic
+network=static
+
+filesize=4096
+file=/root/vmstate/gra8-1.vstat
+#file=/root/vmstate/gra1-1.vstat
+basedir=/nfs/vmanage/controller
+#exe=$basedir/multiple.py
+exe=globus-url-copy
+
+wanem=gr122
+host=gr121
+src=gra1
+dest=grb1
+
+function exp(){
+	local cmd
+	local sched=$1
+	local vwnd=$2
+	local delay=$3
+	local run=$4
+#	exe=$basedir/multiple-without-controller.py
+	logdir=$basedir/log/gridftp/$filesize/$delay
+	logfile=$logdir/$vwnd-r$run
+
+	mkdir -p $logdir
+
+	ssh $src ssh $dest rm -rf $file
+
+	#cmd="logsave $logfile time -p $exe -s $sched -v $vwnd"
+	cmd="logsave $logfile time -p ssh $src $exe -p $vwnd $file sshftp://$dest$file"
+	if [ -n "$5" ]; then
+		echo "not empty"
+		cmd="ssh $5 $cmd"
+	else
+		echo "empty"
+	fi
+	
+	echo $cmd
+	$cmd
+
+	total_time=`grep real $logfile | awk '{print $2}'`
+	#echo $total_time
+
+	aggre_thruput=`echo "$filesize / $total_time" | bc -l`
+	single_thruput=`echo "$aggre_thruput / $vwnd" | bc -l`
+	result="$aggre_thruput MB/s $single_thruput MB/s"
+	echo $result
+	echo $aggre_thruput $single_thruput $total_time >> $logfile
+	#wait
+}
+
+for delay in ${delays[@]}
+do
+	d=`expr $delay / 2`
+
+	for sched in ${scheds[@]}
+	do
+		for vwnd in ${vwnds[@]}
+		do
+			if [ $network == "dynamic" ]; then
+				echo "$basedir/congestor &"
+				$basedir/congestor &
+			else
+				ssh $wanem service tc delay $d
+			fi
+
+			cmd="exp $sched $vwnd $delay"
+			#cmd="exp $vwnd $delay"
+
+			echo $cmd 1
+			$cmd 1
+			sleep $sleeptime
+
+			#echo $cmd 2 gr121
+			#$cmd 2 gr121
+		#	echo $cmd 2
+	#		$cmd 2 
+	#		sleep $sleeptime
+
+#			$cmd 3 
+#			sleep $sleeptime
+
+#			$cmd 4 gr121
+#			sleep $sleeptime
+			if [ $network == "dynamic" ]; then
+				echo pkill congestor
+				pkill congestor
+			fi
+			ssh $wanem service tc stop
+		done	
+	done
+done
+
