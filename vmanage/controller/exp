@@ -1,18 +1,20 @@
 #!/bin/bash
-scheds=( rand )
-#scheds=( sf lf rand )
-vwnds=( 0 )
-#vwnds=( 30 10 5 1 )
+#scheds=( rand )
+scheds=( sf lf rand )
+vwnds=( 2 )
+#vwnds=( 0 30 10 5 1 )
 #rounds=( 3 4 )
+delays=( 20 )
 #delays=( 20-80-180 )
-delays=( 180 )
 sleeptime=300
 #sleeptime=1
 #network=dynamic
 network=static
+mode=gridftp
 
 basedir=/nfs/vmanage/controller
-exe=$basedir/multiplecontroller.py
+exe=$basedir/multiple.py
+#exe=$basedir/multiplecontroller.py
 #exe=$basedir/multiple-without-controller.py
 
 wanem=gr122
@@ -30,12 +32,12 @@ function exp(){
 
 	mkdir -p $logdir
 
-	if [ $network == "dynamic" ]; then
-		echo "$basedir/congestor &"
-		#$basedir/congestor &
-	fi
-	
 	cmd="logsave $logfile time -p $exe -s $sched -v $vwnd"
+	if [ mode == "gridftp" ]; then
+		cmd="$cmd -g $vwnd"
+		#cmd="logsave $logfile time -p $exe -s $sched -v 1 -g $vwnd"
+	fi
+
 	if [ -n "$5" ]; then
 		echo "not empty"
 		cmd="ssh $5 $cmd"
@@ -46,22 +48,25 @@ function exp(){
 	echo $cmd
 	$cmd
 
-	wait
+	#wait
 }
 
 for delay in ${delays[@]}
 do
 	d=`expr $delay / 2`
-	ssh $wanem service tc delay $d
 
 	for sched in ${scheds[@]}
 	do
 		for vwnd in ${vwnds[@]}
 		do
+			if [ $network == "dynamic" ]; then
+				echo "$basedir/congestor &"
+				$basedir/congestor &
+			else
+				ssh $wanem service tc delay $d
+			fi
+
 			cmd="exp $sched $vwnd $delay"
-		#	if [ $vwnd == 0 ]; then
-		#		cmd="/nfs/vmanage/startcontroller $cpm $delay"
-		#	fi	
 
 			echo $cmd 1
 			$cmd 1
@@ -69,15 +74,19 @@ do
 
 			echo $cmd 2 gr121
 			$cmd 2 gr121
-#			sleep $sleeptime
+			sleep $sleeptime
 
 #			$cmd 3 
-			#sleep $sleeptime
+#			sleep $sleeptime
 
-			#ssh gr121 $cmd 4
-			#sleep $sleeptime
+#			$cmd 4 gr121
+#			sleep $sleeptime
+			if [ $network == "dynamic" ]; then
+				echo pkill congestor
+				pkill congestor
+			fi
+			ssh $wanem service tc stop
 		done	
 	done
-	ssh $wanem service tc stop
 done
 

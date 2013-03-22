@@ -1,0 +1,5 @@
+# dstat for rocks
+#while [ 1 ]; do
+	rocks run host "dstat -n -N eth1 3 1 | tail -1" collate=y
+#	echo 
+#done

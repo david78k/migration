@@ -15,8 +15,6 @@ from collections import deque
 npms = 8
 # vm window
 vwnd = 1
-# pm window
-pwnd = 8
 # decrement factor
 alpha = 0.75
 threshold = 8
@@ -29,8 +27,6 @@ sleep_interval = 0.1
 
 cmd = "rocks run host gra1 \"dstat -n 1 1 | tail -1\" collate=y | awk '{print $2}'"
 
-pmstart = 0
-offset = 0
 rvms = 6
 # current VMs in transit
 cvms = 0
@@ -44,6 +40,9 @@ susq = deque() # suspended queue
 
 golden_ratio = (3 - math.sqrt(5))/2
 
+is_gridftp = False
+parnum = 1
+
 """VM information class"""
 class VMInfo:
 	def __init__(self, id, pmid, pm, vm, memory):
@@ -56,9 +55,8 @@ class VMInfo:
 	def __repr__(self):
 		return repr((self.id, self.pmid, self.pm, self.vm, self.memory))
 
-	i = 12345
-	def f(self):
-		return 'hello world'
+	#def f(self):
+	#	return 'hello world'
 
 def gethostname():
         hostname = socket.gethostname()
@@ -70,7 +68,6 @@ def gethostname():
 def getVMs():
 	vms = []
 	k = 0
-	#npms = 8
 	for i in xrange(1, npms + 1):
 		pmname = src_prefix + str(i)
 		#pmname = "gra" + str(i)
@@ -88,8 +85,6 @@ def getVMs():
 				vminfo = VMInfo(k, i, pmname, vmname, int(mem))
 				#vminfo = (k, i, pmname, vmname, int(mem))
 				vms.append(vminfo)
-				#vms.append((i, pmname, vmname, int(mem)))
-			#	print vminfo
 	return vms
 
 # get the number of concurrent VMs in transit
@@ -105,13 +100,14 @@ def getCVMs():
 # save vm on local disk and restore from remote
 #def gridftp(vminfo):
 def gridftp(src, dest, vm):
+	global parnum
 	#src = "grb1"
         #dest = "gra1"
         #vm = "gra1-1"
         dir = "/root/vmstate"
         vstat = dir + "/" + vm + ".vstat"
         # number of parallel connections
-        parnum=1
+        #parnum=1
 
         cmd = "ssh " + src + " \"mkdir -p " + dir + "; ssh " + dest + " mkdir -p " + dir + "\""
 	print cmd
@@ -162,9 +158,10 @@ def migrate(vminfo):
         print cmd
 
 	start = time.time()
-#	os.popen(cmd)
-
-	gridftp(src, dest, vm)
+	if is_gridftp:
+		gridftp(src, dest, vm)
+	else:
+		os.popen(cmd)
 
 	#time.sleep(5)
 	end = time.time()
@@ -183,8 +180,6 @@ def migrate(vminfo):
 		print "Could not remove vminfo from mq."
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
-	#except:
-		#pass
 	print "finish", elapsed, total_elapsed
 
 	cond.notify()
@@ -207,7 +202,6 @@ def migrate_multiple(list):
 			resume (vminfo)
 			mq.append(vminfo)
 		elif list:
-		        #t = Thread(target=migrate_hetero, args=(pmid, vm))
 			vminfo = list.pop(0)
 		        t = Thread(target=migrate, args=(vminfo,))
 		        t.start()
@@ -229,7 +223,6 @@ def migrate_multiple(list):
 			elif (cvms > rvwnd ):
 				rest = int(cvms) - int(rvwnd)
 				print "cvms=" + str(cvms) + " rvwnd=" + str(rvwnd) + " rest=" + str(rest) + " len(mq)=" + str(len(mq))
-				#print cvms, vwnd, rest + " len(mq)=" + len(mq)
 				rest = min(rest, len(mq))
 				for j in range(int(rest)):
 					vminfo = mq.popleft()
@@ -246,9 +239,6 @@ def migrate_multiple(list):
 def getBandwidth():
         total = 0
         cmd = "rocks run host \"dstat -n -N eth1 " + str(sampletime) + " 1 | tail -1\" | awk '{print $2}' | sed 's/B//g;s/M/000000/g;s/k/000/g'"
-        #print cmd
-        #os.system(cmd)
-        #subprocess.call([cmd])
 
         p = os.popen(cmd,"r")
         while 1:
@@ -295,7 +285,6 @@ def control():
        	 	avg = total / totalvms
 
 	        print "controller", phase, vwnd, total, avg, totalvms, threshold
-	        #print "controller", rvms, total, avg, vwnd, totalvms
 
 		cond.acquire()
 		if (phase == "ss"):
@@ -431,7 +420,7 @@ def printVMInfoIDs(list):
 def main(argv):
 	sched = "lf"
 
-	global vwnd
+	global vwnd, parnum, is_gridftp
 
 	inputfile = ''
 	outputfile = ''
@@ -441,14 +430,12 @@ def main(argv):
 
 	try:
 		opts, args = getopt.getopt(argv,"hs:v:d:g:",["sched=","vwnd=","delay=","gridftp="])
-		#opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
 	except getopt.GetoptError:
 		print usage
 		sys.exit(2)
 	for opt, arg in opts:
 		if opt == '-h':
 			print usage
-			#print 'test.py -s <schedule> -v <vmwindow> -d <delay>'
 			sys.exit()
 		elif opt in ("-s", "--sched"):
 			sched = arg
@@ -456,6 +443,7 @@ def main(argv):
 			vwnd = int(arg)
 		elif opt in ("-g", "--gridftp"):
 			parnum = int(arg)
+			is_gridftp = True
 		elif opt in ("-d", "--delay"):
 			delay = arg
 	print 'scheduling is', sched
@@ -477,17 +465,14 @@ def main(argv):
 
 	if (sched == "sf"):
 		list = sorted(vms, key=lambda vminfo: vminfo.memory)   # sort by memory size
-		#list = sorted(vms, key=lambda vm: vm[3])   # sort by memory size
 	elif (sched == "lf"):
 		list = sorted(vms, key=lambda vminfo: vminfo.memory, reverse=True)   # sort by memory size
-		#list = sorted(vms, key=lambda vm: vm[3], reverse=True)   # sort by memory size
 	elif (sched == "rand"):
 		list = sorted(vms)
 		random.shuffle(list)
 	else: 
 		list = vms
 	
-	#setIDs(list)
 	i = 0
 	for item in list:
 		i += 1
@@ -499,8 +484,8 @@ def main(argv):
 	#mt.start()
 # migrate VMs with the controller for homogeneous memeory size
 	if (vwnd == 0):
-		#ct = Thread(target=control, args=())
-		ct = Thread(target=golden_section_control, args=())
+		ct = Thread(target=control, args=())
+		#ct = Thread(target=golden_section_control, args=())
 		ct.start()
 	#	control()
 
