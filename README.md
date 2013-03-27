@@ -15,15 +15,15 @@ Experiments done on machines gr120 and gr121 at AIST
           vm window 0 indicates controller
 ```
 
-controller
+## controller
 - single
 - multiple: multple.py
 
 experiments
 - exp
 
-# node memory distributon
-# total of 30VMs
+## node memory distributon
+total of 30VMs
 node1 (4/4GB): 512MB, 512MB, 1GB, and 2GB
 node2 (6/4GB): 512MB, 512MB, 512MB, 512MB, 1GB, and 1GB
 node3 (8/4GB): 512MB, 512MB, 512MB, 512MB, 512MB, 512MB, 512MB, and 512MB
