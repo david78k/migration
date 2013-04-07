@@ -1,0 +1,22 @@
+#!/bin/bash
+
+hosts=( gra1 gra2 gra3 gra4 gra5 gra6 gra7 gra8 )
+vms=( 4 6 8 4 3 2 2 1 )
+
+echo ${hosts[@]}
+echo ${vms[@]}
+
+j=0
+for host in ${hosts[@]}
+do
+	k=${vms[$j]}
+	echo $host ${vms[$j]} 
+	#echo $host $j ${vms[$j]} $k
+	
+	for (( i = 1 ; i <= ${vms[$j]} ; i++ )); do
+		echo ssh $host "virsh start $host-$i"
+		ssh $host "virsh start $host-$i"
+	done
+	j=$(( ++ j ))	
+	echo
+done
