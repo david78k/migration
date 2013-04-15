@@ -1,0 +1,92 @@
+#!/bin/bash
+scheds=( lf sf rand )
+#vwnds=( 0 )
+vwnds=( 1 2 5 10 20 30 )
+#vwnds=( 0 1 2 4 8 )
+rounds=( 1 2 )
+
+all=all.dat
+avg=avg.dat
+#all=all.dat
+
+#>$all
+rm $all
+>$all
+
+rm $avg
+>$avg
+
+for sched in ${scheds[@]}
+do
+	schedfile=${sched}.dat
+	#if [ $sched -eq 1 ]; then 
+		#schedfile=${sched}.dat
+		#schedfile=${scheds}sched.concur
+#	fi
+	>$schedfile
+
+	for vwnd in ${vwnds[@]}
+	do
+		# all rounds
+		vfile=$sched-$vwnd.fin
+		# average
+		vconcur=$sched-$vwnd.concur
+
+	#	echo -n "$vwnd " >> $all
+
+		totalsum=0
+		avgsum=0
+		i=0
+		
+		for round in ${rounds[@]}
+		do
+			file=$sched-$vwnd-r$round
+			finish=$file.fin
+			echo -n "$file "
+
+			# all
+			tot=`grep real $file | awk '{print $2}'`
+			totalsum=`echo "$totalsum + $tot" | bc -l`
+
+			echo -n "$tot " >> $schedfile	
+
+			# avg finish
+			grep finish $file | awk  '{print $2}' > $finish
+                	# average rows
+                        avgfinish=`awk '{sum+=$1}END{print sum/NR}' $finish`
+			avgsum=`echo "$avgsum + $avgfinish" | bc -l`
+
+		#	awk 'NF {s=0; for(i=1;i<=NF;i++) s+=$i;printf("%.2f\n", s/NF)}' $finish
+			
+		#	grep finish $file | awk  '{print $NF}' | sed '1d' | sed 's/ //g' > $file.fin
+		#grep finish $file | awk  '{print $NF}' | sed '1d' | nl | sed 's/ //g'
+			# merge
+		#	pr -m -t -s\  $vfile $file.fin | gawk '{print }' > /tmp/merged
+		#	cp /tmp/merged $vfile
+			i=$(( i + 1 ))
+		done
+
+		#echo -n "$totalsum " >> $schedfile	
+		totalavg=`echo "$totalsum / $i" | bc -l | awk '{printf ("%.2f",$1)}'`
+		avgavg=`echo "$avgsum / $i" | bc -l | awk '{printf ("%.2f",$1)}'`
+#		echo $totalavg >> $schedfile
+		echo $totalavg $avgavg >> $schedfile
+	done
+	# merge all
+	tmp=/tmp/controller
+	pr -m -t -s\  $all $schedfile > $tmp
+#	echo
+#	cat $tmp
+#	echo
+	cp $tmp $all
+	# merge all
+#	pr -m -t -s\  $all $schedfile > $tmp
+#	echo
+#	cat $tmp
+#	echo
+#	cp $tmp $all
+done
+
+awk '{print $3,$4,$7,$8,$11,$12}' $tmp > $all
+cat $all
+
