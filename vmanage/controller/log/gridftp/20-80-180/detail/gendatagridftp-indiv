@@ -1,0 +1,119 @@
+#!/bin/bash
+scheds=( lf sf rand )
+#vwnds=( 0 )
+vwnds=( 1 2 5 10 20 30 )
+#vwnds=( 0 1 2 4 8 )
+rounds=( 1 2 )
+
+#all=all.dat
+all=gridftp-indiv.dat
+avg=avg.dat
+#all=all.dat
+
+#>$all
+rm $all
+>$all
+
+rm $avg
+>$avg
+
+for sched in ${scheds[@]}
+do
+	schedfile=${sched}.dat
+	#if [ $sched -eq 1 ]; then 
+		#schedfile=${sched}.dat
+		#schedfile=${scheds}sched.concur
+#	fi
+	>$schedfile
+
+	echo -n "$sched-total trans save restore "
+
+	for vwnd in ${vwnds[@]}
+	do
+		# all rounds
+		#vfile=$sched-$vwnd.fin
+		vfile=$sched-$vwnd.gf
+		# average
+		vconcur=$sched-$vwnd.concur
+
+		transtime=0
+		transum=0
+		savetime=0
+		savesum=0
+		restoretime=0
+		restoresum=0
+	#	echo -n "$vwnd " >> $all
+
+		totalsum=0
+		avgsum=0
+		i=0
+		
+		for round in ${rounds[@]}
+		do
+			file=$sched-$vwnd-r$round
+			#finish=$file.fin
+			finish=$file.gf
+#			echo -n "$file "
+
+			# all
+			tot=`grep real $file | awk '{print $2}'`
+			totalsum=`echo "$totalsum + $tot" | bc -l`
+
+			echo -n "$tot " >> $schedfile	
+
+			# avg saving time
+			#grep finish $file | awk  '{print $2}' > $finish
+			grep gridftp $file | awk  '{print $2}' > $finish
+                	# average rows
+                        avgfinish=`awk '{sum+=$1}END{print sum/NR}' $finish`
+			avgsum=`echo "$avgsum + $avgfinish" | bc -l`
+
+			# transfer time
+			#grep gridftp $file | awk  '{print $3}' > $transfer
+                       	#transtime=`grep gridftp $file | awk  '{print $3}' | awk '{sum+=$1}END{print sum/NR}' `
+                       	transtime=`grep gridftp $file | awk  '{print $4}' | awk '{sum+=$1}END{print sum/NR}' `
+			transum=`echo "$transum + $transtime" | bc -l`
+                       	savetime=`grep gridftp $file | awk  '{print $3}' | awk '{sum+=$1}END{print sum/NR}' `
+			savesum=`echo "$savesum + $savetime" | bc -l`
+                       	restoretime=`grep gridftp $file | awk  '{print $5}' | awk '{sum+=$1}END{print sum/NR}' `
+			restoresum=`echo "$restoresum + $restoretime" | bc -l`
+ #                       transtime=`awk '{sum+=$1}END{print sum/NR}' $transfer`
+			# restore time
+	#		grep gridftp $file | awk  '{print $4}' > $restore
+#                        restoretime=`awk '{sum+=$1}END{print sum/NR}' $restore`
+		#	awk 'NF {s=0; for(i=1;i<=NF;i++) s+=$i;printf("%.2f\n", s/NF)}' $finish
+			
+			i=$(( i + 1 ))
+		done
+
+		#echo -n "$totalsum " >> $schedfile	
+		#totalavg=`echo "$totalsum / $i" | bc -l | awk '{printf ("%.2f",$1)}'`
+		avgavg=`echo "$avgsum / $i" | bc -l | awk '{printf ("%.2f",$1)}'`
+		transfer=`echo "$transum / $i" | bc -l | awk '{printf ("%.2f",$1)}'`
+		save=`echo "$savesum / $i" | bc -l | awk '{printf ("%.2f",$1)}'`
+		restore=`echo "$restoresum / $i" | bc -l | awk '{printf ("%.2f",$1)}'`
+		echo $avgavg $transfer $save $restore >> $schedfile
+#		echo $totalavg $avgavg >> $schedfile
+	done
+	# merge all
+	tmp=/tmp/gridftpdata
+	pr -m -t -s\  $all $schedfile > $tmp
+#	echo
+#	cat $tmp
+#	echo
+	cp $tmp $all
+	# merge all
+#	pr -m -t -s\  $all $schedfile > $tmp
+#	echo
+#	cat $tmp
+#	echo
+#	cp $tmp $all
+done
+
+echo 
+
+#awk '{print $3,$4,$7,$8,$11,$12}' $tmp > $all
+#lf-total trans save restore sf-total trans save restore rand-total trans save restore
+awk '{print $3,$4,$5,$6,$9,$10,$11,$12,$15,$16,$17,$18}' $tmp > $all
+cat $all
+
