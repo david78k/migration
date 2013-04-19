@@ -1,0 +1,114 @@
+# script file for generating gnuplot script "script.p"
+data=$1
+prefix=${data%\.*}
+name=$prefix.p
+data=$prefix.dat
+figure=$prefix.png
+#fontsize=30
+fontsize=24
+fontsize=20
+#fontsize=14
+#fontsize=10
+#fontsize=16
+#fontsize=18
+figuresize=1000,300
+figuresize=1000,500
+terminal="png enhanced size $figuresize font $fontsize"
+#terminal="png enhanced font LiberationSans-Regular $fontsize"
+#terminal="png font arial 14"
+#terminal="png xffffff"
+#terminal="png Times-Roman,20"
+#terminal="png notruecolor"
+
+if [ $# -lt 1 ]; then
+	echo "usage: $0 script-name [eps]"
+	exit 1
+fi
+
+if [ $# -eq 2 ]; then
+	figure=$prefix.eps
+	terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
+	#terminal="postscript eps enhanced solid color font LiberationSans-Regular 14"
+	if [ $2 == "emf" ]; then
+		figure=$prefix.emf
+		terminal="emf enhanced solid size $figuresize font $fontsize"
+		#terminal="emf enhanced solid font LiberationSans-Regular 14"
+		#terminal="emf enhanced solid color"
+	fi
+fi
+
+cat >$name << GNUPLOT_EOF
+data = "$data"
+figure = "$figure"
+
+set palette gray
+
+set terminal $terminal
+#set terminal png
+#set terminal postscript eps enhanced solid color
+#set terminal hp500c 300 tiff
+set output figure 
+set   autoscale                        # scale axes automatically
+
+unset log                              # remove any log-scaling
+unset label                            # remove any previous labels
+set xtic auto                          # set xtics automatically
+set ytic auto                          # set ytics automatically
+
+#set xtic rotate by -45 scale 0
+
+set tmargin 1;
+#set multiplot;
+#set size 1,0.7;
+#set size 1,1;
+#set origin 0.0,0.5;
+
+# first plot
+#set title "evacuation"
+set xlabel "time (sec)"
+set ylabel "number of evacuated VMs"
+set y2label "evacuation ratio"
+#set y2label "individual migration time (sec)"
+#set y2tic auto
+set ytics nomirror
+set y2tics
+set tics out
+set autoscale y
+#set autoscale y2;
+#set key title "migration speed 40MB/s"
+#set key 20,1900
+#set key left
+set key right bottom
+#set key right center
+#set label "Yield Point" at 0.003,260
+#set arrow from 0.0028,250 to 0.003,280
+#set xr [0.0:($0+1).022]
+set yr [0:]
+set y2r [0:1]
+
+#set xdata time
+#set timefmt "%H:%M:%S"
+
+#data using 6:(\$0+1) title '8VMs' with linespoints, \\
+
+#plot data using 1:(\$0+1) title 'controller' with linespoints, \\
+
+plot data using 1:(\$0+1) title 'IC' with linespoints lc rgb "black", \\
+data using 2:(\$0+1) title 'AC' with linespoints lc rgb "black", \\
+data using 3:(\$0+1) title '1VM' with linespoints lc rgb "black", \\
+data using 4:(\$0+1) title '5VMs' with linespoints lc rgb "black", \\
+data using 5:(\$0+1) title '10VMs' with linespoints lc rgb "black", \\
+data using 6:(\$0+1) title '30VMs' with linespoints lc rgb "black"
+
+#plot data using 1:(\$0+1) title 'AC' with linespoints, \\
+#data using 2:(\$0+1) title '1VM' with linespoints, \\
+#data using 3:(\$0+1) title '5VMs' with linespoints, \\
+#data using 4:(\$0+1) title '10VMs' with linespoints, \\
+#data using 5:(\$0+1) title '30VMs' with linespoints
+
+#plot data using (\$0):xtic(1) notitle with linespoints
+
+# second plot
+#unset multiplot;
+
+GNUPLOT_EOF
