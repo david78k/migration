@@ -1,4 +1,10 @@
-nc localhost 4446 << EOF
+host=localhost
+port=4446
+
+host=$1
+port=$2
+
+nc $host $port << EOF
 info status
 info version
 quit

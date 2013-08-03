@@ -1,0 +1,15 @@
+dest=c11node10
+telnetport=4446
+
+ssh $dest /root/qemu/listen-daemon
+
+sleep 3
+
+./runvm-daemon
+
+sleep 5
+
+./ncmigrate
+
+./stopvm $dest $telnetport
+
