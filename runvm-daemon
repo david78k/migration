@@ -29,4 +29,4 @@ $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
 
 echo access VM: telnet localhost 4446
 echo script: nc localhost 4446
-echo Do not enter 'quit' unless you want to stop the VM
+echo Do not enter \'quit\' unless you want to stop the VM
