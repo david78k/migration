@@ -1,0 +1,13 @@
+# matlab script .m file
+#matlab hello.m
+# in matlab command window, 
+# run hello(.m)
+
+octave hello.m
+ 
+# data file .mat file
+#matlab load data.mat
+# in matlab command window or octave,
+#B = load('data.mat', '-ascii')
+
+#octave load data.mat
