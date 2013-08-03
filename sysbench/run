@@ -1,0 +1,15 @@
+sock=/var/lib/mysql/mysql.sock
+
+# run
+sysbench --num-threads=`nproc` \
+	--max-requests=100000 \
+	--test=oltp \
+	--mysql-socket=$sock \
+	--oltp-table-size=1000000 \
+	--oltp-read-only=on \
+	--db-driver=mysql \
+	--mysql-user=root \
+	--mysql-password=mysql \
+	run
+
+#	--mysql-socket=/tmp/mysql.sock \
