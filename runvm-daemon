@@ -14,6 +14,7 @@ $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
 	-enable-kvm \
 	-m $ram \
 	-monitor telnet:0:4446,server,nowait \
+        -device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \
 	-daemonize 
 
 #	-nographic 

@@ -3,13 +3,20 @@ telnetport=4446
 
 ssh $dest /root/qemu/listen-daemon
 
-sleep 3
+#sleep 3
 
 ./runvm-daemon
 
-sleep 5
+sleep 20
+
+# run sysbench in background
+ssh localhost -p 5555 /root/run &
+
+sleep 3
 
 ./ncmigrate
+
+sleep 3
 
 ./stopvm $dest $telnetport
 
