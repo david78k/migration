@@ -1,6 +1,6 @@
 dest=c11node10
 telnetport=4446
-expno=4
+expno=10
 
 ssh $dest /root/qemu/listen-daemon
 
@@ -21,11 +21,12 @@ sleep 10
 
 echo starting migration ...
 #./ncmigrate 
-./ncmigrate > sb$expno.log
+./ncmigrate > log/sb$expno.log
 
-grep time -a sb$expno.log
+grep time -a log/sb$expno.log
 
 sleep 10
 
+# shutdown VM at dest
 ./stopvm $dest $telnetport
 

@@ -1,7 +1,8 @@
 #name=vm512-28
 name=vm512-29
 image=/var/lib/libvirt/images/nfs/c11node9/$name.img
-ram=536
+#ram=536
+ram=1024
 qemudir=/root/qemu
 #version=qemu-kvm-1.2.0
 version=qemu-1.5.50
