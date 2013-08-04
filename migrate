@@ -1,5 +1,6 @@
 dest=c11node10
 telnetport=4446
+expno=4
 
 ssh $dest /root/qemu/listen-daemon
 
@@ -9,14 +10,22 @@ ssh $dest /root/qemu/listen-daemon
 
 sleep 20
 
+echo starting dstat ...
+ssh localhost -p 5555 "dstat -cmdngy > dstat/$expno.log &" 
+
 # run sysbench in background
-ssh localhost -p 5555 /root/run &
+echo starting sysbench ...
+ssh localhost -p 5555 "/root/run > sysbench/$expno.log &"
 
-sleep 3
+sleep 10
 
-./ncmigrate
+echo starting migration ...
+#./ncmigrate 
+./ncmigrate > sb$expno.log
 
-sleep 3
+grep time -a sb$expno.log
+
+sleep 10
 
 ./stopvm $dest $telnetport
 
