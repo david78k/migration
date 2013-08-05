@@ -1,15 +1,20 @@
+# numclients=`nproc`
+numclients=10
+maxtime=30
 sock=/var/lib/mysql/mysql.sock
 
 # run
-sysbench --num-threads=`nproc` \
-	--max-requests=100000 \
-	--test=oltp \
-	--mysql-socket=$sock \
-	--oltp-table-size=1000000 \
+sysbench --num-threads=$numclients \
 	--oltp-read-only=on \
+	--max-time=$maxtime \
+	--test=oltp \
+	--oltp-table-size=1000000 \
+	--max-requests=100000 \
+	--mysql-socket=$sock \
 	--db-driver=mysql \
 	--mysql-user=root \
 	--mysql-password=mysql \
 	run
 
+	#--oltp-test-mode=complex \
 #	--mysql-socket=/tmp/mysql.sock \
