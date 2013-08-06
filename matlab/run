@@ -3,7 +3,8 @@
 # in matlab command window, 
 # run hello(.m)
 
-octave hello.m
+#octave hello.m
+octave --silent mem-change-pdf.m
  
 # data file .mat file
 #matlab load data.mat
