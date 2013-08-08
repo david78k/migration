@@ -1,0 +1,18 @@
+nc localhost 4446 << EOF
+info status
+info version
+info kvm
+migrate -p tcp:c11node10:4444
+EOF
+echo
+
+sleep 5
+
+nc localhost 4446 << EOF
+info migrate
+info status
+quit
+EOF
+echo
+
+#info migrate_capabilities

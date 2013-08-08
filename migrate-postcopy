@@ -5,10 +5,10 @@ expno=1
 # sysbench params
 #prefix=1024_RO_${expno}
 # memtouch params
-dirtyrate=75
-prefix=128_${dirtyrate}_${expno}
+dirtyrate=150
+prefix=118_${dirtyrate}_${expno}
 
-logfile=sb_${prefix}.log
+logfile=mt_${prefix}.log
 
 #echo sb_${prefix}.log
 echo $logfile
@@ -20,26 +20,28 @@ ssh $dest /root/qemu/listen-postcopy-daemon
 
 ./runvm-daemon
 
+echo sleeping 20 seconds ...
 sleep 20
 
-echo starting dstat ...
-ssh localhost -p 5555 "dstat -cmdngy > dstat/${prefix}.log &" 
+#echo starting dstat ...
+#ssh localhost -p 5555 "dstat -cmdngy > dstat/${prefix}.log &" 
 
 # run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
-echo starting memtouch ...
-ssh localhost -p 5555 "/root/memtouch $dirtyrate $dirtyrate &"
+echo starting memtouch $dirtyrate ...
+ssh localhost -p 5555 "/root/memtouch $dirtyrate $dirtyrate" &
 
 #echo starting sysbench ...
 #ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log &"
 
+echo sleeping 10 seconds ...
 sleep 10
 
 echo starting migration ...
-./ncmigrate-postcopy > log/mt_${prefix}.log
+./ncmigrate-postcopy > log/${logfile}
 #./ncmigrate > log/sb_${prefix}.log
 
 #grep time -a log/sb_${prefix}.log
-grep time -a log/mt_${prefix}.log
+grep time -a log/${logfile}
 
 sleep 10
 
