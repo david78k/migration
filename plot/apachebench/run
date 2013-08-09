@@ -12,10 +12,9 @@ data=data/$prefix.tsv
 output=graphs/$prefix.png
 
 logsave $logfile ab -n $requests -c $clients \
+	-t 1 \
 	-g $data \
 	$path
-
-	#-t 1 \
 
 cp data/$prefix.tsv data/data.tsv
 gnuplot $plotscript
