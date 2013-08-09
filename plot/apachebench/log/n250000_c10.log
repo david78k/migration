@@ -1,5 +1,5 @@
 Log of ab -n 250000 -c 10 -t 1 -g data/n250000_c10.tsv http://10.244.36.20/index.html 
-Fri Aug  9 12:32:51 2013
+Fri Aug  9 12:33:11 2013
 
 This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -7,7 +7,7 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 10.244.36.20 (be patient)
 Completed 5000 requests
-Finished 6603 requests
+Finished 6881 requests
 
 
 Server Software:        Apache/2.2.15
@@ -19,23 +19,23 @@ Document Length:        286 bytes
 
 Concurrency Level:      10
 Time taken for tests:   1.000 seconds
-Complete requests:      6603
+Complete requests:      6881
 Failed requests:        0
 Write errors:           0
-Non-2xx responses:      6603
-Total transferred:      3076998 bytes
-HTML transferred:       1888458 bytes
-Requests per second:    6603.00 [#/sec] (mean)
-Time per request:       1.514 [ms] (mean)
-Time per request:       0.151 [ms] (mean, across all concurrent requests)
-Transfer rate:          3004.88 [Kbytes/sec] received
+Non-2xx responses:      6881
+Total transferred:      3206546 bytes
+HTML transferred:       1967966 bytes
+Requests per second:    6879.82 [#/sec] (mean)
+Time per request:       1.454 [ms] (mean)
+Time per request:       0.145 [ms] (mean, across all concurrent requests)
+Transfer rate:          3130.86 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    1   0.4      0       3
-Processing:     0    1   0.5      1      15
-Waiting:        0    1   0.4      1       8
-Total:          1    1   0.7      1      16
+Connect:        0    1   0.3      0       4
+Processing:     0    1   0.5      1      19
+Waiting:        0    1   0.5      1      18
+Total:          1    1   0.7      1      19
 ERROR: The median and mean for the initial connection time are more than twice the standard
        deviation apart. These results are NOT reliable.
 
@@ -45,10 +45,10 @@ Percentage of the requests served within a certain time (ms)
   75%      2
   80%      2
   90%      2
-  95%      3
-  98%      4
+  95%      2
+  98%      3
   99%      4
- 100%     16 (longest request)
+ 100%     19 (longest request)
 
-Fri Aug  9 12:32:52 2013
+Fri Aug  9 12:33:12 2013
 ----------------
