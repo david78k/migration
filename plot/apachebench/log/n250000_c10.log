@@ -1,13 +1,22 @@
-Log of ab -n 250000 -c 10 -t 1 -g data/n250000_c10.tsv http://10.244.36.20/index.html 
-Fri Aug  9 12:30:05 2013
+Log of ab -n 250000 -c 10 -g data/n250000_c10.tsv http://10.244.36.20/index.html 
+Fri Aug  9 12:30:38 2013
 
 This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 10.244.36.20 (be patient)
-Completed 5000 requests
-Finished 6917 requests
+Completed 25000 requests
+Completed 50000 requests
+Completed 75000 requests
+Completed 100000 requests
+Completed 125000 requests
+Completed 150000 requests
+Completed 175000 requests
+Completed 200000 requests
+Completed 225000 requests
+Completed 250000 requests
+Finished 250000 requests
 
 
 Server Software:        Apache/2.2.15
@@ -18,35 +27,37 @@ Document Path:          /index.html
 Document Length:        286 bytes
 
 Concurrency Level:      10
-Time taken for tests:   1.000 seconds
-Complete requests:      6917
+Time taken for tests:   52.108 seconds
+Complete requests:      250000
 Failed requests:        0
 Write errors:           0
-Non-2xx responses:      6917
-Total transferred:      3223322 bytes
-HTML transferred:       1978262 bytes
-Requests per second:    6916.43 [#/sec] (mean)
-Time per request:       1.446 [ms] (mean)
-Time per request:       0.145 [ms] (mean, across all concurrent requests)
-Transfer rate:          3147.51 [Kbytes/sec] received
+Non-2xx responses:      250001
+Total transferred:      116500466 bytes
+HTML transferred:       71500286 bytes
+Requests per second:    4797.75 [#/sec] (mean)
+Time per request:       2.084 [ms] (mean)
+Time per request:       0.208 [ms] (mean, across all concurrent requests)
+Transfer rate:          2183.36 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.3      0       3
-Processing:     0    1   1.4      1      51
-Waiting:        0    1   1.2      1      50
-Total:          1    1   1.5      1      52
+Connect:        0    1   0.4      0      47
+Processing:     0    1  46.2      1    5246
+Waiting:        0    1  32.2      1    5091
+Total:          0    2  46.2      1    5250
+ERROR: The median and mean for the initial connection time are more than twice the standard
+       deviation apart. These results are NOT reliable.
 
 Percentage of the requests served within a certain time (ms)
   50%      1
-  66%      1
+  66%      2
   75%      2
   80%      2
   90%      2
-  95%      2
-  98%      3
+  95%      3
+  98%      4
   99%      4
- 100%     52 (longest request)
+ 100%   5250 (longest request)
 
-Fri Aug  9 12:30:06 2013
+Fri Aug  9 12:31:30 2013
 ----------------
