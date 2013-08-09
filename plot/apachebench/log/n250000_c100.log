@@ -1,5 +1,5 @@
-Log of ab -n 250000 -c 100 -t 500 -g data/n250000_c100.tsv http://10.244.36.20/index.html 
-Fri Aug  9 12:24:11 2013
+Log of ab -n 250000 -c 100 -t 0.5 -g data/n250000_c100.tsv http://10.244.36.20/index.html 
+Fri Aug  9 12:25:28 2013
 
 This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -27,35 +27,35 @@ Document Path:          /index.html
 Document Length:        286 bytes
 
 Concurrency Level:      100
-Time taken for tests:   4.631 seconds
+Time taken for tests:   5.423 seconds
 Complete requests:      50000
 Failed requests:        0
 Write errors:           0
-Non-2xx responses:      50002
-Total transferred:      23300932 bytes
-HTML transferred:       14300572 bytes
-Requests per second:    10796.78 [#/sec] (mean)
-Time per request:       9.262 [ms] (mean)
-Time per request:       0.093 [ms] (mean, across all concurrent requests)
-Transfer rate:          4913.58 [Kbytes/sec] received
+Non-2xx responses:      50001
+Total transferred:      23300466 bytes
+HTML transferred:       14300286 bytes
+Requests per second:    9220.28 [#/sec] (mean)
+Time per request:       10.846 [ms] (mean)
+Time per request:       0.108 [ms] (mean, across all concurrent requests)
+Transfer rate:          4196.03 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    5 113.8      1    3003
-Processing:     0    3  10.0      2     210
-Waiting:        0    3  10.0      2     210
-Total:          1    8 114.8      3    3209
+Connect:        0    2  46.5      1    3001
+Processing:     0    9   9.5      8     256
+Waiting:        0    9   9.4      8     221
+Total:          1   11  47.5      9    3013
 
 Percentage of the requests served within a certain time (ms)
-  50%      3
-  66%      4
-  75%      5
-  80%      5
-  90%      6
-  95%      6
-  98%      7
-  99%      8
- 100%   3209 (longest request)
+  50%      9
+  66%     10
+  75%     11
+  80%     12
+  90%     14
+  95%     16
+  98%     20
+  99%     22
+ 100%   3013 (longest request)
 
-Fri Aug  9 12:24:16 2013
+Fri Aug  9 12:25:33 2013
 ----------------
