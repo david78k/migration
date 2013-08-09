@@ -1,11 +1,11 @@
 requests=25000
-clients=100
+clients=10
 
 server=http://10.244.36.20
 page=index.html
 path=$server/$page
 
-#gnuscript=ab-gnuplot
+plotscript=ab-gnuplot
 prefix=n${requests}_c${clients}
 logfile=log/$prefix.log
 data=data/$prefix.tsv
@@ -17,7 +17,7 @@ logsave $logfile ab -n $requests -c $clients \
 
 cp data/$prefix.tsv data/data.tsv
 gnuplot $plotscript
-cp graphs/$prefix.png graphs/$output
+cp graphs/output.png graphs/$output
 
 # git add ...
 # git commit -m "..."
