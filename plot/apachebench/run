@@ -1,5 +1,5 @@
 requests=25000
-clients=10
+clients=1000
 
 server=http://10.244.36.20
 page=index.html
@@ -19,6 +19,6 @@ cp data/$prefix.tsv data/data.tsv
 gnuplot $plotscript
 cp graphs/output.png graphs/$output
 
-# git add ...
-# git commit -m "..."
-# git push
+git add .
+git commit -m "$prefix"
+git push
