@@ -17,7 +17,7 @@ logsave $logfile ab -n $requests -c $clients \
 
 cp data/$prefix.tsv data/data.tsv
 gnuplot $plotscript
-cp graphs/output.png graphs/$output
+cp graphs/output.png $output
 
 git add .
 git commit -m "$prefix"
