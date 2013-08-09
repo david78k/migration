@@ -13,6 +13,7 @@ output=graphs/$prefix.png
 
 logsave $logfile ab -n $requests -c $clients \
 	-t 1 \
+	-r \
 	-g $data \
 	$path
 
