@@ -1,44 +1,61 @@
-Log of ab -n 250000 -c 10 -s 1 -g data/n250000_c10.tsv http://10.244.36.20/index.html 
-Fri Aug  9 12:40:12 2013
+Log of ab -n 250000 -c 10 -g data/n250000_c10.tsv http://10.244.36.20/index.html 
+Fri Aug  9 12:40:27 2013
 
-ab: illegal option -- s
-ab: wrong number of arguments
-Usage: ab [options] [http[s]://]hostname[:port]/path
-Options are:
-    -n requests     Number of requests to perform
-    -c concurrency  Number of multiple requests to make
-    -t timelimit    Seconds to max. wait for responses
-    -b windowsize   Size of TCP send/receive buffer, in bytes
-    -p postfile     File containing data to POST. Remember also to set -T
-    -u putfile      File containing data to PUT. Remember also to set -T
-    -T content-type Content-type header for POSTing, eg.
-                    'application/x-www-form-urlencoded'
-                    Default is 'text/plain'
-    -v verbosity    How much troubleshooting info to print
-    -w              Print out results in HTML tables
-    -i              Use HEAD instead of GET
-    -x attributes   String to insert as table attributes
-    -y attributes   String to insert as tr attributes
-    -z attributes   String to insert as td or th attributes
-    -C attribute    Add cookie, eg. 'Apache=1234. (repeatable)
-    -H attribute    Add Arbitrary header line, eg. 'Accept-Encoding: gzip'
-                    Inserted after all normal header lines. (repeatable)
-    -A attribute    Add Basic WWW Authentication, the attributes
-                    are a colon separated username and password.
-    -P attribute    Add Basic Proxy Authentication, the attributes
-                    are a colon separated username and password.
-    -X proxy:port   Proxyserver and port number to use
-    -V              Print version number and exit
-    -k              Use HTTP KeepAlive feature
-    -d              Do not show percentiles served table.
-    -S              Do not show confidence estimators and warnings.
-    -g filename     Output collected data to gnuplot format file.
-    -e filename     Output CSV file with percentages served
-    -r              Don't exit on socket receive errors.
-    -h              Display usage information (this message)
-    -Z ciphersuite  Specify SSL/TLS cipher suite (See openssl ciphers)
-    -f protocol     Specify SSL/TLS protocol (SSL2, SSL3, TLS1, or ALL)
-ab died with exit status 22
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Fri Aug  9 12:40:12 2013
+Benchmarking 10.244.36.20 (be patient)
+Completed 25000 requests
+Completed 50000 requests
+Completed 75000 requests
+Completed 100000 requests
+Completed 125000 requests
+Completed 150000 requests
+Completed 175000 requests
+Completed 200000 requests
+Completed 225000 requests
+Completed 250000 requests
+Finished 250000 requests
+
+
+Server Software:        Apache/2.2.15
+Server Hostname:        10.244.36.20
+Server Port:            80
+
+Document Path:          /index.html
+Document Length:        286 bytes
+
+Concurrency Level:      10
+Time taken for tests:   44.118 seconds
+Complete requests:      250000
+Failed requests:        0
+Write errors:           0
+Non-2xx responses:      250000
+Total transferred:      116500000 bytes
+HTML transferred:       71500000 bytes
+Requests per second:    5666.67 [#/sec] (mean)
+Time per request:       1.765 [ms] (mean)
+Time per request:       0.176 [ms] (mean, across all concurrent requests)
+Transfer rate:          2578.78 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   6.6      1    1599
+Processing:     0    1   2.0      1     298
+Waiting:        0    1   0.9      1     288
+Total:          0    2   6.9      2    1601
+
+Percentage of the requests served within a certain time (ms)
+  50%      2
+  66%      2
+  75%      2
+  80%      2
+  90%      2
+  95%      3
+  98%      4
+  99%      4
+ 100%   1601 (longest request)
+
+Fri Aug  9 12:41:11 2013
 ----------------
