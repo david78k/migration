@@ -1,0 +1,25 @@
+OLTP test statistics:
+    queries performed:
+        read:                            1400000
+        write:                           0
+        other:                           200000
+        total:                           1600000
+    transactions:                        100000 (630.74 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 1400000 (8830.32 per sec.)
+    other operations:                    200000 (1261.47 per sec.)
+
+Test execution summary:
+    total time:                          158.5446s
+    total number of events:              100000
+    total time taken by event execution: 158.1462
+    per-request statistics:
+         min:                                  1.47ms
+         avg:                                  1.58ms
+         max:                                 93.16ms
+         approx.  95 percentile:               1.66ms
+
+Threads fairness:
+    events (avg/stddev):           100000.0000/0.00
+    execution time (avg/stddev):   158.1462/0.00
+
