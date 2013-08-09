@@ -1,5 +1,5 @@
-Log of ab -n 250000 -c 10 -t 1 -r -g data/n250000_c10.tsv http://10.244.36.20/index.html 
-Fri Aug  9 12:33:41 2013
+Log of ab -n 250000 -c 10 -t 1 -r -k -g data/n250000_c10.tsv http://10.244.36.20/index.html 
+Fri Aug  9 12:34:10 2013
 
 This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -7,7 +7,7 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 10.244.36.20 (be patient)
 Completed 5000 requests
-Finished 7631 requests
+Finished 7366 requests
 
 
 Server Software:        Apache/2.2.15
@@ -19,34 +19,35 @@ Document Length:        286 bytes
 
 Concurrency Level:      10
 Time taken for tests:   1.000 seconds
-Complete requests:      7631
+Complete requests:      7366
 Failed requests:        0
 Write errors:           0
-Non-2xx responses:      7633
-Total transferred:      3556978 bytes
-HTML transferred:       2183038 bytes
-Requests per second:    7630.87 [#/sec] (mean)
-Time per request:       1.310 [ms] (mean)
-Time per request:       0.131 [ms] (mean, across all concurrent requests)
-Transfer rate:          3473.55 [Kbytes/sec] received
+Non-2xx responses:      7367
+Keep-Alive requests:    0
+Total transferred:      3433022 bytes
+HTML transferred:       2106962 bytes
+Requests per second:    7365.86 [#/sec] (mean)
+Time per request:       1.358 [ms] (mean)
+Time per request:       0.136 [ms] (mean, across all concurrent requests)
+Transfer rate:          3352.50 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.3      0       3
-Processing:     0    1   1.0      1      32
-Waiting:        0    1   0.8      1      27
-Total:          1    1   1.1      1      32
+Connect:        0    0   0.2      0       3
+Processing:     0    1   1.0      1      40
+Waiting:        0    1   0.8      1      32
+Total:          1    1   1.0      1      41
 
 Percentage of the requests served within a certain time (ms)
   50%      1
   66%      1
   75%      1
-  80%      1
+  80%      2
   90%      2
   95%      2
   98%      3
-  99%      4
- 100%     32 (longest request)
+  99%      3
+ 100%     41 (longest request)
 
-Fri Aug  9 12:33:42 2013
+Fri Aug  9 12:34:11 2013
 ----------------
