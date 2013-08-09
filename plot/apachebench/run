@@ -1,5 +1,5 @@
 requests=250000
-clients=100
+clients=1000
 
 server=http://10.244.36.20
 page=index.html
