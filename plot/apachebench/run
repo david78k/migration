@@ -12,6 +12,7 @@ data=data/$prefix.tsv
 output=graphs/$prefix.png
 
 logsave $logfile ab -n $requests -c $clients \
+	-s 1 \
 	-g $data \
 	$path
 
