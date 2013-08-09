@@ -1,0 +1,61 @@
+Log of ab -n 250000 -c 100 -t 500 -g data/n250000_c100.tsv http://10.244.36.20/index.html 
+Fri Aug  9 12:24:11 2013
+
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 10.244.36.20 (be patient)
+Completed 5000 requests
+Completed 10000 requests
+Completed 15000 requests
+Completed 20000 requests
+Completed 25000 requests
+Completed 30000 requests
+Completed 35000 requests
+Completed 40000 requests
+Completed 45000 requests
+Completed 50000 requests
+Finished 50000 requests
+
+
+Server Software:        Apache/2.2.15
+Server Hostname:        10.244.36.20
+Server Port:            80
+
+Document Path:          /index.html
+Document Length:        286 bytes
+
+Concurrency Level:      100
+Time taken for tests:   4.631 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Non-2xx responses:      50002
+Total transferred:      23300932 bytes
+HTML transferred:       14300572 bytes
+Requests per second:    10796.78 [#/sec] (mean)
+Time per request:       9.262 [ms] (mean)
+Time per request:       0.093 [ms] (mean, across all concurrent requests)
+Transfer rate:          4913.58 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    5 113.8      1    3003
+Processing:     0    3  10.0      2     210
+Waiting:        0    3  10.0      2     210
+Total:          1    8 114.8      3    3209
+
+Percentage of the requests served within a certain time (ms)
+  50%      3
+  66%      4
+  75%      5
+  80%      5
+  90%      6
+  95%      6
+  98%      7
+  99%      8
+ 100%   3209 (longest request)
+
+Fri Aug  9 12:24:16 2013
+----------------

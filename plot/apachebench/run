@@ -1,5 +1,5 @@
-requests=25000
-clients=1000
+requests=250000
+clients=100
 
 server=http://10.244.36.20
 page=index.html
@@ -12,6 +12,7 @@ data=data/$prefix.tsv
 output=graphs/$prefix.png
 
 logsave $logfile ab -n $requests -c $clients \
+	-t 500 \
 	-g $data \
 	$path
 
