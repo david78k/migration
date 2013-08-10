@@ -1,6 +1,18 @@
-script=$1
+# generate and upload image to github
+if [ $# -lt 1 ]; then
+        echo "usage: $0 data [eps]"
+        exit 1
+fi
+
+data=$1
+
+prefix=${data%\.*}
+script=$prefix.p
+
+./genscript $data
 
 gnuplot $script
+
 git add .
 git commit -m $script
 git push 
