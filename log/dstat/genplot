@@ -9,7 +9,7 @@ data=$1
 prefix=${data%\.*}
 script=$prefix.p
 
-./genscript $data
+./genscriptcpunet $data
 
 gnuplot $script
 
