@@ -8,7 +8,14 @@ vcpu=1
 # max link speed 118MB/s or 1000Mb/s
 speed=125 # migrate speed in MB/s
 mode=precopy
-xbzrle=on # on/off
+# capability
+cap=xbzrle 
+#cap=none 
+xbzrle=off # on/off
+
+if [ $cap == "xbzrle" ]; then
+	xbzrle=on
+fi
 
 expno=1
 # sysbench params
@@ -19,7 +26,7 @@ dirtyrate=100 # MB/s
 prefix=${expno}
 
 loghome=log
-logdir=$loghome/${bench}/${mode}/r${ram}/v${vcpu}/s${speed}/d${dirtyrate}
+logdir=$loghome/${bench}/${mode}/${cap}/r${ram}/v${vcpu}/s${speed}/d${dirtyrate}
 logfile=$logdir/${prefix}.log
 dstatfile=$logdir/${prefix}.dstat
 migfile=$logdir/${prefix}.mig # nc migration results
@@ -119,9 +126,6 @@ ncmigrate > $migfile
 
 cpusage >> $migfile
 
-# stop dstat
-pgrep -fl dstat| awk '{print $1}' | xargs kill -9
-
 egrep -a "time|transferred|bytes|pages|mbps|cache|overflow|CPU" $migfile > $logfile
 #grep time -a log/sb_${prefix}.log
 #grep time -a log/${bench}_${prefix}.log
@@ -131,4 +135,7 @@ sleep 10
 
 # shutdown VM at dest
 ./stopvm $dest $telnetport
+
+# stop dstat
+pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 
