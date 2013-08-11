@@ -1,20 +1,32 @@
-#
+#!/bin/bash
+
 bench=memtouch
 #ram=128
 ram=256
-speed=1000 # migrate speed
+ram=1024
+# max link speed 118MB/s or 1000Mb/s
+speed=125 # migrate speed in MB/s
+xbzrle=on # on/off
 
 expno=1
 # sysbench params
 #prefix=1024_RO_${expno}
 # memtouch params
-dirtyrate=100
-prefix=${ram}_${dirtyrate}_${expno}
+dirtyrate=100 # MB/s
+prefix=s${speed}_r${ram}_d${dirtyrate}_n${expno}
 
 logfile=${bench}_${prefix}.log
 
+echo ram = $ram
+echo link speed = $speed
+echo benchmark = $bench
+echo dirty rate = $dirtyrate
+echo xbzrle = $xbzrle
+echo
+
 #echo sb_${prefix}.log
 echo $logfile
+echo
 
 dest=c11node10
 telnetport=4446
@@ -36,18 +48,75 @@ echo starting dstat ...
 
 # run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
 echo starting memtouch $dirtyrate ...
-ssh localhost -p 5555 "/root/memtouch $dirtyrate $dirtyrate" &
+ssh localhost -p 5555 "/root/run-memtouch $dirtyrate" &
 
 #echo starting sysbench ...
 #ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log" &
 
 echo sleeping 10 seconds ...
 sleep 10
+echo
 
 echo starting migration ...
+
+# for cpu utilization
+PREV_TOTAL=0
+PREV_IDLE=0
+
+  CPU=(`grep '^cpu ' /proc/stat`) # Get the total CPU statistics.
+  unset CPU[0]                          # Discard the "cpu" prefix.
+  IDLE=${CPU[4]}                        # Get the idle CPU time.
+  # Calculate the total CPU time.
+  TOTAL=0
+  for VALUE in "${CPU[@]}"; do
+    let "TOTAL=$TOTAL+$VALUE"
+  done
+
+  # Calculate the CPU usage since we last checked.
+  let "DIFF_IDLE=$IDLE-$PREV_IDLE"
+  let "DIFF_TOTAL=$TOTAL-$PREV_TOTAL"
+  let "DIFF_USAGE=(1000*($DIFF_TOTAL-$DIFF_IDLE)/$DIFF_TOTAL+5)/10"
+  echo -e "\rCPU: $DIFF_USAGE%  \b\b"
+
+  # Remember the total and idle CPU times for the next check.
+  PREV_TOTAL="$TOTAL"
+  PREV_IDLE="$IDLE"
+
 #./ncmigrate-postcopy > log/mt_${prefix}.log
-./ncmigrate $speed
+#./ncmigrate $speed
 #./ncmigrate > log/${bench}_${prefix}.log
+nc localhost 4446 << EOF
+info status
+info version
+info kvm
+migrate_set_capability xbzrle $xbzrle
+info migrate_capabilities
+migrate_set_speed $speed
+migrate tcp:c11node10:4444
+info migrate
+info status
+quit
+EOF
+echo
+
+  CPU=(`grep '^cpu ' /proc/stat`) # Get the total CPU statistics.
+  unset CPU[0]                          # Discard the "cpu" prefix.
+  IDLE=${CPU[4]}                        # Get the idle CPU time.
+  # Calculate the total CPU time.
+  TOTAL=0
+  for VALUE in "${CPU[@]}"; do
+    let "TOTAL=$TOTAL+$VALUE"
+  done
+
+  # Calculate the CPU usage since we last checked.
+  let "DIFF_IDLE=$IDLE-$PREV_IDLE"
+  let "DIFF_TOTAL=$TOTAL-$PREV_TOTAL"
+  let "DIFF_USAGE=(1000*($DIFF_TOTAL-$DIFF_IDLE)/$DIFF_TOTAL+5)/10"
+  echo -e "\rCPU: $DIFF_USAGE%  \b\b"
+
+  # Remember the total and idle CPU times for the next check.
+  PREV_TOTAL="$TOTAL"
+  PREV_IDLE="$IDLE"
 
 #grep time -a log/sb_${prefix}.log
 #grep time -a log/${bench}_${prefix}.log

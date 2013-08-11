@@ -1,9 +1,12 @@
 speed=$1
+xbzrle=$2
+#xbzrle=off
 
 nc localhost 4446 << EOF
 info status
 info version
 info kvm
+migrate_set_capability xbzrle $xbzrle
 info migrate_capabilities
 migrate_set_speed $speed
 migrate tcp:c11node10:4444
