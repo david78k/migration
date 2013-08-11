@@ -1,3 +1,4 @@
+# migrate speed
 speed=$1
 xbzrle=$2
 #xbzrle=off

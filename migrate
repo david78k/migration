@@ -4,8 +4,10 @@ bench=memtouch
 #ram=128
 #ram=256
 ram=1024
+vcpu=1
 # max link speed 118MB/s or 1000Mb/s
 speed=125 # migrate speed in MB/s
+mode=precopy
 xbzrle=on # on/off
 
 expno=1
@@ -13,9 +15,16 @@ expno=1
 #prefix=1024_RO_${expno}
 # memtouch params
 dirtyrate=100 # MB/s
-prefix=s${speed}_r${ram}_d${dirtyrate}_n${expno}
+#prefix=s${speed}_r${ram}_d${dirtyrate}_n${expno}
+prefix=${expno}
 
-logfile=${bench}_${prefix}.log
+loghome=log
+logdir=$loghome/${bench}/${mode}/r${ram}/v${vcpu}/s${speed}/d${dirtyrate}
+logfile=$logdir/${prefix}.log
+dstatfile=$logdir/${prefix}.dstat
+migfile=$logdir/${prefix}.mig # nc migration results
+
+mkdir -p $logdir 
 
 # for cpu utilization
 PREV_TOTAL=0
@@ -35,11 +44,27 @@ function cpusage() {
   let "DIFF_IDLE=$IDLE-$PREV_IDLE"
   let "DIFF_TOTAL=$TOTAL-$PREV_TOTAL"
   let "DIFF_USAGE=(1000*($DIFF_TOTAL-$DIFF_IDLE)/$DIFF_TOTAL+5)/10"
-  echo -e "\rCPU: $DIFF_USAGE%  \b\b"
+  echo -e "\rCPU: $DIFF_USAGE %  \b\b"
 
   # Remember the total and idle CPU times for the next check.
   PREV_TOTAL="$TOTAL"
   PREV_IDLE="$IDLE"
+}
+
+function ncmigrate() {
+nc localhost 4446 << EOF
+info status
+info version
+info kvm
+migrate_set_capability xbzrle $xbzrle
+info migrate_capabilities
+migrate_set_speed $speed
+migrate tcp:c11node10:4444
+info migrate
+info status
+quit
+EOF
+echo
 }
 
 echo ram = $ram MB
@@ -70,6 +95,7 @@ sleep 20
 
 echo starting dstat ...
 #ssh localhost -p 5555 "dstat -cmdngy > dstat/${prefix}.log" &
+dstat -cmdngy > $dstatfile &
 
 # run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
 echo starting memtouch $dirtyrate ...
@@ -89,22 +115,14 @@ cpusage
 #./ncmigrate-postcopy > log/mt_${prefix}.log
 #./ncmigrate $speed
 #./ncmigrate > log/${bench}_${prefix}.log
-nc localhost 4446 << EOF
-info status
-info version
-info kvm
-migrate_set_capability xbzrle $xbzrle
-info migrate_capabilities
-migrate_set_speed $speed
-migrate tcp:c11node10:4444
-info migrate
-info status
-quit
-EOF
-echo
+ncmigrate > $migfile
 
-cpusage
+cpusage >> $migfile
 
+# stop dstat
+pgrep -fl dstat| awk '{print $1}' | xargs kill -9
+
+egrep -a "time|transferred|bytes|pages|mbps|cache|overflow|CPU" $migfile > $logfile
 #grep time -a log/sb_${prefix}.log
 #grep time -a log/${bench}_${prefix}.log
 
