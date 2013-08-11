@@ -73,7 +73,8 @@ fi
 dirtyrate=$2
 
 prefix=dirty${dirtyrate}_${expno}
-logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}
+logdir=$loghome/${bench}/${mode}/ram${ram}/vcpu${vcpu}/speed${speed}/${cap}
+#logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}
 #logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${dirtyrate}
 logfile=$logdir/${prefix}.log
 dstatfile=$logdir/${prefix}.dstat
@@ -127,15 +128,13 @@ echo starting migration ...
 cpusage
 
 #./ncmigrate-postcopy > log/mt_${prefix}.log
-#./ncmigrate $speed
-#./ncmigrate > log/${bench}_${prefix}.log
 ncmigrate > $migfile
+#logsave $migfile ncmigrate
 
 cpusage >> $migfile
 
 egrep -a "time|transferred|bytes|pages|mbps|cache|overflow|CPU" $migfile > $logfile
-#grep time -a log/sb_${prefix}.log
-#grep time -a log/${bench}_${prefix}.log
+cat $logfile
 
 echo sleeping 10 seconds ...
 sleep 10
@@ -147,15 +146,22 @@ sleep 10
 pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 }
 
-caps=( none xbzrle )
-dirtyrates=( 10 20 30 40 50 60 70 80 90 100 )
-dirtyrates=( 10 20 )
+#caps=( default xbzrle )
+caps=( xbzrle )
+#dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
+dirtyrates=( 90 100 110 120 )
+speeds=( 40 50 60 70 80 90 100 110 120 )
+#dirtyrates=( 900 )
 
-for cap in ${caps[@]}
+for sp in ${speeds[@]}
 do
-	for rate in ${dirtyrates[@]}
+	speed=$sp
+	for cap in ${caps[@]}
 	do
-		migrate	$cap $rate
+		for rate in ${dirtyrates[@]}
+		do
+			migrate	$cap $rate
+		done
 	done
 done
 
