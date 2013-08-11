@@ -1,0 +1,161 @@
+#!/bin/bash
+
+bench=memtouch
+#ram=128
+#ram=256
+ram=1024
+vcpu=1
+# max link speed 118MB/s or 1000Mb/s
+speed=125 # migrate speed in MB/s
+mode=precopy
+# capability
+cap=xbzrle 
+#cap=none 
+xbzrle=off # on/off
+
+expno=1
+# sysbench params
+#prefix=1024_RO_${expno}
+# memtouch params
+dirtyrate=100 # MB/s
+#prefix=s${speed}_r${ram}_d${dirtyrate}_n${expno}
+
+loghome=log
+
+# for cpu utilization
+PREV_TOTAL=0
+PREV_IDLE=0
+
+function cpusage() {
+  CPU=(`grep '^cpu ' /proc/stat`) # Get the total CPU statistics.
+  unset CPU[0]                          # Discard the "cpu" prefix.
+  IDLE=${CPU[4]}                        # Get the idle CPU time.
+  # Calculate the total CPU time.
+  TOTAL=0
+  for VALUE in "${CPU[@]}"; do
+    let "TOTAL=$TOTAL+$VALUE"
+  done
+
+  # Calculate the CPU usage since we last checked.
+  let "DIFF_IDLE=$IDLE-$PREV_IDLE"
+  let "DIFF_TOTAL=$TOTAL-$PREV_TOTAL"
+  let "DIFF_USAGE=(1000*($DIFF_TOTAL-$DIFF_IDLE)/$DIFF_TOTAL+5)/10"
+  echo -e "\rCPU: $DIFF_USAGE %  \b\b"
+
+  # Remember the total and idle CPU times for the next check.
+  PREV_TOTAL="$TOTAL"
+  PREV_IDLE="$IDLE"
+}
+
+function ncmigrate() {
+nc localhost 4446 << EOF
+info status
+info version
+info kvm
+migrate_set_capability xbzrle $xbzrle
+info migrate_capabilities
+migrate_set_speed $speed
+migrate tcp:c11node10:4444
+info migrate
+info status
+quit
+EOF
+echo
+}
+
+function migrate() {
+cap=$1
+
+if [ $cap == "xbzrle" ]; then
+	xbzrle=on
+fi
+
+dirtyrate=$2
+
+prefix=dirty${dirtyrate}_${expno}
+logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}
+#logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${dirtyrate}
+logfile=$logdir/${prefix}.log
+dstatfile=$logdir/${prefix}.dstat
+migfile=$logdir/${prefix}.mig # nc migration results
+
+mkdir -p $logdir 
+
+echo ram = $ram MB
+echo migration speed = $speed MB/s
+echo benchmark = $bench
+echo dirty rate = $dirtyrate MB/s
+echo xbzrle = $xbzrle
+echo
+
+#echo sb_${prefix}.log
+echo $logfile
+echo
+
+dest=c11node10
+telnetport=4446
+
+echo "$dest (${ram}MB) listening ..."
+ssh $dest /root/qemu/listen-daemon $ram
+#ssh $dest /root/qemu/listen-postcopy-daemon $ram
+
+#sleep 3
+
+./runvm-daemon $ram
+#./runvm-daemon $ram
+
+echo sleeping 20 seconds ...
+sleep 20
+
+echo starting dstat ...
+#ssh localhost -p 5555 "dstat -cmdngy > dstat/${prefix}.log" &
+dstat -cmdngy > $dstatfile &
+
+# run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
+echo starting memtouch $dirtyrate ...
+ssh localhost -p 5555 "/root/run-memtouch $dirtyrate" &
+
+#echo starting sysbench ...
+#ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log" &
+
+echo sleeping 10 seconds ...
+sleep 10
+echo
+
+echo starting migration ...
+
+cpusage
+
+#./ncmigrate-postcopy > log/mt_${prefix}.log
+#./ncmigrate $speed
+#./ncmigrate > log/${bench}_${prefix}.log
+ncmigrate > $migfile
+
+cpusage >> $migfile
+
+egrep -a "time|transferred|bytes|pages|mbps|cache|overflow|CPU" $migfile > $logfile
+#grep time -a log/sb_${prefix}.log
+#grep time -a log/${bench}_${prefix}.log
+
+echo sleeping 10 seconds ...
+sleep 10
+
+# shutdown VM at dest
+./stopvm $dest $telnetport
+
+# stop dstat
+pgrep -fl dstat| awk '{print $1}' | xargs kill -9
+}
+
+caps=( none xbzrle )
+dirtyrates=( 10 20 30 40 50 60 70 80 90 100 )
+dirtyrates=( 10 20 )
+
+for cap in ${caps[@]}
+do
+	for rate in ${dirtyrates[@]}
+	do
+		migrate	$cap $rate
+	done
+done
+
