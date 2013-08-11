@@ -1,46 +1,58 @@
-dest=c11node10
-telnetport=4446
+#
+bench=memtouch
+#ram=128
+ram=256
+speed=1000 # migrate speed
 
 expno=1
 # sysbench params
 #prefix=1024_RO_${expno}
 # memtouch params
-dirtyrate=75
-prefix=128_${dirtyrate}_${expno}
+dirtyrate=100
+prefix=${ram}_${dirtyrate}_${expno}
 
-logfile=sb_${prefix}.log
+logfile=${bench}_${prefix}.log
 
 #echo sb_${prefix}.log
 echo $logfile
 
-#ssh $dest /root/qemu/listen-daemon
-ssh $dest /root/qemu/listen-postcopy-daemon
+dest=c11node10
+telnetport=4446
+
+echo "$dest (${ram}MB) listening ..."
+ssh $dest /root/qemu/listen-daemon $ram
+#ssh $dest /root/qemu/listen-postcopy-daemon $ram
 
 #sleep 3
 
-./runvm-daemon
+./runvm-daemon $ram
+#./runvm-daemon $ram
 
+echo sleeping 20 seconds ...
 sleep 20
 
 echo starting dstat ...
-ssh localhost -p 5555 "dstat -cmdngy > dstat/${prefix}.log &" 
+#ssh localhost -p 5555 "dstat -cmdngy > dstat/${prefix}.log" &
 
 # run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
-echo starting memtouch ...
-ssh localhost -p 5555 "/root/memtouch $dirtyrate $dirtyrate &"
+echo starting memtouch $dirtyrate ...
+ssh localhost -p 5555 "/root/memtouch $dirtyrate $dirtyrate" &
 
 #echo starting sysbench ...
-#ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log &"
+#ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log" &
 
+echo sleeping 10 seconds ...
 sleep 10
 
 echo starting migration ...
-./ncmigrate-postcopy > log/mt_${prefix}.log
-#./ncmigrate > log/sb_${prefix}.log
+#./ncmigrate-postcopy > log/mt_${prefix}.log
+./ncmigrate $speed
+#./ncmigrate > log/${bench}_${prefix}.log
 
 #grep time -a log/sb_${prefix}.log
-grep time -a log/mt_${prefix}.log
+#grep time -a log/${bench}_${prefix}.log
 
+echo sleeping 10 seconds ...
 sleep 10
 
 # shutdown VM at dest
