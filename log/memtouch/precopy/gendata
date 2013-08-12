@@ -1,0 +1,41 @@
+#!/bin/bash
+output=ramsize
+
+rams=( 256 512 2048 4096 )
+#caps=( default xbzrle )
+#caps=( xbzrle )
+caps=( default )
+#dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
+dirtyrates=( 100 )
+#speeds=( 50 60 70 80 90 100 110 120 )
+speeds=( 125 )
+expnos=( 1 )
+
+rm $output
+
+for mem in ${rams[@]}
+do
+	ram=$mem
+for sp in ${speeds[@]}
+do
+	speed=$sp
+	for cap in ${caps[@]}
+	do
+		for rate in ${dirtyrates[@]}
+		do
+		for expno in ${expnos[@]}
+		do
+			datadir=ram${ram}/vcpu1/speed${speed}/$cap
+			datafile=$datadir/dirty${rate}_${expno}.log
+			echo $datadir
+			#cat $datafile 
+			totaltime=`grep "total time" $datafile | awk '{print $3}'`
+			downtime=`grep "downtime" $datafile | awk '{print $2}'`
+			echo $totaltime $downtime >> $output
+		done
+		done
+	done
+done
+done
+
+cat $output
