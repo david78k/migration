@@ -25,7 +25,8 @@ set tmargin 1;
 #set title "bandwidth limit 50 MB/s"
 #set title "PI controller with bandwidth limit change from unlimited to 50 MB/s"
 set xlabel "VM memory size (MB)"
-set ylabel "total migration time (milliseconds)"
+#set ylabel "downtime (milliseconds)"
+set ylabel "total time (milliseconds)"
 #set y2label "cpu usage (%)"
 #set y2tic auto
 set ytics nomirror
@@ -54,7 +55,11 @@ set boxwidth 0.3 absolute
 #set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
 #plot data using ($14/1000000) title 'send' smooth freq with linespoints, \
 
+# total time
 plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
+
+# downtime
+#plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 
 #plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
 
