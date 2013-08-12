@@ -1,10 +1,9 @@
 data = "ramsize"
 figure = "ramsize.emf"
 
-set terminal emf enhanced solid size 640,355 font 20
-#set terminal emf enhanced solid size 640,355 font 20 size 640,355
+set terminal emf enhanced solid size 640,355 font 16
+#set terminal emf enhanced solid size 640,355 font 16 size 640,355
 #set terminal postscript eps enhanced solid color
-#set terminal hp500c 300 tiff
 set output figure 
 set   autoscale                        # scale axes automatically
 
@@ -45,6 +44,10 @@ set yr [0:]
 #set yr [0:140]
 set y2r [0:100]
 #set format y "%gkm"
+
+set style histogram cluster gap 2
+set style fill solid border -1
+set boxwidth 0.3 absolute
 
 #set style line 1 lt 2 lw 3
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default

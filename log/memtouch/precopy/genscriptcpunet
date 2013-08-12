@@ -7,17 +7,26 @@ figure=$prefix.png
 terminal="png size 640,355"
 ratio=0.5
 
+#fontsize=24
+fontsize=20
+##figuresize=1000,500
+figuresize=640,355
+#terminal="png size 640,355"
+terminal="png enhanced size $figuresize font $fontsize"
+ratio=0.5
+
 if [ $# -lt 1 ]; then
-	echo "usage: $0 script-name [eps]"
-	exit 1
+        echo "usage: $0 script-name [eps]"
+        exit 1
 fi
 
 if [ $# -eq 2 ]; then
-	ratio=1
-	figure=$prefix.eps
-	terminal="postscript eps enhanced color"
-	#terminal="postscript eps enhanced color size 320,175"
-	#terminal="epslatex size 3in, 2in"
+        figure=$prefix.eps
+        terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
+        if [ $2 == "emf" ]; then
+                figure=$prefix.emf
+                terminal="emf enhanced solid size $figuresize font $fontsize"
+        fi
 fi
 
 cat >$name << GNUPLOT_EOF
