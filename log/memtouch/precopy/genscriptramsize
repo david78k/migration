@@ -4,7 +4,12 @@ prefix=${data%\.*}
 name=$prefix.p
 #data=$prefix.dat
 figure=$prefix.png
-terminal="png size 640,355"
+
+#fontsize=24
+fontsize=20
+figuresize=1000,500
+#terminal="png size 640,355"
+terminal="png enhanced size $figuresize font $fontsize"
 ratio=0.5
 
 if [ $# -lt 1 ]; then

@@ -1,8 +1,8 @@
 data = "ramsize"
 figure = "ramsize.emf"
 
-set terminal emf enhanced solid size  font 
-#set terminal emf enhanced solid size  font  size 640,355
+set terminal emf enhanced solid size 1000,500 font 20
+#set terminal emf enhanced solid size 1000,500 font 20 size 640,355
 #set terminal postscript eps enhanced solid color
 #set terminal hp500c 300 tiff
 set output figure 
