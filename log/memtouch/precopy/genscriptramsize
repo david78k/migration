@@ -86,7 +86,7 @@ set boxwidth 0.3 absolute
 #set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
 #plot data using (\$14/1000000) title 'send' smooth freq with linespoints, \\
 
-plot data using 2:xtic(1) smooth freq with boxes 
+plot data using 2:xtic(1) with boxes
 
 #plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
 
