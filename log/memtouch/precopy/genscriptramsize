@@ -76,7 +76,7 @@ set y2r [0:100]
 #set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
 #plot data using (\$14/1000000) title 'send' smooth freq with linespoints, \\
 
-plot data using 1 title 'time' smooth freq with linespoints
+plot data using 0:1 title 'time' smooth freq with linespoints
 
 #data using (100 - \$3) axis x1y2 title 'cpu usage' with lines lc rgb "black"
 
