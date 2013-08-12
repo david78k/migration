@@ -42,7 +42,7 @@ set key horiz
 #set xr [0.0:0.022]
 set yr [0:]
 #set yr [0:140]
-set y2r [0:100]
+#set y2r [0:100]
 #set format y "%gkm"
 
 set style histogram cluster gap 2
@@ -54,7 +54,9 @@ set boxwidth 0.3 absolute
 #set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
 #plot data using ($14/1000000) title 'send' smooth freq with linespoints, \
 
-plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
+plot data using 2:xtic(1) smooth freq with boxes 
+
+#plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
 
 #plot data using 1:2 title 'time' smooth freq with linespoints
 
@@ -63,8 +65,6 @@ plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
 #data using ($5*5.6) axis x1y2 title 'VM window' with linespoints, \
 
 #data using 11 title 'free memory' with linespoints, \
-#plot data using 1:4 title 'user' with linespoints, \
-#data using 1:5 title 'system' with linespoints, \
 #data using 1:($2/1000000) axis x2y2 title 'receive' with lines linetype 11 
 # second plot
 #unset multiplot;
