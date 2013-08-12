@@ -2,9 +2,9 @@
 output=ramsize
 
 rams=( 256 512 1024 2048 4096 )
-#caps=( default xbzrle )
+caps=( default xbzrle )
 #caps=( xbzrle )
-caps=( default )
+#caps=( default )
 #dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
 dirtyrates=( 0 )
 #speeds=( 50 60 70 80 90 100 110 120 )
@@ -18,6 +18,7 @@ echo "# ram totaltime downtime" > $output
 for mem in ${rams[@]}
 do
 	ram=$mem
+	echo -n "$ram " >> $output
 for sp in ${speeds[@]}
 do
 	speed=$sp
@@ -33,11 +34,12 @@ do
 			#cat $datafile 
 			totaltime=`grep "total time" $datafile | awk '{print $3}'`
 			downtime=`grep "downtime" $datafile | awk '{print $2}'`
-			echo $ram $totaltime $downtime >> $output
+			echo -n "$totaltime $downtime " >> $output
 		done
 		done
 	done
 done
+	echo >> $output
 done
 
 cat $output
