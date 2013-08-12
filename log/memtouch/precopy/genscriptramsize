@@ -7,7 +7,8 @@ figure=$prefix.png
 
 #fontsize=24
 fontsize=20
-figuresize=1000,500
+#figuresize=1000,500
+figuresize=640,355
 #terminal="png size 640,355"
 terminal="png enhanced size $figuresize font $fontsize"
 ratio=0.5
