@@ -60,7 +60,7 @@ set boxwidth 0.3 absolute
 
 # downtime
 #plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
-plot data using ($0):3 title 'default' smooth freq with boxes lc rgb "grey", data using ($0+0.3):5 title 'xbzrle' smooth freq with boxes lc rgb "black"
+plot data using ($0-0.3):3:xticlabel(1) title 'default' smooth freq with boxes lc rgb "black", data using ($0+0.3):5:xticlabel(1) title 'xbzrle' smooth freq with boxes lc rgb "white"
 
 #plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
 
