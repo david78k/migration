@@ -146,13 +146,17 @@ sleep 10
 pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 }
 
-#caps=( default xbzrle )
-caps=( xbzrle )
+rams=( 256 512 2048 4096 )
+caps=( default xbzrle )
+#caps=( xbzrle )
 #dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
-dirtyrates=( 90 100 110 120 )
-speeds=( 40 50 60 70 80 90 100 110 120 )
-#dirtyrates=( 900 )
+dirtyrates=( 100 )
+#speeds=( 50 60 70 80 90 100 110 120 )
+speeds=( 125 )
 
+for mem in ${rams[@]}
+do
+	ram=$mem
 for sp in ${speeds[@]}
 do
 	speed=$sp
@@ -163,5 +167,6 @@ do
 			migrate	$cap $rate
 		done
 	done
+done
 done
 
