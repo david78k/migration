@@ -26,9 +26,9 @@ set tmargin 1;
 # first plot
 #set title "bandwidth limit 50 MB/s"
 #set title "PI controller with bandwidth limit change from unlimited to 50 MB/s"
-set xlabel "time (sec)"
-set ylabel "bandwidth usage (MB/s)"
-set y2label "cpu usage (%)"
+set xlabel "memory size (MB)"
+set ylabel "total time (milliseconds)"
+#set y2label "cpu usage (%)"
 set y2tic auto
 set ytics nomirror
 set y2tics
@@ -50,9 +50,11 @@ set y2r [0:100]
 #set style line 1 lt 2 lw 3
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default
 #set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
+#plot data using ($14/1000000) title 'send' smooth freq with linespoints, \
 
-plot data using ($14/1000000) title 'send' smooth freq with linespoints, \
-data using (100 - $3) axis x1y2 title 'cpu usage' with lines lc rgb "black"
+plot data using 1 title 'time' smooth freq with linespoints
+
+#data using (100 - $3) axis x1y2 title 'cpu usage' with lines lc rgb "black"
 
 #data using ($5*5.6) axis x1y2 title 'VM window' with linespoints, \
 

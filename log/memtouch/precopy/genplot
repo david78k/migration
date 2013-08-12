@@ -6,12 +6,22 @@ fi
 
 data=$1
 
+basedir=.
 prefix=${data%\.*}
 script=$prefix.p
+genscript=genscriptramsize
 
-./genscriptcpunet $data
-
+# make png
+$basedir/$genscript $data
 gnuplot $script
+
+# make eps
+# $basedir/$genscript $data eps
+# gnuplot $script
+
+# make emf
+# $basedir/$genscript $data emf
+# gnuplot $script
 
 git add .
 git commit -m $script

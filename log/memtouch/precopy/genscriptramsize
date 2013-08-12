@@ -13,11 +13,12 @@ if [ $# -lt 1 ]; then
 fi
 
 if [ $# -eq 2 ]; then
-	ratio=1
 	figure=$prefix.eps
-	terminal="postscript eps enhanced color"
-	#terminal="postscript eps enhanced color size 320,175"
-	#terminal="epslatex size 3in, 2in"
+	terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
+	if [ $2 == "emf" ]; then
+		figure=$prefix.emf
+		terminal="emf enhanced solid size $figuresize font $fontsize"
+	fi
 fi
 
 cat >$name << GNUPLOT_EOF
