@@ -1,39 +1,8 @@
-# script file to generate gnuplot script "script.p"
-data=$1
-prefix=${data%\.*}
-name=$prefix.p
-#data=$prefix.dat
-figure=$prefix.png
+data = "ramsize-downtime"
+figure = "ramsize-downtime.emf"
 
-#fontsize=24
-#fontsize=20
-fontsize=16
-#figuresize=1000,500
-figuresize=640,355
-#terminal="png size 640,355"
-terminal="png enhanced size $figuresize font $fontsize"
-ratio=0.5
-
-if [ $# -lt 1 ]; then
-	echo "usage: $0 script-name [eps]"
-	exit 1
-fi
-
-if [ $# -eq 2 ]; then
-	figure=$prefix.eps
-	terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
-	if [ $2 == "emf" ]; then
-		figure=$prefix.emf
-		terminal="emf enhanced solid size $figuresize font $fontsize"
-	fi
-fi
-
-cat >$name << GNUPLOT_EOF
-data = "$data"
-figure = "$figure"
-
-set terminal $terminal
-#set terminal $terminal size 640,355
+set terminal emf enhanced solid size 640,355 font 16
+#set terminal emf enhanced solid size 640,355 font 16 size 640,355
 #set terminal postscript eps enhanced solid color
 set output figure 
 set   autoscale                        # scale axes automatically
@@ -45,12 +14,11 @@ set ytic auto                          # set ytics automatically
 
 set tmargin 1;
 #set bmargin at screen 0.15
-#set object rectangle from screen 0,0 to screen 1,0.5 \
-#    lw 0 fillstyle noborder behind
+#set object rectangle from screen 0,0 to screen 1,0.5 #    lw 0 fillstyle noborder behind
 #set multiplot;
 #set size 1,0.7;
 #set size ratio 0.5;
-#set size ratio $ratio;
+#set size ratio 0.5;
 #set origin 0.0,0.5;
 
 # first plot
@@ -85,7 +53,7 @@ set boxwidth 0.3 absolute
 #set style line 1 lt 2 lw 3
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default
 #set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
-#plot data using (\$14/1000000) title 'send' smooth freq with linespoints, \\
+#plot data using ($14/1000000) title 'send' smooth freq with linespoints, \
 
 # total time
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
@@ -97,13 +65,12 @@ plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 
 #plot data using 1:2 title 'time' smooth freq with linespoints
 
-#data using (100 - \$3) axis x1y2 title 'cpu usage' with lines lc rgb "black"
+#data using (100 - $3) axis x1y2 title 'cpu usage' with lines lc rgb "black"
 
-#data using (\$5*5.6) axis x1y2 title 'VM window' with linespoints, \\
+#data using ($5*5.6) axis x1y2 title 'VM window' with linespoints, \
 
-#data using 11 title 'free memory' with linespoints, \\
-#data using 1:(\$2/1000000) axis x2y2 title 'receive' with lines linetype 11 
+#data using 11 title 'free memory' with linespoints, \
+#data using 1:($2/1000000) axis x2y2 title 'receive' with lines linetype 11 
 # second plot
 #unset multiplot;
 
-GNUPLOT_EOF
