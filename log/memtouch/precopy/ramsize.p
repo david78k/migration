@@ -1,9 +1,8 @@
 data = "ramsize"
-figure = "ramsize.png"
+figure = "ramsize.emf"
 
-set terminal png size 640,355
-#set terminal png size 640,355 size 640,355
-#set terminal png
+set terminal emf enhanced solid size  font 
+#set terminal emf enhanced solid size  font  size 640,355
 #set terminal postscript eps enhanced solid color
 #set terminal hp500c 300 tiff
 set output figure 
@@ -42,8 +41,8 @@ set key horiz
 #set label "Yield Point" at 0.003,260
 #set arrow from 0.0028,250 to 0.003,280
 #set xr [0.0:0.022]
-#set yr [0:]
-set yr [0:140]
+set yr [0:]
+#set yr [0:140]
 set y2r [0:100]
 #set format y "%gkm"
 

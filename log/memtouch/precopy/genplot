@@ -16,13 +16,14 @@ $basedir/$genscript $data
 gnuplot $script
 
 # make eps
-# $basedir/$genscript $data eps
-# gnuplot $script
+$basedir/$genscript $data eps
+gnuplot $script
 
 # make emf
-# $basedir/$genscript $data emf
-# gnuplot $script
+$basedir/$genscript $data emf
+gnuplot $script
 
+# upload to github
 git add .
 git commit -m $script
 git push 
