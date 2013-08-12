@@ -25,8 +25,8 @@ set tmargin 1;
 #set title "bandwidth limit 50 MB/s"
 #set title "PI controller with bandwidth limit change from unlimited to 50 MB/s"
 set xlabel "VM memory size (MB)"
-set ylabel "downtime (milliseconds)"
-#set ylabel "total time (milliseconds)"
+#set ylabel "downtime (milliseconds)"
+set ylabel "total time (milliseconds)"
 #set y2label "cpu usage (%)"
 #set y2tic auto
 set ytics nomirror
@@ -36,7 +36,7 @@ set autoscale y
 set autoscale y2;
 #set key title "migration speed 40MB/s"
 #set key left
-set key horiz
+#set key horiz
 #set key 0.01,100
 #set label "Yield Point" at 0.003,260
 #set arrow from 0.0028,250 to 0.003,280
@@ -53,16 +53,18 @@ set boxwidth 0.3 absolute
 
 #set style line 1 lt 2 lw 3
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default
-#set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
 #plot data using ($14/1000000) title 'send' smooth freq with linespoints, \
 
-# total time
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 
+# total time
+#plot data using ($0-0.15):2 title 'default' smooth freq with boxes lc rgb "black", #data using ($0+0.15):4 title 'xbzrle' smooth freq with boxes lc rgb "grey", #data using 0:(0):xticlabel(1) title '' w l
+
 # downtime
-#plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 plot data using ($0-0.15):3 title 'default' smooth freq with boxes lc rgb "black", data using ($0+0.15):5 title 'xbzrle' smooth freq with boxes lc rgb "grey", data using 0:(0):xticlabel(1) title '' w l
 
+#plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
+#
 #plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
 
 #plot data using 1:2 title 'time' smooth freq with linespoints
