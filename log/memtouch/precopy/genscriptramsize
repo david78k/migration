@@ -57,8 +57,8 @@ set tmargin 1;
 #set title "bandwidth limit 50 MB/s"
 #set title "PI controller with bandwidth limit change from unlimited to 50 MB/s"
 set xlabel "VM memory size (MB)"
-set ylabel "downtime (milliseconds)"
-#set ylabel "total time (milliseconds)"
+set ylabel "downtime (millisec)"
+#set ylabel "total migration time (millisec)"
 #set y2label "cpu usage (%)"
 #set y2tic auto
 set ytics nomirror

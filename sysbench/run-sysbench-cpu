@@ -1,0 +1,20 @@
+test=cpu
+maxtime=30
+
+#sock=/var/lib/mysql/mysql.sock
+sock=/var/run/mysqld/mysqld.sock
+
+# run
+sysbench --num-threads=`nproc` \
+        --max-requests=100000 \
+        --max-time=$maxtime \
+        --test=$test \
+        run
+
+#        --mysql-socket=$sock \
+#        --oltp-table-size=1000000 \
+#        --oltp-read-only=on \
+#        --db-driver=mysql \
+#        --mysql-user=root \
+#        --mysql-password=mysql \
+
