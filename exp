@@ -1,6 +1,13 @@
 #!/bin/bash
 
-bench=memtouch
+################################################################
+#
+#                  parameter configuration  
+#
+################################################################
+
+#bench=memtouch
+bench=kernel
 #ram=128
 #ram=256
 ram=1024
@@ -14,6 +21,8 @@ cap=xbzrle
 xbzrle=off # on/off
 
 expno=1
+prefix=$expno
+
 # kernel compile
 warmup=20 # time in seconds to make clean and warm up
 
@@ -30,6 +39,12 @@ loghome=log
 # for cpu utilization
 PREV_TOTAL=0
 PREV_IDLE=0
+
+################################################################
+#
+#                       functions  
+#
+################################################################
 
 function cpusage() {
   CPU=(`grep '^cpu ' /proc/stat`) # Get the total CPU statistics.
@@ -52,6 +67,8 @@ function cpusage() {
   PREV_IDLE="$IDLE"
 }
 
+#######################################################################################
+
 function ncmigrate() {
 nc localhost 4446 << EOF
 info status
@@ -68,6 +85,8 @@ EOF
 echo
 }
 
+#######################################################################################
+
 function migrate() {
 cap=$1
 
@@ -75,9 +94,10 @@ if [ $cap == "xbzrle" ]; then
 	xbzrle=on
 fi
 
-dirtyrate=$2
+if [ $bench == "memtouch" ]; then
+	prefix=dirty${dirtyrate}_${expno}
+fi
 
-prefix=dirty${dirtyrate}_${expno}
 logdir=$loghome/${bench}/${mode}/ram${ram}/vcpu${vcpu}/speed${speed}/${cap}
 #logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}
 #logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${dirtyrate}
@@ -153,18 +173,29 @@ sleep 10
 pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 }
 
+################################################################
+#
+#                       iterations  
+#
+################################################################
+
 #rams=( 256 512 1024 2048 4096 )
 rams=( 1024 )
 #caps=( default xbzrle auto-converge xbzrle+auto-converge )
-caps=( default xbzrle )
-#caps=( default )
+#caps=( default xbzrle )
+caps=( default )
 #caps=( xbzrle )
-dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
-#dirtyrates=( 0 )
 #speeds=( 50 60 70 80 90 100 110 120 )
 speeds=( 125 )
-runs=( 2 )
+runs=( 1 )
 #runs=( 4 5 6 7 8 9 10 )
+
+################# benchmark specific params ###################
+# memtouch
+dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
+#dirtyrates=( 0 )
+# kernel compile
+vcpus=( 1 2 4 8 12 )
 
 for run in ${runs[@]}
 do
@@ -177,10 +208,21 @@ do
 	speed=$sp
 	for cap in ${caps[@]}
 	do
-		for rate in ${dirtyrates[@]}
-		do
-			migrate	$cap $rate
-		done
+		if [ $bench == "memtouch" ]; then
+			for rate in ${dirtyrates[@]}
+			do
+				dirtyrate=$rate
+				migrate	$cap $rate
+			done
+		elif [ $bench == "kernel" ]; then
+			for arg in ${vcpus[@]}
+			do
+				vcpu=$arg
+				#echo migrate $cap $arg
+				echo migrate $cap $vcpu
+				#migrate	$cap 
+			done
+		fi
 	done
 done
 done
