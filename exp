@@ -190,12 +190,12 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 #rams=( 256 512 1024 2048 4096 )
 rams=( 1024 )
 #caps=( default xbzrle auto-converge xbzrle+auto-converge )
-#caps=( default xbzrle )
-caps=( default )
+caps=( default xbzrle )
+#caps=( default )
 #caps=( xbzrle )
 #speeds=( 50 60 70 80 90 100 110 120 )
 speeds=( 125 )
-runs=( 1 )
+runs=( 2 )
 #runs=( 4 5 6 7 8 9 10 )
 
 ################# benchmark specific params ###################
@@ -203,8 +203,8 @@ runs=( 1 )
 dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
 #dirtyrates=( 0 )
 # kernel compile
-#vcpus=( 1 2 4 8 12 )
-vcpus=( 12 )
+vcpus=( 1 2 4 8 12 )
+#vcpus=( 4 8 )
 
 for run in ${runs[@]}
 do
