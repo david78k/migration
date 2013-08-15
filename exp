@@ -7,7 +7,7 @@
 ################################################################
 
 #bench=memtouch
-bench=kernel
+bench=kernelcompile
 #ram=128
 #ram=256
 ram=1024
@@ -120,17 +120,18 @@ echo
 
 dest=c11node10
 telnetport=4446
+vmargs="$ram $vcpu"
 
 echo "$dest (${ram}MB) listening ..."
-ssh $dest /root/qemu/listen-daemon $ram
+ssh $dest /root/qemu/listen-daemon $vmargs
 #ssh $dest /root/qemu/listen-postcopy-daemon $ram
 
 #sleep 3
 
-./runvm-daemon $ram
+./runvm-daemon $vmargs
 #./runvm-daemon $ram
 
-echo sleeping 20 seconds ...
+echo waiting 20 seconds for VM bootup ...
 sleep 20
 
 echo starting dstat ...
@@ -138,15 +139,22 @@ echo starting dstat ...
 dstat -cmdngy --noheaders > $dstatfile &
 
 # run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
-if [ $dirtyrate -ne 0 ]; then
-	echo starting memtouch $dirtyrate ...
-	ssh localhost -p 5555 "/root/run-memtouch $dirtyrate" &
+bencharg=
+if [ $bench == "memtouch" -a $dirtyrate -ne 0 ]; then
+	bencharg=$dirtyrate
+	#ssh localhost -p 5555 "/root/run-memtouch $dirtyrate" &
 fi
+
+sshcmd="/root/run-${bench} $bencharg"
+
+echo starting $bench $bencharg ...
+#echo starting memtouch $dirtyrate ...
+ssh localhost -p 5555 "$sshcmd" &
 
 #echo starting sysbench ...
 #ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log" &
 
-echo sleeping $warmup seconds ...
+echo waiting $warmup seconds for initializing ...
 sleep $warmup
 echo
 
@@ -163,7 +171,7 @@ cpusage >> $migfile
 egrep -a "time|transferred|bytes|pages|mbps|cache|overflow|CPU" $migfile > $logfile
 cat $logfile
 
-echo sleeping 10 seconds ...
+echo waiting 10 seconds for finalizing ...
 sleep 10
 
 # shutdown VM at dest
@@ -195,7 +203,8 @@ runs=( 1 )
 dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
 #dirtyrates=( 0 )
 # kernel compile
-vcpus=( 1 2 4 8 12 )
+#vcpus=( 1 2 4 8 12 )
+vcpus=( 12 )
 
 for run in ${runs[@]}
 do
@@ -214,13 +223,13 @@ do
 				dirtyrate=$rate
 				migrate	$cap $rate
 			done
-		elif [ $bench == "kernel" ]; then
+		elif [ $bench == "kernelcompile" ]; then
 			for arg in ${vcpus[@]}
 			do
 				vcpu=$arg
 				#echo migrate $cap $arg
 				echo migrate $cap $vcpu
-				#migrate	$cap 
+				migrate	$cap 
 			done
 		fi
 	done
