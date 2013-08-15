@@ -14,9 +14,14 @@ cap=xbzrle
 xbzrle=off # on/off
 
 expno=1
+# kernel compile
+warmup=20 # time in seconds to make clean and warm up
+
 # sysbench params
 #prefix=1024_RO_${expno}
+
 # memtouch params
+#warmup=10
 dirtyrate=100 # MB/s
 #prefix=s${speed}_r${ram}_d${dirtyrate}_n${expno}
 
@@ -121,8 +126,8 @@ fi
 #echo starting sysbench ...
 #ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log" &
 
-echo sleeping 10 seconds ...
-sleep 10
+echo sleeping $warmup seconds ...
+sleep $warmup
 echo
 
 echo starting migration ...
