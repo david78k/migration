@@ -109,8 +109,8 @@ echo sleeping 20 seconds ...
 sleep 20
 
 echo starting dstat ...
-#ssh localhost -p 5555 "dstat -cmdngy > dstat/${prefix}.log" &
-dstat -cmdngy > $dstatfile &
+#ssh localhost -p 5555 "dstat -cmdngy --noheaders > dstat/${prefix}.log" &
+dstat -cmdngy --noheaders > $dstatfile &
 
 # run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
 if [ $dirtyrate -ne 0 ]; then
