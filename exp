@@ -15,10 +15,12 @@ vcpu=1
 # max link speed 118MB/s or 1000Mb/s
 speed=125 # migrate speed in MB/s
 mode=precopy
-# capability
-cap=xbzrle 
+
+# capabilities
+caps=( )
+#cap=xbzrle 
 #cap=none 
-xbzrle=off # on/off
+#xbzrle=off # on/off
 
 expno=1
 
@@ -69,14 +71,38 @@ function cpusage() {
 #######################################################################################
 
 function ncmigrate() {
+#setcaps=""
+#for cap in ${caps[@]}
+#do
+#	echo $cap
+	#setcaps+="migrate_set_capability $cap on"
+#	setcaps="$setcaps migrate_set_capability ${cap} on"
+	#printf -v setcaps "$setcaps\n migrate_set_capability ${cap} on\n"
+	#echo $setcaps
+	#echo -e $setcaps
+#done
+
+#migrate_set_capability xbzrle $xbzrle
+#migrate tcp:c11node10:4444
+
+#cap=auto-converge
+echo $caps
+if [[ "$caps" == *xbzrle* ]]; then
+	xbzrle=on
+fi
+
+if [[ "$caps" == *converge* ]]; then
+	converge=on
+fi
+
 nc localhost 4446 << EOF
 info status
 info version
 info kvm
 migrate_set_capability xbzrle $xbzrle
+migrate_set_capability auto-converge $converge
 info migrate_capabilities
 migrate_set_speed $speed
-migrate tcp:c11node10:4444
 info migrate
 info status
 quit
@@ -89,9 +115,9 @@ echo
 function migrate() {
 cap=$1
 
-if [ $cap == "xbzrle" ]; then
-	xbzrle=on
-fi
+#if [ $cap == "xbzrle" ]; then
+#	xbzrle=on
+#fi
 
 prefix=$expno
 if [ $bench == "memtouch" ]; then
@@ -111,7 +137,8 @@ echo ram = $ram MB
 echo migration speed = $speed MB/s
 echo benchmark = $bench
 echo dirty rate = $dirtyrate MB/s
-echo xbzrle = $xbzrle
+echo $caps
+#echo xbzrle = $xbzrle
 echo
 
 #echo sb_${prefix}.log
@@ -189,13 +216,15 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 
 #rams=( 256 512 1024 2048 4096 )
 rams=( 1024 )
-#caps=( default xbzrle auto-converge xbzrle+auto-converge )
-caps=( default xbzrle )
-#caps=( default )
-#caps=( xbzrle )
+#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+#expcaps=( default xbzrle )
+#expcaps=( default )
+#expcaps=( xbzrle )
+expcaps=( auto-converge )
+#expcaps=( xbzrle+auto-converge )
 #speeds=( 50 60 70 80 90 100 110 120 )
 speeds=( 125 )
-runs=( 10 )
+runs=( 1 )
 #runs=( 4 5 6 7 8 9 10 )
 
 ################# benchmark specific params ###################
@@ -203,8 +232,8 @@ runs=( 10 )
 dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
 #dirtyrates=( 0 )
 # kernel compile
-vcpus=( 1 2 4 8 12 )
-#vcpus=( 2 8 12 )
+#vcpus=( 1 2 4 8 12 )
+vcpus=( 1 )
 
 for run in ${runs[@]}
 do
@@ -215,21 +244,26 @@ do
 for sp in ${speeds[@]}
 do
 	speed=$sp
-	for cap in ${caps[@]}
+	for expcap in ${expcaps[@]}
 	do
+		if [ $expcap != "default" ]; then
+			caps=$expcap
+		fi
+
 		if [ $bench == "memtouch" ]; then
 			for rate in ${dirtyrates[@]}
 			do
 				dirtyrate=$rate
-				migrate	$cap $rate
+				migrate	$expcap $rate
 			done
 		elif [ $bench == "kernelcompile" ]; then
 			for arg in ${vcpus[@]}
 			do
 				vcpu=$arg
 				#echo migrate $cap $arg
-				echo migrate $cap $vcpu
-				migrate	$cap 
+				echo migrate $expcap $vcpu
+				#migrate	$expcap 
+				ncmigrate	 
 			done
 		fi
 	done
