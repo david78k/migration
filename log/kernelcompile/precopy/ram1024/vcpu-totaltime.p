@@ -1,7 +1,7 @@
 data = "vcpu"
 figure = "vcpu-totaltime.emf"
 
-set terminal emf enhanced size 640,355 font 12
+set terminal emf enhanced dashed size 640,355 'Times Roman Italic' 12
 set output figure 
 set   autoscale                        # scale axes automatically
 
@@ -58,7 +58,7 @@ set boxwidth 0.2 absolute
 #plot data using ($14/1000000) title 'send' smooth freq with linespoints, \
 
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
-#data using ($0+0.3):17 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb "red", 
+
 plot data using ($0-0.3):2 title 'default' smooth freq with boxes lc rgb 'black', data using ($0-0.1):8 title 'xbzrle' smooth freq with boxes lc rgb 'grey', data using ($0+0.1):14 title 'auto-converge' smooth freq with boxes lc rgb 'white', data using ($0+0.3):20 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 6 lc rgb 'black', data using 0:(0):xticlabel(1) title '' w l 
 
 

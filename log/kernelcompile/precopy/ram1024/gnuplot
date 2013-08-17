@@ -103,7 +103,8 @@ if [ $# -eq 2 ]; then
 	if [ $2 == "emf" ]; then
 		fontsize=12
 		figure=$prefix.emf
-		terminal="emf enhanced size $figuresize font $fontsize"
+		terminal="emf enhanced dashed size $figuresize 'Times Roman Italic' $fontsize"
+		#terminal="emf enhanced size $figuresize font $fontsize"
 		#terminal="emf enhanced solid size $figuresize font $fontsize"
 	fi
 fi
@@ -206,7 +207,6 @@ set boxwidth 0.2 absolute
 #plot data using (\$14/1000000) title 'send' smooth freq with linespoints, \\
 
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
-#data using (\$0+0.3):17 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb "red", \
 
 $plot
 
