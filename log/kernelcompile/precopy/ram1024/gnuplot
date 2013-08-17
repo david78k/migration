@@ -137,7 +137,7 @@ offset=6
 #data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'white', \
 #data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 6 lc rgb 'black', \
 
-plot="plot data using (\$0-0.3):$begincol title 'default',\ 
+plot="plot data using (\$0-0.3):$begincol title 'default',  
 data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle',\
 data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge', \
 data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge', \

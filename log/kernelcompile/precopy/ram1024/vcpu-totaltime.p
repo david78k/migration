@@ -60,7 +60,7 @@ set boxwidth 0.2 absolute
 
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 
-plot data using ($0-0.3):2 title 'default',\ 
+plot data using ($0-0.3):2 title 'default',  
 data using ($0-0.1):8 title 'xbzrle',data using ($0+0.1):14 title 'auto-converge', data using ($0+0.3):20 title 'xbzrle+auto-converge', data using 0:(0):xticlabel(1) title '' w l 
 
 
