@@ -81,8 +81,6 @@ done
 ################################ genscript ############################
 function genscript() {
 # script file to generate gnuplot script "script.p"
-#data=$1
-#prefix=${data%\.*}
 name=$prefix.p
 #data=$prefix.dat
 figure=$prefix.png
@@ -96,16 +94,12 @@ figuresize=640,355
 terminal="png enhanced size $figuresize font $fontsize"
 ratio=0.5
 
-#if [ $# -lt 1 ]; then
-#	echo "usage: $0 script-name [eps|emf]"
-#	exit 1
-#fi
-
+#echo "usage: $0 script-name [eps|emf]"
 if [ $# -eq 1 ]; then
 	figure=$prefix.eps
 	terminal="postscript eps enhanced size $figuresize color font $fontsize"
 	#terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
-	if [ $2 == "emf" ]; then
+	if [ $1 == "emf" ]; then
 		fontsize=12
 		figure=$prefix.emf
 		terminal="emf enhanced size $figuresize font $fontsize"
@@ -126,6 +120,12 @@ elif [ $metric == "totaldata" ]; then
 elif [ $metric == "throughput" ]; then
 	ylabel="throughput (mbps)"
 	begincol=5 
+elif [ $metric == "duplicate" ]; then
+	ylabel="duplicate pages"
+	begincol=6 
+elif [ $metric == "cpusage" ]; then
+	ylabel="host CPU usage"
+	begincol=7 
 fi
 
 offset=6
