@@ -33,7 +33,8 @@ set autoscale y
 set autoscale y2;
 #set key title "migration speed 40MB/s"
 #set key box 
-set key outside top
+#set key outside top
+set key outside below
 #set key horiz 
 #set key out horiz
 #set key left top
@@ -52,7 +53,7 @@ set yr [0:]
 set style histogram cluster gap 2
 set style fill solid border -1
 #set style fill pattern border
-set boxwidth 0.2 absolute
+set boxwidth 0.2 relative
 #set boxwidth 0.3 absolute
 #set xtic rotate by -45 scale 0
 
