@@ -267,7 +267,9 @@ data=vcpu
 
 #metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( cpusage )
-metrics=( downtime totaldata throughput duplicate )
+#metrics=( downtime totaldata throughput duplicate )
+metrics=( totaltime )
+
 for met in ${metrics[@]}
 do
 	metric=$met

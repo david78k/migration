@@ -1,9 +1,7 @@
-data = "vcpu-totaltime"
+data = "vcpu"
 figure = "vcpu-totaltime.emf"
 
-set terminal emf enhanced solid size 640,355 font 16
-#set terminal emf enhanced solid size 640,355 font 16 size 640,355
-#set terminal postscript eps enhanced solid color
+set terminal emf enhanced size 640,355 font 12
 set output figure 
 set   autoscale                        # scale axes automatically
 
@@ -24,8 +22,8 @@ set tmargin 1;
 # first plot
 #set title "bandwidth limit 50 MB/s"
 set xlabel "VCPU"
-#set ylabel "downtime (millisec)"
 set ylabel "total migration time (millisec)"
+#set ylabel "downtime (millisec)"
 #set y2label "cpu usage (%)"
 #set y2tic auto
 set ytics nomirror
@@ -34,9 +32,12 @@ set tics out
 set autoscale y
 set autoscale y2;
 #set key title "migration speed 40MB/s"
-set key left
+#set key box 
+#set key horiz 
+set key out horiz
+set key left top
+#set key center top
 #set key right
-#set key horiz
 #set key 0.01,100
 #set label "Yield Point" at 0.003,260
 #set arrow from 0.0028,250 to 0.003,280
@@ -58,14 +59,14 @@ set boxwidth 0.2 absolute
 
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 #data using ($0+0.3):17 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb "red", 
-# total time
-plot data using ($0-0.3):2 title 'default' smooth freq with boxes lc rgb "black", data using ($0-0.1):7 title 'xbzrle' smooth freq with boxes lc rgb "grey", data using ($0+0.1):12 title 'auto-converge' smooth freq with boxes lc rgb "white", data using ($0+0.3):17 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 1 lc rgb "black", data using 0:(0):xticlabel(1) title '' w l
+plot data using ($0-0.3):2 title 'default' smooth freq with boxes lc rgb 'black', data using ($0-0.1):8 title 'xbzrle' smooth freq with boxes lc rgb 'grey', data using ($0+0.1):14 title 'auto-converge' smooth freq with boxes lc rgb 'white', data using ($0+0.3):20 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 1 lc rgb 'black', data using 0:(0):xticlabel(1) title '' w l
 
-# downtime
-#plot data using ($0-0.3):3 title 'default' smooth freq with boxes lc rgb "black", #data using ($0-0.1):8 title 'xbzrle' smooth freq with boxes lc rgb "grey", #data using ($0+0.1):13 title 'auto-converge' smooth freq with boxes lc rgb "white", #data using ($0+0.3):18 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 4 lc rgb "black", #data using 0:(0):xticlabel(1) title '' w l
+
+# total time
+#plot data using ($0-0.3):2 title 'default' smooth freq with boxes lc rgb "black", #data using ($0-0.1):7 title 'xbzrle' smooth freq with boxes lc rgb "grey", #data using ($0+0.1):12 title 'auto-converge' smooth freq with boxes lc rgb "white", #data using ($0+0.3):17 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 1 lc rgb "black", #data using 0:(0):xticlabel(1) title '' w l
 
 #plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
-#
+
 #plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
 
 #plot data using 1:2 title 'time' smooth freq with linespoints
