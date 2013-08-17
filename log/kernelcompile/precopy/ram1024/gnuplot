@@ -103,8 +103,7 @@ if [ $# -eq 2 ]; then
 	if [ $2 == "emf" ]; then
 		fontsize=12
 		figure=$prefix.emf
-		terminal="emf enhanced dashed size $figuresize 'Times Roman Italic' $fontsize"
-		#terminal="emf enhanced size $figuresize font $fontsize"
+		terminal="emf enhanced size $figuresize font $fontsize"
 		#terminal="emf enhanced solid size $figuresize font $fontsize"
 	fi
 fi

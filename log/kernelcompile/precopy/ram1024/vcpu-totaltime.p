@@ -1,7 +1,7 @@
 data = "vcpu"
 figure = "vcpu-totaltime.emf"
 
-set terminal emf enhanced dashed size 640,355 'Times Roman Italic' 12
+set terminal emf enhanced size 640,355 font 12
 set output figure 
 set   autoscale                        # scale axes automatically
 
