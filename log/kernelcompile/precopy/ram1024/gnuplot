@@ -81,6 +81,7 @@ done
 ################################ genscript ############################
 function genscript() {
 # script file to generate gnuplot script "script.p"
+
 name=$prefix.p
 #data=$prefix.dat
 figure=$prefix.png
@@ -124,7 +125,7 @@ elif [ $metric == "duplicate" ]; then
 	ylabel="duplicate pages"
 	begincol=6 
 elif [ $metric == "cpusage" ]; then
-	ylabel="host CPU usage"
+	ylabel="host CPU usage (%)"
 	begincol=7 
 fi
 
@@ -174,7 +175,7 @@ set tmargin 1;
 # first plot
 #set title "bandwidth limit 50 MB/s"
 set xlabel "VCPU"
-set ylabel "$ylable"
+set ylabel "$ylabel"
 #set ylabel "downtime (millisec)"
 #set ylabel "total migration time (millisec)"
 #set ylabel "total transferred data (kbytes)"
@@ -266,19 +267,19 @@ GNUPLOT_EOF
 
 ################################ genplot ############################
 function genplot() {
-	inputdata=$1
-
 	# make png
-	# genscript generates a script "prefix.p"
-	genscript $inputdata
+	# generates a script "prefix.p" and "prefix.png"
+	genscript $prefix
 	gnuplot $script
 
 	# make eps
-	genscript $inputdata eps
+	# generates a script "prefix.p" and "prefix.eps"
+	genscript $prefix eps
 	gnuplot $script
 
-	# make emf
-	genscript $inputdata emf
+	# make emf for windows
+	# generates a script "prefix.p" and "prefix.emf"
+	genscript $prefix emf
 	gnuplot $script
 
 	# upload to github
@@ -289,8 +290,6 @@ function genplot() {
 
 ############################### call functions ############################
 data=vcpu
-prefix=${data%\.*}
-script=$prefix.p
 
 #test
 # generates "data" file
@@ -302,7 +301,10 @@ for met in ${metrics[@]}
 do
 	metric=$met
 	echo $metric
-	input="${data}-$metric"
-	cp $data $input
-	genplot $input
+	prefix="${data}-$metric"
+	#prefix=${data%\.*}
+	script=$prefix.p
+	cp $data $prefix
+	#genplot $input
+	genplot 
 done
