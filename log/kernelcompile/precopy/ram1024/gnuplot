@@ -122,7 +122,7 @@ elif [ $metric == "throughput" ]; then
 	ylabel="throughput (mbps)"
 	begincol=5 
 elif [ $metric == "duplicate" ]; then
-	ylabel="duplicate pages"
+	ylabel="number of duplicate pages"
 	begincol=6 
 elif [ $metric == "cpusage" ]; then
 	ylabel="host CPU usage (%)"
@@ -132,12 +132,12 @@ fi
 
 # metric
 offset=6
-#data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 1 lc rgb 'black', \
+#data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' lc rgb 'black', \
 
 plot="plot data using (\$0-0.3):$begincol title 'default' smooth freq with boxes lc rgb 'black', \
 data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' smooth freq with boxes lc rgb 'grey', \
 data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'white', \
-data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' lc rgb 'black', \
+data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 6 lc rgb 'black', \
 data using 0:(0):xticlabel(1) title '' w l 
 "
 echo $ylabel
