@@ -69,7 +69,8 @@ set tics out
 set autoscale y
 set autoscale y2;
 #set key title "migration speed 40MB/s"
-set key horiz 
+#set key horiz 
+set key out vert
 set key center top
 #set key left
 #set key right
