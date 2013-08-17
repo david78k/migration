@@ -134,7 +134,7 @@ fi
 offset=6
 plot="plot data using (\$0-0.3):$begincol title 'default' smooth freq with boxes lc rgb 'gold', \
 data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' smooth freq with boxes lc rgb 'grey', \
-data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'navy', \
+data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'blue', \
 data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'black', \
 data using 0:(0):xticlabel(1) title '' w l "
 
