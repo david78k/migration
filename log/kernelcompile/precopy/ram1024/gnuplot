@@ -88,7 +88,7 @@ figure=$prefix.png
 #fontsize=24
 #fontsize=20
 fontsize=16
-figuresize=1000,768
+figuresize=1024,768
 #figuresize=640,355
 #terminal="png size 640,355"
 terminal="png enhanced size $figuresize font $fontsize"
@@ -101,7 +101,7 @@ if [ $# -eq 2 ]; then
 	terminal="postscript eps enhanced size $figuresize color font $fontsize"
 	#terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
 	if [ $2 == "emf" ]; then
-		fontsize=14
+		#fontsize=14
 		figure=$prefix.emf
 		terminal="emf enhanced size $figuresize font $fontsize"
 		#terminal="emf enhanced solid size $figuresize font $fontsize"
