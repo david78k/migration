@@ -18,7 +18,8 @@ function test() {
 ################################ gendata ############################
 function gendata() {
 #output=ramsize
-output=vcpu
+#output=vcpu
+output=$data
 
 #rams=( 256 512 1024 2048 4096 )
 rams=( 1024 )
@@ -30,7 +31,7 @@ dirtyrates=( 0 )
 vcpus=( 1 2 4 8 12 )
 #speeds=( 50 60 70 80 90 100 110 120 )
 speeds=( 125 )
-expnos=( 2 ) # exp run
+expnos=( 1 ) # exp run
 
 #echo "# ram totaltime downtime" > $output
 echo "# vcpu totaltime downtime totaldata throughput duplicate cpusage" > $output
@@ -257,11 +258,11 @@ function genplot() {
 	git push 
 }
 
-############################### call functions ############################
+############################### main (call functions) ############################
 data=vcpu
 
 #test
-# generates "data" file
+# generates "$data" file
 #gendata
 
 #metrics=( totaltime downtime totaldata throughput duplicate cpusage )
