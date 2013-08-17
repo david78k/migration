@@ -88,11 +88,11 @@ figure=$prefix.png
 #fontsize=24
 #fontsize=20
 fontsize=16
-#figuresize=1000,500
-figuresize=640,355
+figuresize=1000,768
+#figuresize=640,355
 #terminal="png size 640,355"
 terminal="png enhanced size $figuresize font $fontsize"
-ratio=0.75
+#ratio=0.75
 
 #echo "usage: $0 script-name [eps|emf]"
 echo $# $1 $2

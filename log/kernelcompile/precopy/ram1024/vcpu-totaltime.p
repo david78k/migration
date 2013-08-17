@@ -1,7 +1,7 @@
 data = "vcpu"
 figure = "vcpu-totaltime.emf"
 
-set terminal emf enhanced size 640,355 font 14
+set terminal emf enhanced size 1000,768 font 14
 set output figure 
 set   autoscale                        # scale axes automatically
 
@@ -16,7 +16,7 @@ set tmargin 1;
 #set multiplot;
 #set size 1,0.7;
 #set size ratio 0.5;
-#set size ratio 0.75;
+#set size ratio ;
 #set origin 0.0,0.5;
 
 # first plot
