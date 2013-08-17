@@ -1,0 +1,30 @@
+# generate and upload image to github
+if [ $# -lt 1 ]; then
+        echo "usage: $0 data [eps]"
+        exit 1
+fi
+
+data=$1
+
+basedir=.
+prefix=${data%\.*}
+script=$prefix.p
+genscript=genscriptvcpu
+#genscript=genscriptramsize
+
+# make png
+$basedir/$genscript $data
+gnuplot $script
+
+# make eps
+$basedir/$genscript $data eps
+gnuplot $script
+
+# make emf
+$basedir/$genscript $data emf
+gnuplot $script
+
+# upload to github
+git add .
+git commit -m $script
+git push 
