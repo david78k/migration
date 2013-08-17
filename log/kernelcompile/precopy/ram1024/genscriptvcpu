@@ -66,8 +66,8 @@ set tics out
 set autoscale y
 set autoscale y2;
 #set key title "migration speed 40MB/s"
-#set key left
-set key right
+set key left
+#set key right
 #set key horiz
 #set key 0.01,100
 #set label "Yield Point" at 0.003,260
