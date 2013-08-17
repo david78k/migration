@@ -139,9 +139,9 @@ offset=6
 #data using 0:(0):xticlabel(1) title '' w l 
 
 plot="plot data using (\$0-0.3):$begincol title 'default' with boxes, \
-data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle',\
-data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge', \
-data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge', \
+data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' with boxes,\
+data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' with boxes, \
+data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' with boxes, \
 data using 0:(0):xticlabel(1) title '' 
 "
 echo $ylabel
