@@ -266,17 +266,19 @@ GNUPLOT_EOF
 
 ################################ genplot ############################
 function genplot() {
+	inputdata=$1
+
 	# make png
 	# genscript generates a script "prefix.p"
-	genscript $data
+	genscript $inputdata
 	gnuplot $script
 
 	# make eps
-	genscript $data eps
+	genscript $inputdata eps
 	gnuplot $script
 
 	# make emf
-	genscript $data emf
+	genscript $inputdata emf
 	gnuplot $script
 
 	# upload to github
@@ -290,15 +292,17 @@ data=vcpu
 prefix=${data%\.*}
 script=$prefix.p
 
-test
+#test
 # generates "data" file
-gendata
+#gendata
+
 #metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 metrics=( cpusage )
 for met in ${metrics[@]}
 do
 	metric=$met
 	echo $metric
-	cp $data "${data}-$metric"
-	genplot
+	input="${data}-$metric"
+	cp $data $input
+	genplot $input
 done
