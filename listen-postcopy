@@ -1,0 +1,11 @@
+name=vm512-29
+ram=536
+ram=128
+image=/var/lib/libvirt/images/nfs/c11node9/$name.img
+
+./qemu-postcopy/qemu-system-x86_64 \
+        -incoming tcp:0:4444 -postcopy \
+        -drive file=$image \
+        -m $ram \
+        -enable-kvm \
+        -nographic

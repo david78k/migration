@@ -1,0 +1,23 @@
+#ram=1024
+ram=$1
+vcpu=$2
+name=migbench
+#name=vm512-29
+image=/var/lib/libvirt/images/nfs/c11node9/$name.img
+qemudir=/root/qemu
+#version=qemu-kvm-1.2.0
+version=qemu-1.5.50
+#version=qemu-postcopy
+
+#./qemu-postcopy/qemu-system-x86_64 \
+#./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
+$qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
+        -drive file=$image \
+        -enable-kvm \
+        -incoming tcp:0:4444 \
+        -m $ram \
+        -smp $vcpu \
+        -monitor telnet:0:4446,server,nowait \
+        -device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \
+        -daemonize
+
