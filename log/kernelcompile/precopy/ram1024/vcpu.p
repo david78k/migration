@@ -24,8 +24,8 @@ set tmargin 1;
 # first plot
 #set title "bandwidth limit 50 MB/s"
 set xlabel "VCPU"
-set ylabel "downtime (millisec)"
-#set ylabel "total migration time (millisec)"
+#set ylabel "downtime (millisec)"
+set ylabel "total migration time (millisec)"
 #set y2label "cpu usage (%)"
 #set y2tic auto
 set ytics nomirror
@@ -48,8 +48,8 @@ set yr [0:]
 
 set style histogram cluster gap 2
 set style fill solid border -1
-set boxwidth 0.2 absolute
-#set boxwidth 0.3 absolute
+#set boxwidth 0.2 absolute
+set boxwidth 0.3 absolute
 #set xtic rotate by -45 scale 0
 
 #set style line 1 lt 2 lw 3
@@ -59,10 +59,10 @@ set boxwidth 0.2 absolute
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 
 # total time
-#plot data using ($0-0.5):2 title 'default' smooth freq with boxes lc rgb "black", #data using ($0-0.2):7 title 'xbzrle' smooth freq with boxes lc rgb "grey", #data using ($0+0.1):12 title 'auto-converge' smooth freq with boxes lc rgb "white", #data using ($0+0.4):17 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb "red", #data using 0:(0):xticlabel(1) title '' w l
+plot data using ($0-0.45):2 title 'default' smooth freq with boxes lc rgb "black", data using ($0-0.15):7 title 'xbzrle' smooth freq with boxes lc rgb "grey", data using ($0+0.15):12 title 'auto-converge' smooth freq with boxes lc rgb "white", data using ($0+0.45):17 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb "red", data using 0:(0):xticlabel(1) title '' w l
 
 # downtime
-plot data using ($0-0.3):3 title 'default' smooth freq with boxes lc rgb "black", data using ($0-0.1):8 title 'xbzrle' smooth freq with boxes lc rgb "grey", data using ($0+0.1):13 title 'auto-converge' smooth freq with boxes lc rgb "white", data using ($0+0.3):18 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb "red", data using 0:(0):xticlabel(1) title '' w l
+#plot data using ($0-0.3):3 title 'default' smooth freq with boxes lc rgb "black", #data using ($0-0.1):8 title 'xbzrle' smooth freq with boxes lc rgb "grey", #data using ($0+0.1):13 title 'auto-converge' smooth freq with boxes lc rgb "white", #data using ($0+0.3):18 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb "red", #data using 0:(0):xticlabel(1) title '' w l
 
 #plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 #
