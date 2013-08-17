@@ -94,6 +94,7 @@ terminal="png enhanced size $figuresize font $fontsize"
 ratio=0.5
 
 #echo "usage: $0 script-name [eps|emf]"
+echo $# $1 $2
 if [ $# -eq 1 ]; then
 	figure=$prefix.eps
 	terminal="postscript eps enhanced size $figuresize color font $fontsize"
@@ -234,16 +235,19 @@ GNUPLOT_EOF
 function genplot() {
 	# make png
 	# generates a script "prefix.p" and "prefix.png"
+	echo generating ${prefix}.png ...
 	genscript $prefix
 	gnuplot $script
 
 	# make eps
 	# generates a script "prefix.p" and "prefix.eps"
+	echo generating ${prefix}.eps ...
 	genscript $prefix eps
 	gnuplot $script
 
 	# make emf for windows
 	# generates a script "prefix.p" and "prefix.emf"
+	echo generating ${prefix}.emf ...
 	genscript $prefix emf
 	gnuplot $script
 
