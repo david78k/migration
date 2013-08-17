@@ -263,10 +263,11 @@ data=vcpu
 
 #test
 # generates "$data" file
-gendata
+#gendata
 
 #metrics=( totaltime downtime totaldata throughput duplicate cpusage )
-metrics=( cpusage )
+#metrics=( cpusage )
+metrics=( downtime totaldata throughput duplicate )
 for met in ${metrics[@]}
 do
 	metric=$met
