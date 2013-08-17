@@ -47,9 +47,9 @@ set yr [0:]
 #set y2r [0:100]
 #set format y "%gkm"
 
-#set style fill pattern border
 set style histogram cluster gap 2
-#set style fill solid border -1
+set style fill solid border -1
+#set style fill pattern border
 set boxwidth 0.2 absolute
 #set boxwidth 0.3 absolute
 #set xtic rotate by -45 scale 0
