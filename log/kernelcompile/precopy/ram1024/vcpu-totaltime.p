@@ -63,15 +63,13 @@ set boxwidth 0.2 absolute
 
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 
-plot data using ($0-0.3):2 title 'default' smooth freq with boxes lc rgb 'black', data using ($0-0.1):8 title 'xbzrle' smooth freq with boxes lc rgb '#696969', data using ($0+0.1):14 title 'auto-converge' smooth freq with boxes lc rgb 'gray', data using ($0+0.3):20 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'white', data using 0:(0):xticlabel(1) title '' w l 
+plot data using ($0-0.3):2 title 'default' smooth freq with boxes lc rgb 'gray', data using ($0-0.1):8 title 'xbzrle' smooth freq with boxes lc rgb '#696969', data using ($0+0.1):14 title 'auto-converge' smooth freq with boxes lc rgb 'black', data using ($0+0.3):20 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'white', data using 0:(0):xticlabel(1) title '' w l 
 
 # total time
 #plot data using ($0-0.3):2 title 'default' smooth freq with boxes lc rgb "black", #data using ($0-0.1):7 title 'xbzrle' smooth freq with boxes lc rgb "grey", #data using ($0+0.1):12 title 'auto-converge' smooth freq with boxes lc rgb "white", #data using ($0+0.3):17 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 1 lc rgb "black", #data using 0:(0):xticlabel(1) title '' w l
 
 #plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
-
 #plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
-
 #plot data using 1:2 title 'time' smooth freq with linespoints
 
 #data using (100 - $3) axis x1y2 title 'cpu usage' with lines lc rgb "black"

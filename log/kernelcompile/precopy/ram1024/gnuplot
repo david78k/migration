@@ -132,9 +132,9 @@ fi
 
 # metric
 offset=6
-plot="plot data using (\$0-0.3):$begincol title 'default' smooth freq with boxes lc rgb 'black', \
+plot="plot data using (\$0-0.3):$begincol title 'default' smooth freq with boxes lc rgb 'gray', \
 data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' smooth freq with boxes lc rgb '#696969', \
-data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'gray', \
+data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'black', \
 data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'white', \
 data using 0:(0):xticlabel(1) title '' w l "
 
@@ -225,9 +225,7 @@ $plot
 #data using 0:(0):xticlabel(1) title '' w l
 
 #plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
-
 #plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
-
 #plot data using 1:2 title 'time' smooth freq with linespoints
 
 #data using (100 - \$3) axis x1y2 title 'cpu usage' with lines lc rgb "black"
