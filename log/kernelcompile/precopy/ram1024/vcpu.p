@@ -65,7 +65,7 @@ set boxwidth 0.2 absolute
 
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 #data using ($0+0.3):17 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb "red", 
-plot data using ($0-0.3):7 title 'default' smooth freq with boxes lc rgb black, data using ($0-0.1):13 title 'xbzrle' smooth freq with boxes lc rgb grey, data using ($0+0.1):19 title 'auto-converge' smooth freq with boxes lc rgb white, data using ($0+0.3):25 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 1 lc rgb black, data using 0:(0):xticlabel(1) title '' w l
+plot data using ($0-0.3):7 title 'default' smooth freq with boxes lc rgb 'black', data using ($0-0.1):13 title 'xbzrle' smooth freq with boxes lc rgb 'grey', data using ($0+0.1):19 title 'auto-converge' smooth freq with boxes lc rgb 'white', data using ($0+0.3):25 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 1 lc rgb 'black', data using 0:(0):xticlabel(1) title '' w l
 
 
 # total time
