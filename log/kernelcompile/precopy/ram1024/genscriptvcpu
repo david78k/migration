@@ -21,11 +21,13 @@ fi
 
 if [ $# -eq 2 ]; then
 	figure=$prefix.eps
-	terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
+	terminal="postscript eps enhanced size $figuresize color font $fontsize"
+	#terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
 	if [ $2 == "emf" ]; then
 		fontsize=12
 		figure=$prefix.emf
-		terminal="emf enhanced solid size $figuresize font $fontsize"
+		terminal="emf enhanced size $figuresize font $fontsize"
+		#terminal="emf enhanced solid size $figuresize font $fontsize"
 	fi
 fi
 
