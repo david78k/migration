@@ -132,17 +132,17 @@ fi
 
 # metric
 offset=6
-plot="plot data using (\$0-0.3):$begincol title 'default' smooth freq with boxes lc rgb 'black', \
-data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' smooth freq with boxes lc rgb 'grey', \
-data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'white', \
-data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 6 lc rgb 'black', \
-data using 0:(0):xticlabel(1) title '' w l "
+#plot="plot data using (\$0-0.3):$begincol title 'default' smooth freq with boxes lc rgb 'black', \
+#data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' smooth freq with boxes lc rgb 'grey', \
+#data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'white', \
+#data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 6 lc rgb 'black', \
+#data using 0:(0):xticlabel(1) title '' w l "
 
-#plot="plot data using (\$0-0.3):$begincol title 'default' with boxes lc rgb 'grey', \
-#data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' with boxes lt -1,\
-#data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' with boxes lt -1, \
-#data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' with boxes lc rgb 'black', \
-#data using 0:(0):xticlabel(1) title '' "
+plot="plot data using (\$0-0.3):$begincol title 'default' with boxes fill pattern 4 8, \
+data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' with boxes fill pattern 3 9,\
+data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' with boxes fill pattern 3 8, \
+data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' with boxes lc rgb 'black', \
+data using 0:(0):xticlabel(1) title '' "
 
 echo $ylabel
 echo $plot
