@@ -1,8 +1,8 @@
 data = "vcpu-downtime"
 figure = "vcpu-downtime.emf"
 
-set terminal emf enhanced solid size 640,355 font 16
-#set terminal emf enhanced solid size 640,355 font 16 size 640,355
+set terminal emf enhanced solid size 640,355 font 12
+#set terminal emf enhanced solid size 640,355 font 12 size 640,355
 #set terminal postscript eps enhanced solid color
 set output figure 
 set   autoscale                        # scale axes automatically
