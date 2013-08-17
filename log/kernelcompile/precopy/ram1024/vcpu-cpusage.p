@@ -1,7 +1,7 @@
 data = "vcpu"
-figure = "vcpu-cpusage.png"
+figure = "vcpu-cpusage.emf"
 
-set terminal png enhanced size 640,355 font 16
+set terminal emf enhanced size 640,355 font 12
 set output figure 
 set   autoscale                        # scale axes automatically
 

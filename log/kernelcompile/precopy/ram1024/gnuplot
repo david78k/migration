@@ -95,7 +95,7 @@ ratio=0.5
 
 #echo "usage: $0 script-name [eps|emf]"
 echo $# $1 $2
-if [ $# -eq 1 ]; then
+if [ $# -eq 2 ]; then
 	figure=$prefix.eps
 	terminal="postscript eps enhanced size $figuresize color font $fontsize"
 	#terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
