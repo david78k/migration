@@ -83,10 +83,10 @@ function ncmigrate() {
 #done
 
 #migrate_set_capability xbzrle $xbzrle
-#migrate tcp:c11node10:4444
 
-#cap=auto-converge
 echo $caps
+xbzrle=off
+converge=off
 if [[ "$caps" == *xbzrle* ]]; then
 	xbzrle=on
 fi
@@ -103,6 +103,7 @@ migrate_set_capability xbzrle $xbzrle
 migrate_set_capability auto-converge $converge
 info migrate_capabilities
 migrate_set_speed $speed
+migrate tcp:c11node10:4444
 info migrate
 info status
 quit
@@ -113,18 +114,14 @@ echo
 #######################################################################################
 
 function migrate() {
-cap=$1
-
-#if [ $cap == "xbzrle" ]; then
-#	xbzrle=on
-#fi
+#cap=$1
 
 prefix=$expno
 if [ $bench == "memtouch" ]; then
 	prefix=dirty${dirtyrate}_${expno}
 fi
 
-logdir=$loghome/${bench}/${mode}/ram${ram}/vcpu${vcpu}/speed${speed}/${cap}
+logdir=$loghome/${bench}/${mode}/ram${ram}/vcpu${vcpu}/speed${speed}/${caps}
 #logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}
 #logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${dirtyrate}
 logfile=$logdir/${prefix}.log
@@ -220,11 +217,11 @@ rams=( 1024 )
 #expcaps=( default xbzrle )
 #expcaps=( default )
 #expcaps=( xbzrle )
-expcaps=( auto-converge )
-#expcaps=( xbzrle+auto-converge )
+#expcaps=( auto-converge )
+expcaps=( auto-converge xbzrle+auto-converge )
 #speeds=( 50 60 70 80 90 100 110 120 )
 speeds=( 125 )
-runs=( 1 )
+runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 4 5 6 7 8 9 10 )
 
 ################# benchmark specific params ###################
@@ -232,8 +229,8 @@ runs=( 1 )
 dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
 #dirtyrates=( 0 )
 # kernel compile
-#vcpus=( 1 2 4 8 12 )
-vcpus=( 1 )
+vcpus=( 1 2 4 8 12 )
+#vcpus=( 1 )
 
 for run in ${runs[@]}
 do
@@ -254,16 +251,16 @@ do
 			for rate in ${dirtyrates[@]}
 			do
 				dirtyrate=$rate
-				migrate	$expcap $rate
+				migrate	
 			done
 		elif [ $bench == "kernelcompile" ]; then
 			for arg in ${vcpus[@]}
 			do
 				vcpu=$arg
-				#echo migrate $cap $arg
 				echo migrate $expcap $vcpu
+				migrate	
 				#migrate	$expcap 
-				ncmigrate	 
+				#ncmigrate	 
 			done
 		fi
 	done
