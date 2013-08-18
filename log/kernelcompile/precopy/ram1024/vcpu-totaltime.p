@@ -43,8 +43,8 @@ set autoscale y2;
 #set key right
 #set key inside left
 set key 2,160000
-set label "Yield Point" at 2,60000
-#set arrow from 0.0028,250 to 0.003,280
+set label "Yield Point" at 1,80000
+#set arrow from 1,20000 to 1,28000
 #set xr [0.0:0.022]
 set yr [0:]
 #set yr [0:140]
