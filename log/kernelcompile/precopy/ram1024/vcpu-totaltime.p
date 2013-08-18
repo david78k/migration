@@ -34,7 +34,7 @@ set autoscale y2;
 #set key title "migration speed 40MB/s"
 #set key box 
 #set key outside center top horizontal
-set key outside left below hotizontal
+set key outside left below horizontal
 #set key horiz 
 #set key out horiz
 #set key left top
