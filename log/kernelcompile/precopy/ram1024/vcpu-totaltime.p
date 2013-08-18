@@ -21,7 +21,7 @@ set bmargin at screen 0.15
 
 # first plot
 #set title "bandwidth limit 50 MB/s"
-#set xlabel "VCPU"
+set xlabel "VCPU"
 set ylabel "total migration time (millisec)"
 #set ylabel "downtime (millisec)"
 #set y2label "cpu usage (%)"
