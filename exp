@@ -213,24 +213,27 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 
 #rams=( 256 512 1024 2048 4096 )
 rams=( 1024 )
+#rams=( 2G 4G 8G 12G 16G 20G )
+#rams=( 2048 4096 8192 12288 16384 20480 )
 #expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( default xbzrle )
-#expcaps=( default )
+expcaps=( default )
 #expcaps=( xbzrle )
 #expcaps=( auto-converge )
-expcaps=( auto-converge xbzrle+auto-converge )
-#speeds=( 50 60 70 80 90 100 110 120 )
-speeds=( 125 )
+#expcaps=( auto-converge xbzrle+auto-converge )
+# 200 400 600 800 1000
+speeds=( 25 50 75 100 )
+#speeds=( 125 )
 runs=( 1 2 3 4 5 6 7 8 9 10 )
-#runs=( 4 5 6 7 8 9 10 )
+#runs=( 1 )
 
 ################# benchmark specific params ###################
 # memtouch
-dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
+#dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
 #dirtyrates=( 0 )
 # kernel compile
-vcpus=( 1 2 4 8 12 )
-#vcpus=( 1 )
+#vcpus=( 1 2 4 8 12 )
+vcpus=( 1 )
 
 for run in ${runs[@]}
 do
@@ -243,9 +246,9 @@ do
 	speed=$sp
 	for expcap in ${expcaps[@]}
 	do
-		if [ $expcap != "default" ]; then
+#		if [ $expcap != "default" ]; then
 			caps=$expcap
-		fi
+#		fi
 
 		if [ $bench == "memtouch" ]; then
 			for rate in ${dirtyrates[@]}
