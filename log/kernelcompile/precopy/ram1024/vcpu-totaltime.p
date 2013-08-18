@@ -38,9 +38,8 @@ set key outside center top horizontal
 #set key center top
 #set key right
 #set key horizon
-#set key outside
 #set key 3.1,160000
-#set key 1.8,160000
+set key 1.8,180000
 #set label "Yield Point" at -0.5,40000
 #set arrow from 0,10000 to 1,60000
 #set xr [0.0:0.022]
