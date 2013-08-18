@@ -18,9 +18,7 @@ mode=precopy
 
 # capabilities
 caps=( )
-#cap=xbzrle 
-#cap=none 
-#xbzrle=off # on/off
+cache=64 # xbzrle cache size in MBytes
 
 expno=1
 
@@ -98,9 +96,9 @@ fi
 nc localhost 4446 << EOF
 info status
 info version
-info kvm
 migrate_set_capability xbzrle $xbzrle
 migrate_set_capability auto-converge $converge
+migrate_set_cache_size $cache
 info migrate_capabilities
 migrate_set_speed $speed
 migrate tcp:c11node10:4444
@@ -122,8 +120,11 @@ if [ $bench == "memtouch" ]; then
 fi
 
 logdir=$loghome/${bench}/${mode}/ram${ram}/vcpu${vcpu}/speed${speed}/${caps}
-#logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}
 #logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${dirtyrate}
+#if [[ $caps == "xbzrle" ]]; then
+#	logdir=$logdir/cache${cache}
+#fi
+
 logfile=$logdir/${prefix}.log
 dstatfile=$logdir/${prefix}.dstat
 migfile=$logdir/${prefix}.mig # nc migration results
@@ -211,26 +212,39 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 #
 ################################################################
 
+#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+#expcaps=( default xbzrle )
+#expcaps=( default )
+expcaps=( xbzrle )
+#expcaps=( auto-converge )
+#expcaps=( auto-converge xbzrle+auto-converge )
+
 #rams=( 256 512 1024 2048 4096 )
 rams=( 1024 )
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
-#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
-#expcaps=( default xbzrle )
-expcaps=( default )
-#expcaps=( xbzrle )
-#expcaps=( auto-converge )
-#expcaps=( auto-converge xbzrle+auto-converge )
-# 200 400 600 800 1000
-speeds=( 25 50 75 100 )
+
+# 200 400 600 800 1000 mbps
+speeds=( 100 75 )
+#speeds=( 50 25 )
 #speeds=( 125 )
-runs=( 1 2 3 4 5 6 7 8 9 10 )
+
+# xbzrle cache size in MBytes: default 64MB, max unlimited
+# should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...
+#caches=( 128 256 512 1024 2048 4096 8192 16384 )
+caches=( 64 )
+#caches=( 16384 )
+
+#runs=( 2 3 4 5 6 7 8 9 10 )
+runs=( 12 13 14 15 16 17 18 19 20 )
 #runs=( 1 )
 
 ################# benchmark specific params ###################
+
 # memtouch
 #dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
 #dirtyrates=( 0 )
+
 # kernel compile
 #vcpus=( 1 2 4 8 12 )
 vcpus=( 1 )
@@ -244,6 +258,9 @@ do
 for sp in ${speeds[@]}
 do
 	speed=$sp
+	for arg in ${vcpus[@]}
+	do
+		vcpu=$arg
 	for expcap in ${expcaps[@]}
 	do
 #		if [ $expcap != "default" ]; then
@@ -257,15 +274,14 @@ do
 				migrate	
 			done
 		elif [ $bench == "kernelcompile" ]; then
-			for arg in ${vcpus[@]}
+			for arg2 in ${caches[@]}
 			do
-				vcpu=$arg
-				echo migrate $expcap $vcpu
+				cache=$arg2
+				echo migrate $expcap $vcpu $cache
 				migrate	
-				#migrate	$expcap 
-				#ncmigrate	 
 			done
 		fi
+	done
 	done
 done
 done
