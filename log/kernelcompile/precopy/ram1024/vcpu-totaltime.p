@@ -34,14 +34,14 @@ set autoscale y2;
 #set key title "migration speed 40MB/s"
 #set key box 
 #set key outside center top horizontal
-set key outside left below horizontal
+#set key outside left below horizontal
 #set key horiz 
 #set key out horiz
 #set key left top
 #set key center top
 #set key right
 #set key left
-#set key 0.01,100
+set key 0.01,100
 #set label "Yield Point" at 0.003,260
 #set arrow from 0.0028,250 to 0.003,280
 #set xr [0.0:0.022]
