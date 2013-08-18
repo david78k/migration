@@ -44,8 +44,8 @@ set key 4.5,275000
 #set label "Yield Point" at -0.5,40000
 #set arrow from 0,10000 to 1,60000
 #set xr [0.0:0.022]
-set yr [0:]
-#set yr [0:1200]
+#set yr [0:]
+set yr [0:270000]
 #set y2r [0:100]
 #set format y "%gkm"
 
