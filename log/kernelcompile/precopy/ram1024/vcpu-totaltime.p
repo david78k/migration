@@ -22,7 +22,7 @@ set tmargin 1;
 # first plot
 #set title "bandwidth limit 50 MB/s"
 set xlabel "VCPU"
-set ylabel "total migration time (millisec)"
+set ylabel "total migration time (sec)"
 #set ylabel "downtime (millisec)"
 #set y2label "cpu usage (%)"
 #set y2tic auto
@@ -38,7 +38,6 @@ set autoscale y2;
 #set key center top
 #set key right
 #set key horizon
-#set key 3.1,160000
 set key 2.5,175000
 #set key 1.8,160000
 #set label "Yield Point" at -0.5,40000
