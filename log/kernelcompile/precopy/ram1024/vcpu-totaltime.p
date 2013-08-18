@@ -1,7 +1,7 @@
 data = "vcpu"
 figure = "vcpu-totaltime.emf"
 
-set terminal emf enhanced size 640,355 font 13
+set terminal emf enhanced size 640,355 font 12
 set output figure 
 set   autoscale                        # scale axes automatically
 
@@ -16,7 +16,6 @@ set bmargin at screen 0.15
 #set object rectangle from screen 0,0 to screen 1,0.5 #    lw 0 fillstyle noborder behind
 #set multiplot;
 #set size 1,0.7;
-#set size ratio 0.5;
 #set size ratio ;
 #set origin 0.0,0.5;
 
@@ -38,7 +37,7 @@ set autoscale y2;
 #set key outside left below horizontal
 #set key center top
 #set key right
-#set key 2,160000
+set key 2,160000
 #set label "Yield Point" at -0.5,40000
 #set arrow from 0,10000 to 1,60000
 #set xr [0.0:0.022]
@@ -51,7 +50,6 @@ set style histogram cluster gap 2
 set style fill solid border -1
 #set style fill pattern border
 set boxwidth 0.2 absolute
-#set boxwidth 0.3 absolute
 #set xtic rotate by -45 scale 0
 
 #set style line 1 lt 2 lw 3

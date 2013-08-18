@@ -101,7 +101,7 @@ if [ $# -eq 2 ]; then
 	terminal="postscript eps enhanced size $figuresize color font $fontsize"
 	#terminal="postscript eps enhanced solid size $figuresize color font $fontsize"
 	if [ $2 == "emf" ]; then
-		fontsize=13
+		fontsize=12
 		figure=$prefix.emf
 		terminal="emf enhanced size $figuresize font $fontsize"
 		#terminal="emf enhanced solid size $figuresize font $fontsize"
@@ -168,7 +168,6 @@ set bmargin at screen 0.15
 #    lw 0 fillstyle noborder behind
 #set multiplot;
 #set size 1,0.7;
-#set size ratio 0.5;
 #set size ratio $ratio;
 #set origin 0.0,0.5;
 
@@ -190,7 +189,7 @@ set autoscale y2;
 #set key outside left below horizontal
 #set key center top
 #set key right
-#set key 2,160000
+set key 2,160000
 #set label "Yield Point" at -0.5,40000
 #set arrow from 0,10000 to 1,60000
 #set xr [0.0:0.022]
@@ -203,7 +202,6 @@ set style histogram cluster gap 2
 set style fill solid border -1
 #set style fill pattern border
 set boxwidth 0.2 absolute
-#set boxwidth 0.3 absolute
 #set xtic rotate by -45 scale 0
 
 #set style line 1 lt 2 lw 3
