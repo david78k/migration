@@ -234,6 +234,7 @@ set autoscale y2;
 #set key outside left below horizontal
 #set key center top
 #set key right
+set key left
 #set key horizon
 #set key 2.5,175000
 #set key 1.8,160000
