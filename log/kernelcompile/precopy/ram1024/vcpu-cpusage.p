@@ -45,7 +45,7 @@ set key horizon
 #set arrow from 0,10000 to 1,60000
 #set xr [0.0:0.022]
 #set yr [0:]
-set yr [0:25]
+set yr [0:20]
 #set yr [0:270000]
 #set y2r [0:100]
 #set format y "%gkm"
