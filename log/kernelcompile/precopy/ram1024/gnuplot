@@ -161,7 +161,7 @@ unset label                            # remove any previous labels
 set xtic auto                          # set xtics automatically
 set ytic auto                          # set ytics automatically
 
-set lmargin 0;
+#set lmargin 0;
 set tmargin 1;
 set bmargin at screen 0.15
 #set object rectangle from screen 0,0 to screen 1,0.5 \
@@ -193,7 +193,8 @@ set autoscale y2;
 #set key left top
 #set key center top
 #set key right
-set key inside left
+#set key inside left
+set key -100,1500
 #set key 0.001,5
 #set label "Yield Point" at 0.3,360
 #set arrow from 0.0028,250 to 0.003,280
