@@ -234,7 +234,7 @@ set autoscale y2;
 #set key outside left below horizontal
 #set key center top
 #set key right
-#set key left
+set key left
 #set key horizon
 #set key 3.8,197
 #set label "Yield Point" at -0.5,40000
@@ -316,9 +316,13 @@ data=vcpu
 #gendata
 
 #metrics=( totaltime downtime totaldata throughput duplicate cpusage )
-#metrics=( cpusage )
-metrics=( downtime totaldata throughput duplicate )
+#metrics=( downtime totaldata throughput duplicate )
 #metrics=( totaltime )
+metrics=( downtime )
+#metrics=( totaldata )
+#metrics=( throughput )
+#metrics=( duplicate )
+#metrics=( cpusage )
 
 for met in ${metrics[@]}
 do

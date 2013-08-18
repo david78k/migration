@@ -37,7 +37,7 @@ set autoscale y2;
 #set key outside left below horizontal
 #set key center top
 #set key right
-#set key left
+set key left
 #set key horizon
 #set key 3.8,197
 #set label "Yield Point" at -0.5,40000
