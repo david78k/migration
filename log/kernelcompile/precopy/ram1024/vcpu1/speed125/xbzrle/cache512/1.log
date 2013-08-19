@@ -1,17 +1,17 @@
 (qemu) m[K[Dmi[K[D[Dmig[K[D[D[Dmigr[K[D[D[D[Dmigra[K[D[D[D[D[Dmigrat[K[D[D[D[D[D[Dmigrate[K[D[D[D[D[D[D[Dmigrate_[K[D[D[D[D[D[D[D[Dmigrate_s[K[D[D[D[D[D[D[D[D[Dmigrate_se[K[D[D[D[D[D[D[D[D[D[Dmigrate_set[K[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_[K[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_c[K[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_ca[K[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cac[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cach[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_s[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_si[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_siz[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size [K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size 5[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size 51[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size 512[K
-total time: 1789 milliseconds
-downtime: 161 milliseconds
-transferred ram: 166535 kbytes
-throughput: 865.29 mbps
+total time: 4081 milliseconds
+downtime: 1109 milliseconds
+transferred ram: 318201 kbytes
+throughput: 704.43 mbps
 remaining ram: 0 kbytes
 total ram: 1057344 kbytes
-duplicate: 229166 pages
+duplicate: 210895 pages
 skipped: 0 pages
-normal: 41042 pages
-normal bytes: 164168 kbytes
+normal: 72618 pages
+normal bytes: 290472 kbytes
 cache size: 536870912 bytes
-xbzrle transferred: 32 kbytes
-xbzrle pages: 117 pages
-xbzrle cache miss: 5261
-xbzrle overflow : 0
-CPU: 5 %  
+xbzrle transferred: 25308 kbytes
+xbzrle pages: 14776 pages
+xbzrle cache miss: 17099
+xbzrle overflow : 361
+CPU: 7 %  

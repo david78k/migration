@@ -1,0 +1,17 @@
+(qemu) m[K[Dmi[K[D[Dmig[K[D[D[Dmigr[K[D[D[D[Dmigra[K[D[D[D[D[Dmigrat[K[D[D[D[D[D[Dmigrate[K[D[D[D[D[D[D[Dmigrate_[K[D[D[D[D[D[D[D[Dmigrate_s[K[D[D[D[D[D[D[D[D[Dmigrate_se[K[D[D[D[D[D[D[D[D[D[Dmigrate_set[K[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_[K[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_c[K[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_ca[K[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cac[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cach[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_s[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_si[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_siz[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size [K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size 1[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size 16[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size 163[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size 1638[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmigrate_set_cache_size 16384[K
+total time: 4121 milliseconds
+downtime: 1219 milliseconds
+transferred ram: 307133 kbytes
+throughput: 935.27 mbps
+remaining ram: 0 kbytes
+total ram: 1057344 kbytes
+duplicate: 211261 pages
+skipped: 0 pages
+normal: 71898 pages
+normal bytes: 287592 kbytes
+cache size: 17179869184 bytes
+xbzrle transferred: 17122 kbytes
+xbzrle pages: 9237 pages
+xbzrle cache miss: 16955
+xbzrle overflow : 217
+CPU: 7 %  
