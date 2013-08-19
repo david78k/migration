@@ -323,9 +323,9 @@ data=speed
 # generates "$data" file
 #gendata
 
-#metrics=( totaltime downtime totaldata throughput duplicate cpusage )
+metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
-metrics=( totaltime )
+#metrics=( totaltime )
 #metrics=( downtime )
 #metrics=( totaldata )
 #metrics=( throughput )
