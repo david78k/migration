@@ -112,7 +112,6 @@ echo
 #######################################################################################
 
 function migrate() {
-#cap=$1
 
 prefix=$expno
 if [ $bench == "memtouch" ]; then
@@ -122,8 +121,9 @@ fi
 logdir=$loghome/${bench}/${mode}/ram${ram}/vcpu${vcpu}/speed${speed}/${caps}
 #logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${dirtyrate}
 #if [[ $caps == "xbzrle" ]]; then
-#	logdir=$logdir/cache${cache}
-#fi
+if [[ $cache != "64" ]]; then
+	logdir=$logdir/cache${cache}
+fi
 
 logfile=$logdir/${prefix}.log
 dstatfile=$logdir/${prefix}.dstat
@@ -134,12 +134,10 @@ mkdir -p $logdir
 echo ram = $ram MB
 echo migration speed = $speed MB/s
 echo benchmark = $bench
-echo dirty rate = $dirtyrate MB/s
+#echo dirty rate = $dirtyrate MB/s
 echo $caps
-#echo xbzrle = $xbzrle
 echo
 
-#echo sb_${prefix}.log
 echo $logfile
 echo
 
@@ -151,10 +149,7 @@ echo "$dest (${ram}MB) listening ..."
 ssh $dest /root/qemu/listen-daemon $vmargs
 #ssh $dest /root/qemu/listen-postcopy-daemon $ram
 
-#sleep 3
-
 ./runvm-daemon $vmargs
-#./runvm-daemon $ram
 
 echo waiting 20 seconds for VM bootup ...
 sleep 20
@@ -193,7 +188,7 @@ ncmigrate > $migfile
 
 cpusage >> $migfile
 
-egrep -a "time|transferred|bytes|pages|mbps|cache|overflow|CPU" $migfile > $logfile
+egrep -a "time|transferred|bytes|pages|mbps|cache size|cache miss|overflow|CPU" $migfile > $logfile
 cat $logfile
 
 echo waiting 10 seconds for finalizing ...
@@ -212,33 +207,40 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 #
 ################################################################
 
-expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
-#expcaps=( default xbzrle )
+#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+#expcaps=( xbzrle auto-converge xbzrle+auto-converge )
+#expcaps=( xbzrle xbzrle+auto-converge )
 #expcaps=( default )
-#expcaps=( xbzrle )
+expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
-#expcaps=( auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
+#expcaps=( auto-converge )
 
-#rams=( 256 512 1024 2048 4096 )
-rams=( 1024 )
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
+#rams=( 2048 )
+#rams=( 4096 )
+#rams=( 8192 )
+#rams=( 16384 )
+#rams=( 12288 )
+#rams=( 20480 )
+rams=( 1024 )
 
 # 200 400 600 800 1000 mbps
-#speeds=( 100 75 )
-speeds=( 50 )
-#speeds=( 125 )
+#speeds=( 100 75 50 )
+#speeds=( 75 )
+speeds=( 125 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
 # should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...
-#caches=( 128 256 512 1024 2048 4096 8192 16384 )
-caches=( 64 )
+caches=( 128 256 512 1024 2048 4096 8192 16384 )
+#caches=( 64 )
 #caches=( 16384 )
 
-#runs=( 2 3 4 5 6 7 8 9 10 )
-runs=( 11 12 13 14 15 16 17 18 19 20 )
-#runs=( 11 )
+#runs=( 1 2 3 4 5 6 7 8 9 10 )
+runs=( 4 5 6 7 8 9 10 )
+#runs=( 11 12 13 14 15 16 17 18 19 20 )
+#runs=( 2 )
 
 ################# benchmark specific params ###################
 

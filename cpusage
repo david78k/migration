@@ -3,7 +3,6 @@
  
 PREV_TOTAL=0
 PREV_IDLE=0
-PREV_ACCU_TOTAL=0
  
 while true; do
 #  grep '^cpu ' /proc/stat
@@ -12,8 +11,6 @@ while true; do
   CPU=(`grep '^cpu ' /proc/stat`) # Get the total CPU statistics.
   unset CPU[0]                          # Discard the "cpu" prefix.
   IDLE=${CPU[4]}                        # Get the idle CPU time.
-  ACCU_TOTAL=${CPU[1]}
-#  echo $ACCU_TOTAL
  
   # Calculate the total CPU time.
   TOTAL=0
