@@ -21,9 +21,8 @@ set tmargin 1;
 
 # first plot
 #set title "bandwidth limit 50 MB/s"
-set xlabel "VCPUs"
+set xlabel ""
 set ylabel "host CPU usage (%)"
-#set ylabel "downtime (millisec)"
 #set y2label "cpu usage (%)"
 #set y2tic auto
 set ytics nomirror
