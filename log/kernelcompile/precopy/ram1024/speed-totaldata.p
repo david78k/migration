@@ -21,7 +21,7 @@ set tmargin 1;
 
 # first plot
 #set title "bandwidth limit 50 MB/s"
-set xlabel ""
+set xlabel "maximum speed (MB/s)"
 set ylabel "total transferred data (kbytes)"
 #set y2label "cpu usage (%)"
 #set y2tic auto
