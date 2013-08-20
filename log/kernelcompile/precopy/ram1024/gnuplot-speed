@@ -322,6 +322,7 @@ function genplot() {
 ############################### main (call functions) ############################
 #data=vcpu
 data=speed
+prefix=$data
 
 xlabel="maximum speed (MB/s)"
 #xlabel="number of VCPUs"
@@ -343,9 +344,9 @@ for met in ${metrics[@]}
 do
 	metric=$met
 	echo $metric
-	prefix="${data}-$metric"
+	#prefix="${data}-$metric"
 	#prefix=${data%\.*}
 	script=$prefix.p
-	cp $data $prefix
+#	cp $data $prefix
 	genplot 
 done
