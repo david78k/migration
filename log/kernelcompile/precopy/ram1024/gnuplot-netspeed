@@ -67,6 +67,9 @@ do
 			datadir=vcpu${vcpu}/speed${speed}/$cap
 			#datadir=ram${ram}/vcpu${vcpu}/speed${speed}/$cap
 			datafile=$datadir/${expno}.log
+			if [ $speed != "125" ]; then
+				datafile=$datadir/$((expno+10)).log
+			fi
 			#datafile=$datadir/dirty${rate}_${expno}.log
 	#		echo $datadir
 
