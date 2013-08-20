@@ -18,8 +18,6 @@ function gendata() {
 #output=ramsize
 #output=vcpu
 output=$data
-xlabel="maximum speed (MB/s)"
-#xlabel="number of VCPUs"
 
 #rams=( 256 512 1024 2048 4096 )
 rams=( 1024 )
@@ -324,6 +322,9 @@ function genplot() {
 ############################### main (call functions) ############################
 #data=vcpu
 data=speed
+
+xlabel="maximum speed (MB/s)"
+#xlabel="number of VCPUs"
 
 #test
 # generates "$data" file
