@@ -305,14 +305,14 @@ xlabel="VCPUs"
 # generates "$data" file
 #gendata
 
-#metrics=( totaltime downtime totaldata throughput duplicate cpusage )
+metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
 #metrics=( totaltime )
 #metrics=( downtime )
 #metrics=( totaldata )
 #metrics=( throughput )
 #metrics=( duplicate )
-metrics=( cpusage )
+#metrics=( cpusage )
 
 for met in ${metrics[@]}
 do

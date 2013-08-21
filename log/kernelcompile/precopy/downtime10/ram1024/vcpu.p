@@ -22,7 +22,7 @@ set tmargin 1;
 # first plot
 #set title "bandwidth limit 50 MB/s"
 set xlabel "VCPUs"
-set ylabel "host CPU usage (%)"
+set ylabel "total migration time (millisec)"
 #set ylabel "downtime (millisec)"
 #set y2label "cpu usage (%)"
 #set y2tic auto
@@ -62,7 +62,7 @@ set boxwidth 0.2 absolute
 
 #plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 
-plot data using ($0-0.3):7 title 'default' smooth freq with boxes lc rgb 'gray', data using ($0-0.1):13 title 'xbzrle' smooth freq with boxes lc rgb '#696969', data using ($0+0.1):19 title 'auto-converge' smooth freq with boxes lc rgb 'black', data using ($0+0.3):25 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'white', data using 0:(0):xticlabel(1) title '' w l 
+plot data using ($0-0.3):2 title 'default' smooth freq with boxes lc rgb 'gray', data using ($0-0.1):8 title 'xbzrle' smooth freq with boxes lc rgb '#696969', data using ($0+0.1):14 title 'auto-converge' smooth freq with boxes lc rgb 'black', data using ($0+0.3):20 title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'white', data using 0:(0):xticlabel(1) title '' w l 
 
 # total time
 #plot data using ($0-0.3):2 title 'default' smooth freq with boxes lc rgb "black", #data using ($0-0.1):7 title 'xbzrle' smooth freq with boxes lc rgb "grey", #data using ($0+0.1):12 title 'auto-converge' smooth freq with boxes lc rgb "white", #data using ($0+0.3):17 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 1 lc rgb "black", #data using 0:(0):xticlabel(1) title '' w l
