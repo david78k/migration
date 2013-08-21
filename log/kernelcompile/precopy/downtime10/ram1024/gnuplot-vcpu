@@ -289,6 +289,8 @@ function genplot() {
 	genscript $prefix emf
 	gnuplot $script
 
+	rm $prefix
+
 	# upload to github
 	git add .
 	git commit -m $script
@@ -297,7 +299,7 @@ function genplot() {
 
 ############################### main (call functions) ############################
 data=vcpu
-prefix=$data
+#prefix=$data
 
 xlabel="VCPUs"
 
@@ -318,6 +320,7 @@ for met in ${metrics[@]}
 do
 	metric=$met
 	echo $metric
+	prefix="${data}-$metric"
 	#prefix=${data%\.*}
 	script=$prefix.p
 	genplot 
