@@ -31,7 +31,7 @@ vcpus=( 1 )
 #speeds=( 50 60 70 80 90 100 110 120 )
 speeds=( 32 50 75 100 125 )
 #speeds=( 125 )
-maxdowntime=( 0.03 0.1 0.5 1 5 10 30 60 120 )
+#downtimes=( 0.03 0.1 0.5 1 5 10 30 60 120 )
 
 expnos=( 1 2 3 4 5 6 7 8 9 10 ) # exp run
 #expnos=( 1 ) # exp run
@@ -69,11 +69,7 @@ do
 			datadir=vcpu${vcpu}/speed${speed}/$cap
 			#datadir=ram${ram}/vcpu${vcpu}/speed${speed}/$cap
 			datafile=$datadir/${expno}.log
-			if [ $speed != "125" ]; then
-				datafile=$datadir/$((expno+10)).log
-			fi
 			#datafile=$datadir/dirty${rate}_${expno}.log
-	#		echo $datadir
 
 			totaltime=`grep "total time:" $datafile | awk '{print $3}'`
 			downtime=`grep "downtime:" $datafile | awk '{print $2}'`
@@ -314,6 +310,7 @@ function genplot() {
 	gnuplot $script
 
 	rm $prefix
+	rm $script
 
 	# upload to github
 	git add .
@@ -349,6 +346,5 @@ do
 	prefix="${data}-$metric"
 	#prefix=${data%\.*}
 	script=$prefix.p
-	cp $data $prefix
 	genplot 
 done
