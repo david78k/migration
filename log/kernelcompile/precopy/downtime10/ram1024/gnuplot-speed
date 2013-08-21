@@ -83,7 +83,8 @@ do
 
 			#echo -n "$totaltime $downtime $totaldata $throughput $duplicate $cpusage " >> $output
 			sum[$i]=$((totaltime + sum[$i]))
-			avg[$i]=$((sum[$i]/$expcount/1000))
+			avg[$i]=$((sum[$i]/$expcount))
+			#avg[$i]=$((sum[$i]/$expcount/1000))
 			echo -n "${avg[$i]} " >> $output 
 			((i++))
 			sum[$i]=$((downtime + sum[$i]))
@@ -161,8 +162,8 @@ fi
 
 begincol=2 # starting column for total time
 if [ $metric == "totaltime" ]; then
-	ylabel="total migration time (sec)"
-	#ylabel="total migration time (millisec)"
+	#ylabel="total migration time (sec)"
+	ylabel="total migration time (millisec)"
 elif [ $metric == "downtime" ]; then
 	ylabel="downtime (millisec)"
 	begincol=3 
