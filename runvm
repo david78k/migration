@@ -14,6 +14,7 @@ qemudir=/root/qemu
 version=qemu-1.5.50
 #version=qemu-postcopy
 sshport=5555
+#sshport=5554
 
 #./qemu-postcopy/x86_64-softmmu/qemu-system-x86_64 \
 #./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
