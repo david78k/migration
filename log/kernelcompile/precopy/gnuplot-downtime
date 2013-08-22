@@ -150,7 +150,7 @@ if [ $metric == "totaltime" ]; then
 	#ylabel="total migration time (sec)"
 	ylabel="total migration time (millisec)"
 elif [ $metric == "downtime" ]; then
-	ylabel="downtime (millisec)"
+	ylabel="actual downtime (millisec)"
 	begincol=3 
 elif [ $metric == "totaldata" ]; then
 	ylabel="total transferred data (kbytes)"
