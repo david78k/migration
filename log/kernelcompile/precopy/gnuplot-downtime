@@ -38,8 +38,8 @@ do
 for down in ${downtimes[@]}
 do
 	maxdown=$down
-	echo -n "$((maxdown*1000)) " >> $output
-	#echo -n "$maxdown " >> $output
+	echo -n "$maxdown " >> $output
+	#echo -n "$((maxdown*1000)) " >> $output
 for mem in ${rams[@]}
 do
 	ram=$mem
@@ -311,8 +311,8 @@ function genplot() {
 data=downtime
 #prefix=$data
 
-xlabel="max downtime (millsec)"
-#xlabel="max downtime (sec)"
+#xlabel="max downtime (millsec)"
+xlabel="max downtime (sec)"
 #xlabel="VM memory (MB)"
 
 #test
