@@ -13,7 +13,7 @@ caps=( default xbzrle auto-converge xbzrle+auto-converge )
 #dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
 dirtyrates=( 0 )
 #vcpus=( 1 2 4 8 12 )
-vcpus=( 1 )
+vcpus=( 12 )
 #speeds=( 50 60 70 80 90 100 110 120 )
 speeds=( 125 )
 #downtimes=( 0.03 1 5 10 )
@@ -308,7 +308,7 @@ function genplot() {
 
 ############################### main (call functions) ############################
 #data=vcpu
-data=downtime-vcpu1
+data=downtime-vcpu12
 #prefix=$data
 
 #xlabel="max downtime (millsec)"
