@@ -1,3 +1,5 @@
 [7l----total-cpu-usage---- ------memory-usage----- -dsk/total- -net/total- ---paging-- ---system--
 usr sys idl wai hiq siq| used  buff  cach  free| read  writ| recv  send|  in   out | int   csw 
   1   0  99   0   0   0| 847M 77.0M 1168M 21.4G|3549B 4882B|   0     0 |2406B 2726B| 531   250 
+  3   1  94   2   0   0| 865M 77.0M 1223M 21.3G|   0  2824k|  39M 2140k|   0     0 |8402  6040 
+  5   2  90   3   0   0| 862M 77.0M 1239M 21.3G|   0  8192B|  26M  255k|   0     0 |5104    11k
