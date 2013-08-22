@@ -308,7 +308,7 @@ function genplot() {
 
 ############################### main (call functions) ############################
 #data=vcpu
-data=downtime
+data=downtime-vcpu1
 #prefix=$data
 
 #xlabel="max downtime (millsec)"
@@ -317,7 +317,7 @@ xlabel="max downtime (sec)"
 
 #test
 # generates "$data" file
-gendata
+#gendata
 
 metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
