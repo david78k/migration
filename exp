@@ -31,8 +31,8 @@ warmup=20 # time in seconds to make clean and warm up
 
 # memtouch params
 #warmup=10
-dirtyrate=100 # MB/s
-#prefix=s${speed}_r${ram}_d${dirtyrate}_n${expno}
+memtouchdirtyrate=100 # MB/s
+#prefix=s${speed}_r${ram}_d${memtouchdirtyrate}_n${expno}
 
 loghome=log
 
@@ -72,6 +72,9 @@ function cpusage() {
 
 function ncmigrate() {
 
+maxtotaltime=150000 # in milliseconds
+#maxtotaltime=30000 # in milliseconds
+
 echo $caps
 xbzrle=off
 converge=off
@@ -83,7 +86,10 @@ if [[ "$caps" == *converge* ]]; then
 	converge=on
 fi
 
-# CAUTION: DO NOT use tab to indent. Doing so will give syntax errors.
+#dirtyratelog=${prefix}.dirty
+#echo -n > $dirtyratelog
+
+# CAUTION: DO NOT indent by all means. Doing so will give syntax errors.
 nc localhost 4446 << EOF
 info version
 migrate_set_speed $speed
@@ -94,9 +100,41 @@ migrate_set_cache_size $cache
 info migrate_capabilities
 migrate tcp:c11node10:4444
 info migrate
-info status
 quit
 EOF
+
+#while [ 1 ]; do
+#	sleep 1
+
+#	echo "info migrate" | nc localhost 4446 > /tmp/infomigrate
+#	elapsedtime=$(grep "total time" -a /tmp/infomigrate | awk '{print $3}')
+#	dirtyrate=$(grep "dirty" -a /tmp/infomigrate | awk '{print $4}')
+#	migstatus=$(grep "status" -a /tmp/infomigrate | awk '{print $3}')
+
+#	echo -n "$elapsedtime "
+
+#	if [[ "$migstatus" == *completed* ]]; then
+#		echo "info migrate"; echo quit | nc localhost 4446 
+#		break	
+#	elif [[ $elapsedtime -gt $maxtotaltime ]]; then
+#		echo migrate_cancel; echo quit | nc localhost 4446 
+#		break	
+#	fi
+
+#	if [ -z "$dirtyrate" ]; then 
+#		dirtyrate=0
+#	fi
+#	echo dirty pages rate: $dirtyrate pages
+#done
+
+#	echo quit | nc localhost 4446 
+
+#migrate tcp:c11node10:4444
+#info migrate
+#info status
+#quit
+#EOF
+
 echo
 }
 
@@ -106,12 +144,12 @@ function migrate() {
 
 prefix=$expno
 if [ $bench == "memtouch" ]; then
-	prefix=dirty${dirtyrate}_${expno}
+	prefix=dirty${memtouchdirtyrate}_${expno}
 fi
 
 logdir=$loghome/${bench}/${mode}/downtime${downtime}/ram${ram}/vcpu${vcpu}/speed${speed}/${caps}
 #logdir=$loghome/${bench}/${mode}/ram${ram}/vcpu${vcpu}/speed${speed}/${caps}
-#logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${dirtyrate}
+#logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${memtouchdirtyrate}
 
 #if [[ $downtime != "0.03" ]]; then
 #	logdir=$logdir/downtime${downtime}
@@ -131,7 +169,7 @@ mkdir -p $logdir
 echo ram = $ram MB
 echo migration speed = $speed MB/s
 echo benchmark = $bench
-#echo dirty rate = $dirtyrate MB/s
+#echo dirty rate = $memtouchdirtyrate MB/s
 #echo $caps
 echo
 
@@ -157,15 +195,15 @@ dstat -cmdngy --noheaders > $dstatfile &
 
 # run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
 bencharg=
-if [ $bench == "memtouch" -a $dirtyrate -ne 0 ]; then
-	bencharg=$dirtyrate
-	#ssh localhost -p 5555 "/root/run-memtouch $dirtyrate" &
+if [ $bench == "memtouch" -a $memtouchdirtyrate -ne 0 ]; then
+	bencharg=$memtouchdirtyrate
+	#ssh localhost -p 5555 "/root/run-memtouch $memtouchdirtyrate" &
 fi
 
 sshcmd="/root/run-${bench} $bencharg"
 
 echo starting $bench $bencharg ...
-#echo starting memtouch $dirtyrate ...
+#echo starting memtouch $memtouchdirtyrate ...
 ssh localhost -p 5555 "$sshcmd" &
 
 #echo starting sysbench ...
@@ -205,7 +243,7 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 ################################################################
 
 expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
-#expcaps=( xbzrle xbzrle+auto-converge )
+#expcaps=( xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( default )
 #expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
@@ -213,7 +251,8 @@ expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( auto-converge )
 
 #vcpus=( 1 2 4 8 12 )
-vcpus=( 1 2 4 )
+vcpus=( 12 )
+#vcpus=( 1 2 4 )
 #vcpus=( 1 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
@@ -249,15 +288,15 @@ caches=( 64 )
 #caches=( 16384 )
 
 #runs=( 1 2 3 4 5 6 7 8 9 10 )
-runs=( 3 4 5 6 7 8 9 10 )
+runs=( 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
-#runs=( 1 )
+#runs=( 4 5 )
 
 ################# benchmark specific params ###################
 
 # memtouch
-#dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
-#dirtyrates=( 0 )
+#memtouchdirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
+#memtouchdirtyrates=( 0 )
 
 # sysbench
 # hadoop
@@ -286,9 +325,9 @@ do
 #		fi
 
 		if [ $bench == "memtouch" ]; then
-			for rate in ${dirtyrates[@]}
+			for rate in ${memtouchdirtyrates[@]}
 			do
-				dirtyrate=$rate
+				memtouchdirtyrate=$rate
 				migrate	
 			done
 		elif [ $bench == "kernelcompile" ]; then

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+function stopvm() {
+#host=localhost
+#port=4446
+
+host=$1
+port=$2
+
+nc $host $port << EOF
+info status
+info version
+quit
+EOF
+echo
+}
+
+# kill exp
+pgrep -fl ./exp | awk '{print $1}' | xargs kill -9
+
+# kill kernel
+pgrep -fl kernel | awk '{print $1}' | xargs kill -9
+
+# stop local vm
+#stopvm 0 4446
+pgrep -fl qemu | awk '{print $1}' | xargs kill -9
+ps -ef | grep qemu
+
+# stop dest vm
+stopvm c11node10 4446
+
+# kill dstat 
+pgrep -fl dstat | awk '{print $1}' | xargs kill -9
+
+# check port
+netstat -tunlp | grep 5555
+
+ps -ef | grep qemu

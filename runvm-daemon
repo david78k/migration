@@ -8,6 +8,7 @@ ram=$1
 vcpu=$2
 qemudir=/root/qemu
 #version=qemu-kvm-1.2.0
+#version=qemu-1.6.0
 version=qemu-1.5.50
 #version=qemu-postcopy
 
