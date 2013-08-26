@@ -229,7 +229,7 @@ set autoscale y2;
 #set key right
 #set key left
 set key horizon
-set key 1.7,4400
+set key 2.7,4400
 #set key 4.2,6.6e+06
 #set label "Yield Point" at -0.5,40000
 #set arrow from 0,10000 to 1,60000
