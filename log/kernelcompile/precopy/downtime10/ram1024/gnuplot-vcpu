@@ -221,7 +221,7 @@ set autoscale y2;
 #set key right
 set key left
 #set key horizon
-set key -0.7,17600
+#set key -0.7,17600
 #set key 4.2,6.6e+06
 #set label "Yield Point" at -0.5,40000
 #set arrow from 0,10000 to 1,60000
@@ -310,8 +310,8 @@ xlabel="VCPUs"
 
 metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
-metrics=( totaltime )
-#metrics=( downtime )
+#metrics=( totaltime )
+metrics=( downtime )
 #metrics=( totaldata )
 #metrics=( throughput )
 #metrics=( duplicate )
