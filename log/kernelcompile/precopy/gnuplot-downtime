@@ -226,10 +226,10 @@ set autoscale y2;
 #set key outside center top horizontal
 #set key outside left below horizontal
 #set key center top
-#set key right
+set key right
 #set key left
-set key horizon
-set key 3.2,4400
+#set key horizon
+#set key 3.2,4400
 #set key 4.2,6.6e+06
 #set label "Yield Point" at -0.5,40000
 #set arrow from 0,10000 to 1,60000
@@ -308,7 +308,7 @@ function genplot() {
 
 ############################### main (call functions) ############################
 #data=vcpu
-data=downtime-vcpu1
+data=downtime-vcpu4
 #prefix=$data
 
 #xlabel="max downtime (millsec)"
@@ -321,8 +321,9 @@ xlabel="max downtime (sec)"
 
 #metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
+metrics=( totaltime downtime )
 #metrics=( totaltime )
-metrics=( downtime )
+#metrics=( downtime )
 #metrics=( totaldata )
 #metrics=( throughput )
 #metrics=( duplicate )
