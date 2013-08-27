@@ -242,10 +242,10 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 #
 ################################################################
 
-expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( default )
-#expcaps=( xbzrle )
+expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 #expcaps=( auto-converge )
@@ -288,9 +288,9 @@ caches=( 64 )
 #caches=( 16384 )
 
 #runs=( 1 2 3 4 5 6 7 8 9 10 )
-runs=( 5 6 7 8 9 10 )
+#runs=( 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
-#runs=( 4 5 )
+runs=( 7 8 )
 
 ################# benchmark specific params ###################
 

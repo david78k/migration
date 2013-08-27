@@ -32,6 +32,9 @@ stopvm c11node10 4446
 # kill dstat 
 pgrep -fl dstat | awk '{print $1}' | xargs kill -9
 
+# kill ssh client
+pgrep -fl 5555 | awk '{print $1}' | xargs kill -9
+
 # check port
 netstat -tunlp | grep 5555
 
