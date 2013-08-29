@@ -7,7 +7,9 @@
 ################################################################
 
 #bench=memtouch
-bench=kernelcompile
+#bench=kernelcompile
+bench=hadoop
+
 #ram=128
 #ram=256
 ram=1024
@@ -244,16 +246,15 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 
 #expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
-#expcaps=( default )
-expcaps=( xbzrle )
+expcaps=( default )
+#expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 #expcaps=( auto-converge )
 
 #vcpus=( 1 2 4 8 12 )
-vcpus=( 12 )
+vcpus=( 1 )
 #vcpus=( 1 2 4 )
-#vcpus=( 1 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
@@ -276,8 +277,8 @@ speeds=( 125 )
 
 # max downtime in seconds: default 0.03 (30ms)
 #downtimes=( 0.1 0.5 1 5 10 30 60 120 )
-#downtimes=( 0.03 )
-downtimes=( 1 )
+downtimes=( 0.03 )
+#downtimes=( 1 )
 #downtimes=( 5 )
 #downtimes=( 10 )
 
@@ -290,7 +291,7 @@ caches=( 64 )
 #runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
-runs=( 7 8 )
+runs=( 1 )
 
 ################# benchmark specific params ###################
 
@@ -330,7 +331,8 @@ do
 				memtouchdirtyrate=$rate
 				migrate	
 			done
-		elif [ $bench == "kernelcompile" ]; then
+		#elif [ $bench == "kernelcompile" ]; then
+		else 
 			for arg2 in ${caches[@]}
 			do
 				cache=$arg2

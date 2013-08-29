@@ -1,8 +1,10 @@
 requests=250000
 clients=10
 
-server=http://10.244.36.20
+server=c11node9
+#server=http://10.244.36.20
 page=index.html
+#page=icons/apache_pb.png
 path=$server/$page
 
 plotscript=ab-gnuplot
@@ -11,16 +13,19 @@ logfile=log/$prefix.log
 data=data/$prefix.tsv
 output=graphs/$prefix.png
 
-logsave $logfile ab -n $requests -c $clients \
-	-g $data \
+ab -n $requests -c $clients \
 	$path
+
+#logsave $logfile ab -n $requests -c $clients \
+#	-g $data \
+#	$path
 
 	#-t 1 \
 
-cp data/$prefix.tsv data/data.tsv
-gnuplot $plotscript
-cp graphs/output.png $output
+#cp data/$prefix.tsv data/data.tsv
+#gnuplot $plotscript
+#cp graphs/output.png $output
 
-git add .
-git commit -m "$prefix"
-git push
+#git add .
+#git commit -m "$prefix"
+#git push
