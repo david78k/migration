@@ -23,9 +23,6 @@ $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
         -device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \
 	-daemonize 
 
-#	-nographic 
-
-	#-netdev tap,fd=19,id=hostnet0 \
 	#-device rtl8139,netdev=hostnet0,id=net0 \
 	#-name $name \
 

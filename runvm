@@ -25,11 +25,11 @@ $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
 	-enable-kvm \
 	-m $ram \
 	-smp $vcpu \
-	-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::$sshport-:22,hostfwd=tcp::80-:80 \
+	-device virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \
 	-nographic 
 
-	#-net nic -net user \
-	#-netdev tap,fd=19,id=hostnet0 \
+	#-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::$sshport-:22,hostfwd=tcp::80-:80 \
+	
 	#-device rtl8139,netdev=hostnet0,id=net0 \
 	#-name $name \
 #	-monitor telnet:0:4446,server,nowait \
