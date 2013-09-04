@@ -1,0 +1,91 @@
+#!/bin/bash
+ 
+#FILE=$1
+#FILE=3.access
+FILE=/root/migration/log/apachebench/precopy/downtime0.5/ram1024/vcpu8/speed125/default/4.access
+
+interval=1
+
+FDATE=$(head -1 $FILE |awk '{print $4}'|sed -e 's/\[//'|sed -e 's/\//-/g'|sed -e 's/:/ /')
+FDATE_S=$(date -d "$FDATE" '+%s');
+FDATE_T=$((FDATE_S + $interval));
+COUNT=0
+lineno=0
+second=0
+
+#DATAFILE=$(mktemp)
+DATAFILE=${FILE}.dat
+RESULTFILE="result-"$(date -d "$FDATE" '+%Y-%m-%d')".png"
+
+
+function gendata() {
+#filesize=$(stat -c%s "$FILE") # in bytes
+filesize=$(ls -lh $FILE | awk '{print $5}')
+
+echo INTERVAL = $interval seconds\n FILESIZE = $filesize
+
+rm $DATAFILE
+
+#echo LDATE LDATE_S FDATE_T COUNT
+#echo $FDATE $FDATE_S $FDATE_T
+
+while read line
+do
+    LDATE=$(echo $line|awk '{print $4}'|sed -e 's/\[//'|sed -e 's/\//-/g'|sed -e 's/:/ /')
+    LDATE_S=$(date -d "$LDATE" '+%s');
+
+    if (( LDATE_S < FDATE_T )); then
+        COUNT=$((COUNT + 1))
+    else
+        #echo $LDATE $LDATE_S $FDATE_T $COUNT
+        second=$((second + 1))
+        echo -n "$second "
+        echo "$(date -d @"$((FDATE_T - $interval))" '+%Y-%m-%d %H:%M:%S') $COUNT" >>$DATAFILE
+        FDATE_T=$((FDATE_T + $interval))
+        COUNT=1;
+    fi
+
+#    remainder=1
+#    let "remainder = $lineno % 1000"
+    #echo $remainder
+#    if [ $remainder -eq 999 ]; then
+#       echo $LDATE $LDATE_S $FDATE_T $COUNT
+#    fi
+
+    lineno=$((lineno + 1))
+    #if [ $lineno -ge 100 ]; then
+#       break
+#    fi
+done <$FILE
+
+#set style fill transparent solid 0.5 noborder
+#plot "$DATAFILE" using 1:3 w boxes lc rgb "green" notitle
+echo
+
+cat $DATAFILE
+}
+
+#gendata
+
+gnuplot << EOF
+reset
+set xdata time
+set timefmt "%Y-%m-%d %H:%M:%S"
+set format x "%H:%M"
+set autoscale
+set ytics
+set grid y
+set auto y
+set term png truecolor
+set output "$RESULTFILE"
+set xlabel "Time"
+set ylabel "Request per 5min"
+set grid
+set boxwidth 0.95 relative
+set style fill solid 0.5 noborder
+plot "$DATAFILE" using 1:3 w boxes lc rgb "green" notitle
+EOF
+ 
+#set style fill transparent solid 0.5 noborder
+
+#rm -f $DATAFILE

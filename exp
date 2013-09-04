@@ -331,8 +331,8 @@ speeds=( 125 )
 #downtimes=( 0.1 0.5 1 5 10 )
 #downtimes=( 0.03 )
 #downtimes=( 1 )
-#downtimes=( 5 2 1 )
-downtimes=( 0.5 )
+downtimes=( 5 2 1 )
+#downtimes=( 0.5 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
 # should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...

@@ -1,0 +1,49 @@
+#!/bin/bash
+ 
+#FILE=$1
+FILE=/root/migration/log/apachebench/precopy/downtime0.5/ram1024/vcpu8/speed125/default/4.access
+ 
+FDATE=$(head -1 $FILE |awk '{print $4}'|sed -e 's/\[//'|sed -e 's/\//-/g'|sed -e 's/:/ /')
+FDATE_S=$(date -d "$FDATE" '+%s');
+FDATE_T=$((FDATE_S + 300));
+COUNT=0
+ 
+DATAFILE=$(mktemp)
+RESULTFILE="result-"$(date -d "$FDATE" '+%Y-%m-%d')".png"
+ 
+while read line
+do
+    LDATE=$(echo $line|awk '{print $4}'|sed -e 's/\[//'|sed -e 's/\//-/g'|sed -e 's/:/ /')
+    LDATE_S=$(date -d "$LDATE" '+%s');
+    if (( LDATE_S < FDATE_T )); then
+        COUNT=$((COUNT + 1))
+    else
+        echo "$(date -d @"$((FDATE_T - 300))" '+%Y-%m-%d %H:%M:%S') $COUNT" >>$DATAFILE
+        FDATE_T=$((FDATE_T + 300))
+        COUNT=1;
+    fi
+done <$FILE
+ 
+gnuplot << EOF
+reset
+set xdata time
+set timefmt "%Y-%m-%d %H:%M:%S"
+set format x "%H:%M"
+set autoscale
+set ytics
+set grid y
+set auto y
+set term png truecolor
+set output "$RESULTFILE"
+set xlabel "Time"
+set ylabel "Request per 5min"
+set grid
+set boxwidth 0.95 relative
+set style fill solid 0.5 noborder
+plot "$DATAFILE" using 1:3 notitle w boxes lc rgb "green" 
+EOF
+ 
+#set style fill transparent solid 0.5 noborder
+#plot "$DATAFILE" using 1:3 w boxes lc rgb "green" notitle
+
+#rm -f $DATAFILE
