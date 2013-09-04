@@ -3,7 +3,7 @@ data=$1
 prefix=${data%\.*}
 name=$prefix.p
 #data=$prefix.dat
-figure=${prefix}_cpu.png
+figure=${prefix}.cpu.png
 terminal="png size 640,355"
 ratio=0.5
 
