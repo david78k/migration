@@ -20,16 +20,15 @@ $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
 	-m $ram \
 	-smp $vcpu \
 	-monitor telnet:0:4446,server,nowait \
-        -device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \
+        -device virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \
 	-daemonize 
 
+        #-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \
 	#-device rtl8139,netdev=hostnet0,id=net0 \
 	#-name $name \
 
-#	-monitor telnet:0:4446 \
 	#-qmp tcp:0:4445,server --monitor stdio \
 	#-qmp tcp:0:4446,server \
-#	-monitor stdio \
 
 #echo access VM: telnet localhost 4446
 #echo script: nc localhost 4446

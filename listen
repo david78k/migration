@@ -5,6 +5,7 @@ vcpu=1
 name=migbench
 #name=vm512-29
 image=/var/lib/libvirt/images/nfs/c11node9/$name.img
+qemudir=/root/qemu
 #version=qemu-kvm-1.2.0
 version=qemu-1.5.50
 #version=qemu-postcopy
@@ -17,5 +18,7 @@ version=qemu-1.5.50
         -incoming tcp:0:4444 \
         -m $ram \
         -smp $vcpu \
-        -device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \
+        -device virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \
         -nographic
+        
+        #-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \

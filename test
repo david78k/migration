@@ -1,0 +1,3 @@
+vm=10.244.34.229
+accesslog=/home/apachebench/access.log
+scp "$vm:/var/log/apache2/access.log" $accesslog

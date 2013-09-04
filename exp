@@ -7,7 +7,8 @@
 ################################################################
 
 #bench=memtouch
-bench=kernelcompile
+#bench=kernelcompile
+bench=apachebench
 #bench=idle
 #bench=hadoop
 
@@ -25,6 +26,13 @@ caps=( )
 cache=64 # xbzrle cache size in MBytes
 
 expno=1
+
+vm=10.244.34.229
+
+bootup=20 # time in seconds to boot up VM
+
+# apachebench
+client=10.5.147.206 # c11node6
 
 # kernel compile
 warmup=20 # time in seconds to make clean and warm up
@@ -63,6 +71,7 @@ function cpusage() {
   let "DIFF_IDLE=$IDLE-$PREV_IDLE"
   let "DIFF_TOTAL=$TOTAL-$PREV_TOTAL"
   let "DIFF_USAGE=(1000*($DIFF_TOTAL-$DIFF_IDLE)/$DIFF_TOTAL+5)/10"
+  #echo -e "$DIFF_USAGE"
   echo -e "CPU: $DIFF_USAGE %"
   #echo -e "\rCPU: $DIFF_USAGE %  \b\b"
 
@@ -151,7 +160,6 @@ if [ $bench == "memtouch" ]; then
 fi
 
 logdir=$loghome/${bench}/${mode}/downtime${downtime}/ram${ram}/vcpu${vcpu}/speed${speed}/${caps}
-#logdir=$loghome/${bench}/${mode}/ram${ram}/vcpu${vcpu}/speed${speed}/${caps}
 #logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${memtouchdirtyrate}
 
 #if [[ $downtime != "0.03" ]]; then
@@ -165,6 +173,8 @@ fi
 
 logfile=$logdir/${prefix}.log
 dstatfile=$logdir/${prefix}.dstat
+vmdstat=$logdir/${prefix}.vm.dstat
+destdstat=$logdir/${prefix}.dest.dstat
 migfile=$logdir/${prefix}.mig # nc migration results
 
 mkdir -p $logdir 
@@ -189,12 +199,17 @@ ssh $dest /root/qemu/listen-daemon $vmargs
 
 ./runvm-daemon $vmargs
 
-echo waiting 20 seconds for VM bootup ...
-sleep 20
+if [ $bench == "apachebench" ]; then
+	bootup=30
+fi
+
+echo waiting $bootup seconds for VM bootup ...
+sleep $bootup
 
 echo starting dstat ...
+dstat -cmdngy -N eth1 --noheaders > $dstatfile &
+ssh $vm "dstat -cmdngy --noheaders > dstat/${prefix}" &
 #ssh localhost -p 5555 "dstat -cmdngy --noheaders > dstat/${prefix}.log" &
-dstat -cmdngy --noheaders > $dstatfile &
 
 # run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
 bencharg=
@@ -204,14 +219,22 @@ if [ $bench == "memtouch" -a $memtouchdirtyrate -ne 0 ]; then
 fi
 
 sshcmd="/root/run-${bench} $bencharg"
+ablog=$logdir/${prefix}.ab
 
 if [ $bench != "idle" ]; then
 	echo starting $bench $bencharg ...
 	#echo starting memtouch $memtouchdirtyrate ...
-	ssh localhost -p 5555 "$sshcmd" &
+	if [ $bench == "apachebench" ]; then
+		ssh $vm "echo -n > /var/log/apache2/access.log" 
+		ssh $client /root/apachebench > $ablog &
+		#ssh $client "/root/apachebench > ${prefix}.ab" &
+	else
+		#ssh localhost -p 5555 "$sshcmd" &
+		ssh $vm "$sshcmd" &
 
-	#echo starting sysbench ...
-	#ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log" &
+		#echo starting sysbench ...
+		#ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log" &
+	fi
 
 	echo waiting $warmup seconds for initializing ...
 	sleep $warmup
@@ -221,18 +244,43 @@ echo
 echo starting migration ...
 
 cpusage
+#vcpusage
 
 #./ncmigrate-postcopy > log/mt_${prefix}.log
+#if [ $bench == "apachebench" ]; then
+#	echo > $migfile
+#	sleep 5
+#fi
+
 ncmigrate > $migfile
 #logsave $migfile ncmigrate
 
 cpusage >> $migfile
+#vcpusage >> $migfile
 
 egrep -a "total time:|downtime:|transferred|bytes|pages|mbps|cache size|cache miss|overflow|CPU" $migfile > $logfile
 cat $logfile
 
 echo waiting 10 seconds for finalizing ...
 sleep 10
+
+if [ $bench == "apachebench" ]; then
+	#accesslog=/home/apachebench/${prefix}.log
+	accesslog=$logdir/${prefix}.access
+	scp "$vm:/var/log/apache2/access.log" $accesslog
+	scp "$vm:/root/dstat/$prefix" $vmdstat
+	#echo -n vcpu >> $logfile
+	# ssh $vm /root/cpusage >> $logfile
+
+	# stop benchmark by sending SIGINT
+	#ps -ef | grep $client | head -1 | awk '{print \$2}' | xargs kill -2 
+	ssh $client "ps -ef | grep image.jpg | grep ab | head -1 | awk '{print \$2}' | xargs kill -2" 
+
+	# shutdown VM at src
+	./stopvm localhost $telnetport
+
+	cat $logfile
+fi
 
 # shutdown VM at dest
 ./stopvm $dest $telnetport
@@ -248,15 +296,15 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 ################################################################
 
 #expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
-expcaps=( xbzrle auto-converge xbzrle+auto-converge )
-#expcaps=( default )
+#expcaps=( xbzrle auto-converge xbzrle+auto-converge )
+expcaps=( default )
 #expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 #expcaps=( auto-converge )
 
 #vcpus=( 1 2 4 6 8 10 12 )
-vcpus=( 6 )
+vcpus=( 10 )
 #vcpus=( 1 2 4 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )

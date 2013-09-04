@@ -1,13 +1,14 @@
 # requests per second log file
 # /var/log/apache2/access.log
 requests=250000
-#clients=100
-clients=10
+clients=100
+#clients=10
 
 #server=c11node9
 server=10.244.34.229
 #page=index.html
-page=icons/apache_pb.png
+page=icons/apache_pb.png # 2KB
+#page=image.jpg # 512KB
 path=$server/$page
 
 plotscript=ab-gnuplot
