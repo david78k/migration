@@ -200,7 +200,7 @@ ssh $dest /root/qemu/listen-daemon $vmargs
 ./runvm-daemon $vmargs
 
 if [ $bench == "apachebench" ]; then
-	bootup=35
+	bootup=30
 fi
 
 echo waiting $bootup seconds for VM bootup ...
@@ -332,7 +332,7 @@ speeds=( 125 )
 #downtimes=( 0.03 )
 #downtimes=( 1 )
 #downtimes=( 5 2 1 )
-downtimes=( 0.1 )
+downtimes=( 0.5 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
 # should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...
@@ -343,8 +343,8 @@ caches=( 64 )
 #runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
-runs=( 1 )
-#runs=( 1 2 3 )
+#runs=( 1 )
+runs=( 4 )
 
 ################# benchmark specific params ###################
 
