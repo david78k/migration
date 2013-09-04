@@ -75,7 +75,7 @@ set yr [0:]
 #set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
 
 #plot data using (\$2/1000000) title 'eth1' smooth freq with linespoints
-plot data using (\$14) title 'eth1' smooth freq with linespoints
+plot data every ::3 using (\$14) title 'eth1' smooth freq with linespoints
 
 #data using (100 - \$5) axis x1y2 title 'cpu usage' with lines lc rgb "black"
 
