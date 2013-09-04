@@ -1,4 +1,4 @@
-data = "/tmp/tmp.XCuryfV2Ik"
+data = "/tmp/tmp.C9wJ1KMKs1"
 figure = "../log/apachebench/precopy/downtime0.5/ram1024/vcpu1/speed125/default/5.net.png"
 
 set terminal png size 640,355
@@ -56,7 +56,7 @@ set yr [0:]
 
 #plot data using ($2/1000000) title 'eth1' smooth freq with linespoints
 
-plot data every ::3 using 2 notitle smooth freq with linespoints
+plot data every ::3 using ($2) notitle smooth freq with linespoints
 
 #plot data every ::3 using ($14!=0 ? $14 : $13) notitle smooth freq with linespoints
 #plot data every ::3 using ($14!=0 ? $13 : 1/0) notitle smooth freq with linespoints
