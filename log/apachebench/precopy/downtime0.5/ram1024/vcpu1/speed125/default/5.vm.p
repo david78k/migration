@@ -47,7 +47,7 @@ set yr [0:]
 
 # Input file contains tab-separated fields
 #set datafile separator "\t"
-set datafile separator "|" 
+#set datafile separator "|" 
 
 #set style line 1 lt 2 lw 3
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default
