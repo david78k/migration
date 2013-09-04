@@ -66,11 +66,12 @@ cat $DATAFILE
 
 #gendata
 
+#set format x "%H:%M"
+
 gnuplot << EOF
 reset
 set xdata time
 set timefmt "%Y-%m-%d %H:%M:%S"
-set format x "%H:%M"
 set autoscale
 set ytics
 set grid y
@@ -78,7 +79,7 @@ set auto y
 set term png truecolor
 set output "$RESULTFILE"
 set xlabel "Time"
-set ylabel "Request per 5min"
+set ylabel "Requests per second"
 set grid
 set boxwidth 0.95 relative
 set style fill solid 0.5 noborder

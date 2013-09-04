@@ -331,7 +331,7 @@ speeds=( 125 )
 #downtimes=( 0.1 0.5 1 5 10 )
 #downtimes=( 0.03 )
 #downtimes=( 1 )
-downtimes=( 5 2 1 )
+downtimes=( 0.5 5 2 1 )
 #downtimes=( 0.5 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
@@ -344,7 +344,7 @@ caches=( 64 )
 #runs=( 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
 #runs=( 1 )
-runs=( 4 )
+runs=( 5 )
 
 ################# benchmark specific params ###################
 
