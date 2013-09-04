@@ -17,7 +17,6 @@ second=0
 DATAFILE=${FILE}.dat
 RESULTFILE="result-"$(date -d "$FDATE" '+%Y-%m-%d')".png"
 
-
 function gendata() {
 #filesize=$(stat -c%s "$FILE") # in bytes
 filesize=$(ls -lh $FILE | awk '{print $5}')
@@ -89,3 +88,7 @@ EOF
 #set style fill transparent solid 0.5 noborder
 
 #rm -f $DATAFILE
+
+git add .
+git commit -a -m $RESULTFILE
+git push
