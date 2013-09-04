@@ -200,7 +200,7 @@ ssh $dest /root/qemu/listen-daemon $vmargs
 ./runvm-daemon $vmargs
 
 if [ $bench == "apachebench" ]; then
-	bootup=30
+	bootup=35
 fi
 
 echo waiting $bootup seconds for VM bootup ...
@@ -279,7 +279,7 @@ if [ $bench == "apachebench" ]; then
 	# shutdown VM at src
 	./stopvm localhost $telnetport
 
-	cat $logfile
+#	cat $logfile
 fi
 
 # shutdown VM at dest
@@ -295,16 +295,16 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 #
 ################################################################
 
-#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
-expcaps=( default )
+#expcaps=( default )
 #expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 #expcaps=( auto-converge )
 
 #vcpus=( 1 2 4 6 8 10 12 )
-vcpus=( 10 )
+vcpus=( 12 10 8 6 4 2 1 )
 #vcpus=( 1 2 4 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
@@ -329,10 +329,10 @@ speeds=( 125 )
 # max downtime in seconds: default 0.03 (30ms)
 #downtimes=( 0.1 0.5 1 5 10 30 60 120 )
 #downtimes=( 0.1 0.5 1 5 10 )
-downtimes=( 0.03 )
+#downtimes=( 0.03 )
 #downtimes=( 1 )
-#downtimes=( 5 )
-#downtimes=( 10 )
+#downtimes=( 5 2 1 )
+downtimes=( 0.1 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
 # should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...

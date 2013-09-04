@@ -1,0 +1,43 @@
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 10.244.34.229 (be patient)
+
+
+Server Software:        Apache/2.2.16
+Server Hostname:        10.244.34.229
+Server Port:            80
+
+Document Path:          /image.jpg
+Document Length:        524076 bytes
+
+Concurrency Level:      100
+Time taken for tests:   38.240 seconds
+Complete requests:      7721
+Failed requests:        0
+Write errors:           0
+Total transferred:      4068091166 bytes
+HTML transferred:       4065863606 bytes
+Requests per second:    201.91 [#/sec] (mean)
+Time per request:       495.275 [ms] (mean)
+Time per request:       4.953 [ms] (mean, across all concurrent requests)
+Transfer rate:          103889.36 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1   31  91.7     22    1012
+Processing:    50  461 243.1    428    2369
+Waiting:        1   30  37.2     23     759
+Total:         54  492 257.6    450    2392
+
+Percentage of the requests served within a certain time (ms)
+  50%    450
+  66%    455
+  75%    471
+  80%    474
+  90%    494
+  95%    749
+  98%   1566
+  99%   2026
+ 100%   2392 (longest request)
