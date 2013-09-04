@@ -78,7 +78,7 @@ set grid y
 set auto y
 set term png truecolor
 set output "$RESULTFILE"
-set xlabel "Time"
+set xlabel "Time (min:sec)"
 set ylabel "Requests per second"
 set grid
 set boxwidth 0.95 relative
