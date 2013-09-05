@@ -1,0 +1,16 @@
+total time: 3083 milliseconds
+downtime: 1716 milliseconds
+transferred ram: 159999 kbytes
+throughput: 495.45 mbps
+remaining ram: 0 kbytes
+total ram: 1057344 kbytes
+duplicate: 227516 pages
+skipped: 0 pages
+normal: 39423 pages
+normal bytes: 157692 kbytes
+cache size: 67108864 bytes
+xbzrle transferred: 0 kbytes
+xbzrle pages: 0 pages
+xbzrle cache miss: 2603
+xbzrle overflow : 0
+CPU: 10 %

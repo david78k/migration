@@ -13,31 +13,31 @@ Document Path:          /image.jpg
 Document Length:        524076 bytes
 
 Concurrency Level:      100
-Time taken for tests:   39.771 seconds
-Complete requests:      7657
+Time taken for tests:   51.895 seconds
+Complete requests:      9913
 Failed requests:        0
 Write errors:           0
-Total transferred:      4038470457 bytes
-HTML transferred:       4036261137 bytes
-Requests per second:    192.53 [#/sec] (mean)
-Time per request:       519.413 [ms] (mean)
-Time per request:       5.194 [ms] (mean, across all concurrent requests)
-Transfer rate:          99162.10 [Kbytes/sec] received
+Total transferred:      5205392022 bytes
+HTML transferred:       5202538887 bytes
+Requests per second:    191.02 [#/sec] (mean)
+Time per request:       523.505 [ms] (mean)
+Time per request:       5.235 [ms] (mean, across all concurrent requests)
+Transfer rate:          97955.18 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   35 116.3     22    3025
-Processing:    11  481 367.1    428    3423
-Waiting:        0   30  37.7     23    1199
-Total:         12  516 381.7    450    3446
+Connect:        1   31  97.5     22    3026
+Processing:    30  491 484.8    428    5151
+Waiting:        1   29  52.3     23    1780
+Total:         31  522 492.7    451    5173
 
 Percentage of the requests served within a certain time (ms)
-  50%    450
-  66%    456
+  50%    451
+  66%    455
   75%    471
   80%    474
-  90%    496
-  95%    899
-  98%   1951
-  99%   3085
- 100%   3446 (longest request)
+  90%    491
+  95%    711
+  98%   1511
+  99%   4751
+ 100%   5173 (longest request)

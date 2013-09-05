@@ -1,4 +1,4 @@
-data = "/tmp/tmp.1UEljXXK1R"
+data = "/tmp/tmp.4N3zWjsfs2"
 figure = "log/apachebench/precopy/downtime0.5/ram1024/vcpu1/speed125/auto-converge/6.net.png"
 
 set terminal png size 640,355

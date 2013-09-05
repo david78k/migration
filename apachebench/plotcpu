@@ -77,8 +77,9 @@ set yr [0:]
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default
 #plot data using (\$2/1000000) title 'send' smooth freq with linespoints, \\
 
-plot data every ::8 using (100 - \$3) notitle smooth freq with linespoints
+plot data every ::5 using (100 - \$3) notitle smooth freq with linespoints
 
+#plot data every ::8 using (100 - \$3) notitle with lines
 #plot data every ::3 using (100 - \$3) title 'cpu usage' with lines lc rgb "black"
 
 #data using (\$5*5.6) axis x1y2 title 'VM window' with linespoints, \\

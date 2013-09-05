@@ -261,8 +261,8 @@ function migrate() {
 	egrep -a "total time:|downtime:|transferred|bytes|pages|mbps|cache size|cache miss|overflow|CPU" $migfile > $logfile
 	cat $logfile
 
-	echo waiting 10 seconds for finalizing ...
-	sleep 10
+	echo waiting 20 seconds for finalizing ...
+	sleep 20
 
 	if [ $bench == "apachebench" ]; then
 		#accesslog=/home/apachebench/${prefix}.log
@@ -319,8 +319,8 @@ expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 
 #vcpus=( 1 2 4 6 8 10 12 )
-#vcpus=( 12 10 8 6 4 2 1 )
-vcpus=( 12 )
+vcpus=( 12 10 8 6 4 2 1 )
+#vcpus=( 12 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
@@ -346,8 +346,8 @@ speeds=( 125 )
 #downtimes=( 0.1 0.5 1 5 10 )
 #downtimes=( 0.03 )
 #downtimes=( 1 )
-#downtimes=( 0.5 5 2 1 )
-downtimes=( 0.5 )
+downtimes=( 5 2 1 0.5 )
+#downtimes=( 0.5 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
 # should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...
@@ -359,7 +359,7 @@ caches=( 64 )
 #runs=( 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
 #runs=( 1 )
-runs=( 6 )
+runs=( 6 7 8 9 10 )
 
 ################# benchmark specific params ###################
 
@@ -375,46 +375,46 @@ runs=( 6 )
 for run in ${runs[@]}
 do
 	expno=$run
-for mem in ${rams[@]}
-do
-	ram=$mem
-for sp in ${speeds[@]}
-do
-	speed=$sp
-	for arg in ${vcpus[@]}
+	for mem in ${rams[@]}
 	do
-		vcpu=$arg
-	for dt in ${downtimes[@]}
-	do
-		downtime=$dt
-	for expcap in ${expcaps[@]}
-	do
-#		if [ $expcap != "default" ]; then
-			caps=$expcap
-#		fi
-
-		if [ $bench == "memtouch" ]; then
-			for rate in ${memtouchdirtyrates[@]}
+		ram=$mem
+		for sp in ${speeds[@]}
+		do
+			speed=$sp
+			for arg in ${vcpus[@]}
 			do
-				memtouchdirtyrate=$rate
-				migrate	
-			done
-		#elif [ $bench == "kernelcompile" ]; then
-		else 
-			for arg2 in ${caches[@]}
+				vcpu=$arg
+			for dt in ${downtimes[@]}
 			do
-				cache=$arg2
-				echo migrate $expcap $vcpu $cache
-				migrate	
+				downtime=$dt
+			for expcap in ${expcaps[@]}
+			do
+		#		if [ $expcap != "default" ]; then
+					caps=$expcap
+		#		fi
+
+				if [ $bench == "memtouch" ]; then
+					for rate in ${memtouchdirtyrates[@]}
+					do
+						memtouchdirtyrate=$rate
+						migrate	
+					done
+				#elif [ $bench == "kernelcompile" ]; then
+				else 
+					for arg2 in ${caches[@]}
+					do
+						cache=$arg2
+						echo migrate $expcap $vcpu $cache
+						migrate	
+					done
+				fi
 			done
-		fi
+			done
+			done
+		done
 	done
-	done
-	done
-done
-done
+	git add .
+	git commit -a -m exp
+	git push
 done
 
-git add .
-git commit -a -m exp
-git push
