@@ -1,8 +1,8 @@
 #!/bin/bash
  
-#FILE=$1
+FILE=$1
 #FILE=3.access
-FILE=/root/migration/log/apachebench/precopy/downtime0.5/ram1024/vcpu8/speed125/default/4.access
+#FILE=/root/migration/log/apachebench/precopy/downtime0.5/ram1024/vcpu8/speed125/default/4.access
 
 interval=1
 
@@ -15,7 +15,25 @@ second=0
 
 #DATAFILE=$(mktemp)
 DATAFILE=${FILE}.dat
-RESULTFILE="result-"$(date -d "$FDATE" '+%Y-%m-%d')".png"
+#prefix=${FILE%\.*}
+prefix=${FILE}
+figure=${prefix}.png
+terminal="png enhanced truecolor"
+#figure="result-"$(date -d "$FDATE" '+%Y-%m-%d')".png"
+
+#echo "usage: $0 script-name [eps|emf]"
+echo $# $1 $2
+if [ $# -eq 2 ]; then
+	figure=$prefix.eps
+	#terminal="postscript eps enhanced size $figuresize color font $fontsize"
+	terminal="postscript eps enhanced solid color"
+	if [ $2 == "emf" ]; then
+		fontsize=14
+		figure=$prefix.emf
+		#terminal="emf enhanced size $figuresize font $fontsize"
+		terminal="emf enhanced solid"
+	fi
+fi
 
 function gendata() {
 #filesize=$(stat -c%s "$FILE") # in bytes
@@ -76,8 +94,8 @@ set autoscale
 set ytics
 set grid y
 set auto y
-set term png truecolor
-set output "$RESULTFILE"
+set term $terminal
+set output "$figure"
 set xlabel "Time (min:sec)"
 set ylabel "Requests per second"
 set grid
@@ -91,5 +109,5 @@ EOF
 #rm -f $DATAFILE
 
 git add .
-git commit -a -m $RESULTFILE
+git commit -a -m $figure
 git push

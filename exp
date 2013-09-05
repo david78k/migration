@@ -154,139 +154,151 @@ echo
 
 function migrate() {
 
-prefix=$expno
-if [ $bench == "memtouch" ]; then
-	prefix=dirty${memtouchdirtyrate}_${expno}
-fi
-
-logdir=$loghome/${bench}/${mode}/downtime${downtime}/ram${ram}/vcpu${vcpu}/speed${speed}/${caps}
-#logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${memtouchdirtyrate}
-
-#if [[ $downtime != "0.03" ]]; then
-#	logdir=$logdir/downtime${downtime}
-#fi
-
-#if [[ $caps == "xbzrle" ]]; then
-if [[ $cache != "64" ]]; then
-	logdir=$logdir/cache${cache}
-fi
-
-logfile=$logdir/${prefix}.log
-dstatfile=$logdir/${prefix}.dstat
-vmdstat=$logdir/${prefix}.vm.dstat
-destdstat=$logdir/${prefix}.dest.dstat
-migfile=$logdir/${prefix}.mig # nc migration results
-
-mkdir -p $logdir 
-
-echo ram = $ram MB
-echo migration speed = $speed MB/s
-echo benchmark = $bench
-#echo dirty rate = $memtouchdirtyrate MB/s
-#echo $caps
-echo
-
-echo $logfile
-echo
-
-dest=c11node10
-telnetport=4446
-vmargs="$ram $vcpu"
-
-echo "$dest (${ram}MB) listening ..."
-ssh $dest /root/qemu/listen-daemon $vmargs
-#ssh $dest /root/qemu/listen-postcopy-daemon $ram
-
-./runvm-daemon $vmargs
-
-if [ $bench == "apachebench" ]; then
-	bootup=30
-fi
-
-echo waiting $bootup seconds for VM bootup ...
-sleep $bootup
-
-echo starting dstat ...
-dstat -cmdngy -N eth1 --noheaders > $dstatfile &
-ssh $vm "dstat -cmdngy --noheaders > dstat/${prefix}" &
-#ssh localhost -p 5555 "dstat -cmdngy --noheaders > dstat/${prefix}.log" &
-
-# run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
-bencharg=
-if [ $bench == "memtouch" -a $memtouchdirtyrate -ne 0 ]; then
-	bencharg=$memtouchdirtyrate
-	#ssh localhost -p 5555 "/root/run-memtouch $memtouchdirtyrate" &
-fi
-
-sshcmd="/root/run-${bench} $bencharg"
-ablog=$logdir/${prefix}.ab
-
-if [ $bench != "idle" ]; then
-	echo starting $bench $bencharg ...
-	#echo starting memtouch $memtouchdirtyrate ...
-	if [ $bench == "apachebench" ]; then
-		ssh $vm "echo -n > /var/log/apache2/access.log" 
-		ssh $client /root/apachebench > $ablog &
-		#ssh $client "/root/apachebench > ${prefix}.ab" &
-	else
-		#ssh localhost -p 5555 "$sshcmd" &
-		ssh $vm "$sshcmd" &
-
-		#echo starting sysbench ...
-		#ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log" &
+	prefix=$expno
+	if [ $bench == "memtouch" ]; then
+		prefix=dirty${memtouchdirtyrate}_${expno}
 	fi
 
-	echo waiting $warmup seconds for initializing ...
-	sleep $warmup
-fi
-echo
+	logdir=$loghome/${bench}/${mode}/downtime${downtime}/ram${ram}/vcpu${vcpu}/speed${speed}/${caps}
+	#logdir=$loghome/${bench}/${mode}/${cap}/ram${ram}/vcpu${vcpu}/speed${speed}/dirty${memtouchdirtyrate}
 
-echo starting migration ...
+	#if [[ $downtime != "0.03" ]]; then
+	#	logdir=$logdir/downtime${downtime}
+	#fi
 
-cpusage
-#vcpusage
+	#if [[ $caps == "xbzrle" ]]; then
+	if [[ $cache != "64" ]]; then
+		logdir=$logdir/cache${cache}
+	fi
 
-#./ncmigrate-postcopy > log/mt_${prefix}.log
-#if [ $bench == "apachebench" ]; then
-#	echo > $migfile
-#	sleep 5
-#fi
+	logfile=$logdir/${prefix}.log
+	dstatfile=$logdir/${prefix}.dstat
+	vmdstat=$logdir/${prefix}.vm.dstat
+	destdstat=$logdir/${prefix}.dest.dstat
+	migfile=$logdir/${prefix}.mig # nc migration results
 
-ncmigrate > $migfile
-#logsave $migfile ncmigrate
+	mkdir -p $logdir 
 
-cpusage >> $migfile
-#vcpusage >> $migfile
+	echo ram = $ram MB
+	echo migration speed = $speed MB/s
+	echo benchmark = $bench
+	#echo dirty rate = $memtouchdirtyrate MB/s
+	#echo $caps
+	echo
 
-egrep -a "total time:|downtime:|transferred|bytes|pages|mbps|cache size|cache miss|overflow|CPU" $migfile > $logfile
-cat $logfile
+	echo $logfile
+	echo
 
-echo waiting 10 seconds for finalizing ...
-sleep 10
+	dest=c11node10
+	telnetport=4446
+	vmargs="$ram $vcpu"
 
-if [ $bench == "apachebench" ]; then
-	#accesslog=/home/apachebench/${prefix}.log
-	accesslog=$logdir/${prefix}.access
-	scp "$vm:/var/log/apache2/access.log" $accesslog
-	scp "$vm:/root/dstat/$prefix" $vmdstat
-	#echo -n vcpu >> $logfile
-	# ssh $vm /root/cpusage >> $logfile
+	echo "$dest (${ram}MB) listening ..."
+	ssh $dest /root/qemu/listen-daemon $vmargs
+	#ssh $dest /root/qemu/listen-postcopy-daemon $ram
 
-	# stop benchmark by sending SIGINT
-	#ps -ef | grep $client | head -1 | awk '{print \$2}' | xargs kill -2 
-	ssh $client "ps -ef | grep image.jpg | grep ab | head -1 | awk '{print \$2}' | xargs kill -2" 
+	./runvm-daemon $vmargs
 
-	# shutdown VM at src
-	./stopvm localhost $telnetport
+	if [ $bench == "apachebench" ]; then
+		bootup=30
+	fi
 
-#	cat $logfile
-fi
+	echo waiting $bootup seconds for VM bootup ...
+	sleep $bootup
 
-# shutdown VM at dest
-./stopvm $dest $telnetport
+	echo starting dstat ...
+	dstat -cmdngy -N eth1 --noheaders > $dstatfile &
+	ssh $vm "dstat -cmdngy --noheaders > dstat/${prefix}" &
+	#ssh localhost -p 5555 "dstat -cmdngy --noheaders > dstat/${prefix}.log" &
 
-# stop dstat
-pgrep -fl dstat| awk '{print $1}' | xargs kill -9
+	# run benchmark (memtouch, sysbench, apache, netperf, lmbench, kc) in background
+	bencharg=
+	if [ $bench == "memtouch" -a $memtouchdirtyrate -ne 0 ]; then
+		bencharg=$memtouchdirtyrate
+		#ssh localhost -p 5555 "/root/run-memtouch $memtouchdirtyrate" &
+	fi
+
+	sshcmd="/root/run-${bench} $bencharg"
+	ablog=$logdir/${prefix}.ab
+
+	if [ $bench != "idle" ]; then
+		echo starting $bench $bencharg ...
+		#echo starting memtouch $memtouchdirtyrate ...
+		if [ $bench == "apachebench" ]; then
+			ssh $vm "echo -n > /var/log/apache2/access.log" 
+			ssh $client /root/apachebench > $ablog &
+			#ssh $client "/root/apachebench > ${prefix}.ab" &
+		else
+			#ssh localhost -p 5555 "$sshcmd" &
+			ssh $vm "$sshcmd" &
+
+			#echo starting sysbench ...
+			#ssh localhost -p 5555 "/root/run > sysbench/${prefix}.log" &
+		fi
+
+		echo waiting $warmup seconds for initializing ...
+		sleep $warmup
+	fi
+	echo
+
+	echo starting migration ...
+
+	cpusage
+	#vcpusage
+
+	#./ncmigrate-postcopy > log/mt_${prefix}.log
+	#if [ $bench == "apachebench" ]; then
+	#	echo > $migfile
+	#	sleep 5
+	#fi
+
+	ncmigrate > $migfile
+	#logsave $migfile ncmigrate
+
+	cpusage >> $migfile
+	#vcpusage >> $migfile
+
+	egrep -a "total time:|downtime:|transferred|bytes|pages|mbps|cache size|cache miss|overflow|CPU" $migfile > $logfile
+	cat $logfile
+
+	echo waiting 10 seconds for finalizing ...
+	sleep 10
+
+	if [ $bench == "apachebench" ]; then
+		#accesslog=/home/apachebench/${prefix}.log
+		accesslog=$logdir/${prefix}.access
+		scp "$vm:/var/log/apache2/access.log" $accesslog
+		scp "$vm:/root/dstat/$prefix" $vmdstat
+		#echo -n vcpu >> $logfile
+		# ssh $vm /root/cpusage >> $logfile
+
+		# stop benchmark by sending SIGINT
+		#ps -ef | grep $client | head -1 | awk '{print \$2}' | xargs kill -2 
+		ssh $client "ps -ef | grep image.jpg | grep ab | head -1 | awk '{print \$2}' | xargs kill -2" 
+
+		# shutdown VM at src
+		./stopvm localhost $telnetport
+
+	#	cat $logfile
+	fi
+
+	# shutdown VM at dest
+	./stopvm $dest $telnetport
+
+	# stop dstat
+	pgrep -fl dstat| awk '{print $1}' | xargs kill -9
+	
+	# plot access.log
+	plotaccess="../apachebench/plotaccess"
+	$plotaccess $accesslog
+	# plot host cpu/net usage
+	plotcpu="../apachebench/plotcpu"
+	plotnet="../apachebench/plotnet"
+	$plotcpu $dstatfile
+	$plotnet $dstatfile
+	# plot vm cpu/net usage
+	$plotcpu $vmdstatfile
+	$plotnet $vmdstatfile
 }
 
 ################################################################
@@ -295,17 +307,17 @@ pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 #
 ################################################################
 
-expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
-#expcaps=( default )
+expcaps=( default )
 #expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 #expcaps=( auto-converge )
 
 #vcpus=( 1 2 4 6 8 10 12 )
-vcpus=( 12 10 8 6 4 2 1 )
-#vcpus=( 1 2 4 )
+#vcpus=( 12 10 8 6 4 2 1 )
+vcpus=( 1 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
@@ -331,8 +343,8 @@ speeds=( 125 )
 #downtimes=( 0.1 0.5 1 5 10 )
 #downtimes=( 0.03 )
 #downtimes=( 1 )
-downtimes=( 0.5 5 2 1 )
-#downtimes=( 0.5 )
+#downtimes=( 0.5 5 2 1 )
+downtimes=( 0.5 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
 # should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...
@@ -344,7 +356,7 @@ caches=( 64 )
 #runs=( 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
 #runs=( 1 )
-runs=( 5 )
+runs=( 6 )
 
 ################# benchmark specific params ###################
 
