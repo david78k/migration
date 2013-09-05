@@ -25,7 +25,7 @@ function gendata() {
 	#filesize=$(stat -c%s "$FILE") # in bytes
 	filesize=$(ls -lh $FILE | awk '{print $5}')
 
-	echo "INTERVAL = $interval seconds\n FILESIZE = $filesize"
+	echo "INTERVAL = $interval second\t FILESIZE = $filesize"
 
 	echo -n > $DATAFILE
 
@@ -68,8 +68,6 @@ function gendata() {
 #	cat $DATAFILE
 }
 
-#set format x "%H:%M"
-
 function genplot() {
 	#echo "usage: $0 [eps|emf]"
 	echo $# $1 
@@ -85,6 +83,8 @@ function genplot() {
 			#terminal="emf enhanced solid"
 		fi
 	fi
+
+#set format x "%H:%M"
 
 gnuplot << EOF
 reset

@@ -314,8 +314,8 @@ function migrate() {
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( default )
 #expcaps=( xbzrle )
-expcaps=( auto-converge )
-#expcaps=( xbzrle+auto-converge )
+#expcaps=( auto-converge )
+expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 
 #vcpus=( 1 2 4 6 8 10 12 )
