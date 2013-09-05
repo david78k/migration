@@ -28,7 +28,7 @@ if [ $# -eq 2 ]; then
 	#terminal="postscript eps enhanced size $figuresize color font $fontsize"
 	terminal="postscript eps enhanced solid color"
 	if [ $2 == "emf" ]; then
-		fontsize=22
+		fontsize=28
 		figure=$prefix.emf
 		terminal="emf enhanced font $fontsize"
 		#terminal="emf enhanced size $figuresize font $fontsize"
