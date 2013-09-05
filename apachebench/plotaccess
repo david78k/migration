@@ -36,56 +36,55 @@ if [ $# -eq 2 ]; then
 fi
 
 function gendata() {
-#filesize=$(stat -c%s "$FILE") # in bytes
-filesize=$(ls -lh $FILE | awk '{print $5}')
+	#filesize=$(stat -c%s "$FILE") # in bytes
+	filesize=$(ls -lh $FILE | awk '{print $5}')
 
-echo INTERVAL = $interval seconds\n FILESIZE = $filesize
+	echo "INTERVAL = $interval seconds\n FILESIZE = $filesize"
 
-rm $DATAFILE
+	echo -n > $DATAFILE
 
-#echo LDATE LDATE_S FDATE_T COUNT
-#echo $FDATE $FDATE_S $FDATE_T
+	#echo LDATE LDATE_S FDATE_T COUNT
+	#echo $FDATE $FDATE_S $FDATE_T
 
-while read line
-do
-    LDATE=$(echo $line|awk '{print $4}'|sed -e 's/\[//'|sed -e 's/\//-/g'|sed -e 's/:/ /')
-    LDATE_S=$(date -d "$LDATE" '+%s');
+	while read line
+	do
+	    LDATE=$(echo $line|awk '{print $4}'|sed -e 's/\[//'|sed -e 's/\//-/g'|sed -e 's/:/ /')
+	    LDATE_S=$(date -d "$LDATE" '+%s');
 
-    if (( LDATE_S < FDATE_T )); then
-        COUNT=$((COUNT + 1))
-    else
-        #echo $LDATE $LDATE_S $FDATE_T $COUNT
-        second=$((second + 1))
-        echo -n "$second "
-        echo "$(date -d @"$((FDATE_T - $interval))" '+%Y-%m-%d %H:%M:%S') $COUNT" >>$DATAFILE
-        FDATE_T=$((FDATE_T + $interval))
-        COUNT=1;
-    fi
+	    if (( LDATE_S < FDATE_T )); then
+	        COUNT=$((COUNT + 1))
+	    else
+	        #echo $LDATE $LDATE_S $FDATE_T $COUNT
+	        second=$((second + 1))
+	        echo -n "$second "
+	        echo "$(date -d @"$((FDATE_T - $interval))" '+%Y-%m-%d %H:%M:%S') $COUNT" >>$DATAFILE
+	        FDATE_T=$((FDATE_T + $interval))
+	        COUNT=1;
+	    fi
 
-#    remainder=1
-#    let "remainder = $lineno % 1000"
-    #echo $remainder
-#    if [ $remainder -eq 999 ]; then
-#       echo $LDATE $LDATE_S $FDATE_T $COUNT
-#    fi
+	#    remainder=1
+	#    let "remainder = $lineno % 1000"
+	    #echo $remainder
+	#    if [ $remainder -eq 999 ]; then
+	#       echo $LDATE $LDATE_S $FDATE_T $COUNT
+	#    fi
 
-    lineno=$((lineno + 1))
-    #if [ $lineno -ge 100 ]; then
-#       break
-#    fi
-done <$FILE
+	    lineno=$((lineno + 1))
+	    #if [ $lineno -ge 100 ]; then
+	#       break
+	#    fi
+	done <$FILE
 
-#set style fill transparent solid 0.5 noborder
-#plot "$DATAFILE" using 1:3 w boxes lc rgb "green" notitle
-echo
+	#set style fill transparent solid 0.5 noborder
+	#plot "$DATAFILE" using 1:3 w boxes lc rgb "green" notitle
+	echo
 
-cat $DATAFILE
+	cat $DATAFILE
 }
-
-#gendata
 
 #set format x "%H:%M"
 
+function genplot() {
 gnuplot << EOF
 reset
 set xdata time
@@ -103,11 +102,15 @@ set boxwidth 0.95 relative
 set style fill solid 0.5 noborder
 plot "$DATAFILE" using 1:3 w boxes lc rgb "green" notitle
 EOF
+}
  
+#gendata
+genplot
+
 #set style fill transparent solid 0.5 noborder
 
 #rm -f $DATAFILE
 
-git add .
-git commit -a -m $figure
-git push
+#git add .
+#git commit -a -m $figure
+#git push
