@@ -288,17 +288,20 @@ function migrate() {
 	# stop dstat
 	pgrep -fl dstat| awk '{print $1}' | xargs kill -9
 	
-	# plot access.log
-	plotaccess="../apachebench/plotaccess"
-	$plotaccess $accesslog
+	if [ $bench == "apachebench" ]; then
+		# plot access.log
+		plotaccess="./apachebench/plotaccess"
+		$plotaccess $accesslog
+	fi
+
 	# plot host cpu/net usage
-	plotcpu="../apachebench/plotcpu"
-	plotnet="../apachebench/plotnet"
+	plotcpu="./apachebench/plotcpu"
+	plotnet="./apachebench/plotnet"
 	$plotcpu $dstatfile
 	$plotnet $dstatfile
 	# plot vm cpu/net usage
-	$plotcpu $vmdstatfile
-	$plotnet $vmdstatfile
+	$plotcpu $vmdstat
+	$plotnet $vmdstat
 }
 
 ################################################################
@@ -309,11 +312,11 @@ function migrate() {
 
 #expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
-expcaps=( default )
+#expcaps=( default )
 #expcaps=( xbzrle )
+expcaps=( auto-converge )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
-#expcaps=( auto-converge )
 
 #vcpus=( 1 2 4 6 8 10 12 )
 #vcpus=( 12 10 8 6 4 2 1 )
@@ -412,3 +415,6 @@ done
 done
 done
 
+git add .
+git commit -a -m exp
+git push
