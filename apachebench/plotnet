@@ -24,9 +24,9 @@ fi
 
 tmp=$(mktemp)
 #echo $tmp
-more +3 $data | sed 's/- /0/g' | sed 's/M/000000/g' | sed 's/k/000/g' | sed 's/0 |/0|/g' > $tmp
+awk -F '|' '{print $4}' $data | more +3 | sed 's/- /0/g' | sed 's/M/000000/g' | sed 's/k/000/g' | sed 's/0 |/0|/g' > $tmp
 #awk -F '|' '{print $4}' $data > $tmp
-#cat $tmp
+cat $tmp
 data=$tmp
 
 ############################ create script #######################
