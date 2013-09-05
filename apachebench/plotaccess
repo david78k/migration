@@ -28,7 +28,7 @@ if [ $# -eq 2 ]; then
 	#terminal="postscript eps enhanced size $figuresize color font $fontsize"
 	terminal="postscript eps enhanced solid color"
 	if [ $2 == "emf" ]; then
-		fontsize=28
+		fontsize=26
 		figure=$prefix.emf
 		terminal="emf enhanced font $fontsize"
 		#terminal="emf enhanced size $figuresize font $fontsize"
@@ -96,8 +96,9 @@ set grid y
 set auto y
 set term $terminal
 set output "$figure"
-set xlabel "Time (min:sec)"
-set ylabel "Requests per second"
+set xlabel "time (min:sec)"
+set ylabel "requests per second"
+set yrange [0:]
 set grid
 set boxwidth 0.95 relative
 set style fill solid 0.5 noborder
