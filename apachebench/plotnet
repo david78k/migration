@@ -20,12 +20,16 @@ if [ $# -eq 2 ]; then
         #terminal="epslatex size 3in, 2in"
 fi
 
+######################## data preprocessing ######################
+
 tmp=$(mktemp)
 #echo $tmp
-awk -F '|' '{print $4}' $data > $tmp
+more +3 $data | sed 's/- /0/g' | sed 's/M/000000/g' | sed 's/k/000/g' | sed 's/0 |/0|/g' > $tmp
+#awk -F '|' '{print $4}' $data > $tmp
 #cat $tmp
 data=$tmp
 
+############################ create script #######################
 cat >$name << GNUPLOT_EOF
 data = "$data"
 figure = "$figure"
@@ -78,15 +82,13 @@ set yr [0:]
 
 # Input file contains tab-separated fields
 #set datafile separator "\t"
-#set datafile separator "|"
 
 #set style line 1 lt 2 lw 3
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default
-#set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
 
 #plot data using (\$2/1000000) title 'eth1' smooth freq with linespoints
 
-plot data every ::3 using (\$2) notitle smooth freq with linespoints
+plot data using (\$2/1000000) notitle smooth freq with linespoints
 
 #plot data every ::3 using (\$14!=0 ? \$14 : \$13) notitle smooth freq with linespoints
 #plot data every ::3 using (\$14!=0 ? \$13 : 1/0) notitle smooth freq with linespoints
@@ -110,6 +112,12 @@ plot data every ::3 using (\$2) notitle smooth freq with linespoints
 
 GNUPLOT_EOF
 
+#################### generate/upload images ######################
 gnuplot $name
+#gnuplot emf $name
 
 rm $tmp
+
+#git add .
+#git commit -a -m $name
+#git push
