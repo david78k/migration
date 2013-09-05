@@ -1,4 +1,4 @@
-data = "/tmp/tmp.ZPPB3bI3Ym"
+data = "/tmp/tmp.y04VNGK2Xp"
 figure = "../log/apachebench/precopy/downtime0.5/ram1024/vcpu1/speed125/default/5.vm.net.png"
 
 set terminal png size 640,355
@@ -48,15 +48,13 @@ set yr [0:]
 
 # Input file contains tab-separated fields
 #set datafile separator "\t"
-#set datafile separator "|"
 
 #set style line 1 lt 2 lw 3
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default
-#set style line 1 linetype 2 linecolor rgb "yellow" linewidth 1.000 pointtype 8 pointsize default
 
 #plot data using ($2/1000000) title 'eth1' smooth freq with linespoints
 
-plot data every ::3 using ($2) notitle smooth freq with linespoints
+plot data using ($2/1000000) notitle smooth freq with linespoints
 
 #plot data every ::3 using ($14!=0 ? $14 : $13) notitle smooth freq with linespoints
 #plot data every ::3 using ($14!=0 ? $13 : 1/0) notitle smooth freq with linespoints
