@@ -1,8 +1,11 @@
-data = "../log/apachebench/precopy/downtime0.5/ram1024/vcpu1/speed125/default/5.dstat"
-figure = "../log/apachebench/precopy/downtime0.5/ram1024/vcpu1/speed125/default/5.cpu.png"
+data = "/tmp/tmp.qZh2AxAB6l"
+figure = "../log/apachebench/precopy/downtime0.5/ram1024/vcpu1/speed125/default/5.net.png"
 
 set terminal png size 640,355
 #set terminal png size 640,355 size 640,355
+#set terminal png
+#set terminal postscript eps enhanced solid color
+#set terminal hp500c 300 tiff
 set output figure
 set   autoscale                        # scale axes automatically
 
@@ -24,8 +27,8 @@ set tmargin 1;
 #set title "bandwidth limit 50 MB/s"
 #set title "PI controller with bandwidth limit change from unlimited to 50 MB/s"
 set xlabel "time (sec)"
-#set ylabel "bandwidth usage (MB/s)"
-set ylabel "cpu usage (%)"
+set ylabel "throughput (MB/s)"
+#set y2label "cpu usage (%)"
 #set y2tic auto
 set ytics nomirror
 #set y2tics
@@ -41,21 +44,27 @@ set key horiz
 #set xr [0.0:0.022]
 set yr [0:]
 #set yr [0:140]
-#set y2r [0:]
-#set y2r [0:100]
 #set format y "%gkm"
 
 # Input file contains tab-separated fields
 #set datafile separator "\t"
-#set datafile separator "|" 
 
 #set style line 1 lt 2 lw 3
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default
-#plot data using ($2/1000000) title 'send' smooth freq with linespoints, \
 
-plot data every ::3 using (100 - $3) notitle smooth freq with linespoints
+#plot data using ($2/1000000) title 'eth1' smooth freq with linespoints
 
-#plot data every ::3 using (100 - $3) title 'cpu usage' with lines lc rgb "black"
+plot data using ($2/1000000) notitle smooth freq with linespoints
+
+#plot data every ::3 using ($14!=0 ? $14 : $13) notitle smooth freq with linespoints
+#plot data every ::3 using ($14!=0 ? $13 : 1/0) notitle smooth freq with linespoints
+
+#plot "<awk -F '|' '{print $4}' data | awk '{print $2}'" every ::3 using 1:2 notitle smooth freq with linespoints
+
+#plot data every ::3 using ($14) notitle smooth freq with linespoints
+
+#plot data every ::3 using ($14) title 'eth1' smooth freq with linespoints
+#data using (100 - $5) axis x1y2 title 'cpu usage' with lines lc rgb "black"
 
 #data using ($5*5.6) axis x1y2 title 'VM window' with linespoints, \
 

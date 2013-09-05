@@ -65,7 +65,7 @@ function gendata() {
 	#plot "$DATAFILE" using 1:3 w boxes lc rgb "green" notitle
 	echo
 
-	cat $DATAFILE
+#	cat $DATAFILE
 }
 
 #set format x "%H:%M"
