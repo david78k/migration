@@ -312,9 +312,9 @@ function migrate() {
 
 #expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
-expcaps=( default )
+#expcaps=( default )
 #expcaps=( xbzrle )
-#expcaps=( auto-converge )
+expcaps=( auto-converge )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 
