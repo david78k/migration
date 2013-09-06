@@ -310,17 +310,17 @@ function migrate() {
 #
 ################################################################
 
-#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( default )
 #expcaps=( xbzrle )
 #expcaps=( auto-converge )
-expcaps=( xbzrle+auto-converge )
+#expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 
 #vcpus=( 1 2 4 6 8 10 12 )
 #vcpus=( 12 10 8 6 4 2 1 )
-vcpus=( 1 )
+vcpus=( 12 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
