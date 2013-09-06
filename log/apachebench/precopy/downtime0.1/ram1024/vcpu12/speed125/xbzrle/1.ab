@@ -3,4 +3,41 @@ Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 10.244.34.229 (be patient)
-Total of 4763 requests completed
+
+
+Server Software:        Apache/2.2.16
+Server Hostname:        10.244.34.229
+Server Port:            80
+
+Document Path:          /image.jpg
+Document Length:        524076 bytes
+
+Concurrency Level:      100
+Time taken for tests:   55.187 seconds
+Complete requests:      9904
+Failed requests:        0
+Write errors:           0
+Total transferred:      5212601648 bytes
+HTML transferred:       5209756208 bytes
+Requests per second:    179.46 [#/sec] (mean)
+Time per request:       557.215 [ms] (mean)
+Time per request:       5.572 [ms] (mean, across all concurrent requests)
+Transfer rate:          92240.34 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1   30  97.2     22    3023
+Processing:   103  524 829.4    427    8796
+Waiting:        1   24  19.7     23    1054
+Total:        115  555 834.2    450    8820
+
+Percentage of the requests served within a certain time (ms)
+  50%    450
+  66%    454
+  75%    470
+  80%    472
+  90%    480
+  95%    729
+  98%   1404
+  99%   8376
+ 100%   8820 (longest request)
