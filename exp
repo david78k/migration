@@ -310,17 +310,17 @@ function migrate() {
 #
 ################################################################
 
-expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
-#expcaps=( default )
+expcaps=( default )
 #expcaps=( xbzrle )
 #expcaps=( auto-converge )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 
-vcpus=( 1 2 4 6 8 10 12 )
+#vcpus=( 1 2 4 6 8 10 12 )
 #vcpus=( 10 8 6 4 2 )
-#vcpus=( 12 )
+vcpus=( 1 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
@@ -338,8 +338,8 @@ rams=( 1024 )
 #speeds=( 32 )
 #speeds=( 50 )
 #speeds=( 75 )
-#speeds=( 100 )
-speeds=( 125 )
+speeds=( 100 )
+#speeds=( 125 )
 
 # max downtime in seconds: default 0.03 (30ms)
 #downtimes=( 0.1 0.5 1 5 10 30 60 120 )
@@ -356,9 +356,9 @@ caches=( 64 )
 #caches=( 16384 )
 
 #runs=( 1 2 3 4 5 6 7 8 9 10 )
-runs=( 2 3 4 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
-#runs=( 6 7 8 9 10 )
+#runs=( 2 3 4 5 6 7 8 9 10 )
+runs=( 1 )
 
 ################# benchmark specific params ###################
 
