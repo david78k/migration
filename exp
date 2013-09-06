@@ -310,9 +310,9 @@ function migrate() {
 #
 ################################################################
 
-expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
-#expcaps=( default )
+expcaps=( default )
 #expcaps=( xbzrle )
 #expcaps=( auto-converge )
 #expcaps=( xbzrle+auto-converge )
@@ -320,7 +320,7 @@ expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 
 #vcpus=( 1 2 4 6 8 10 12 )
 #vcpus=( 12 10 8 6 4 2 1 )
-vcpus=( 8 )
+vcpus=( 1 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
@@ -346,7 +346,7 @@ speeds=( 125 )
 #downtimes=( 0.1 0.5 1 5 10 )
 #downtimes=( 0.03 )
 #downtimes=( 5 2 1 0.5 )
-downtimes=( 0.1 )
+downtimes=( 0.3 )
 #downtimes=( 0.5 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
