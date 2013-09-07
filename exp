@@ -310,9 +310,9 @@ function migrate() {
 #
 ################################################################
 
-expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
+#expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
-#expcaps=( default )
+expcaps=( default )
 #expcaps=( xbzrle )
 #expcaps=( auto-converge )
 #expcaps=( xbzrle+auto-converge )
@@ -323,23 +323,23 @@ expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 vcpus=( 1 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
-rams=( 2048 4096 8192 12288 16384 20480 )
+#rams=( 2048 4096 8192 12288 16384 20480 )
 #rams=( 2048 )
 #rams=( 4096 )
 #rams=( 8192 )
 #rams=( 16384 )
 #rams=( 12288 )
 #rams=( 20480 )
-#rams=( 1024 )
+rams=( 1024 )
 
 # 256 400 600 800 1000 mbps
-#speeds=( 100 75 50 32 )
+speeds=( 100 75 50 32 )
 #speeds=( 75 50 32 )
 #speeds=( 32 )
 #speeds=( 50 )
 #speeds=( 75 )
 #speeds=( 100 )
-speeds=( 125 )
+#speeds=( 125 )
 
 # max downtime in seconds: default 0.03 (30ms)
 #downtimes=( 0.1 0.5 1 5 10 30 60 120 )
