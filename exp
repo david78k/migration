@@ -333,9 +333,9 @@ vcpus=( 1 )
 rams=( 1024 )
 
 # 256 400 600 800 1000 mbps
-speeds=( 100 75 50 32 )
+#speeds=( 100 75 50 32 )
 #speeds=( 75 50 32 )
-#speeds=( 32 )
+speeds=( 32 )
 #speeds=( 50 )
 #speeds=( 75 )
 #speeds=( 100 )
@@ -358,7 +358,7 @@ caches=( 64 )
 #runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
 #runs=( 2 3 4 5 6 7 8 9 10 )
-runs=( 1 )
+runs=( 2 )
 
 ################# benchmark specific params ###################
 
