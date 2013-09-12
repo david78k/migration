@@ -21,7 +21,7 @@ Type 'q()' to quit R.
 
 > library(ggplot2)
 > 
-> png("plot.png")
+> #png("plot.png")
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 > benchmark <- read.table("data.dat", header = TRUE, row.names = "Title", check.names = FALSE)
@@ -34,6 +34,9 @@ Type 'q()' to quit R.
 > 
 > #ggsave("plot.png",width=4,height=4,dpi=100)
 > 
-> eps("plot.eps")
-Error: could not find function "eps"
-Execution halted
+> png("plot.png")
+> #eps("plot.eps")
+> 
+> proc.time()
+   user  system elapsed 
+  0.663   0.037   0.689 
