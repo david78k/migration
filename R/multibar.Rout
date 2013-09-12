@@ -34,9 +34,9 @@ Type 'q()' to quit R.
 > 
 > #ggsave("plot.png",width=4,height=4,dpi=100)
 > 
-> png("plot.png")
+> png("plot2.png")
 > #eps("plot.eps")
 > 
 > proc.time()
    user  system elapsed 
-  0.663   0.037   0.689 
+  0.666   0.035   0.690 

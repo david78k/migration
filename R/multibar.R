@@ -13,5 +13,5 @@ legend("topleft", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(4))
 
 #ggsave("plot.png",width=4,height=4,dpi=100)
 
-png("plot.png")
+png("plot2.png")
 #eps("plot.eps")
