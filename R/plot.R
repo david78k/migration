@@ -3,7 +3,7 @@ library(ggplot2)
 #emf(20tmt.emf)
 png("plot.png")
 #postscript("plot.eps")
-require(devEMF)
+#require(devEMF)
 #emf("plot.emf")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'

@@ -24,8 +24,7 @@ Type 'q()' to quit R.
 > #emf(20tmt.emf)
 > png("plot.png")
 > #postscript("plot.eps")
-> require(devEMF)
-Loading required package: devEMF
+> #require(devEMF)
 > #emf("plot.emf")
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
