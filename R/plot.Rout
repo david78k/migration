@@ -29,6 +29,14 @@ Type 'q()' to quit R.
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 > benchmark <- read.table("20tmt.dat", header = TRUE, row.names = "Title", check.names = FALSE)
-Error in read.table("20tmt.dat", header = TRUE, row.names = "Title", check.names = FALSE) : 
-  duplicate 'row.names' are not allowed
-Execution halted
+> 
+> # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
+> barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(4))
+> 
+> # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
+> legend("topleft", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(4))
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  0.610   0.039   0.641 
