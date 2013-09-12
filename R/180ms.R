@@ -7,7 +7,7 @@ png("180ms.png")
 #emf("plot.emf")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-benchmark <- read.table("180ms.dat", header = TRUE, row.names = "Title", check.names = FALSE)
+benchmark <- read.table("180ms.dat", header = TRUE, row.names = "vwnd", check.names = FALSE)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(4))
