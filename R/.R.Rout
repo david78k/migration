@@ -1,0 +1,38 @@
+
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(ggplot2)
+> 
+> require(devEMF)
+Loading required package: devEMF
+> emf('.emf')
+> 
+> #png(".emf")
+> #postscript("plot.eps")
+> #emf("plot.emf")
+> 
+> # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
+> benchmark <- read.table(".dat", header = TRUE, row.names = "vwnd", check.names = FALSE)
+Error in file(file, "rt") : cannot open the connection
+Calls: read.table -> file
+In addition: Warning message:
+In file(file, "rt") : cannot open file '.dat': No such file or directory
+Execution halted
