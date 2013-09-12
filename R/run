@@ -14,15 +14,14 @@ colors=6
 function genscript() {
 	cmd="emf($emf)"
 
-	figure=$png
-
 cat >$script << EOF
 library(ggplot2)
 
 #$cmd
+
+require(devEMF)
 png("$figure")
 #postscript("plot.eps")
-#require(devEMF)
 #emf("plot.emf")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
@@ -39,6 +38,13 @@ EOF
 	R CMD BATCH $script
 }
 
+figure=$png
+genscript
+
+figure=$eps
+genscript
+
+figure=$emf
 genscript
 
 git add .

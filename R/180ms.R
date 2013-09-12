@@ -1,9 +1,10 @@
 library(ggplot2)
 
 #emf(180ms.emf)
-png("180ms.png")
+
+require(devEMF)
+png("180ms.emf")
 #postscript("plot.eps")
-#require(devEMF)
 #emf("plot.emf")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
