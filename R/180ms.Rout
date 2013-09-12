@@ -21,11 +21,11 @@ Type 'q()' to quit R.
 
 > library(ggplot2)
 > 
-> #emf(180ms.emf)
-> 
 > require(devEMF)
 Loading required package: devEMF
-> png("180ms.emf")
+> emf('180ms.emf')
+> 
+> #png("180ms.emf")
 > #postscript("plot.eps")
 > #emf("plot.emf")
 > 
@@ -41,4 +41,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.646   0.035   0.673 
+  0.686   0.031   0.709 

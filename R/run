@@ -11,16 +11,27 @@ eps=${name}.eps
 
 colors=6
 
-function genscript() {
+function genplot() {
 	cmd="emf($emf)"
+
+	if [ $1 == "png" ]; then
+		figure=$png
+		cmd="png('$figure')"
+	elif [ $1 == "eps" ]; then
+		figure=$eps
+		cmd="postscript('$figure')"
+	elif [ $1 == "emf" ]; then
+		figure=$emf
+		cmd="emf('$figure')"
+	fi
 
 cat >$script << EOF
 library(ggplot2)
 
-#$cmd
-
 require(devEMF)
-png("$figure")
+$cmd
+
+#png("$figure")
 #postscript("plot.eps")
 #emf("plot.emf")
 
@@ -38,14 +49,11 @@ EOF
 	R CMD BATCH $script
 }
 
-figure=$png
-genscript
+genplot png
 
-figure=$eps
-genscript
+genplot eps
 
-figure=$emf
-genscript
+genplot emf
 
 git add .
 git commit -a -m $script

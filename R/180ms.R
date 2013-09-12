@@ -1,9 +1,9 @@
 library(ggplot2)
 
-#emf(180ms.emf)
-
 require(devEMF)
-png("180ms.emf")
+emf('180ms.emf')
+
+#png("180ms.emf")
 #postscript("plot.eps")
 #emf("plot.emf")
 
