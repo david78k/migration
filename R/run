@@ -40,7 +40,8 @@ $cmd
 benchmark <- read.table("$data", header = TRUE, row.names = "vwnd", check.names = FALSE)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
-barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors))
+#barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors))
+barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors), xlab = "VM WINDOW", ylab = "MIGRATION TIME (sec)")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors($colors))
