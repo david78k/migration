@@ -34,7 +34,6 @@ Type 'q()' to quit R.
 > 
 > #ggsave("plot.png",width=4,height=4,dpi=100)
 > 
-> 
-> proc.time()
-   user  system elapsed 
-  0.615   0.048   0.808 
+> eps("plot.eps")
+Error: could not find function "eps"
+Execution halted
