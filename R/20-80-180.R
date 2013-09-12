@@ -11,7 +11,8 @@ emf('20-80-180.emf')
 benchmark <- read.table("20-80-180.dat", header = TRUE, row.names = "vwnd", check.names = FALSE)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
-barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
+#barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
+barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "VM WINDOW", ylab = "MIGARTION TIME (SEC)")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
