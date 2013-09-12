@@ -11,11 +11,13 @@ eps=${name}.eps
 function genscript() {
 	cmd="emf($emf)"
 
+	figure=$png
+
 cat >$script << EOF
 library(ggplot2)
 
 #$cmd
-png("plot.png")
+png("$figure")
 #postscript("plot.eps")
 #require(devEMF)
 #emf("plot.emf")

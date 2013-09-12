@@ -1,7 +1,7 @@
 library(ggplot2)
 
 #emf(demo.emf)
-png("plot.png")
+png("demo.png")
 #postscript("plot.eps")
 #require(devEMF)
 #emf("plot.emf")

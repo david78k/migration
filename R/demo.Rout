@@ -22,7 +22,7 @@ Type 'q()' to quit R.
 > library(ggplot2)
 > 
 > #emf(demo.emf)
-> png("plot.png")
+> png("demo.png")
 > #postscript("plot.eps")
 > #require(devEMF)
 > #emf("plot.emf")
@@ -39,4 +39,4 @@ Type 'q()' to quit R.
 > 
 > proc.time()
    user  system elapsed 
-  0.612   0.039   0.643 
+  0.619   0.034   0.644 
