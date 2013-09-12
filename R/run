@@ -1,0 +1,2 @@
+script=multibar.R
+R CMD BATCH $script

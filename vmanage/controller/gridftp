@@ -58,6 +58,6 @@ def gridftp(vminfo):
         restore_time = end - begin
 
 	total_time = saving_time + transfer_time + restore_time
-	print total_time,saving_time,transfer_time,restore_time
+	print "gridftp",total_time,saving_time,transfer_time,restore_time
 
 gridftp(0)

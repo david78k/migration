@@ -33,6 +33,7 @@ cvms = 0
 origin = time.time()
 
 cond = threading.Condition()
+printLock = threading.Lock()
 done = False
 
 mq = deque() # migration queue
@@ -45,18 +46,18 @@ parnum = 1
 
 """VM information class"""
 class VMInfo:
-	def __init__(self, id, pmid, pm, vm, memory):
-		self.id = str(id)
-		self.pmid = pmid
-		self.pm = pm
-		self.vm = vm
-		self.memory = int(memory)
+        def __init__(self, id, pmid, pm, vm, memory):
+                self.id = str(id)
+                self.pmid = pmid
+                self.pm = pm
+                self.vm = vm
+                self.memory = int(memory)
 
-	def __repr__(self):
-		return repr((self.id, self.pmid, self.pm, self.vm, self.memory))
+        def __repr__(self):
+                return repr((self.id, self.pmid, self.pm, self.vm, self.memory))
 
-	#def f(self):
-	#	return 'hello world'
+        #def f(self):
+        #       return 'hello world'
 
 def gethostname():
         hostname = socket.gethostname()
@@ -66,42 +67,42 @@ def gethostname():
 
 # get VMs to migrate
 def getVMs():
-	vms = []
-	k = 0
-	for i in xrange(1, npms + 1):
-		pmname = src_prefix + str(i)
-		#pmname = "gra" + str(i)
-		j = 1
-		cmd = "ssh " + pmname + " \"virsh list | grep running\" | awk '{print $2}'"
-		pvms = os.popen(cmd).read().strip()
-		vmlist = pvms.split("\n")
-		for vmname in vmlist:
-			vmname = vmname.strip()
-		
-			cmd = "ssh " + pmname + " \"virsh dommemstat " + vmname + " | grep actual\" | awk '{print $2}'"
-			if vmname:
-				mem = os.popen(cmd).read().strip()
-				k += 1
-				vminfo = VMInfo(k, i, pmname, vmname, int(mem))
-				#vminfo = (k, i, pmname, vmname, int(mem))
-				vms.append(vminfo)
-	return vms
+        vms = []
+        k = 0
+        for i in xrange(1, npms + 1):
+                pmname = src_prefix + str(i)
+                #pmname = "gra" + str(i)
+                j = 1
+                cmd = "ssh " + pmname + " \"virsh list | grep running\" | awk '{print $2}'"
+                pvms = os.popen(cmd).read().strip()
+                vmlist = pvms.split("\n")
+                for vmname in vmlist:
+                        vmname = vmname.strip()
+
+                        cmd = "ssh " + pmname + " \"virsh dommemstat " + vmname + " | grep actual\" | awk '{print $2}'"
+                        if vmname:
+                                mem = os.popen(cmd).read().strip()
+                                k += 1
+                                vminfo = VMInfo(k, i, pmname, vmname, int(mem))
+                                #vminfo = (k, i, pmname, vmname, int(mem))
+                                vms.append(vminfo)
+        return vms
 
 # get the number of concurrent VMs in transit
 def getCVMs():
-	cvms = 0
-	cmd = "ps -ef | grep migrate | grep live | wc -l"
-	cvms = os.popen(cmd).read()
-	cvms = int(cvms) - 1
-	#print "cvms =", cvms
-	return cvms		
+        cvms = 0
+        cmd = "ps -ef | grep migrate | grep live | wc -l"
+        cvms = os.popen(cmd).read()
+        cvms = int(cvms) - 1
+        #print "cvms =", cvms
+        return cvms
 
 # migrate using gridftp
 # save vm on local disk and restore from remote
 #def gridftp(vminfo):
 def gridftp(src, dest, vm):
-	global parnum
-	#src = "grb1"
+        global parnum
+        #src = "grb1"
         #dest = "gra1"
         #vm = "gra1-1"
         dir = "/root/vmstate"
@@ -110,131 +111,134 @@ def gridftp(src, dest, vm):
         #parnum=1
 
         cmd = "ssh " + src + " \"mkdir -p " + dir + "; ssh " + dest + " mkdir -p " + dir + "\""
-	print cmd
-	os.popen(cmd)
+        print cmd
+        os.popen(cmd)
 
         cmd = "ssh " + src + " \"rm -rf " + vstat + "; ssh " + dest + " rm -rf " + vstat + "\""
-	print cmd
-	os.popen(cmd)
+        print cmd
+        os.popen(cmd)
 
         print "saving " + vm + " to " + vstat + " ... "
         begin = time.time()
         cmd = "ssh " + src + " virsh save " + vm + " " + vstat
-	print cmd
-	os.popen(cmd)
+        print cmd
+        os.popen(cmd)
         end = time.time()
         saving_time = end - begin
 
         print "transferring " + vstat + " to " + dest + " ... "
         begin = time.time()
         cmd = "ssh " + src + " globus-url-copy -p " + str(parnum) + " " + vstat + " sshftp://" + dest +"/" + vstat
-	print cmd
-	os.popen(cmd)
+        print cmd
+        os.popen(cmd)
         end = time.time()
         transfer_time = end - begin
 
         print "restoring " + vstat + " from " + dest + "... "
         begin = time.time()
         cmd = "ssh " + src + " ssh " + dest + " virsh restore " + vstat
-	print cmd
-	os.popen(cmd)
+        print cmd
+        os.popen(cmd)
         end = time.time()
         restore_time = end - begin
 
-	total_time = saving_time + transfer_time + restore_time
-	print "gridftp",total_time,saving_time,transfer_time,restore_time
+        total_time = saving_time + transfer_time + restore_time
+
+        printLock.acquire()
+        print "gridftp",total_time,saving_time,transfer_time,restore_time
+        printLock.release()
 
 # migrate a vm with a vminfo
 def migrate(vminfo):
-	global cvms, cond, mq
+        global cvms, cond, mq
 
-	pmid = vminfo.pmid
-	vm = vminfo.vm
+        pmid = vminfo.pmid
+        vm = vminfo.vm
 
-	src = src_prefix + str(pmid)
-	dest = dest_prefix + str(pmid)
+        src = src_prefix + str(pmid)
+        dest = dest_prefix + str(pmid)
 
         cmd = "ssh " + src + " \"virsh migrate --live " + str(vm) + " qemu+ssh://" + dest + "/system\""
         print cmd
 
-	start = time.time()
-	if is_gridftp:
-		gridftp(src, dest, vm)
-	else:
-		os.popen(cmd)
+        start = time.time()
+        if is_gridftp:
+                gridftp(src, dest, vm)
+        else:
+                os.popen(cmd)
 
-	#time.sleep(5)
-	end = time.time()
-	elapsed = end - start
-	total_elapsed = end - origin
+        #time.sleep(5)
+        end = time.time()
+        elapsed = end - start
+        total_elapsed = end - origin
 
-	cond.acquire()
-	#print 'cvms',cvms
-	cvms = cvms - 1
-	#printVMInfoIDs(mq)
-	#print mq, vminfo
+        cond.acquire()
+        #print 'cvms',cvms
+        cvms = cvms - 1
+        #printVMInfoIDs(mq)
+        #print mq, vminfo
 
-	try:
-		mq.remove(vminfo)
-	except ValueError:
-		print "Could not remove vminfo from mq."
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-	print "finish", elapsed, total_elapsed
+        try:
+                mq.remove(vminfo)
+        except ValueError:
+                print "Could not remove vminfo from mq."
+        except:
+                print "Unexpected error:", sys.exc_info()[0]
+        print "finish", elapsed, total_elapsed
 
-	cond.notify()
-	cond.release()
+        cond.notify()
+        cond.release()
 
 # migrate multiple vms
 def migrate_multiple(list):
-	global cvms, vwnd, cond, done, mq, susq, vminfolist
+        global cvms, vwnd, cond, done, mq, susq, vminfolist
 
-	vminfolist = list
-	i = 0
-	#for vminfo in list:
-	while list or susq:
-		i += 1
-		#print vminfo
+        vminfolist = list
+        i = 0
+        #for vminfo in list:
+        while list or susq:
+                i += 1
+                #print vminfo
 
-		# check if suspended queue is empty
-		if susq:
-			vminfo = susq.pop()
-			resume (vminfo)
-			mq.append(vminfo)
-		elif list:
-			vminfo = list.pop(0)
-		        t = Thread(target=migrate, args=(vminfo,))
-		        t.start()
-			print vminfo.id + " has started."
-			mq.append(vminfo)
-		else:
-			continue
-		#print mq
-		printQueues()
-		#printVMInfoIDs(mq)
+                # check if suspended queue is empty
+                if susq:
+                        vminfo = susq.pop()
+                        resume (vminfo)
+                        mq.append(vminfo)
+                elif list:
+                        vminfo = list.pop(0)
+                        t = Thread(target=migrate, args=(vminfo,))
+                        t.start()
+                        print vminfo.id + " has started."
+                        mq.append(vminfo)
+                else:
+                        continue
+                #print mq
+                printQueues()
+                #printVMInfoIDs(mq)
 
-		cvms = cvms + 1
-		time.sleep(sleep_interval)
-		cond.acquire()
-		while True:
-			rvwnd = round(vwnd)
-			if (cvms < rvwnd):
-				break
-			elif (cvms > rvwnd ):
-				rest = int(cvms) - int(rvwnd)
-				print "cvms=" + str(cvms) + " rvwnd=" + str(rvwnd) + " rest=" + str(rest) + " len(mq)=" + str(len(mq))
-				rest = min(rest, len(mq))
-				for j in range(int(rest)):
-					vminfo = mq.popleft()
-					suspend(vminfo)
-					cvms = cvms - 1
-	#				susq.append(vminfo)	
-			print "waiting ..."
-			cond.wait()
-		cond.release()
-		print "released."
-	done = True
-	print "migrator done."
+                cvms = cvms + 1
+                time.sleep(sleep_interval)
+                cond.acquire()
+                while True:
+                        rvwnd = round(vwnd)
+                        if (cvms < rvwnd):
+                                break
+                        elif (cvms > rvwnd ):
+                                rest = int(cvms) - int(rvwnd)
+                                print "cvms=" + str(cvms) + " rvwnd=" + str(rvwnd) + " rest=" + str(rest) + " len(mq)=" + str(len(mq))
+                                rest = min(rest, len(mq))
+                                for j in range(int(rest)):
+                                        vminfo = mq.popleft()
+                                        suspend(vminfo)
+                                        cvms = cvms - 1
+        #                               susq.append(vminfo)
+                        print "waiting ..."
+                        cond.wait()
+                cond.release()
+                print "released."
+        done = True
+        print "migrator done."
 
 def getBandwidth():
         total = 0
@@ -250,88 +254,90 @@ def getBandwidth():
 
 # suspend specific vm on pm with vminfo
 def suspend(vminfo):
-	pm = vminfo.pm
-	vm = vminfo.vm
-	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " 0"	
-	#mq.remove(vminfo)
-	susq.append(vminfo)		
-	print vminfo.id + " has been suspended."
-	printQueues()
+        pm = vminfo.pm
+        vm = vminfo.vm
+        cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " 0"
+        #mq.remove(vminfo)
+        susq.append(vminfo)
+        print vminfo.id + " has been suspended."
+        printQueues()
 
 def resume(vminfo):
-	pm = vminfo.pm
-	vm = vminfo.vm
-	maxbandwidth = 120 # MB
-	cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " " + str(maxbandwidth)
-	#susq.remove(vminfo)
-	#mq.append(vminfo)
-	print vminfo.id + " has been resumed."
+        pm = vminfo.pm
+        vm = vminfo.vm
+        maxbandwidth = 120 # MB
+        cmd = "ssh " + pm + " virsh migrate-setspeed " + vm + " " + str(maxbandwidth)
+        #susq.remove(vminfo)
+        #mq.append(vminfo)
+        print vminfo.id + " has been resumed."
 
 def control():
-	global vwnd, threshold, done
-	vwnd = 1
-	# total bandwidth of the previous iteration
-	totalprev = 0
-	# average bandwidth of the previous iteration
-	avgprev = 0
-	congested = False
-	phase = "ss" # slow start 
+        global vwnd, threshold, done
+        vwnd = 1
+        # total bandwidth of the previous iteration
+        totalprev = 0
+        # average bandwidth of the previous iteration
+        avgprev = 0
+        congested = False
+        phase = "ss" # slow start
 
-	print "phase vwnd total avg totalvms threshold"
-	while not done:
-	        total = getBandwidth()
-		#totalvms = getCVMs()
-		totalvms = vwnd
-       	 	avg = total / totalvms
+        print "phase vwnd total avg totalvms threshold"
+        while not done:
+                total = getBandwidth()
+                #totalvms = getCVMs()
+                totalvms = vwnd
+                avg = total / totalvms
 
-	        print "controller", phase, vwnd, total, avg, totalvms, threshold
+                print "controller", phase, vwnd, total, avg, totalvms, threshold
 
-		cond.acquire()
-		if (phase == "ss"):
-			# if congestion occurs
-			if ( avg < avgprev):
-				vwnd = vwnd * alpha
-				threshold = vwnd
-				phase = "ca"	
-			else:
-				if ( vwnd >= threshold):
-					phase = "ca"
-					
-					vwnd += 1
-				else:
-                			vwnd *= 2
-       		else:
-                	if ( avg < avgprev ):
-				vwnd = vwnd * alpha
-				threshold = vwnd
-				#suspend(vm)
-                	else:
-                        	vwnd += 1
+                cond.acquire()
+                if (phase == "ss"):
+                        # if congestion occurs
+                        #if ( avg < avgprev):
+                        if ( total < totalprev ):
+                                vwnd = vwnd * alpha
+                                threshold = vwnd
+                                phase = "ca"
+                        else:
+                                if ( vwnd >= threshold):
+                                        phase = "ca"
 
-        	if ( vwnd < 1 ):
-                	vwnd = 1
-		#vwnd = int(vwnd)
+                                        vwnd += 1
+                                else:
+                                        vwnd *= 2
+                else:
+                        #if ( avg < avgprev ):
+                        if ( total < totalprev ):
+                                vwnd = vwnd * alpha
+                                threshold = vwnd
+                                #suspend(vm)
+                        else:
+                                vwnd += 1
 
-		cond.notify()
-		cond.release()
+                if ( vwnd < 1 ):
+                        vwnd = 1
+                #vwnd = int(vwnd)
 
-        	totalprev = total
-        	avgprev = avg
+                cond.notify()
+                cond.release()
+
+                totalprev = total
+                avgprev = avg
 
 #golden section search
 def G(N):
-	global vwnd
+        global vwnd
         #time.sleep(1)
-	cond.acquire()
-	vwnd = N
-	cond.notify()
-	cond.release()
+        cond.acquire()
+        vwnd = N
+        cond.notify()
+        cond.release()
 
-	bw = getBandwidth()
+        bw = getBandwidth()
         return bw
         #return bw/N
         #return -2*((N - 6)**2) + 72
-	
+
 def search_bracket():
         #global alpha
         iter = 1
@@ -357,22 +363,22 @@ def search_bracket():
         return (N_2, N_1, N, G_N_1)
 
 def golden_section_control():
-	bracket = search_bracket()
-	print bracket
-	#print "vwnd total avg"
+        bracket = search_bracket()
+        print bracket
+        #print "vwnd total avg"
         #print "iter, N, G_N, G_N_1, G_N_2, (G_N >= G_N_1)"
-	golden_section_search(bracket)
+        golden_section_search(bracket)
 
 def golden_section_search((l, m, r, G_m)):
-	global done, golden_ratio
+        global done, golden_ratio
 
-	if not done:
-	#while not done:
+        if not done:
+        #while not done:
                 N = m + (r - m)*golden_ratio
                 if (r - m) < (m - l):
                         N = l + (m - l)*golden_ratio
                 N = round(N)
-		
+
                 G_N = G(N)
                 #G_m = G(m)
                 print N, G_N, G_N/N, G_m
@@ -388,108 +394,108 @@ def golden_section_search((l, m, r, G_m)):
                                 golden_section_search((N, m, r, G_m))
 
 def printList(list):
-	for item in list:
-		print item
+        for item in list:
+                print item
 
 def printQueues():
-	global mq, susq, vminfolist
+        global mq, susq, vminfolist
 
-	print "list=[",
-	for item in vminfolist:
-		print item.id,
-	print "]",
+        print "list=[",
+        for item in vminfolist:
+                print item.id,
+        print "]",
 
-	print "mq=[",
-	for item in mq:
-		print item.id,
-	print "]", 
+        print "mq=[",
+        for item in mq:
+                print item.id,
+        print "]",
 
-	print "susq=[",
-	for item in susq:
-		print item.id,
-	print "]"
+        print "susq=[",
+        for item in susq:
+                print item.id,
+        print "]"
 
 
 def printVMInfoIDs(list):
-	print "[",
-	for item in list:
-		print item.id,
-	print "]"
+        print "[",
+        for item in list:
+                print item.id,
+        print "]"
 
 
 def main(argv):
-	sched = "lf"
+        sched = "lf"
 
-	global vwnd, parnum, is_gridftp
+        global vwnd, parnum, is_gridftp
 
-	inputfile = ''
-	outputfile = ''
+        inputfile = ''
+        outputfile = ''
 
-	filename = os.path.basename(__file__)
-	usage = filename + ' -s <schedule> -v <vm window> -g <number of gridftp parallel connections>' 
+        filename = os.path.basename(__file__)
+        usage = filename + ' -s <schedule> -v <vm window> -g <number of gridftp parallel connections>'
 
-	try:
-		opts, args = getopt.getopt(argv,"hs:v:d:g:",["sched=","vwnd=","delay=","gridftp="])
-	except getopt.GetoptError:
-		print usage
-		sys.exit(2)
-	for opt, arg in opts:
-		if opt == '-h':
-			print usage
-			sys.exit()
-		elif opt in ("-s", "--sched"):
-			sched = arg
-		elif opt in ("-v", "--vwnd"):
-			vwnd = int(arg)
-		elif opt in ("-g", "--gridftp"):
-			parnum = int(arg)
-			is_gridftp = True
-		elif opt in ("-d", "--delay"):
-			delay = arg
-	print 'scheduling is', sched
-	print 'vm window is', vwnd
+        try:
+                opts, args = getopt.getopt(argv,"hs:v:d:g:",["sched=","vwnd=","delay=","gridftp="])
+        except getopt.GetoptError:
+                print usage
+                sys.exit(2)
+        for opt, arg in opts:
+                if opt == '-h':
+                        print usage
+                        sys.exit()
+                elif opt in ("-s", "--sched"):
+                        sched = arg
+                elif opt in ("-v", "--vwnd"):
+                        vwnd = int(arg)
+                elif opt in ("-g", "--gridftp"):
+                        parnum = int(arg)
+                        is_gridftp = True
+                elif opt in ("-d", "--delay"):
+                        delay = arg
+        print 'scheduling is', sched
+        print 'vm window is', vwnd
 
-	hostname = gethostname()
+        hostname = gethostname()
 
-	if (hostname == "gr121"):
-		global src_prefix, dest_prefix
-		tmp = src_prefix
-		src_prefix = dest_prefix
-		dest_prefix = tmp
+        if (hostname == "gr121"):
+                global src_prefix, dest_prefix
+                tmp = src_prefix
+                src_prefix = dest_prefix
+                dest_prefix = tmp
 
-	origin = time.time()
+        origin = time.time()
 
-	# migrate heterogeneous VMs
-	vms = getVMs()
-	list =[]
+        # migrate heterogeneous VMs
+        vms = getVMs()
+        list =[]
 
-	if (sched == "sf"):
-		list = sorted(vms, key=lambda vminfo: vminfo.memory)   # sort by memory size
-	elif (sched == "lf"):
-		list = sorted(vms, key=lambda vminfo: vminfo.memory, reverse=True)   # sort by memory size
-	elif (sched == "rand"):
-		list = sorted(vms)
-		random.shuffle(list)
-	else: 
-		list = vms
-	
-	i = 0
-	for item in list:
-		i += 1
-		item.id = str(i)
+        if (sched == "sf"):
+                list = sorted(vms, key=lambda vminfo: vminfo.memory)   # sort by memory size
+        elif (sched == "lf"):
+                list = sorted(vms, key=lambda vminfo: vminfo.memory, reverse=True)   # sort by memory size
+        elif (sched == "rand"):
+                list = sorted(vms)
+                random.shuffle(list)
+        else:
+                list = vms
 
-	printList(list)
+        i = 0
+        for item in list:
+                i += 1
+                item.id = str(i)
 
-	#mt = Thread(target=migrate_multiple, args=(list))
-	#mt.start()
+        printList(list)
+
+        #mt = Thread(target=migrate_multiple, args=(list))
+        #mt.start()
 # migrate VMs with the controller for homogeneous memeory size
-	if (vwnd == 0):
-		ct = Thread(target=control, args=())
-		#ct = Thread(target=golden_section_control, args=())
-		ct.start()
-	#	control()
+        if (vwnd == 0):
+                ct = Thread(target=control, args=())
+                #ct = Thread(target=golden_section_control, args=())
+                ct.start()
+        #       control()
 
-	migrate_multiple(list)
+        migrate_multiple(list)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
