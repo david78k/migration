@@ -1,11 +1,20 @@
 #!/bin/bash
 
-name=$1
+if [ $# -lt 1 ]; then
+	echo "usage: $0 data"	
+	exit
+fi
+
+#name=$1
 #name=180ms
 #name=20-80-180
 #name=20tmt
 #name=demo
-data=${name}.dat
+
+#data=${name}.dat
+data=$1
+prefix=${data%\.*}
+name=$prefix
 script=${name}.R
 png=${name}.png
 emf=${name}.emf
