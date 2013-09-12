@@ -47,7 +47,7 @@ benchmark <- read.table("$data", header = TRUE, row.names = "vwnd", check.names 
 barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors), xlab = "$xlabel", ylab = "$ylabel")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-legend("topright", capitalize(names(benchmark)), cex = 0.9, bty = "n", fill = heat.colors($colors))
+legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors($colors))
 
 EOF
 

@@ -37,7 +37,9 @@ Loading required package: devEMF
 > barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "VM WINDOW", ylab = "MIGARTION TIME (SEC)")
 > 
 > # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-> legend("topright", capitalize(names(benchmark)), cex = 0.9, bty = "n", fill = heat.colors(6))
-Error in legend("topright", capitalize(names(benchmark)), cex = 0.9, bty = "n",  : 
-  could not find function "capitalize"
-Execution halted
+> legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  0.684   0.033   0.710 
