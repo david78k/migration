@@ -1,6 +1,7 @@
 library(ggplot2)
 
 #png("plot.png")
+postscript("plot.eps")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 benchmark <- read.table("data.dat", header = TRUE, row.names = "Title", check.names = FALSE)
@@ -13,5 +14,4 @@ legend("topleft", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(4))
 
 #ggsave("plot.png",width=4,height=4,dpi=100)
 
-png("plot2.png")
-#eps("plot.eps")
+#png("plot2.png")
