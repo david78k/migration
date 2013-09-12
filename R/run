@@ -1,2 +1,6 @@
 script=multibar.R
 R CMD BATCH $script
+
+git add .
+git commit -a -m $script
+git push
