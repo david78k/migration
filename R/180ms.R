@@ -13,5 +13,5 @@ benchmark <- read.table("180ms.dat", header = TRUE, row.names = "vwnd", check.na
 barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(4))
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-legend("topleft", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(4))
+legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(4))
 

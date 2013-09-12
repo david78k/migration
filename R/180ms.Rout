@@ -34,9 +34,9 @@ Type 'q()' to quit R.
 > barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(4))
 > 
 > # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-> legend("topleft", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(4))
+> legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(4))
 > 
 > 
 > proc.time()
    user  system elapsed 
-  0.619   0.033   0.644 
+  0.616   0.039   0.646 
