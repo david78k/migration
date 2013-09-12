@@ -1,7 +1,8 @@
 #!/bin/bash
 
+name=$1
 #name=180ms
-name=20-80-180
+#name=20-80-180
 #name=20tmt
 #name=demo
 data=${name}.dat
