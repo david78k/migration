@@ -1,26 +1,13 @@
-#!/bin/bash
-
-name=20tmt
-data=${name}.dat
-script=plot.R
-png=${name}.png
-emf=${name}.emf
-eps=${name}.eps
-
-function genscript() {
-	cmd="emf($emf)"
-
-cat >$script << EOF
 library(ggplot2)
 
-#$cmd
+#emf(20tmt.emf)
 png("plot.png")
 #postscript("plot.eps")
 require(devEMF)
 #emf("plot.emf")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-benchmark <- read.table("$data", header = TRUE, row.names = "Title", check.names = FALSE)
+benchmark <- read.table("20tmt.dat", header = TRUE, row.names = "Title", check.names = FALSE)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(4))
@@ -28,13 +15,3 @@ barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(4))
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 legend("topleft", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(4))
 
-EOF
-
-	R CMD BATCH $script
-}
-
-genscript
-
-git add .
-git commit -a -m $script
-git push
