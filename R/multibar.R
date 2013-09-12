@@ -1,7 +1,9 @@
 library(ggplot2)
 
 #png("plot.png")
-postscript("plot.eps")
+#postscript("plot.eps")
+require(devEMF)
+emf("plot.emf")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 benchmark <- read.table("data.dat", header = TRUE, row.names = "Title", check.names = FALSE)

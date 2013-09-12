@@ -22,7 +22,10 @@ Type 'q()' to quit R.
 > library(ggplot2)
 > 
 > #png("plot.png")
-> postscript("plot.eps")
+> #postscript("plot.eps")
+> require(devEMF)
+Loading required package: devEMF
+> emf("plot.emf")
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 > benchmark <- read.table("data.dat", header = TRUE, row.names = "Title", check.names = FALSE)
@@ -39,4 +42,4 @@ Type 'q()' to quit R.
 > 
 > proc.time()
    user  system elapsed 
-  0.673   0.029   0.690 
+  0.690   0.038   0.734 
