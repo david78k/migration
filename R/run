@@ -14,10 +14,10 @@ cat >$scrpit << EOF
 library(ggplot2)
 
 #$cmd
-#png("plot.png")
+png("plot.png")
 #postscript("plot.eps")
 require(devEMF)
-emf("plot.emf")
+#emf("plot.emf")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 benchmark <- read.table("$data", header = TRUE, row.names = "Title", check.names = FALSE)
@@ -32,6 +32,8 @@ EOF
 
 	R CMD BATCH $script
 }
+
+genscript
 
 git add .
 git commit -a -m $script
