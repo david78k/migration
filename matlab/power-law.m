@@ -18,5 +18,8 @@ plot(RTTs, Ns)
 xlabel('RTT')
 ylabel('N')
 
-% print -deps plot.eps
-saveas (1, "plot.png");
+image = "power-law"
+%print -deps $image.eps
+saveas (1, "power-law.png");
+saveas (1, "power-law.eps");
+saveas (1, "power-law.emf");
