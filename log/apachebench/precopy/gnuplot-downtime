@@ -170,7 +170,7 @@ fi
 
 # metric
 offset=6
-plot="plot data using (\$0-0.3):$begincol:$(( begincol + 1)):1000 title 'default' smooth freq with boxerror lc rgb 'gray', \
+plot="plot data using (\$0-0.3):$begincol:$(( begincol + 1)):$(( begincol + 2 )) title 'default' smooth freq with boxerror lc rgb 'gray', \
 data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' smooth freq with boxes lc rgb '#696969', \
 data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'black', \
 data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'white', \
