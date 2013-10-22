@@ -310,7 +310,7 @@ function genplot() {
 
 ############################### main (call functions) ############################
 #data=vcpu
-data=downtime-vcpu4
+data=downtime-vcpu2
 #prefix=$data
 
 #xlabel="max downtime (millsec)"
