@@ -142,21 +142,21 @@ fi
 begincol=2 # starting column for total time
 if [ $metric == "totaltime" ]; then
 	#ylabel="total migration time (sec)"
-	ylabel="TOTAL MIGRATION TIME (MILLISEC)"
+	ylabel="TOTAL MIGRATION TIME (ms)"
 elif [ $metric == "downtime" ]; then
-	ylabel="DOWNTIME (MILLISEC)"
+	ylabel="DOWNTIME (millisec)"
 	begincol=3 
 elif [ $metric == "totaldata" ]; then
-	ylabel="total transferred data (kbytes)"
+	ylabel="TOTAL TRANSFERRED DATA (KB)"
 	begincol=4 
 elif [ $metric == "throughput" ]; then
-	ylabel="throughput (mbps)"
+	ylabel="THROUGHPUT (mbps)"
 	begincol=5 
 elif [ $metric == "duplicate" ]; then
-	ylabel="number of duplicate pages"
+	ylabel="NUMBER OF DUPLICATE PAGES"
 	begincol=6 
 elif [ $metric == "cpusage" ]; then
-	ylabel="host CPU usage (%)"
+	ylabel="HOST CPU USAGE (%)"
 	begincol=7 
 fi
 
