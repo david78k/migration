@@ -147,7 +147,8 @@ elif [ $metric == "downtime" ]; then
 	ylabel="DOWNTIME (millisec)"
 	begincol=3 
 elif [ $metric == "totaldata" ]; then
-	ylabel="TOTAL TRANSFERRED DATA (KB)"
+	ylabel="TOTAL DATA (KB)"
+	#ylabel="TOTAL TRANSFERRED DATA (KB)"
 	begincol=4 
 elif [ $metric == "throughput" ]; then
 	ylabel="THROUGHPUT (mbps)"
@@ -163,10 +164,10 @@ fi
 
 # metric
 offset=6
-plot="plot data using (\$0-0.3):$begincol title 'default' smooth freq with boxes lc rgb 'gray', \
-data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' smooth freq with boxes lc rgb '#696969', \
-data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'black', \
-data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'white', \
+plot="plot data using (\$0-0.3):$begincol title 'DEFAULT' smooth freq with boxes lc rgb 'gray', \
+data using (\$0-0.1):$(( begincol+offset )) title 'XBZRLE' smooth freq with boxes lc rgb '#696969', \
+data using (\$0+0.1):$((begincol+offset*2)) title 'AUTO-CONVERGE' smooth freq with boxes lc rgb 'black', \
+data using (\$0+0.3):$((begincol+offset*3)) title 'XBZRLE+AUTO-CONVERGE' smooth freq with boxes lc rgb 'white', \
 data using 0:(0):xticlabel(1) title '' w l "
 
 #plot="plot data using (\$0-0.3):$begincol title 'default' with boxes fill pattern 4 8, \
