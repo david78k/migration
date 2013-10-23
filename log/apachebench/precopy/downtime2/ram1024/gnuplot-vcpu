@@ -142,9 +142,9 @@ fi
 begincol=2 # starting column for total time
 if [ $metric == "totaltime" ]; then
 	#ylabel="total migration time (sec)"
-	ylabel="total migration time (millisec)"
+	ylabel="TOTAL MIGRATION TIME (MILLISEC)"
 elif [ $metric == "downtime" ]; then
-	ylabel="downtime (millisec)"
+	ylabel="DOWNTIME (MILLISEC)"
 	begincol=3 
 elif [ $metric == "totaldata" ]; then
 	ylabel="total transferred data (kbytes)"
@@ -216,7 +216,7 @@ set autoscale y
 set autoscale y2;
 #set key title "migration speed 40MB/s"
 #set key box 
-set key out horiz bot left
+set key out horiz bot
 #set key outside center top horizontal
 #set key outside left below horizontal
 #set key center top
@@ -308,7 +308,7 @@ xlabel="VCPUs"
 
 #test
 # generates "$data" file
-gendata
+#gendata
 
 metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
