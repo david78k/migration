@@ -144,7 +144,8 @@ if [ $metric == "totaltime" ]; then
 	#ylabel="total migration time (sec)"
 	ylabel="TOTAL MIGRATION TIME (ms)"
 elif [ $metric == "downtime" ]; then
-	ylabel="DOWNTIME (millisec)"
+	ylabel="DOWNTIME (ms)"
+	#ylabel="DOWNTIME (millisec)"
 	begincol=3 
 elif [ $metric == "totaldata" ]; then
 	ylabel="TOTAL DATA (KB)"
@@ -305,7 +306,7 @@ function genplot() {
 data=vcpu
 #prefix=$data
 
-xlabel="VCPUs"
+xlabel="VCPUS"
 
 #test
 # generates "$data" file
