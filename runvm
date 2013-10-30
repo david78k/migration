@@ -1,8 +1,8 @@
-name=migbench
-#name=vm512-29
+name=migbench.img
+name=centos6-30G.qcow2
 #name=vm512-29-3.0
 #name=vm512-29-2013-8-14
-image=/var/lib/libvirt/images/nfs/c11node9/$name.img
+image=/var/lib/libvirt/images/nfs/c11node9/$name
 #image=/home/images/$name.img
 #ram=536
 ram=1024

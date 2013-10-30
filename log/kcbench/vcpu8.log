@@ -1,0 +1,15 @@
+Linux running:      2.6.32-358.14.1.el6.x86_64 on x86_64 (centos6)
+Processor Cores:    12 -- QEMU Virtual CPU version 1.5.50
+Compiler:           gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-3)
+Linux compiled:     linux-2.6.25 (/usr/share/kcbench-data/linux-2.6.25)
+Creating default configuration with 'make defconfig'.
+Run 1 (-j 8):       22401 (e:44.64 P:707% U:281.45 S:34.18 F:0)
+  Elapsed Time(E): 0:44.64 (44.64 seconds)
+  Kernel time (S): 34.18 seconds
+  User time (U): 281.45 seconds
+  CPU usage (P): 707%
+  Major page faults (F): 0
+  Minor page faults (R): 12488331
+  Context switches involuntarily (c): 21707
+  Context switches voluntarily (w): 36866
+Cleaning up builddir
