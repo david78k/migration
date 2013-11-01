@@ -154,13 +154,13 @@ elif [ $metric == "downtime" ]; then
 	ylabel="ACTUAL DOWNTIME (ms)"
 	begincol=3 
 elif [ $metric == "totaldata" ]; then
-	ylabel="TOTAL TRANSFERRED DATA (KB)"
+	ylabel="TRANSFERRED DATA (kbytes)"
 	begincol=4 
 elif [ $metric == "throughput" ]; then
 	ylabel="THROUGHPUT (mbps)"
 	begincol=5 
 elif [ $metric == "duplicate" ]; then
-	ylabel="NUMBER OF DUPLICATE PAGES"
+	ylabel="# OF DUPLICATE PAGES"
 	begincol=6 
 elif [ $metric == "cpusage" ]; then
 	ylabel="HOST CPU USAGE (%)"
