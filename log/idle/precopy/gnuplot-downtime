@@ -149,12 +149,12 @@ fi
 begincol=2 # starting column for total time
 if [ $metric == "totaltime" ]; then
 	#ylabel="total migration time (sec)"
-	ylabel="TOTAL MIGRATION TIME (millisec)"
+	ylabel="TOTAL MIGRATION TIME (ms)"
 elif [ $metric == "downtime" ]; then
-	ylabel="ACTUAL DOWNTIME (millisec)"
+	ylabel="ACTUAL DOWNTIME (ms)"
 	begincol=3 
 elif [ $metric == "totaldata" ]; then
-	ylabel="TOTAL TRANSFERRED DATA (kbytes)"
+	ylabel="TOTAL TRANSFERRED DATA (KB)"
 	begincol=4 
 elif [ $metric == "throughput" ]; then
 	ylabel="THROUGHPUT (mbps)"
