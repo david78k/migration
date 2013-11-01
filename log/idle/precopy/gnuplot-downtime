@@ -149,31 +149,31 @@ fi
 begincol=2 # starting column for total time
 if [ $metric == "totaltime" ]; then
 	#ylabel="total migration time (sec)"
-	ylabel="total migration time (millisec)"
+	ylabel="TOTAL MIGRATION TIME (millisec)"
 elif [ $metric == "downtime" ]; then
-	ylabel="actual downtime (millisec)"
+	ylabel="ACTUAL DOWNTIME (millisec)"
 	begincol=3 
 elif [ $metric == "totaldata" ]; then
-	ylabel="total transferred data (kbytes)"
+	ylabel="TOTAL TRANSFERRED DATA (kbytes)"
 	begincol=4 
 elif [ $metric == "throughput" ]; then
-	ylabel="throughput (mbps)"
+	ylabel="THROUGHPUT (mbps)"
 	begincol=5 
 elif [ $metric == "duplicate" ]; then
-	ylabel="number of duplicate pages"
+	ylabel="NUMBER OF DUPLICATE PAGES"
 	begincol=6 
 elif [ $metric == "cpusage" ]; then
-	ylabel="host CPU usage (%)"
+	ylabel="HOST CPU USAGE (%)"
 	begincol=7 
 fi
 
 
 # metric
 offset=6
-plot="plot data using (\$0-0.3):$begincol title 'default' smooth freq with boxes lc rgb 'gray', \
-data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' smooth freq with boxes lc rgb '#696969', \
-data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'black', \
-data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'white', \
+plot="plot data using (\$0-0.3):$begincol title 'DEFAULT' smooth freq with boxes lc rgb 'gray', \
+data using (\$0-0.1):$(( begincol+offset )) title 'XBZRLE' smooth freq with boxes lc rgb '#696969', \
+data using (\$0+0.1):$((begincol+offset*2)) title 'AUTO-CONVERGE' smooth freq with boxes lc rgb 'black', \
+data using (\$0+0.3):$((begincol+offset*3)) title 'XBZRLE+AUTO-CONVERGE' smooth freq with boxes lc rgb 'white', \
 data using 0:(0):xticlabel(1) title '' w l"
 
 #plot="plot data using (\$0-0.3):$begincol title 'default' with boxes fill pattern 4 8, \
@@ -314,7 +314,7 @@ data=downtime-vcpu1
 #prefix=$data
 
 #xlabel="max downtime (millsec)"
-xlabel="max downtime (sec)"
+xlabel="MAX DOWNTIME (sec)"
 #xlabel="VM memory (MB)"
 
 #test
