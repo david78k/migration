@@ -8,6 +8,7 @@
 
 #bench=memtouch
 #bench=kernelcompile
+#bench=kcbench
 bench=apachebench
 #bench=idle
 #bench=hadoop
