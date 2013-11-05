@@ -1,0 +1,20 @@
+N=10
+run=1
+
+#prefix=random-${N}-r2
+prefix=rand-${N}-r${run}
+#prefix=rand-1-r1
+dstat=${prefix}.dstat
+bw=${prefix}.bw
+
+# for controller
+#grep controller $prefix | tail -n +2 | awk '{print $3,$4,$5,$6,$7}'> ${prefix}.controller
+
+# for static migrations
+#sed 's/B//g;s/M/000000/g;s/k/000/g' $dstat | tail -n +3 > $bw
+
+octave genplot.m $prefix $N
+
+git add .
+git commit -a -m genplot
+git push
