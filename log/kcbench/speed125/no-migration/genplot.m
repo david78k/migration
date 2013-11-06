@@ -11,7 +11,7 @@ data = prefix;
 
 %A = dlmread(data, ' ', 2, 0);
 A = load (data);
-
+A
 %{
 % both receive and send
 figure;
