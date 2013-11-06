@@ -16,7 +16,8 @@ A = load (data);
 figure;
 output = data
 x = 1:1:length(A);
-ax = plotyy(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
+%ax = plotyy(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
+ax = plotyy(x, A(:,1), x, A(:,2));
 xlabel('VCPUS');
 ylabel(ax(1), 'CPU USAGE (%)');
 ylabel(ax(2), 'ELAPSED TIME (sec)');
