@@ -1,7 +1,8 @@
 N=10
 run=1
 
-prefix=vcpu${N}
+prefix=vcpu
+#prefix=vcpu${N}
 #prefix=rand-${N}-r${run}
 dstat=${prefix}.dstat
 bw=${prefix}.bw
