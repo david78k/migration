@@ -16,6 +16,20 @@ A = load (data);
 figure;
 output = data
 x = A(:,1);
+plotyy(x, A(:,2), x, A(:,4));
+xlabel('VCPUS');
+ylabel('CPU USAGE (%)');
+
+saveas (1, strcat(output, ".png"));
+saveas (1, strcat(output, ".eps"));
+saveas (1, strcat(output, ".emf"));
+
+% cpu usage andd elapsed time
+% vcpu cpusage kcbench(%) elapsedTime(sec)
+figure;
+%output = data
+output = strcat(data, ".etime");
+x = A(:,1);
 %x = 1:1:length(A);
 %ax = plotyy(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
 ax = plotyy(x, A(:,2), x, A(:,4));
