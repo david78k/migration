@@ -11,21 +11,21 @@ data = prefix;
 
 %A = dlmread(data, ' ', 2, 0);
 A = load (data);
-A
-%{
-% both receive and send
+
+% vcpu cpusage kcbench(%) elapsedTime(sec)
 figure;
 output = data
 x = 1:1:length(A);
 plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
-xlabel('TIME (SEC)');
-ylabel('THROUGHPUT (MB/s)');
-legend('RECEIVE', 'SEND');
+xlabel('VCPUS');
+ylabel('ELAPSED TIME (sec)');
+legend('CPU(%)', 'KCBENCH CPU(%)');
 
 saveas (1, strcat(output, ".png"));
 saveas (1, strcat(output, ".eps"));
 saveas (1, strcat(output, ".emf"));
 
+%{
 % receive 
 figure;
 output = strcat(prefix, ".bw.recv");
