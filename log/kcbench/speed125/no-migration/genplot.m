@@ -15,13 +15,15 @@ A = load (data);
 % vcpu cpusage kcbench(%) elapsedTime(sec)
 figure;
 output = data
-x = 1:1:length(A);
+x = 1:(A:,1);
+%x = 1:1:length(A);
 %ax = plotyy(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
 ax = plotyy(x, A(:,2), x, A(:,4));
 xlabel('VCPUS');
 ylabel(ax(1), 'CPU USAGE (%)');
 ylabel(ax(2), 'ELAPSED TIME (sec)');
-legend('CPU(%)', 'KCBENCH CPU(%)');
+legend('CPU USAGE(%)', 'ELAPSED TIME(sec)');
+%legend('CPU(%)', 'KCBENCH CPU(%)');
 
 saveas (1, strcat(output, ".png"));
 saveas (1, strcat(output, ".eps"));
