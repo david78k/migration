@@ -18,8 +18,8 @@ output = data
 x = 1:1:length(A);
 plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
 xlabel('VCPUS');
-ylabel('CPU USAGE (%)');
-ylabel('ELAPSED TIME (sec)');
+ylabel(ax(1), 'CPU USAGE (%)');
+ylabel(ax(2), 'ELAPSED TIME (sec)');
 legend('CPU(%)', 'KCBENCH CPU(%)');
 
 saveas (1, strcat(output, ".png"));
