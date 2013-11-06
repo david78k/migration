@@ -16,7 +16,7 @@ A = load (data);
 figure;
 output = data
 x = A(:,1);
-plot(x, A(:,2));
+plot(x, A(:,2), '-.*');
 xlabel('VCPUS');
 ylabel('CPU USAGE (%)');
 
