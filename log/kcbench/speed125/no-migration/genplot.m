@@ -15,7 +15,7 @@ A = load (data);
 % vcpu cpusage kcbench(%) elapsedTime(sec)
 figure;
 output = data
-x = 1:A(:,1);
+x = A(:,1);
 %x = 1:1:length(A);
 %ax = plotyy(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
 ax = plotyy(x, A(:,2), x, A(:,4));
