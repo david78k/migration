@@ -1,0 +1,10 @@
+25432 (e:39.32 P:994% U:335.51 S:55.43 F:0)
+  Elapsed Time(E): 0:39.32 (39.32 seconds)
+  Kernel time (S): 55.43 seconds
+  User time (U): 335.51 seconds
+  CPU usage (P): 994%
+  Major page faults (F): 0
+  Minor page faults (R): 12355119
+  Context switches involuntarily (c): 21971
+  Context switches voluntarily (w): 38743
+Cleaning up builddir

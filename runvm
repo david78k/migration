@@ -1,5 +1,5 @@
-name=migbench.img
-#name=centos6-30G.qcow2
+#name=migbench.img
+name=centos6-30G.qcow2
 #name=centos6-10G.qcow2
 #name=centos.qcow2
 #name=vm512-29-2013-8-14
@@ -10,7 +10,7 @@ ram=1024
 #ram=4096
 #ram=128
 #ram=$1
-vcpu=10
+vcpu=12
 qemudir=/root/qemu
 #version=qemu-kvm-1.2.0
 #version=qemu-1.6.0

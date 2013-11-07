@@ -1,0 +1,12 @@
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off
+Migration status: completed
+total time: 34546 milliseconds
+downtime: 973 milliseconds
+transferred ram: 3956387 kbytes
+throughput: 924.05 mbps
+remaining ram: 0 kbytes
+total ram: 1057344 kbytes
+duplicate: 97882 pages
+skipped: 0 pages
+normal: 986953 pages
+normal bytes: 3947812 kbytes
