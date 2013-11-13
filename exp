@@ -10,8 +10,8 @@
 #bench=kernelcompile
 #bench=kcbench
 #bench=apachebench
-bench=svm
-#bench=idle
+#bench=svm
+bench=idle
 #bench=hadoop
 
 #ram=128
@@ -205,6 +205,9 @@ function migrate() {
 
 	./runvm-daemon $vmargs
 
+	if [ $bench == "idle" ]; then
+		bootup=0
+	fi
 	if [ $bench == "apachebench" ]; then
 		bootup=30
 	fi
@@ -353,8 +356,8 @@ speeds=( 125 )
 #downtimes=( 0.03 )
 #downtimes=( 5 2 1 0.5 )
 #downtimes=( 0.2 )
-downtimes=( 0.5 )
-#downtimes=( 1 )
+#downtimes=( 0.5 )
+downtimes=( 1 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
 # should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...
@@ -365,7 +368,7 @@ caches=( 64 )
 #runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
 #runs=( 2 3 4 5 6 7 8 9 10 )
-runs=( 4 )
+runs=( 1 )
 
 ################# benchmark specific params ###################
 
