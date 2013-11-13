@@ -1,5 +1,5 @@
-#name=migbench.img
-name=centos6-30G.qcow2
+name=migbench.img
+#name=centos6-30G.qcow2
 #name=centos6-10G.qcow2
 #name=centos.qcow2
 #name=vm512-29-2013-8-14
