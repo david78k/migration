@@ -32,7 +32,7 @@ expno=1
 #vm=10.244.34.229
 vm=10.244.39.141
 
-bootup=30 # time in seconds to boot up VM
+bootup=40 # time in seconds to boot up VM
 
 # apachebench
 client=10.5.147.206 # c11node6
