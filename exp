@@ -32,7 +32,7 @@ expno=1
 #vm=10.244.34.229
 vm=10.244.39.141
 
-bootup=20 # time in seconds to boot up VM
+bootup=30 # time in seconds to boot up VM
 
 # apachebench
 client=10.5.147.206 # c11node6
@@ -364,7 +364,7 @@ caches=( 64 )
 #runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
 #runs=( 2 3 4 5 6 7 8 9 10 )
-runs=( 5 )
+runs=( 4 )
 
 ################# benchmark specific params ###################
 
