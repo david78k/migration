@@ -1,5 +1,5 @@
-#prefix=errorbars
-prefix=histo
+prefix=errorbars
+#prefix=histo
 #prefix=boxerror
 
 script=$prefix.p
