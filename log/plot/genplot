@@ -1,0 +1,5 @@
+gnuplot errorbars.p
+
+git add .
+git commit -a -m errorbars
+git push
