@@ -1,11 +1,11 @@
-total time: 14750 milliseconds
-downtime: 4335 milliseconds
-transferred ram: 1202884 kbytes
-throughput: 867.22 mbps
+total time: 12737 milliseconds
+downtime: 2524 milliseconds
+transferred ram: 1163211 kbytes
+throughput: 837.04 mbps
 remaining ram: 0 kbytes
 total ram: 1057344 kbytes
-duplicate: 98738 pages
+duplicate: 98294 pages
 skipped: 0 pages
-normal: 299918 pages
-normal bytes: 1199672 kbytes
+normal: 290020 pages
+normal bytes: 1160080 kbytes
 CPU: 41 %
