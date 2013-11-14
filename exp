@@ -7,11 +7,11 @@
 ################################################################
 
 #bench=memtouch
-#bench=kernelcompile
+bench=kernelcompile
 #bench=kcbench
 #bench=apachebench
 #bench=svm
-bench=idle
+#bench=idle
 #bench=hadoop
 
 #ram=128
@@ -38,10 +38,11 @@ bootup=50 # time in seconds to boot up VM
 client=10.5.147.206 # c11node6
 
 # kernel compile
-#warmup=20 # time in seconds to make clean and warm up
+warmup=20 # time in seconds to make clean and warm up
 
 # svm
-warmup=5 # time in seconds to make clean and warm up
+#bootup=50 # time in seconds to boot up VM
+#warmup=5 # time in seconds to make clean and warm up
 
 # sysbench params
 #prefix=1024_RO_${expno}
@@ -308,9 +309,12 @@ function migrate() {
 	plotnet="./apachebench/plotnet"
 	$plotcpu $dstatfile
 	$plotnet $dstatfile
+
 	# plot vm cpu/net usage
-#	$plotcpu $vmdstat
-#	$plotnet $vmdstat
+	if [ $bench == "apachebench" ]; then
+		$plotcpu $vmdstat
+		$plotnet $vmdstat
+	fi
 }
 
 ################################################################
@@ -356,8 +360,8 @@ speeds=( 125 )
 #downtimes=( 0.03 )
 #downtimes=( 5 2 1 0.5 )
 #downtimes=( 0.2 )
-#downtimes=( 0.5 )
-downtimes=( 1 )
+downtimes=( 0.5 )
+#downtimes=( 1 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
 # should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...
