@@ -1,5 +1,12 @@
-gnuplot errorbars.p
+prefix=errorbars
+script=$prefix.p
+
+git rm 
+git commit -a -m $prefix
+git push
+
+gnuplot $script
 
 git add .
-git commit -a -m errorbars
+git commit -a -m $prefix
 git push
