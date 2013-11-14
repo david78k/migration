@@ -1,7 +1,8 @@
 prefix=errorbars
 script=$prefix.p
+output=$prefix.png
 
-git rm 
+git rm output
 git commit -a -m $prefix
 git push
 
