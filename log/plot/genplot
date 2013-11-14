@@ -1,6 +1,7 @@
 #prefix=errorbars
-#prefix=histo
-prefix=boxerror
+prefix=histo
+#prefix=boxerror
+
 script=$prefix.p
 output=$prefix.png
 
