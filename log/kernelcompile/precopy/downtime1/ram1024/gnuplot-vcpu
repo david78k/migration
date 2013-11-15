@@ -121,7 +121,8 @@ figure=$prefix.png
 #fontsize=20
 fontsize=16
 #figuresize=1024,768
-figuresize=640,355
+figuresize=640,405
+#figuresize=640,355
 #terminal="png size 640,355"
 terminal="png enhanced size $figuresize font $fontsize"
 #ratio=0.75
@@ -217,12 +218,12 @@ set autoscale y
 set autoscale y2;
 #set key title "migration speed 40MB/s"
 #set key box 
+set key out horizon bot
 #set key outside center top horizontal
 #set key outside left below horizontal
 #set key center top
 #set key right
-set key left
-#set key horizon
+#set key left
 #set key -0.7,17600
 #set key 4.2,6.6e+06
 #set label "Yield Point" at -0.5,40000
@@ -311,10 +312,10 @@ xlabel="VCPUs"
 # generates "$data" file
 gendata
 
-#metrics=( totaltime downtime totaldata throughput duplicate cpusage )
+metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
-metrics=( totaltime )
-metrics=( downtime )
+#metrics=( totaltime )
+#metrics=( downtime )
 #metrics=( totaldata )
 #metrics=( throughput )
 #metrics=( duplicate )
@@ -327,5 +328,5 @@ do
 	prefix="${data}-$metric"
 	#prefix=${data%\.*}
 	script=$prefix.p
-#	genplot 
+	genplot 
 done
