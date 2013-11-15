@@ -66,14 +66,15 @@ do
 			sum[$i]=$((totaltime + sum[$i]))
 			sum2[$i]=$((totaltime*totaltime + sum2[$i]))
 			avg[$i]=$((sum[$i]/$expcount))
-			stdev=$( echo "scale=2;sqrt(sum2[$i] - avg[$i]*avg[$i])" | bc )
+			stdev=$( echo "scale=2;sqrt(${sum2[$i]}/$expcount - ${avg[$i]}*${avg[$i]})" | bc )
 			#avg[$i]=$((sum[$i]/$expcount/1000))
 			echo -n "${avg[$i]} $stdev " >> $output 
 			((i++))
 			sum[$i]=$((downtime + sum[$i]))
 			sum2[$i]=$((downtime*downtime + sum2[$i]))
 			avg[$i]=$((sum[$i]/$expcount))
-			echo -n "${avg[$i]} " >> $output 
+			stdev=$( echo "scale=2;sqrt(${sum2[$i]}/$expcount - ${avg[$i]}*${avg[$i]})" | bc )
+			echo -n "${avg[$i]} $stdev " >> $output 
 			((i++))
 			sum[$i]=$((totaldata + sum[$i]))
 			avg[$i]=$((sum[$i]/$expcount))
@@ -170,19 +171,19 @@ fi
 
 # metric
 #offset=6
-offset=12
-plot="plot data using (\$0-0.3):$begincol title 'DEFAULT' smooth freq with boxes lc rgb 'gray', \
-data using (\$0-0.1):$(( begincol+offset )) title 'XBZRLE' smooth freq with boxes lc rgb '#696969', \
-data using 0:(0):xticlabel(1) title '' w l "
+offset=8
+plot="plot data using $begincol:$(( begincol + 1 )):xticlabel(1) title 'DEFAULT' , \
+data using $(( begincol+offset )):$((begincol+offset+1)):xticlabel(1) title 'XBZRLE' \
+"
 
+#plot="plot data using $begincol:$(( begincol + 1 )):xticlabel(1) title 'DEFAULT' lc rgb 'gray', \
+#data using $(( begincol+offset )):$((begincol+offset+1)):xticlabel(1) title 'XBZRLE' lc rgb '#696969' \
+
+#plot="plot data using (\$0-0.3):$begincol title 'DEFAULT' smooth freq with boxes lc rgb 'gray', \
+#data using (\$0-0.1):$(( begincol+offset )) title 'XBZRLE' smooth freq with boxes lc rgb '#696969', \
+#data using 0:(0):xticlabel(1) title '' w l "
 #data using (\$0+0.1):$((begincol+offset*2)) title 'AUTO-CONVERGE' smooth freq with boxes lc rgb 'black', \
 #data using (\$0+0.3):$((begincol+offset*3)) title 'XBZRLE+AUTO-CONVERGE' smooth freq with boxes lc rgb 'white', \
-
-#plot="plot data using (\$0-0.3):$begincol title 'default' with boxes fill pattern 4 8, \
-#data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' with boxes fill pattern 3 9,\
-#data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' with boxes lc rgb 'white', \
-#data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' with boxes lc rgb 'black', \
-#data using 0:(0):xticlabel(1) title '' "
 
 echo $ylabel
 echo $plot
@@ -238,31 +239,23 @@ set key out horiz bot
 #set arrow from 0,10000 to 1,60000
 #set xr [0.0:0.022]
 set yr [0:]
-#set yr [0:20]
-#set yr [0:270000]
 #set y2r [0:100]
 #set format y "%gkm"
 
-set style histogram cluster gap 2
-set style fill solid border -1
+#set style histogram cluster gap 2
+set style histogram errorbars
+set style data histogram
+#set bars front
+#set style fill solid border -1
 #set style fill pattern border
-set boxwidth 0.2 absolute
+#set boxwidth 0.2 absolute
 #set xtic rotate by -45 scale 0
 
 #set style line 1 lt 2 lw 3
 #set style line 1 linetype 2 linecolor rgb "orange" linewidth 1.000 pointtype 8 pointsize default
 #plot data using (\$14/1000000) title 'send' smooth freq with linespoints, \\
 
-#plot data using 2:xtic(1) notitle smooth freq with boxes lc rgb "grey"
-
 $plot
-
-# total time
-#plot data using (\$0-0.3):2 title 'default' smooth freq with boxes lc rgb "black", \
-#data using (\$0-0.1):7 title 'xbzrle' smooth freq with boxes lc rgb "grey", \
-#data using (\$0+0.1):12 title 'auto-converge' smooth freq with boxes lc rgb "white", \
-#data using (\$0+0.3):17 title 'xbzrle+auto-converge' smooth freq with boxes fs pattern 1 lc rgb "black", \
-#data using 0:(0):xticlabel(1) title '' w l
 
 #plot data using 3:xtic(1) notitle smooth freq with boxes lc rgb "grey"
 #plot data using 2:xtic(1) title 'time' smooth freq with boxes fs pattern 1
@@ -272,7 +265,6 @@ $plot
 
 #data using (\$5*5.6) axis x1y2 title 'VM window' with linespoints, \\
 
-#data using 11 title 'free memory' with linespoints, \\
 #data using 1:(\$2/1000000) axis x2y2 title 'receive' with lines linetype 11 
 # second plot
 #unset multiplot;
@@ -310,7 +302,8 @@ function genplot() {
 }
 
 ############################### main (call functions) ############################
-data=vcpu
+#data=vcpu
+data=vcpu-stdev
 #prefix=$data
 
 xlabel="VCPUS"
@@ -335,5 +328,5 @@ do
 	prefix="${data}-$metric"
 	#prefix=${data%\.*}
 	script=$prefix.p
-#	genplot 
+	genplot 
 done
