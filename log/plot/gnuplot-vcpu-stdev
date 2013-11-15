@@ -13,12 +13,11 @@ caps=( default xbzrle )
 #caps=( default )
 #dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
 dirtyrates=( 0 )
-#vcpus=( 1 2 4 6 8 10 )
 vcpus=( 1 2 4 6 8 10 12 )
 #speeds=( 50 60 70 80 90 100 110 120 )
 speeds=( 125 )
 expnos=( 1 2 3 4 5 6 7 8 9 10 ) # exp run
-#expnos=( 1 2 3 4 5 6 7 ) # exp run
+#expnos=( 1 2 3 4 5 6 ) # exp run
 
 totaltimesum=0
 downtimesum=0
@@ -26,13 +25,14 @@ totaldatasum=0
 throughputsum=0
 duplicatesum=0
 cupsagesum=0
-i= sum=() avg=()
+i= sum=() avg=() sum2=()
 expcount=1
 
 for expno in ${expnos[@]}
 do
 	i=0
-	echo "# vcpu totaltime downtime totaldata throughput duplicate cpusage" > $output
+	#echo "# vcpu totaltime downtime totaldata throughput duplicate cpusage" > $output
+	echo "# vcpu totaltime stdev downtime stdev totaldata stdev throughput stdev duplicate stdev cpusage stdev" > $output
 for mem in ${rams[@]}
 do
 	ram=$mem
@@ -64,11 +64,14 @@ do
 
 			#echo -n "$totaltime $downtime $totaldata $throughput $duplicate $cpusage " >> $output
 			sum[$i]=$((totaltime + sum[$i]))
+			sum2[$i]=$((totaltime*totaltime + sum2[$i]))
 			avg[$i]=$((sum[$i]/$expcount))
+			stdev=$((sqrt(sum2[$i] - avg[$i]*avg[$i])))
 			#avg[$i]=$((sum[$i]/$expcount/1000))
-			echo -n "${avg[$i]} " >> $output 
+			echo -n "${avg[$i]} $stdev " >> $output 
 			((i++))
 			sum[$i]=$((downtime + sum[$i]))
+			sum2[$i]=$((downtime*downtime + sum2[$i]))
 			avg[$i]=$((sum[$i]/$expcount))
 			echo -n "${avg[$i]} " >> $output 
 			((i++))
@@ -121,7 +124,8 @@ figure=$prefix.png
 #fontsize=20
 fontsize=16
 #figuresize=1024,768
-figuresize=640,355
+figuresize=640,405
+#figuresize=640,355
 #terminal="png size 640,355"
 terminal="png enhanced size $figuresize font $fontsize"
 #ratio=0.75
@@ -143,32 +147,36 @@ fi
 begincol=2 # starting column for total time
 if [ $metric == "totaltime" ]; then
 	#ylabel="total migration time (sec)"
-	ylabel="total migration time (millisec)"
+	ylabel="TOTAL MIGRATION TIME (ms)"
 elif [ $metric == "downtime" ]; then
-	ylabel="downtime (millisec)"
+	ylabel="DOWNTIME (ms)"
+	#ylabel="DOWNTIME (millisec)"
 	begincol=3 
 elif [ $metric == "totaldata" ]; then
-	ylabel="total transferred data (kbytes)"
+	ylabel="TOTAL DATA (KB)"
+	#ylabel="TOTAL TRANSFERRED DATA (KB)"
 	begincol=4 
 elif [ $metric == "throughput" ]; then
-	ylabel="throughput (mbps)"
+	ylabel="THROUGHPUT (mbps)"
 	begincol=5 
 elif [ $metric == "duplicate" ]; then
-	ylabel="number of duplicate pages"
+	ylabel="NUMBER OF DUPLICATE PAGES"
 	begincol=6 
 elif [ $metric == "cpusage" ]; then
-	ylabel="host CPU usage (%)"
+	ylabel="HOST CPU USAGE (%)"
 	begincol=7 
 fi
 
 
 # metric
-offset=6
-plot="plot data using (\$0-0.3):$begincol title 'default' smooth freq with boxes lc rgb 'gray', \
-data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' smooth freq with boxes lc rgb '#696969', \
-data using (\$0+0.1):$((begincol+offset*2)) title 'auto-converge' smooth freq with boxes lc rgb 'black', \
-data using (\$0+0.3):$((begincol+offset*3)) title 'xbzrle+auto-converge' smooth freq with boxes lc rgb 'white', \
+#offset=6
+offset=12
+plot="plot data using (\$0-0.3):$begincol title 'DEFAULT' smooth freq with boxes lc rgb 'gray', \
+data using (\$0-0.1):$(( begincol+offset )) title 'XBZRLE' smooth freq with boxes lc rgb '#696969', \
 data using 0:(0):xticlabel(1) title '' w l "
+
+#data using (\$0+0.1):$((begincol+offset*2)) title 'AUTO-CONVERGE' smooth freq with boxes lc rgb 'black', \
+#data using (\$0+0.3):$((begincol+offset*3)) title 'XBZRLE+AUTO-CONVERGE' smooth freq with boxes lc rgb 'white', \
 
 #plot="plot data using (\$0-0.3):$begincol title 'default' with boxes fill pattern 4 8, \
 #data using (\$0-0.1):$(( begincol+offset )) title 'xbzrle' with boxes fill pattern 3 9,\
@@ -217,13 +225,14 @@ set autoscale y
 set autoscale y2;
 #set key title "migration speed 40MB/s"
 #set key box 
+set key out horiz bot
 #set key outside center top horizontal
 #set key outside left below horizontal
 #set key center top
 #set key right
-set key left
+#set key left
 #set key horizon
-#set key -0.7,17600
+#set key 2.3,17600
 #set key 4.2,6.6e+06
 #set label "Yield Point" at -0.5,40000
 #set arrow from 0,10000 to 1,60000
@@ -301,11 +310,10 @@ function genplot() {
 }
 
 ############################### main (call functions) ############################
-#data=vcpu1_8
 data=vcpu
 #prefix=$data
 
-xlabel="VCPUs"
+xlabel="VCPUS"
 
 #test
 # generates "$data" file
