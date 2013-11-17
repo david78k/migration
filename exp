@@ -330,14 +330,14 @@ function migrate() {
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( default xbzrle )
 #expcaps=( default )
-#expcaps=( xbzrle )
+expcaps=( xbzrle )
 #expcaps=( auto-converge )
 #expcaps=( xbzrle+auto-converge )
-expcaps=( auto-converge xbzrle+auto-converge )
+#expcaps=( auto-converge xbzrle+auto-converge )
 
 #vcpus=( 1 2 4 6 8 10 12 )
-vcpus=( 12 10 8 6 4 )
-#vcpus=( 12 )
+#vcpus=( 12 10 8 6 4 2 1 )
+vcpus=( 4 2 1 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
@@ -362,20 +362,20 @@ speeds=( 125 )
 #downtimes=( 0.1 0.5 1 5 10 )
 #downtimes=( 0.03 )
 #downtimes=( 5 2 1 0.5 )
-downtimes=( 0.1 )
+#downtimes=( 0.1 )
 #downtimes=( 0.5 0.2 0.1 )
-#downtimes=( 1 )
+downtimes=( 1 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
 # should be a power of 2: 256M/512M/1G/2G/4G/8G/16/32...
-#caches=( 128 256 512 1024 2048 4096 8192 16384 )
-caches=( 64 )
+caches=( 128 256 512 1024 2048 4096 8192 16384 )
+#caches=( 64 )
 #caches=( 16384 )
 
-#runs=( 1 2 3 4 5 6 7 8 9 10 )
+runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
 #runs=( 6 7 8 9 10 )
-runs=( 5 )
+#runs=( 5 )
 
 ################# benchmark specific params ###################
 
