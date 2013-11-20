@@ -335,8 +335,8 @@ expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 
-vcpus=( 1 2 4 6 8 10 12 )
-#vcpus=( 6 8 10 12 )
+#vcpus=( 1 2 4 6 8 10 12 )
+vcpus=( 4 6 8 10 12 )
 #vcpus=( 12 10 8 6 4 2 1 )
 #vcpus=( 12 )
 
@@ -378,8 +378,8 @@ caches=( 128 256 512 1024 2048 4096 8192 16384 )
 
 #runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
-runs=( 7 8 9 10 )
-#runs=( 6 )
+#runs=( 7 8 9 10 )
+runs=( 7 )
 
 ################# benchmark specific params ###################
 
