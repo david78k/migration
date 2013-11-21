@@ -335,8 +335,8 @@ expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 
-vcpus=( 1 2 4 6 8 10 12 )
-#vcpus=( 8 10 12 )
+#vcpus=( 1 2 4 6 8 10 12 )
+vcpus=( 8 10 12 )
 #vcpus=( 12 10 8 6 4 2 1 )
 #vcpus=( 8 )
 
