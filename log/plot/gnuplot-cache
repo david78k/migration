@@ -40,7 +40,7 @@ do
 	speed=$sp
 	for cache in ${caches[@]}
 	do
-		echo -n "$vcpu " >> $output
+		echo -n "$cache " >> $output
 		#for rate in ${dirtyrates[@]}
 		for cap in ${caps[@]}
 		do
@@ -312,11 +312,11 @@ xlabel="CACHE SIZE (MB)"
 
 #test
 # generates "$data" file
-gendata
+#gendata
 
-#metrics=( totaltime downtime totaldata throughput duplicate cpusage )
+metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
-metrics=( totaltime )
+#metrics=( totaltime )
 #metrics=( downtime )
 #metrics=( totaldata )
 #metrics=( throughput )
