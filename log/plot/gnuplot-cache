@@ -17,8 +17,6 @@ expnos=( 1 ) # exp run
 rams=( 1024 )
 #speeds=( 50 60 70 80 90 100 110 120 )
 speeds=( 125 )
-#dirtyrates=( 10 20 30 40 50 60 70 80 90 100 110 120 )
-dirtyrates=( 0 )
 
 totaltimesum=0
 downtimesum=0
@@ -309,15 +307,16 @@ data=cache
 #data=cache1_8
 #prefix=$data
 
-xlabel="VCPUS"
+#xlabel="VCPUS"
+xlabel="CACHE SIZE (MB)"
 
 #test
 # generates "$data" file
 gendata
 
-metrics=( totaltime downtime totaldata throughput duplicate cpusage )
+#metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
-#metrics=( totaltime )
+metrics=( totaltime )
 #metrics=( downtime )
 #metrics=( totaldata )
 #metrics=( throughput )
