@@ -9,7 +9,7 @@ output=$data
 #caps=( default xbzrle )
 caps=( xbzrle )
 #caps=( default )
-cache=( 128 256 512 1024 2048 4096 8192 16384 )
+caches=( 128 256 512 1024 2048 4096 8192 16384 )
 #vcpus=( 1 2 4 6 8 10 12 )
 #expnos=( 1 2 3 4 5 6 7 8 9 10 ) # exp run
 expnos=( 1 ) # exp run
@@ -38,7 +38,7 @@ do
 for sp in ${speeds[@]}
 do
 	speed=$sp
-	for vcpu in ${vcpus[@]}
+	for cache in ${caches[@]}
 	do
 		echo -n "$vcpu " >> $output
 		#for rate in ${dirtyrates[@]}
