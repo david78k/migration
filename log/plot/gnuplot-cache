@@ -312,7 +312,7 @@ xlabel="CACHE SIZE (MB)"
 
 #test
 # generates "$data" file
-#gendata
+gendata
 
 metrics=( totaltime downtime totaldata throughput duplicate cpusage )
 #metrics=( downtime totaldata throughput duplicate cpusage )
