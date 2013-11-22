@@ -367,7 +367,7 @@ caches=( 4096 )
 #downtimes=( 0.1 0.5 1 5 10 )
 #downtimes=( 0.03 )
 #downtimes=( 5 2 1 0.5 )
-downtimes=( 0.1 )
+downtimes=( 0.5 )
 #downtimes=( 0.5 0.2 0.1 )
 #downtimes=( 1 )
 
