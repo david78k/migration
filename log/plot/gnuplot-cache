@@ -10,8 +10,7 @@ output=$data
 caps=( xbzrle )
 #caps=( default )
 cache=( 128 256 512 1024 2048 4096 8192 16384 )
-#vcpus=( 1 2 4 6 8 )
-vcpus=( 1 2 4 6 8 10 12 )
+#vcpus=( 1 2 4 6 8 10 12 )
 #expnos=( 1 2 3 4 5 6 7 8 9 10 ) # exp run
 expnos=( 1 ) # exp run
 #rams=( 256 512 1024 2048 4096 )
@@ -33,7 +32,7 @@ expcount=1
 for expno in ${expnos[@]}
 do
 	i=0
-	echo "# vcpu totaltime downtime totaldata throughput duplicate cpusage" > $output
+	echo "# cache totaltime downtime totaldata throughput duplicate cpusage" > $output
 for mem in ${rams[@]}
 do
 	ram=$mem
@@ -47,8 +46,8 @@ do
 		#for rate in ${dirtyrates[@]}
 		for cap in ${caps[@]}
 		do
-			datadir=vcpu${vcpu}/speed${speed}/$cap/cache${cache}
-			#datadir=ram${ram}/vcpu${vcpu}/speed${speed}/$cap
+			datadir=cache${cache}
+			#datadir=vcpu${vcpu}/speed${speed}/$cap/cache${cache}
 			datafile=$datadir/${expno}.log
 			#datafile=$datadir/dirty${rate}_${expno}.log
 	#		echo $datadir
