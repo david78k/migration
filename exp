@@ -7,11 +7,11 @@
 ################################################################
 
 #bench=memtouch
-bench=kernelcompile
+#bench=kernelcompile
 #bench=kcbench
 #bench=apachebench
 #bench=svm
-#bench=idle
+bench=idle
 #bench=hadoop
 
 #ram=128
@@ -207,7 +207,7 @@ function migrate() {
 	./runvm-daemon $vmargs
 
 	if [ $bench == "idle" ]; then
-		bootup=0
+		bootup=30
 	fi
 	if [ $bench == "apachebench" ]; then
 		bootup=30
@@ -335,15 +335,15 @@ expcaps=( xbzrle )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 
-#vcpus=( 1 2 4 6 8 10 12 )
+vcpus=( 1 2 4 6 8 10 12 )
 #vcpus=( 12 10 8 6 4 2 1 )
-#vcpus=( 8 10 12 )
-vcpus=( 12 )
+#vcpus=( 2 4 6 8 10 12 )
+#vcpus=( 12 )
 
-#runs=( 1 2 3 4 5 6 7 8 9 10 )
+runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 2 3 4 5 6 7 8 9 10 )
 #runs=( 11 12 13 14 15 16 17 18 19 20 )
-runs=( 7 8 9 10 )
+#runs=( 7 8 9 10 )
 #runs=( 8 )
 
 # xbzrle cache size in MBytes: default 64MB, max unlimited
@@ -367,10 +367,10 @@ caches=( 128 256 512 1024 2048 4096 8192 16384 )
 # max downtime in seconds: default 0.03 (30ms)
 #downtimes=( 0.1 0.5 1 5 10 )
 #downtimes=( 0.03 )
-#downtimes=( 0.5 )
+downtimes=( 0.5 )
 #downtimes=( 0.1 )
 #downtimes=( 0.5 0.2 0.1 )
-downtimes=( 1 )
+#downtimes=( 1 )
 
 #rams=( 2G 4G 8G 12G 16G 20G )
 #rams=( 2048 4096 8192 12288 16384 20480 )
