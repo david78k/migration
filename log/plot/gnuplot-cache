@@ -47,7 +47,7 @@ do
 		#for rate in ${dirtyrates[@]}
 		for cap in ${caps[@]}
 		do
-			datadir=vcpu${vcpu}/speed${speed}/$cap
+			datadir=vcpu${vcpu}/speed${speed}/$cap/cache${cache}
 			#datadir=ram${ram}/vcpu${vcpu}/speed${speed}/$cap
 			datafile=$datadir/${expno}.log
 			#datafile=$datadir/dirty${rate}_${expno}.log
