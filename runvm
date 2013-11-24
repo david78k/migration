@@ -19,6 +19,13 @@ version=qemu-1.5.50
 #version=qemu-postcopy
 sshport=5555
 #sshport=5554
+network=local
+
+nic="virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0"
+
+if [ $network == "local" ]; then
+	nic="e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::$sshport-:22,hostfwd=tcp::80-:80"
+fi
 
 #./qemu-postcopy/x86_64-softmmu/qemu-system-x86_64 \
 #./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
@@ -27,11 +34,12 @@ $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
 	-enable-kvm \
 	-m $ram \
 	-smp $vcpu \
-	-device virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \
+	-device $nic \
 	-nographic 
 
-	#-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::$sshport-:22,hostfwd=tcp::80-:80 \
-	
+#nic="-device virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \"
+#nic="-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::$sshport-:22,hostfwd=tcp::80-:80 \"
+
 	#-device rtl8139,netdev=hostnet0,id=net0 \
 	#-name $name \
 #	-monitor telnet:0:4446,server,nowait \
