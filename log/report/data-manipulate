@@ -1,0 +1,10 @@
+find . -name *.png -print0 | xargs -0 rm -rf
+find . -name *.eps -print0 | xargs -0 rm -rf
+find . -name *.emf -print0 | xargs -0 rm -rf
+
+find . -name *.mig -print0 | xargs -0 rm -rf
+find . -name *.dstat -print0 | xargs -0 rm -rf
+
+find . -name *plot* -print0 | xargs -0 rm -rf
+find . -name *gnu* -print0 | xargs -0 rm -rf
+find . -name *stdev* -print0 | xargs -0 rm -rf
