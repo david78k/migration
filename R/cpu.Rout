@@ -41,7 +41,7 @@ Loading required package: devEMF
 > #cpus <- read.table("cpu.dat", header = TRUE, row.name = "time")
 > #cpus <- read.table("cpu.dat", header = TRUE)
 > #cpus <- scan("cpu.dat", skip=1)
-> cpus <- read.csv("cpu.dat")
+> cpus <- read.csv("cpu.dat", head=TRUE)
 > print(cpus)
    time.CPU...
 1  IC\t513.6\t
@@ -71,4 +71,4 @@ There were 14 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
-  0.698   0.035   0.724 
+  0.675   0.046   0.712 

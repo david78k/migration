@@ -58,7 +58,7 @@ $cmd
 #cpus <- read.table("$data", header = TRUE, row.name = "time")
 #cpus <- read.table("$data", header = TRUE)
 #cpus <- scan("$data", skip=1)
-cpus <- read.csv("$data")
+cpus <- read.csv("$data", head=TRUE)
 print(cpus)
 #names(cpus)
 
