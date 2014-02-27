@@ -30,8 +30,16 @@ Loading required package: devEMF
 > #emf("plot.emf")
 > 
 > #cpus <- scan (pipe("awk '{print }' cpu-postcopy.dat"), skip=2)
-> cpus <- read.table("cpu-postcopy.dat", colClasses=3)
-Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
-  line 1 did not have 16 elements
-Calls: read.table -> scan
+> #cpus <- read.table("cpu-postcopy.dat", colClasses=3)
+> 
+> # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
+> #benchmark <- read.table("cpu-postcopy.dat", header = TRUE, row.names = "time", check.names = FALSE)
+> #benchmark <- read.table("cpu-postcopy.dat", check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("cpu-postcopy.dat", header = TRUE, check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("cpu-postcopy.dat", check.names = FALSE)
+> 
+> #cpus <- read.table("cpu-postcopy.dat", header = TRUE, row.name = "time")
+> cpus <- read.table("cpu-postcopy.dat", header = TRUE)
+Error in read.table("cpu-postcopy.dat", header = TRUE) : 
+  more columns than column names
 Execution halted
