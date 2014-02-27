@@ -29,19 +29,19 @@ Loading required package: devEMF
 > #postscript("plot.eps")
 > #emf("plot.emf")
 > 
-> #cpus <- scan (pipe("awk '{print }' ../log/idle/postcopy/src.c11node9.r1.dstat"), skip=2)
-> #cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.dstat", colClasses=3)
+> #cpus <- scan (pipe("awk '{print }' ../log/idle/postcopy/src.c11node9.r1.cpu"), skip=2)
+> #cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", colClasses=3)
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-> #benchmark <- read.table("../log/idle/postcopy/src.c11node9.r1.dstat", header = TRUE, row.names = "time", check.names = FALSE)
-> #benchmark <- read.table("../log/idle/postcopy/src.c11node9.r1.dstat", check.names = FALSE, comment.char = "#")
-> #benchmark <- read.table("../log/idle/postcopy/src.c11node9.r1.dstat", header = TRUE, check.names = FALSE, comment.char = "#")
-> #benchmark <- read.table("../log/idle/postcopy/src.c11node9.r1.dstat", check.names = FALSE)
+> #benchmark <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", header = TRUE, row.names = "time", check.names = FALSE)
+> #benchmark <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", header = TRUE, check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", check.names = FALSE)
 > 
-> #cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.dstat", header = TRUE, row.name = "time")
-> #cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.dstat", skip=2)
-> #cpus <- scan("../log/idle/postcopy/src.c11node9.r1.dstat", skip=1)
-> #cpus <- read.csv("../log/idle/postcopy/src.c11node9.r1.dstat", sep=",", head=TRUE)
+> #cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", header = TRUE, row.name = "time")
+> #cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", skip=2)
+> #cpus <- scan("../log/idle/postcopy/src.c11node9.r1.cpu", skip=1)
+> #cpus <- read.csv("../log/idle/postcopy/src.c11node9.r1.cpu", sep=",", head=TRUE)
 > #print(cpus)
 > #names(cpus)
 > 
@@ -69,4 +69,4 @@ In plot.new() : Multiple pages not available for EMF device
 > 
 > proc.time()
    user  system elapsed 
-  0.687   0.039   0.717 
+  0.689   0.035   0.717 
