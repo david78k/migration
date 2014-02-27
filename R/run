@@ -7,9 +7,6 @@ fi
 
 #name=$1
 #name=180ms
-#name=20-80-180
-#name=20tmt
-#name=demo
 
 #data=${name}.dat
 data=$1
@@ -20,8 +17,8 @@ png=${name}.png
 emf=${name}.emf
 eps=${name}.eps
 
-xlabel="VM WINDOW"
-ylabel="MIGARTION TIME (SEC)"
+xlabel="TIME (SEC)"
+ylabel="CPU USAGE (%)"
 
 colors=6
 
