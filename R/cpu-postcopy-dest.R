@@ -17,7 +17,7 @@ emf('cpu-postcopy-dest.emf')
 #benchmark <- read.table("cpu-postcopy-dest.dat", check.names = FALSE)
 
 #cpus <- read.table("cpu-postcopy-dest.dat", header = TRUE, row.name = "time")
-#cpus <- read.table("cpu-postcopy-dest.dat", skip=2)
+cpus <- read.table("cpu-postcopy-dest.dat", skip=1)
 #cpus <- scan("cpu-postcopy-dest.dat", skip=1)
 #cpus <- read.csv("cpu-postcopy-dest.dat", sep=",", head=TRUE)
 #print(cpus)
