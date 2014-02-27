@@ -7,11 +7,11 @@
 ################################################################
 
 #bench=memtouch
-bench=kernelcompile
+#bench=kernelcompile
 #bench=kcbench
 #bench=apachebench
 #bench=svm
-#bench=idle
+bench=idle
 #bench=hadoop
 
 #ram=128
@@ -329,16 +329,16 @@ function migrate() {
 #expcaps=( default xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( xbzrle auto-converge xbzrle+auto-converge )
 #expcaps=( default xbzrle )
-#expcaps=( default )
-expcaps=( xbzrle )
+expcaps=( default )
+#expcaps=( xbzrle )
 #expcaps=( auto-converge )
 #expcaps=( xbzrle+auto-converge )
 #expcaps=( auto-converge xbzrle+auto-converge )
 
-vcpus=( 1 2 4 6 8 10 12 )
+#vcpus=( 1 2 4 6 8 10 12 )
 #vcpus=( 12 10 8 6 4 2 1 )
 #vcpus=( 2 4 6 8 10 12 )
-#vcpus=( 12 )
+vcpus=( 1 )
 
 runs=( 1 2 3 4 5 6 7 8 9 10 )
 #runs=( 2 3 4 5 6 7 8 9 10 )
