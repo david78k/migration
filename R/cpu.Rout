@@ -31,7 +31,15 @@ Loading required package: devEMF
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 > benchmark <- read.table("cpu.dat", header = TRUE, row.names = "vwnd", check.names = FALSE)
-Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
-  line 1 did not have 7 elements
-Calls: read.table -> scan
-Execution halted
+> 
+> # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
+> #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
+> barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+> 
+> # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
+> legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  0.760   0.045   0.797 
