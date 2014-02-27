@@ -46,7 +46,7 @@ $cmd
 #postscript("plot.eps")
 #emf("plot.emf")
 
-cpus <- scan (pipe("cut -f1 $data"), skip=2)
+cpus <- scan (pipe("awk '{print $3}' $data"), skip=2)
 cpus
 
 plot(cpus)

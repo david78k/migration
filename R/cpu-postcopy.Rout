@@ -29,7 +29,7 @@ Loading required package: devEMF
 > #postscript("plot.eps")
 > #emf("plot.emf")
 > 
-> cpus <- scan (pipe("cut -f1 cpu-postcopy.dat"), skip=2)
+> cpus <- scan (pipe("awk '{print }' cpu-postcopy.dat"), skip=2)
 Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
   scan() expected 'a real', got '0|5233B'
 Execution halted
