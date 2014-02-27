@@ -19,7 +19,7 @@ emf('cpu.emf')
 #cpus <- read.table("cpu.dat", header = TRUE, row.name = "time")
 #cpus <- read.table("cpu.dat", header = TRUE)
 #cpus <- scan("cpu.dat", skip=1)
-cpus <- read.csv("cpu.dat", head=TRUE)
+cpus <- read.csv("cpu.dat", sep=",", head=TRUE)
 print(cpus)
 #names(cpus)
 
