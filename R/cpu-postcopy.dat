@@ -1,5 +1,5 @@
-#^[[7l----total-cpu-usage---- -dsk/total- ------memory-usage----- -net/total- ---system--
-#usr sys idl wai hiq siq| read  writ| used  buff  cach  free| recv  send| int   csw
+^[[7l----total-cpu-usage---- -dsk/total- ------memory-usage----- -net/total- ---system--
+usr sys idl wai hiq siq| read  writ| used  buff  cach  free| recv  send| int   csw
   0   0  99   0   0   0|5233B   99k|2365M 73.5M 19.7G 1445M|   0     0 | 423  4402
   7   1  92   1   0   0| 768k   14M|2371M 73.5M 19.7G 1442M|2291B 6316B|1776  3785
   7   1  89   4   0   0|1528k   50M|2367M 73.5M 19.7G 1443M|1379B 1616B|1705  3711

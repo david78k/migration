@@ -29,10 +29,8 @@ Loading required package: devEMF
 > #postscript("plot.eps")
 > #emf("plot.emf")
 > 
-> # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-> #benchmark <- read.table("cpu-postcopy.dat", header = TRUE, row.names = "time", check.names = FALSE)
-> benchmark <- read.table("cpu-postcopy.dat", check.names = FALSE, comment.char = "#")
+> 
+> cpus <- scan ("cpu-postcopy.dat", skip=2)
 Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
-  line 2 did not have 15 elements
-Calls: read.table -> scan
+  scan() expected 'a real', got '0|5233B'
 Execution halted
