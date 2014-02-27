@@ -56,9 +56,9 @@ $cmd
 #benchmark <- read.table("$data", check.names = FALSE)
 
 #cpus <- read.table("$data", header = TRUE, row.name = "time")
-#cpus <- read.table("$data", header = TRUE)
+cpus <- read.table("$data", header = TRUE)
 #cpus <- scan("$data", skip=1)
-cpus <- read.csv("$data", sep=",", head=TRUE)
+#cpus <- read.csv("$data", sep=",", head=TRUE)
 print(cpus)
 #names(cpus)
 
