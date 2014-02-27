@@ -48,15 +48,15 @@ $cmd
 
 #cpus <- scan (pipe("awk '{print $3}' $data"), skip=2)
 #cpus <- read.table("$data", colClasses=3)
-#cpus <- scan("$data", skip=1)
-
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("$data", header = TRUE, row.names = "time", check.names = FALSE)
 #benchmark <- read.table("$data", check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("$data", header = TRUE, check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("$data", check.names = FALSE)
-cpus <- read.table("$data", header = TRUE, row.name = "time")
+
+#cpus <- read.table("$data", header = TRUE, row.name = "time")
+cpus <- scan("$data", skip=1)
 cpus
 
 #plot(cpus)
