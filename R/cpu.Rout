@@ -41,7 +41,15 @@ Loading required package: devEMF
 > #cpus <- read.table("cpu.dat", header = TRUE, row.name = "time")
 > cpus <- read.table("cpu.dat", header = TRUE)
 > #cpus <- scan("cpu.dat", skip=1)
-> #cpus
+> cpus
+  time  CPU...
+1   IC  513.60
+2   AC  415.64
+3    1 1146.33
+4    2  460.12
+5    4  409.48
+6    5  475.24
+7    6  388.35
 > 
 > plot(cpus)
 > #hist(cpus)
@@ -60,4 +68,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.696   0.032   0.720 
+  0.709   0.027   0.727 
