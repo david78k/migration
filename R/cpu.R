@@ -8,7 +8,8 @@ emf('cpu.emf')
 #emf("plot.emf")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-benchmark <- read.table("cpu.dat", header = TRUE, row.names = "time", check.names = FALSE)
+#benchmark <- read.table("cpu.dat", header = TRUE, row.names = "time", check.names = FALSE)
+benchmark <- read.table("cpu.dat", header = TRUE, check.names = FALSE)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
