@@ -30,8 +30,8 @@ Loading required package: devEMF
 > #emf("plot.emf")
 > 
 > #cpus <- scan (pipe("awk '{print }' cpu.dat"), skip=2)
-> cpus <- read.table("cpu.dat", colClasses=3)
-Error in methods::as(data[[i]], colClasses[i]) : 
-  no method or default for coercing “character” to “3”
-Calls: read.table -> <Anonymous>
+> #cpus <- read.table("cpu.dat", colClasses=3)
+> cpus <- scan("cpu.dat", skip=1)
+Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
+  scan() expected 'a real', got 'IC'
 Execution halted
