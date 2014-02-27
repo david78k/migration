@@ -45,6 +45,7 @@ Loading required package: devEMF
 > #print(cpus)
 > #names(cpus)
 > 
+> stripchart(cpus)
 > #plot(cpus)
 > #hist(cpus)
 > 
@@ -56,7 +57,7 @@ Loading required package: devEMF
 > #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > 
 > #barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+> #barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > #barplot(cpus, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > 
 > # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
@@ -65,4 +66,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.691   0.032   0.715 
+  0.708   0.037   0.737 
