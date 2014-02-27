@@ -24,7 +24,7 @@ cpus <- read.csv("cpu-postcopy-refined.dat", sep=",", head=TRUE)
 #names(cpus)
 
 #stripchart(cpus)
-#plot(cpus)
+plot(cpus)
 #hist(cpus)
 #boxplot(cpus)
 
@@ -36,7 +36,7 @@ cpus <- read.csv("cpu-postcopy-refined.dat", sep=",", head=TRUE)
 #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
 #barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+#barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot(cpus, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
