@@ -46,7 +46,7 @@ $cmd
 #postscript("plot.eps")
 #emf("plot.emf")
 
-cpus <- scan (pipe("awk '{print $3}' $data"), skip=2)
+#cpus <- scan (pipe("awk '{print $3}' $data"), skip=2)
 #cpus <- read.table("$data", colClasses=3)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
@@ -56,7 +56,7 @@ cpus <- scan (pipe("awk '{print $3}' $data"), skip=2)
 #benchmark <- read.table("$data", check.names = FALSE)
 
 #cpus <- read.table("$data", header = TRUE, row.name = "time")
-#cpus <- read.table("$data", header = TRUE)
+cpus <- read.table("$data", header = TRUE, skip=1)
 #cpus <- scan("$data", skip=1)
 #cpus <- read.csv("$data", sep=",", head=TRUE)
 print(cpus)
