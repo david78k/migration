@@ -9,6 +9,9 @@ emf('cpu-postcopy.emf')
 
 
 cpus <- scan ("cpu-postcopy.dat", skip=2)
+cpus
+
+hist(cpus)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("cpu-postcopy.dat", header = TRUE, row.names = "time", check.names = FALSE)
