@@ -48,7 +48,7 @@ Loading required package: devEMF
 > #stripchart(cpus)
 > #plot(cpus)
 > #hist(cpus)
-> boxplot(cpus)
+> #boxplot(cpus)
 > 
 > # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 > #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
@@ -59,12 +59,8 @@ Loading required package: devEMF
 > 
 > #barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > #barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> #barplot(cpus, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> 
-> # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-> #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
-> 
-> 
-> proc.time()
-   user  system elapsed 
-  0.689   0.032   0.713 
+> barplot(cpus, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+Error in barplot.default(cpus, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)") : 
+  'height' must be a vector or a matrix
+Calls: barplot -> barplot.default
+Execution halted
