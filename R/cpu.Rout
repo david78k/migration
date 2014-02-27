@@ -37,16 +37,7 @@ Loading required package: devEMF
 > # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 > #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
 > #barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> #barplot((as.matrix(benchmark)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> #barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-Warning message:
-In apply(height, 2L, cumsum) : NAs introduced by coercion
-> 
-> # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-> #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
-> 
-> 
-> proc.time()
-   user  system elapsed 
-  0.685   0.035   0.712 
+> barplot((as.matrix(benchmark)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+Error in -0.01 * height : non-numeric argument to binary operator
+Calls: barplot -> barplot.default
+Execution halted
