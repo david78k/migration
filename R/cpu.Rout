@@ -31,7 +31,21 @@ Loading required package: devEMF
 > 
 > #cpus <- scan (pipe("awk '{print }' cpu.dat"), skip=2)
 > #cpus <- read.table("cpu.dat", colClasses=3)
-> cpus <- scan("cpu.dat", skip=1)
-Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
-  scan() expected 'a real', got 'IC'
+> #cpus <- scan("cpu.dat", skip=1)
+> cpus <- read.table("cpu.dat")
+> cpus
+    V1      V2
+1 time  CPU(%)
+2   IC   513.6
+3   AC  415.64
+4    1 1146.33
+5    2  460.12
+6    4  409.48
+7    5  475.24
+8    6  388.35
+> 
+> #plot(cpus)
+> hist(cpus)
+Error in hist.default(cpus) : 'x' must be numeric
+Calls: hist -> hist.default
 Execution halted

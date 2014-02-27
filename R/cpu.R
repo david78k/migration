@@ -9,7 +9,8 @@ emf('cpu.emf')
 
 #cpus <- scan (pipe("awk '{print }' cpu.dat"), skip=2)
 #cpus <- read.table("cpu.dat", colClasses=3)
-cpus <- scan("cpu.dat", skip=1)
+#cpus <- scan("cpu.dat", skip=1)
+cpus <- read.table("cpu.dat")
 cpus
 
 #plot(cpus)

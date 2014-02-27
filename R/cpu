@@ -48,7 +48,8 @@ $cmd
 
 #cpus <- scan (pipe("awk '{print $3}' $data"), skip=2)
 #cpus <- read.table("$data", colClasses=3)
-cpus <- scan("$data", skip=1)
+#cpus <- scan("$data", skip=1)
+cpus <- read.table("$data")
 cpus
 
 #plot(cpus)
