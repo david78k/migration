@@ -39,32 +39,15 @@ Loading required package: devEMF
 > #benchmark <- read.table("cpu-postcopy-refined.dat", check.names = FALSE)
 > 
 > #cpus <- read.table("cpu-postcopy-refined.dat", header = TRUE, row.name = "time")
-> cpus <- read.table("cpu-postcopy-refined.dat", skip=2)
+> #cpus <- read.table("cpu-postcopy-refined.dat", skip=2)
 > #cpus <- scan("cpu-postcopy-refined.dat", skip=1)
-> #cpus <- read.csv("cpu-postcopy-refined.dat", sep=",", head=TRUE)
+> cpus <- read.csv("cpu-postcopy-refined.dat", sep=",", head=TRUE)
 > #print(cpus)
 > #names(cpus)
 > 
 > #stripchart(cpus)
 > #plot(cpus)
-> #hist(cpus)
-> #boxplot(cpus)
-> 
-> # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
-> #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
-> #barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> #barplot(benchmark, beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> #barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> 
-> #barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> #barplot(cpus, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> 
-> # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-> #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
-> 
-> 
-> proc.time()
-   user  system elapsed 
-  0.686   0.037   0.715 
+> hist(cpus)
+Error in hist.default(cpus) : 'x' must be numeric
+Calls: hist -> hist.default
+Execution halted

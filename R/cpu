@@ -56,15 +56,15 @@ $cmd
 #benchmark <- read.table("$data", check.names = FALSE)
 
 #cpus <- read.table("$data", header = TRUE, row.name = "time")
-cpus <- read.table("$data", skip=2)
+#cpus <- read.table("$data", skip=2)
 #cpus <- scan("$data", skip=1)
-#cpus <- read.csv("$data", sep=",", head=TRUE)
+cpus <- read.csv("$data", sep=",", head=TRUE)
 #print(cpus)
 #names(cpus)
 
 #stripchart(cpus)
 #plot(cpus)
-#hist(cpus)
+hist(cpus$cpu)
 #boxplot(cpus)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
@@ -75,7 +75,7 @@ cpus <- read.table("$data", skip=2)
 #barplot((as.matrix(benchmark)), xlab = "$xlabel", ylab = "$ylabel")
 
 #barplot((as.matrix(cpus)), beside = TRUE, xlab = "$xlabel", ylab = "$ylabel")
-barplot(t(as.matrix(cpus)), xlab = "$xlabel", ylab = "$ylabel")
+#barplot(t(as.matrix(cpus)), xlab = "$xlabel", ylab = "$ylabel")
 #barplot(cpus, xlab = "$xlabel", ylab = "$ylabel")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
