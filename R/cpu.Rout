@@ -30,8 +30,8 @@ Loading required package: devEMF
 > #emf("plot.emf")
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-> #benchmark <- read.table("cpu.dat", header = TRUE, row.names = "time", check.names = FALSE)
-> benchmark <- read.table("cpu.dat", header = TRUE, check.names = FALSE)
+> benchmark <- read.table("cpu.dat", header = TRUE, row.names = "time", check.names = FALSE)
+> #benchmark <- read.table("cpu.dat", header = TRUE, check.names = FALSE)
 > #benchmark <- read.table("cpu.dat", check.names = FALSE)
 > 
 > # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
@@ -39,8 +39,6 @@ Loading required package: devEMF
 > #barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > #barplot((as.matrix(benchmark)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-Warning message:
-In apply(height, 2L, cumsum) : NAs introduced by coercion
 > #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > 
 > # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
@@ -49,4 +47,4 @@ In apply(height, 2L, cumsum) : NAs introduced by coercion
 > 
 > proc.time()
    user  system elapsed 
-  0.735   0.040   0.772 
+  0.768   0.043   0.805 
