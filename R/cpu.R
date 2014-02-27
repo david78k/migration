@@ -10,10 +10,10 @@ emf('cpu.emf')
 #cpus <- scan (pipe("awk '{print }' cpu.dat"), skip=2)
 #cpus <- read.table("cpu.dat", colClasses=3)
 cpus <- scan("cpu.dat", skip=1)
-#cpus
+cpus
 
-plot(cpus)
-#hist(cpus)
+#plot(cpus)
+hist(cpus)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("cpu.dat", header = TRUE, row.names = "time", check.names = FALSE)

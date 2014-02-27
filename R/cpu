@@ -49,10 +49,10 @@ $cmd
 #cpus <- scan (pipe("awk '{print $3}' $data"), skip=2)
 #cpus <- read.table("$data", colClasses=3)
 cpus <- scan("$data", skip=1)
-#cpus
+cpus
 
-plot(cpus)
-#hist(cpus)
+#plot(cpus)
+hist(cpus)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("$data", header = TRUE, row.names = "time", check.names = FALSE)
