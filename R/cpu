@@ -36,6 +36,8 @@ function genplot() {
 		cmd="emf('$figure')"
 	fi
 
+rm $figure
+
 cat >$script << EOF
 library(ggplot2)
 
