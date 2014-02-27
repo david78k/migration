@@ -17,9 +17,10 @@ emf('cpu.emf')
 #benchmark <- read.table("cpu.dat", check.names = FALSE)
 
 #cpus <- read.table("cpu.dat", header = TRUE, row.name = "time")
-cpus <- read.table("cpu.dat", header = TRUE)
+#cpus <- read.table("cpu.dat", header = TRUE)
 #cpus <- scan("cpu.dat", skip=1)
-cpus
+cpus <- read.csv("cpu.dat")
+names(cpus)
 
 plot(cpus)
 #hist(cpus)

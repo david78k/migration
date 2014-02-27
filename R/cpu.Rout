@@ -39,19 +39,14 @@ Loading required package: devEMF
 > #benchmark <- read.table("cpu.dat", check.names = FALSE)
 > 
 > #cpus <- read.table("cpu.dat", header = TRUE, row.name = "time")
-> cpus <- read.table("cpu.dat", header = TRUE)
+> #cpus <- read.table("cpu.dat", header = TRUE)
 > #cpus <- scan("cpu.dat", skip=1)
-> cpus
-  time  CPU...
-1   IC  513.60
-2   AC  415.64
-3    1 1146.33
-4    2  460.12
-5    4  409.48
-6    5  475.24
-7    6  388.35
+> cpus <- read.csv("cpu.dat")
+> names(cpus)
+[1] "time.CPU..."
 > 
 > plot(cpus)
+There were 14 warnings (use warnings() to see them)
 > #hist(cpus)
 > 
 > # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
@@ -68,4 +63,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.709   0.027   0.727 
+  0.674   0.045   0.711 
