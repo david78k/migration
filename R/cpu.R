@@ -21,8 +21,8 @@ cpus <- read.table("cpu.dat", header = TRUE)
 #cpus <- scan("cpu.dat", skip=1)
 #cpus
 
-#plot(cpus)
-hist(cpus)
+plot(cpus)
+#hist(cpus)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
