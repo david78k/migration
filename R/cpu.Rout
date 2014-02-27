@@ -31,6 +31,6 @@ Loading required package: devEMF
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 > benchmark <- read.table("cpu.dat", header = TRUE, row.names = "vwnd", check.names = FALSE)
-Error in read.table("cpu.dat", header = TRUE, row.names = "vwnd", check.names = FALSE) : 
-  more columns than column names
+Error in data[[rowvar]] : attempt to select less than one element
+Calls: read.table
 Execution halted
