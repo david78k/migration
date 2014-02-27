@@ -46,12 +46,11 @@ $cmd
 #postscript("plot.eps")
 #emf("plot.emf")
 
-
-$data
 cpus <- scan ("$data", skip=2)
 cpus
 
-hist(cpus)
+plot(cpus)
+#hist(cpus)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("$data", header = TRUE, row.names = "time", check.names = FALSE)
