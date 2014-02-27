@@ -24,7 +24,7 @@ cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", skip=1)
 #names(cpus)
 
 #stripchart(cpus)
-plot(cpus)
+#plot(cpus)
 #hist(cpus)
 #boxplot(cpus)
 
