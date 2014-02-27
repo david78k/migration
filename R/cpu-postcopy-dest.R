@@ -24,7 +24,7 @@ cpus <- read.table("cpu-postcopy-dest.dat", skip=1)
 #names(cpus)
 
 #stripchart(cpus)
-plot(cpus)
+#plot(cpus)
 #hist(cpus)
 #boxplot(cpus)
 

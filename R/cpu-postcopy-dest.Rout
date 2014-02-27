@@ -46,7 +46,7 @@ Loading required package: devEMF
 > #names(cpus)
 > 
 > #stripchart(cpus)
-> plot(cpus)
+> #plot(cpus)
 > #hist(cpus)
 > #boxplot(cpus)
 > 
@@ -59,8 +59,6 @@ Loading required package: devEMF
 > 
 > #barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-Warning message:
-In plot.new() : Multiple pages not available for EMF device
 > #barplot(cpus, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > 
 > # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
@@ -69,4 +67,4 @@ In plot.new() : Multiple pages not available for EMF device
 > 
 > proc.time()
    user  system elapsed 
-  0.686   0.035   0.714 
+  0.736   0.040   0.768 

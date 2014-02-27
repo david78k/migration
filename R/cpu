@@ -63,7 +63,7 @@ cpus <- read.table("$data", skip=1)
 #names(cpus)
 
 #stripchart(cpus)
-plot(cpus)
+#plot(cpus)
 #hist(cpus$cpu)
 #boxplot(cpus)
 
