@@ -31,7 +31,8 @@ Loading required package: devEMF
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 > #benchmark <- read.table("cpu-postcopy.dat", header = TRUE, row.names = "time", check.names = FALSE)
-> benchmark <- read.table("cpu-postcopy.dat", header = TRUE, check.names = FALSE)
-Error in read.table("cpu-postcopy.dat", header = TRUE, check.names = FALSE) : 
-  more columns than column names
+> benchmark <- read.table("cpu-postcopy.dat", header = TRUE, check.names = FALSE, comment.char = "#")
+Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
+  line 1 did not have 15 elements
+Calls: read.table -> scan
 Execution halted
