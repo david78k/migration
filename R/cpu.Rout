@@ -34,7 +34,7 @@ Loading required package: devEMF
 > 
 > # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 > #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
-> barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+> barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > 
 > # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 > legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
@@ -42,4 +42,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.760   0.045   0.797 
+  0.909   0.029   0.934 

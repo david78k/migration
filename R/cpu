@@ -1,0 +1,72 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+	echo "usage: $0 data"	
+	exit
+fi
+
+#name=$1
+#name=180ms
+
+#data=${name}.dat
+data=$1
+prefix=${data%\.*}
+name=$prefix
+script=${name}.R
+png=${name}.png
+emf=${name}.emf
+eps=${name}.eps
+
+xlabel="TIME (SEC)"
+ylabel="CPU USAGE (%)"
+
+colors=6
+
+function genplot() {
+	cmd="emf($emf)"
+
+	if [ $1 == "png" ]; then
+		figure=$png
+		cmd="png('$figure')"
+	elif [ $1 == "eps" ]; then
+		figure=$eps
+		cmd="postscript('$figure')"
+	elif [ $1 == "emf" ]; then
+		figure=$emf
+		cmd="emf('$figure')"
+	fi
+
+cat >$script << EOF
+library(ggplot2)
+
+require(devEMF)
+$cmd
+
+#png("$figure")
+#postscript("plot.eps")
+#emf("plot.emf")
+
+# header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
+benchmark <- read.table("$data", header = TRUE, row.names = "vwnd", check.names = FALSE)
+
+# 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
+#barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors))
+barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors), xlab = "$xlabel", ylab = "$ylabel")
+
+# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
+legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors($colors))
+
+EOF
+
+	R CMD BATCH $script
+}
+
+genplot png
+
+genplot eps
+
+genplot emf
+
+git add .
+git commit -a -m $script
+git push
