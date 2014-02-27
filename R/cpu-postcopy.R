@@ -15,7 +15,7 @@ benchmark <- read.table("cpu-postcopy.dat", header = TRUE, check.names = FALSE, 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
 #barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-barplot((as.matrix(benchmark)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+barplot(benchmark, beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
