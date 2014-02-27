@@ -64,7 +64,7 @@ cpus <- read.csv("$data", sep=",", head=TRUE)
 
 #stripchart(cpus)
 #plot(cpus)
-hist(cpus$cpu)
+#hist(cpus$cpu)
 #boxplot(cpus)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
@@ -75,7 +75,7 @@ hist(cpus$cpu)
 #barplot((as.matrix(benchmark)), xlab = "$xlabel", ylab = "$ylabel")
 
 #barplot((as.matrix(cpus)), beside = TRUE, xlab = "$xlabel", ylab = "$ylabel")
-#barplot(t(as.matrix(cpus)), xlab = "$xlabel", ylab = "$ylabel")
+barplot(t(as.matrix(cpus)), xlab = "$xlabel", ylab = "$ylabel")
 #barplot(cpus, xlab = "$xlabel", ylab = "$ylabel")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
