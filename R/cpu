@@ -57,17 +57,17 @@ $cmd
 
 #cpus <- read.table("$data", header = TRUE, row.name = "time")
 cpus <- scan("$data", skip=1)
-cpus
+#cpus
 
 #plot(cpus)
-hist(cpus)
+#hist(cpus)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors))
 #barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors), xlab = "$xlabel", ylab = "$ylabel")
 #barplot(benchmark, beside = TRUE, xlab = "$xlabel", ylab = "$ylabel")
 #barplot((as.matrix(benchmark)), col = heat.colors($colors), xlab = "$xlabel", ylab = "$ylabel")
-#barplot((as.matrix(benchmark)), xlab = "$xlabel", ylab = "$ylabel")
+barplot((as.matrix(benchmark)), xlab = "$xlabel", ylab = "$ylabel")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors($colors))
