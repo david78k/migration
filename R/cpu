@@ -47,6 +47,7 @@ $cmd
 #emf("plot.emf")
 
 
+$data
 cpus <- scan ("$data", skip=2)
 cpus
 

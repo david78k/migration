@@ -30,7 +30,6 @@ Loading required package: devEMF
 > #emf("plot.emf")
 > 
 > 
-> cpus <- scan ("cpu-postcopy.dat", skip=2)
-Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
-  scan() expected 'a real', got '0|5233B'
+> cpu-postcopy.dat
+Error: object 'cpu' not found
 Execution halted

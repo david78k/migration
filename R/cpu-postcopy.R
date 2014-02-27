@@ -8,6 +8,7 @@ emf('cpu-postcopy.emf')
 #emf("plot.emf")
 
 
+cpu-postcopy.dat
 cpus <- scan ("cpu-postcopy.dat", skip=2)
 cpus
 
