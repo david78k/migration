@@ -75,7 +75,7 @@ cpus <- read.table("$data", skip=1)
 #barplot((as.matrix(benchmark)), xlab = "$xlabel", ylab = "$ylabel")
 
 #barplot((as.matrix(cpus)), beside = TRUE, xlab = "$xlabel", ylab = "$ylabel")
-barplot(t(as.matrix(cpus)), cex.axis = 1.5, cex.names = 1.5, xlab = "$xlabel", ylab = "$ylabel")
+barplot(t(as.matrix(cpus)), cex.axis = 1.5, cex.xlab = 1.5, cex.ylab = 1.5, cex.names = 1.5, xlab = "$xlabel", ylab = "$ylabel")
 #barplot(cpus, xlab = "$xlabel", ylab = "$ylabel")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
