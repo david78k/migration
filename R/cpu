@@ -56,7 +56,7 @@ $cmd
 #benchmark <- read.table("$data", check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("$data", header = TRUE, check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("$data", check.names = FALSE)
-cpus <- read.table("$table", header = TRUE)
+cpus <- read.table("$data", header = TRUE)
 cpus
 
 #plot(cpus)
