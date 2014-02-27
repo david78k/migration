@@ -1,25 +1,25 @@
 library(ggplot2)
 
 require(devEMF)
-emf('cpu-postcopy-refined.emf')
+emf('cpu-postcopy-dest.emf')
 
-#png("cpu-postcopy-refined.emf")
+#png("cpu-postcopy-dest.emf")
 #postscript("plot.eps")
 #emf("plot.emf")
 
-#cpus <- scan (pipe("awk '{print }' cpu-postcopy-refined.dat"), skip=2)
-#cpus <- read.table("cpu-postcopy-refined.dat", colClasses=3)
+#cpus <- scan (pipe("awk '{print }' cpu-postcopy-dest.dat"), skip=2)
+#cpus <- read.table("cpu-postcopy-dest.dat", colClasses=3)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-#benchmark <- read.table("cpu-postcopy-refined.dat", header = TRUE, row.names = "time", check.names = FALSE)
-#benchmark <- read.table("cpu-postcopy-refined.dat", check.names = FALSE, comment.char = "#")
-#benchmark <- read.table("cpu-postcopy-refined.dat", header = TRUE, check.names = FALSE, comment.char = "#")
-#benchmark <- read.table("cpu-postcopy-refined.dat", check.names = FALSE)
+#benchmark <- read.table("cpu-postcopy-dest.dat", header = TRUE, row.names = "time", check.names = FALSE)
+#benchmark <- read.table("cpu-postcopy-dest.dat", check.names = FALSE, comment.char = "#")
+#benchmark <- read.table("cpu-postcopy-dest.dat", header = TRUE, check.names = FALSE, comment.char = "#")
+#benchmark <- read.table("cpu-postcopy-dest.dat", check.names = FALSE)
 
-#cpus <- read.table("cpu-postcopy-refined.dat", header = TRUE, row.name = "time")
-#cpus <- read.table("cpu-postcopy-refined.dat", skip=2)
-#cpus <- scan("cpu-postcopy-refined.dat", skip=1)
-#cpus <- read.csv("cpu-postcopy-refined.dat", sep=",", head=TRUE)
+#cpus <- read.table("cpu-postcopy-dest.dat", header = TRUE, row.name = "time")
+#cpus <- read.table("cpu-postcopy-dest.dat", skip=2)
+#cpus <- scan("cpu-postcopy-dest.dat", skip=1)
+#cpus <- read.csv("cpu-postcopy-dest.dat", sep=",", head=TRUE)
 #print(cpus)
 #names(cpus)
 
