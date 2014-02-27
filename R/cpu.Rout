@@ -64,7 +64,7 @@ AC  415.64
 > #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > 
 > #barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> barplot((as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+> barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > 
 > # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 > #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
@@ -72,4 +72,4 @@ AC  415.64
 > 
 > proc.time()
    user  system elapsed 
-  0.687   0.033   0.712 
+  0.707   0.071   0.825 

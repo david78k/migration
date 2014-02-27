@@ -73,7 +73,7 @@ print(cpus)
 #barplot((as.matrix(benchmark)), xlab = "$xlabel", ylab = "$ylabel")
 
 #barplot((as.matrix(cpus)), beside = TRUE, xlab = "$xlabel", ylab = "$ylabel")
-barplot((as.matrix(cpus)), xlab = "$xlabel", ylab = "$ylabel")
+barplot(t(as.matrix(cpus)), xlab = "$xlabel", ylab = "$ylabel")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors($colors))
