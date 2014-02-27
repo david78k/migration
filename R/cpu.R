@@ -10,17 +10,18 @@ emf('cpu.emf')
 #cpus <- scan (pipe("awk '{print }' cpu.dat"), skip=2)
 #cpus <- read.table("cpu.dat", colClasses=3)
 #cpus <- scan("cpu.dat", skip=1)
-cpus <- read.table("cpu.dat")
-cpus
 
-#plot(cpus)
-hist(cpus)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("cpu.dat", header = TRUE, row.names = "time", check.names = FALSE)
 #benchmark <- read.table("cpu.dat", check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("cpu.dat", header = TRUE, check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("cpu.dat", check.names = FALSE)
+cpus <- read.table("", header = TRUE)
+cpus
+
+#plot(cpus)
+hist(cpus)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))

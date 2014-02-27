@@ -32,20 +32,16 @@ Loading required package: devEMF
 > #cpus <- scan (pipe("awk '{print }' cpu.dat"), skip=2)
 > #cpus <- read.table("cpu.dat", colClasses=3)
 > #cpus <- scan("cpu.dat", skip=1)
-> cpus <- read.table("cpu.dat")
-> cpus
-    V1      V2
-1 time  CPU(%)
-2   IC   513.6
-3   AC  415.64
-4    1 1146.33
-5    2  460.12
-6    4  409.48
-7    5  475.24
-8    6  388.35
 > 
-> #plot(cpus)
-> hist(cpus)
-Error in hist.default(cpus) : 'x' must be numeric
-Calls: hist -> hist.default
+> 
+> # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
+> #benchmark <- read.table("cpu.dat", header = TRUE, row.names = "time", check.names = FALSE)
+> #benchmark <- read.table("cpu.dat", check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("cpu.dat", header = TRUE, check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("cpu.dat", check.names = FALSE)
+> cpus <- read.table("", header = TRUE)
+Error in read.table("", header = TRUE) : no lines available in input
+In addition: Warning message:
+In file(file, "rt") :
+  file("") only supports open = "w+" and open = "w+b": using the former
 Execution halted
