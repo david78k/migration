@@ -21,7 +21,7 @@ emf('cpu.emf')
 #cpus <- scan("cpu.dat", skip=1)
 cpus <- read.csv("cpu.dat")
 print(cpus)
-names(cpus)
+#names(cpus)
 
 plot(cpus)
 #hist(cpus)

@@ -60,7 +60,7 @@ $cmd
 #cpus <- scan("$data", skip=1)
 cpus <- read.csv("$data")
 print(cpus)
-names(cpus)
+#names(cpus)
 
 plot(cpus)
 #hist(cpus)
