@@ -59,6 +59,7 @@ $cmd
 #cpus <- read.table("$data", header = TRUE)
 #cpus <- scan("$data", skip=1)
 cpus <- read.csv("$data")
+print(cpus)
 names(cpus)
 
 plot(cpus)

@@ -20,6 +20,7 @@ emf('cpu.emf')
 #cpus <- read.table("cpu.dat", header = TRUE)
 #cpus <- scan("cpu.dat", skip=1)
 cpus <- read.csv("cpu.dat")
+print(cpus)
 names(cpus)
 
 plot(cpus)
