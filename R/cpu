@@ -47,7 +47,7 @@ $cmd
 #emf("plot.emf")
 
 cpus <- scan (pipe("awk '{print $3}' $data"), skip=2)
-cpus <- read.table("$data")
+cpus <- read.table("$data", colClasses=3)
 cpus
 
 plot(cpus)
