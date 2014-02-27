@@ -49,4 +49,4 @@ In apply(height, 2L, cumsum) : NAs introduced by coercion
 > 
 > proc.time()
    user  system elapsed 
-  0.684   0.034   0.711 
+  0.685   0.035   0.712 
