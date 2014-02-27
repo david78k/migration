@@ -19,7 +19,7 @@ emf('cpu-postcopy-refined.emf')
 #cpus <- read.table("cpu-postcopy-refined.dat", header = TRUE, row.name = "time")
 #cpus <- read.table("cpu-postcopy-refined.dat", skip=2)
 #cpus <- scan("cpu-postcopy-refined.dat", skip=1)
-cpus <- read.csv("cpu-postcopy-refined.dat", sep=",", head=TRUE)
+#cpus <- read.csv("cpu-postcopy-refined.dat", sep=",", head=TRUE)
 #print(cpus)
 #names(cpus)
 
@@ -36,7 +36,7 @@ plot(cpus)
 #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
 #barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-#barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot(cpus, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
