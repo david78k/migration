@@ -17,7 +17,7 @@ emf('cpu.emf')
 #benchmark <- read.table("cpu.dat", check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("cpu.dat", header = TRUE, check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("cpu.dat", check.names = FALSE)
-cpus <- read.table("cpu.dat", header = TRUE)
+cpus <- read.table("cpu.dat", header = TRUE, row.name = "time")
 cpus
 
 #plot(cpus)
