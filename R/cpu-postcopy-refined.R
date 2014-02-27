@@ -25,7 +25,8 @@ cpus <- read.table("cpu-postcopy-refined.dat", skip=2)
 
 #stripchart(cpus)
 #plot(cpus)
-hist(cpus)
+#hist(cpus)
+boxplot(cpus)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
