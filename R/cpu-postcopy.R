@@ -8,6 +8,7 @@ emf('cpu-postcopy.emf')
 #emf("plot.emf")
 
 cpus <- scan (pipe("awk '{print }' cpu-postcopy.dat"), skip=2)
+cpus <- read.table("cpu-postcopy.dat")
 cpus
 
 plot(cpus)
