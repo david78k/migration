@@ -53,7 +53,7 @@ Loading required package: devEMF
 7    6  388.35
 > #names(cpus)
 > 
-> plot(cpus)
+> #plot(cpus)
 > #hist(cpus)
 > 
 > # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
@@ -62,7 +62,9 @@ Loading required package: devEMF
 > #barplot(benchmark, beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > #barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 > #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-> #barplot((as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+> barplot((as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+Warning message:
+In apply(height, 2L, cumsum) : NAs introduced by coercion
 > 
 > # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 > #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
@@ -70,4 +72,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.729   0.034   0.755 
+  0.692   0.029   0.712 

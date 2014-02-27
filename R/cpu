@@ -62,7 +62,7 @@ cpus <- read.table("$data", header = TRUE)
 print(cpus)
 #names(cpus)
 
-plot(cpus)
+#plot(cpus)
 #hist(cpus)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
@@ -71,7 +71,7 @@ plot(cpus)
 #barplot(benchmark, beside = TRUE, xlab = "$xlabel", ylab = "$ylabel")
 #barplot((as.matrix(benchmark)), col = heat.colors($colors), xlab = "$xlabel", ylab = "$ylabel")
 #barplot((as.matrix(benchmark)), xlab = "$xlabel", ylab = "$ylabel")
-#barplot((as.matrix(cpus)), xlab = "$xlabel", ylab = "$ylabel")
+barplot((as.matrix(cpus)), xlab = "$xlabel", ylab = "$ylabel")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors($colors))
