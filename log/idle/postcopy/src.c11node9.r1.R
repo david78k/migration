@@ -17,7 +17,7 @@ emf('../log/idle/postcopy/src.c11node9.r1.emf')
 #benchmark <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", check.names = FALSE)
 
 #cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", header = TRUE, row.name = "time")
-cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", skip=2)
+cpus <- read.table("../log/idle/postcopy/src.c11node9.r1.cpu", skip=1)
 #cpus <- scan("../log/idle/postcopy/src.c11node9.r1.cpu", skip=1)
 #cpus <- read.csv("../log/idle/postcopy/src.c11node9.r1.cpu", sep=",", head=TRUE)
 #print(cpus)
