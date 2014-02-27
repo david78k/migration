@@ -15,8 +15,8 @@ benchmark <- read.table("cpu.dat", header = TRUE, row.names = "time", check.name
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
 #barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-#barplot((as.matrix(benchmark)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+barplot((as.matrix(benchmark)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+#barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
