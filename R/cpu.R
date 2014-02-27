@@ -32,7 +32,9 @@ print(cpus)
 #barplot(benchmark, beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+
+#barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+barplot((as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
