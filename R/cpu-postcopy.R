@@ -9,7 +9,8 @@ emf('cpu-postcopy.emf')
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("cpu-postcopy.dat", header = TRUE, row.names = "time", check.names = FALSE)
-benchmark <- read.table("cpu-postcopy.dat", header = TRUE, check.names = FALSE, comment.char = "#")
+benchmark <- read.table("cpu-postcopy.dat", check.names = FALSE, comment.char = "#")
+#benchmark <- read.table("cpu-postcopy.dat", header = TRUE, check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("cpu-postcopy.dat", check.names = FALSE)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors

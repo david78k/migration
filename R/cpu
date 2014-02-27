@@ -48,7 +48,8 @@ $cmd
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("$data", header = TRUE, row.names = "time", check.names = FALSE)
-benchmark <- read.table("$data", header = TRUE, check.names = FALSE, comment.char = "#")
+benchmark <- read.table("$data", check.names = FALSE, comment.char = "#")
+#benchmark <- read.table("$data", header = TRUE, check.names = FALSE, comment.char = "#")
 #benchmark <- read.table("$data", check.names = FALSE)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
