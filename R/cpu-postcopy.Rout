@@ -29,17 +29,7 @@ Loading required package: devEMF
 > #postscript("plot.eps")
 > #emf("plot.emf")
 > 
-> #cpus <- scan (pipe("awk '{print }' cpu-postcopy.dat"), skip=2)
-> #cpus <- read.table("cpu-postcopy.dat", colClasses=3)
-> 
-> # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-> #benchmark <- read.table("cpu-postcopy.dat", header = TRUE, row.names = "time", check.names = FALSE)
-> #benchmark <- read.table("cpu-postcopy.dat", check.names = FALSE, comment.char = "#")
-> #benchmark <- read.table("cpu-postcopy.dat", header = TRUE, check.names = FALSE, comment.char = "#")
-> #benchmark <- read.table("cpu-postcopy.dat", check.names = FALSE)
-> 
-> #cpus <- read.table("cpu-postcopy.dat", header = TRUE, row.name = "time")
-> cpus <- read.table("cpu-postcopy.dat", header = TRUE)
-Error in read.table("cpu-postcopy.dat", header = TRUE) : 
-  more columns than column names
+> cpus <- scan (pipe("awk '{print }' cpu-postcopy.dat"), skip=2)
+Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
+  scan() expected 'a real', got '0|9445B'
 Execution halted

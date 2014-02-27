@@ -7,7 +7,7 @@ emf('cpu-postcopy.emf')
 #postscript("plot.eps")
 #emf("plot.emf")
 
-#cpus <- scan (pipe("awk '{print }' cpu-postcopy.dat"), skip=2)
+cpus <- scan (pipe("awk '{print }' cpu-postcopy.dat"), skip=2)
 #cpus <- read.table("cpu-postcopy.dat", colClasses=3)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
@@ -17,11 +17,13 @@ emf('cpu-postcopy.emf')
 #benchmark <- read.table("cpu-postcopy.dat", check.names = FALSE)
 
 #cpus <- read.table("cpu-postcopy.dat", header = TRUE, row.name = "time")
-cpus <- read.table("cpu-postcopy.dat", header = TRUE)
+#cpus <- read.table("cpu-postcopy.dat", header = TRUE)
 #cpus <- scan("cpu-postcopy.dat", skip=1)
-#cpus
+#cpus <- read.csv("cpu-postcopy.dat", sep=",", head=TRUE)
+print(cpus)
+#names(cpus)
 
-plot(cpus)
+#plot(cpus)
 #hist(cpus)
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
@@ -30,7 +32,9 @@ plot(cpus)
 #barplot(benchmark, beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-#barplot((as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+
+#barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+barplot(t(as.matrix(cpus)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
