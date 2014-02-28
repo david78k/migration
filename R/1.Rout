@@ -39,7 +39,7 @@ Loading required package: devEMF
 > #benchmark <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", check.names = FALSE)
 > 
 > #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", header = TRUE, row.name = "time")
-> cpus <- read.table(pipe("awk '{print }' ../log/kernelcompile/precopy/default/default/default/default/default/1.dstat"), skip=2)
+> cpus <- read.table(pipe("awk '{print }' ../log/kernelcompile/precopy/default/default/default/default/default/1.dstat | sed '1,2d'"))
 Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
   line 2 did not have 15 elements
 Calls: read.table -> scan
