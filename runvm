@@ -20,6 +20,7 @@ version=qemu-postcopy # qemu 1.1.50
 sshport=5555
 #sshport=5554
 network=local
+network=public
 
 nic="virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0"
 

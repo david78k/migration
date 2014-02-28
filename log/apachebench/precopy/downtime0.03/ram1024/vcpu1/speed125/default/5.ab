@@ -1,0 +1,36 @@
+Server Software:        Apache/2.2.16
+Server Hostname:        10.244.39.141
+Server Port:            80
+
+Document Path:          /image.jpg
+Document Length:        524076 bytes
+
+Concurrency Level:      100
+Time taken for tests:   92.738 seconds
+Complete requests:      15296
+Failed requests:        0
+Write errors:           0
+Total transferred:      8034821920 bytes
+HTML transferred:       8030821820 bytes
+Requests per second:    164.94 [#/sec] (mean)
+Time per request:       606.289 [ms] (mean)
+Time per request:       6.063 [ms] (mean, across all concurrent requests)
+Transfer rate:          84609.43 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        2   31   9.6     28     133
+Processing:   160  573  66.0    588     794
+Waiting:        4   33  13.9     29     250
+Total:        165  604  69.1    617     818
+
+Percentage of the requests served within a certain time (ms)
+  50%    617
+  66%    635
+  75%    647
+  80%    654
+  90%    667
+  95%    684
+  98%    692
+  99%    702
+ 100%    818 (longest request)
