@@ -40,7 +40,7 @@ Loading required package: devEMF
 > 
 > #cpus <- read.table("../log/apachebench/precopy/default/ram1024/default/default/default/6.dstat", header = TRUE, row.name = "time")
 > #cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/precopy/default/ram1024/default/default/default/6.dstat | sed '1,2d'"))
-> cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/precopy/default/ram1024/default/default/default/6.dstat"), skip=3, nrows=27)
+> cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/precopy/default/ram1024/default/default/default/6.dstat"), skip=3, nrows=-1)
 > #cpus <- read.table("../log/apachebench/precopy/default/ram1024/default/default/default/6.dstat", skip=1)
 > #cpus <- scan("../log/apachebench/precopy/default/ram1024/default/default/default/6.dstat", skip=1)
 > #cpus <- read.csv("../log/apachebench/precopy/default/ram1024/default/default/default/6.dstat", sep=",", head=TRUE)
@@ -67,4 +67,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.701   0.049   0.743 
+  0.687   0.048   0.726 
