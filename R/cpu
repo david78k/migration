@@ -43,7 +43,7 @@ function genplot() {
 skip=3 
 
 # max number of lines to read
-nrows=80 
+nrows=28 
 #nrows=-1 # unlimited
 
 cat >$script << EOF
