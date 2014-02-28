@@ -40,6 +40,7 @@ function genplot() {
 
 skip=30 # number of first lines to skip
 nrows=70 # max number of lines to read
+nrows=-1 # unlimited
 
 cat >$script << EOF
 library(ggplot2)
