@@ -23,27 +23,27 @@ Type 'q()' to quit R.
 > 
 > require(devEMF)
 Loading required package: devEMF
-> emf('../log/kernelcompile/postcopy/1.emf')
+> emf('../log/apachebench/postcopy/1.emf')
 > 
-> #png("../log/kernelcompile/postcopy/1.emf")
+> #png("../log/apachebench/postcopy/1.emf")
 > #postscript("plot.eps")
 > #emf("plot.emf")
 > 
-> #cpus <- scan (pipe("awk '{print }' ../log/kernelcompile/postcopy/1.dstat"), skip=2)
-> #cpus <- read.table("../log/kernelcompile/postcopy/1.dstat", colClasses=3)
+> #cpus <- scan (pipe("awk '{print }' ../log/apachebench/postcopy/1.dstat"), skip=2)
+> #cpus <- read.table("../log/apachebench/postcopy/1.dstat", colClasses=3)
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-> #benchmark <- read.table("../log/kernelcompile/postcopy/1.dstat", header = TRUE, row.names = "time", check.names = FALSE)
-> #benchmark <- read.table("../log/kernelcompile/postcopy/1.dstat", check.names = FALSE, comment.char = "#")
-> #benchmark <- read.table("../log/kernelcompile/postcopy/1.dstat", header = TRUE, check.names = FALSE, comment.char = "#")
-> #benchmark <- read.table("../log/kernelcompile/postcopy/1.dstat", check.names = FALSE)
+> #benchmark <- read.table("../log/apachebench/postcopy/1.dstat", header = TRUE, row.names = "time", check.names = FALSE)
+> #benchmark <- read.table("../log/apachebench/postcopy/1.dstat", check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("../log/apachebench/postcopy/1.dstat", header = TRUE, check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("../log/apachebench/postcopy/1.dstat", check.names = FALSE)
 > 
-> #cpus <- read.table("../log/kernelcompile/postcopy/1.dstat", header = TRUE, row.name = "time")
-> #cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/postcopy/1.dstat | sed '1,2d'"))
-> cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/postcopy/1.dstat"), skip=3, nrows=-1)
-> #cpus <- read.table("../log/kernelcompile/postcopy/1.dstat", skip=1)
-> #cpus <- scan("../log/kernelcompile/postcopy/1.dstat", skip=1)
-> #cpus <- read.csv("../log/kernelcompile/postcopy/1.dstat", sep=",", head=TRUE)
+> #cpus <- read.table("../log/apachebench/postcopy/1.dstat", header = TRUE, row.name = "time")
+> #cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/postcopy/1.dstat | sed '1,2d'"))
+> cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/postcopy/1.dstat"), skip=3, nrows=-1)
+> #cpus <- read.table("../log/apachebench/postcopy/1.dstat", skip=1)
+> #cpus <- scan("../log/apachebench/postcopy/1.dstat", skip=1)
+> #cpus <- read.csv("../log/apachebench/postcopy/1.dstat", sep=",", head=TRUE)
 > #print(cpus)
 > #names(cpus)
 > 
@@ -67,4 +67,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.680   0.047   0.720 
+  1.417   0.047   1.453 
