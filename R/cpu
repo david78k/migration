@@ -38,8 +38,12 @@ function genplot() {
 
 #rm $figure
 
-skip=30 # number of first lines to skip
-nrows=70 # max number of lines to read
+# number of first lines to skip
+#skip=30 
+skip=3 
+
+# max number of lines to read
+#nrows=70 
 nrows=-1 # unlimited
 
 cat >$script << EOF
