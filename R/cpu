@@ -39,6 +39,7 @@ function genplot() {
 #rm $figure
 
 skip=30 # number of first lines to skip
+nrows=100 # max number of lines to read
 
 cat >$script << EOF
 library(ggplot2)
@@ -61,7 +62,7 @@ $cmd
 
 #cpus <- read.table("$data", header = TRUE, row.name = "time")
 #cpus <- read.table(pipe("awk '{print \$3}' $data | sed '1,2d'"))
-cpus <- read.table(pipe("awk '{print \$3}' $data"), skip=$skip)
+cpus <- read.table(pipe("awk '{print \$3}' $data"), skip=$skip, nrows=$nrows)
 #cpus <- read.table("$data", skip=1)
 #cpus <- scan("$data", skip=1)
 #cpus <- read.csv("$data", sep=",", head=TRUE)
@@ -77,8 +78,6 @@ cpus <- read.table(pipe("awk '{print \$3}' $data"), skip=$skip)
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors))
 #barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors), xlab = "$xlabel", ylab = "$ylabel")
 #barplot(benchmark, beside = TRUE, xlab = "$xlabel", ylab = "$ylabel")
-#barplot((as.matrix(benchmark)), col = heat.colors($colors), xlab = "$xlabel", ylab = "$ylabel")
-#barplot((as.matrix(benchmark)), xlab = "$xlabel", ylab = "$ylabel")
 
 #barplot((as.matrix(cpus)), beside = TRUE, xlab = "$xlabel", ylab = "$ylabel")
 barplot(t(100 - as.matrix(cpus)), ylim = c(0, 100), cex.axis = 1.5, cex.lab = 1.5, cex.names = 1.5, xlab = "$xlabel", ylab = "$ylabel")

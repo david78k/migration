@@ -18,7 +18,7 @@ emf('../log/kernelcompile/precopy/default/default/default/default/default/1.emf'
 
 #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", header = TRUE, row.name = "time")
 #cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dstat | sed '1,2d'"))
-cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dstat"), skip=30)
+cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dstat"), skip=30, nrows=100)
 #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", skip=1)
 #cpus <- scan("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", skip=1)
 #cpus <- read.csv("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", sep=",", head=TRUE)
@@ -34,8 +34,6 @@ cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/d
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
 #barplot((as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU UTILIZATION (%)")
 #barplot(benchmark, beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU UTILIZATION (%)")
-#barplot((as.matrix(benchmark)), col = heat.colors(6), xlab = "TIME (SEC)", ylab = "CPU UTILIZATION (%)")
-#barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU UTILIZATION (%)")
 
 #barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU UTILIZATION (%)")
 barplot(t(100 - as.matrix(cpus)), ylim = c(0, 100), cex.axis = 1.5, cex.lab = 1.5, cex.names = 1.5, xlab = "TIME (SEC)", ylab = "CPU UTILIZATION (%)")
