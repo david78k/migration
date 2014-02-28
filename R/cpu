@@ -18,7 +18,7 @@ emf=${name}.emf
 eps=${name}.eps
 
 xlabel="TIME (SEC)"
-ylabel="CPU USAGE (%)"
+ylabel="CPU UTILIZATION (%)"
 
 colors=6
 
