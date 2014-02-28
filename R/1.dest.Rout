@@ -23,27 +23,27 @@ Type 'q()' to quit R.
 > 
 > require(devEMF)
 Loading required package: devEMF
-> emf('../log/kernelcompile/precopy/default/default/default/default/default/1.dest.emf')
+> emf('../log/kernelcompile/postcopy/1.dest.emf')
 > 
-> #png("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.emf")
+> #png("../log/kernelcompile/postcopy/1.dest.emf")
 > #postscript("plot.eps")
 > #emf("plot.emf")
 > 
-> #cpus <- scan (pipe("awk '{print }' ../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat"), skip=2)
-> #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", colClasses=3)
+> #cpus <- scan (pipe("awk '{print }' ../log/kernelcompile/postcopy/1.dest.dstat"), skip=2)
+> #cpus <- read.table("../log/kernelcompile/postcopy/1.dest.dstat", colClasses=3)
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-> #benchmark <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", header = TRUE, row.names = "time", check.names = FALSE)
-> #benchmark <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", check.names = FALSE, comment.char = "#")
-> #benchmark <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", header = TRUE, check.names = FALSE, comment.char = "#")
-> #benchmark <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", check.names = FALSE)
+> #benchmark <- read.table("../log/kernelcompile/postcopy/1.dest.dstat", header = TRUE, row.names = "time", check.names = FALSE)
+> #benchmark <- read.table("../log/kernelcompile/postcopy/1.dest.dstat", check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("../log/kernelcompile/postcopy/1.dest.dstat", header = TRUE, check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("../log/kernelcompile/postcopy/1.dest.dstat", check.names = FALSE)
 > 
-> #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", header = TRUE, row.name = "time")
-> #cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat | sed '1,2d'"))
-> cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat"), skip=30, nrows=70)
-> #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", skip=1)
-> #cpus <- scan("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", skip=1)
-> #cpus <- read.csv("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", sep=",", head=TRUE)
+> #cpus <- read.table("../log/kernelcompile/postcopy/1.dest.dstat", header = TRUE, row.name = "time")
+> #cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/postcopy/1.dest.dstat | sed '1,2d'"))
+> cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/postcopy/1.dest.dstat"), skip=3, nrows=-1)
+> #cpus <- read.table("../log/kernelcompile/postcopy/1.dest.dstat", skip=1)
+> #cpus <- scan("../log/kernelcompile/postcopy/1.dest.dstat", skip=1)
+> #cpus <- read.csv("../log/kernelcompile/postcopy/1.dest.dstat", sep=",", head=TRUE)
 > #print(cpus)
 > #names(cpus)
 > 
@@ -67,4 +67,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.697   0.040   0.730 
+  0.697   0.036   0.726 
