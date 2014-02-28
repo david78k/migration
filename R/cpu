@@ -38,7 +38,7 @@ function genplot() {
 
 #rm $figure
 
-#awk '{print $3}' $data  
+skip=15 # number of first lines to skip
 
 cat >$script << EOF
 library(ggplot2)
@@ -61,7 +61,7 @@ $cmd
 
 #cpus <- read.table("$data", header = TRUE, row.name = "time")
 #cpus <- read.table(pipe("awk '{print \$3}' $data | sed '1,2d'"))
-cpus <- read.table(pipe("awk '{print \$3}' $data"), skip=3)
+cpus <- read.table(pipe("awk '{print \$3}' $data"), skip=$skip)
 #cpus <- read.table("$data", skip=1)
 #cpus <- scan("$data", skip=1)
 #cpus <- read.csv("$data", sep=",", head=TRUE)
