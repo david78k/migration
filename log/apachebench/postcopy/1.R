@@ -18,7 +18,7 @@ emf('../log/apachebench/postcopy/1.emf')
 
 #cpus <- read.table("../log/apachebench/postcopy/1.dstat", header = TRUE, row.name = "time")
 #cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/postcopy/1.dstat | sed '1,2d'"))
-cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/postcopy/1.dstat"), skip=3, nrows=50)
+cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/postcopy/1.dstat"), skip=3, nrows=80)
 #cpus <- read.table("../log/apachebench/postcopy/1.dstat", skip=1)
 #cpus <- scan("../log/apachebench/postcopy/1.dstat", skip=1)
 #cpus <- read.csv("../log/apachebench/postcopy/1.dstat", sep=",", head=TRUE)
