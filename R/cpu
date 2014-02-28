@@ -38,7 +38,7 @@ function genplot() {
 
 #rm $figure
 
-skip=15 # number of first lines to skip
+skip=30 # number of first lines to skip
 
 cat >$script << EOF
 library(ggplot2)

@@ -18,7 +18,7 @@ emf('../log/kernelcompile/precopy/default/default/default/default/default/1.dest
 
 #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", header = TRUE, row.name = "time")
 #cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat | sed '1,2d'"))
-cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat"), skip=15)
+cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat"), skip=30)
 #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", skip=1)
 #cpus <- scan("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", skip=1)
 #cpus <- read.csv("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", sep=",", head=TRUE)
