@@ -36,7 +36,7 @@ cpus <- read.table("../log/idle/postcopy/cpu-postcopy-dest.dat", skip=1)
 #barplot((as.matrix(benchmark)), xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
 #barplot((as.matrix(cpus)), beside = TRUE, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
-barplot(t(10 - as.matrix(cpus)), cex.axis = 1.5, cex.lab = 1.5, cex.names = 1.5, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
+barplot(t(100 - as.matrix(cpus)), cex.axis = 1.5, cex.lab = 1.5, cex.names = 1.5, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 #barplot(cpus, xlab = "TIME (SEC)", ylab = "CPU USAGE (%)")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
