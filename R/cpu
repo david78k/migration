@@ -38,6 +38,8 @@ function genplot() {
 
 #rm $figure
 
+#awk '{print $3}' $data  
+
 cat >$script << EOF
 library(ggplot2)
 
@@ -58,7 +60,8 @@ $cmd
 #benchmark <- read.table("$data", check.names = FALSE)
 
 #cpus <- read.table("$data", header = TRUE, row.name = "time")
-cpus <- read.table("$data", skip=1)
+cpus <- read.table(pipe("awk '{print $3}' $data"), skip=2)
+#cpus <- read.table("$data", skip=1)
 #cpus <- scan("$data", skip=1)
 #cpus <- read.csv("$data", sep=",", head=TRUE)
 #print(cpus)

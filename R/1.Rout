@@ -1,0 +1,46 @@
+
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(ggplot2)
+> 
+> require(devEMF)
+Loading required package: devEMF
+> emf('../log/kernelcompile/precopy/default/default/default/default/default/1.emf')
+> 
+> #png("../log/kernelcompile/precopy/default/default/default/default/default/1.emf")
+> #postscript("plot.eps")
+> #emf("plot.emf")
+> 
+> #cpus <- scan (pipe("awk '{print }' ../log/kernelcompile/precopy/default/default/default/default/default/1.dstat"), skip=2)
+> #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", colClasses=3)
+> 
+> # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
+> #benchmark <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", header = TRUE, row.names = "time", check.names = FALSE)
+> #benchmark <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", header = TRUE, check.names = FALSE, comment.char = "#")
+> #benchmark <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", check.names = FALSE)
+> 
+> #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dstat", header = TRUE, row.name = "time")
+> cpus <- read.table(pipe("awk '{print }' ../log/kernelcompile/precopy/default/default/default/default/default/1.dstat"), skip=2)
+Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
+  line 2 did not have 15 elements
+Calls: read.table -> scan
+Execution halted
