@@ -40,7 +40,7 @@ Loading required package: devEMF
 > 
 > #cpus <- read.table("../log/apachebench/postcopy/1.dest.dstat", header = TRUE, row.name = "time")
 > #cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/postcopy/1.dest.dstat | sed '1,2d'"))
-> cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/postcopy/1.dest.dstat"), skip=3, nrows=-1)
+> cpus <- read.table(pipe("awk '{print $3}' ../log/apachebench/postcopy/1.dest.dstat"), skip=3, nrows=28)
 > #cpus <- read.table("../log/apachebench/postcopy/1.dest.dstat", skip=1)
 > #cpus <- scan("../log/apachebench/postcopy/1.dest.dstat", skip=1)
 > #cpus <- read.csv("../log/apachebench/postcopy/1.dest.dstat", sep=",", head=TRUE)
@@ -67,4 +67,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.700   0.049   0.741 
+  0.686   0.050   0.728 
