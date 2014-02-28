@@ -40,7 +40,7 @@ Loading required package: devEMF
 > 
 > #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", header = TRUE, row.name = "time")
 > #cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat | sed '1,2d'"))
-> cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat"), skip=30, nrows=100)
+> cpus <- read.table(pipe("awk '{print $3}' ../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat"), skip=30, nrows=70)
 > #cpus <- read.table("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", skip=1)
 > #cpus <- scan("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", skip=1)
 > #cpus <- read.csv("../log/kernelcompile/precopy/default/default/default/default/default/1.dest.dstat", sep=",", head=TRUE)
@@ -67,4 +67,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.708   0.039   0.737 
+  0.697   0.040   0.730 
