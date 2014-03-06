@@ -1,0 +1,86 @@
+migration: iterate 0
+migration: pending size 1082744832 max 0
+migration: iterate 1
+migration: pending size 1062817792 max 0
+migration: transferred 12828375 time_spent 118 bandwidth 108715 max_size 3261450 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 2
+migration: pending size 1053638656 max 3261450
+migration: iterate 3
+migration: pending size 1046294528 max 3261450
+migration: transferred 13108760 time_spent 100 bandwidth 131087 max_size 3932610 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 4
+migration: pending size 1040302080 max 3932610
+migration: iterate 5
+migration: pending size 887468032 max 3932610
+migration: transferred 2361446 time_spent 103 bandwidth 22926 max_size 687780 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 6
+migration: pending size 692428800 max 687780
+migration: iterate 7
+migration: pending size 497389568 max 687780
+migration: transferred 857708 time_spent 102 bandwidth 8408 max_size 252240 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 8
+migration: pending size 302088192 max 252240
+migration: iterate 9
+migration: pending size 278753280 max 252240
+migration: transferred 13110992 time_spent 100 bandwidth 131109 max_size 3933270 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 10
+migration: pending size 274690048 max 3933270
+migration: iterate 11
+migration: pending size 98525184 max 3933270
+migration: transferred 12806360 time_spent 117 bandwidth 109456 max_size 3283680 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 12
+migration: pending size 89608192 max 3283680
+migration: iterate 13
+migration: pending size 80166912 max 3283680
+migration: transferred 12605615 time_spent 103 bandwidth 122384 max_size 3671520 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 14
+migration: pending size 72298496 max 3671520
+migration: iterate 15
+migration: pending size 65740800 max 3671520
+migration: transferred 11779766 time_spent 102 bandwidth 115487 max_size 3464610 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 16
+migration: pending size 59969536 max 3464610
+migration: iterate 17
+migration: pending size 53411840 max 3464610
+migration: transferred 11825900 time_spent 104 bandwidth 113710 max_size 3411300 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 18
+migration: pending size 45281280 max 3411300
+migration: iterate 19
+migration: pending size 37675008 max 3411300
+migration: transferred 12444821 time_spent 104 bandwidth 119661 max_size 3589830 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 20
+migration: pending size 30330880 max 3589830
+migration: iterate 21
+migration: pending size 23248896 max 3589830
+migration: transferred 12214925 time_spent 104 bandwidth 117451 max_size 3523530 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 22
+migration: pending size 15642624 max 3523530
+migration: iterate 23
+migration: pending size 8560640 max 3523530
+migration: iterate 24
+migration: pending size 3051520 max 3523530
+migration: done iterating
+migration: closing file
+
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off
+Migration status: completed
+Iterations: 24
+total time: 1280 milliseconds
+downtime: 64 milliseconds
+stoptime: 58 milliseconds
+copytime: 6 milliseconds
+setup: 11 milliseconds
+transferred ram: 122060 kbytes
+throughput: 939.61 mbps
+remaining ram: 0 kbytes
+total ram: 1057368 kbytes
+total pages: 264342 pages
+dirty pages: 4503599627136669 pages
+dirty bytes: 18446744073708616308 kbytes
+average dirty pages rate: 0 pages
+duplicate: 235147 pages
+skipped: 0 pages
+normal: 29940 pages
+normal bytes: 119760 kbytes
+

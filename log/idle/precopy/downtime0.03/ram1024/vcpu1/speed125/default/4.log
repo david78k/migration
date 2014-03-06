@@ -1,0 +1,21 @@
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off
+Migration status: completed
+Iterations: 24
+total time: 1280 milliseconds
+downtime: 64 milliseconds
+stoptime: 58 milliseconds
+copytime: 6 milliseconds
+setup: 11 milliseconds
+transferred ram: 122060 kbytes
+throughput: 939.61 mbps
+remaining ram: 0 kbytes
+total ram: 1057368 kbytes
+total pages: 264342 pages
+dirty pages: 4503599627136669 pages
+dirty bytes: 18446744073708616308 kbytes
+average dirty pages rate: 0 pages
+duplicate: 235147 pages
+skipped: 0 pages
+normal: 29940 pages
+normal bytes: 119760 kbytes
+
