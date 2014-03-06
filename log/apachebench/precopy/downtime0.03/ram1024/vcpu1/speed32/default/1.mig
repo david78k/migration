@@ -1,0 +1,153 @@
+migration: iterate 0
+migration: pending size 1082744832 max 0
+migration: transferred 3355583 time_spent 100 bandwidth 33555 max_size 1006650 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 1
+migration: pending size 1065295872 max 1006650
+migration: transferred 3357103 time_spent 100 bandwidth 33571 max_size 1007130 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 2
+migration: pending size 1061937152 max 1007130
+migration: transferred 3359047 time_spent 101 bandwidth 33257 max_size 997710 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 3
+migration: pending size 1057693696 max 997710
+migration: transferred 3356374 time_spent 100 bandwidth 33563 max_size 1006890 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 4
+migration: pending size 1052803072 max 1006890
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 5
+migration: pending size 1049452544 max 1007100
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 6
+migration: pending size 1046102016 max 1007100
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 7
+migration: pending size 1042751488 max 1007100
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 8
+migration: pending size 1039400960 max 1007100
+migration: iterate 9
+migration: pending size 849866752 max 1007100
+migration: transferred 1527362 time_spent 102 bandwidth 14974 max_size 449220 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 10
+migration: pending size 661118976 max 449220
+migration: iterate 11
+migration: pending size 466079744 max 449220
+migration: transferred 3356063 time_spent 100 bandwidth 33560 max_size 1006800 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 12
+migration: pending size 287367168 max 1006800
+migration: transferred 3358147 time_spent 100 bandwidth 33581 max_size 1007430 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 13
+migration: pending size 283533312 max 1007430
+migration: transferred 3358606 time_spent 100 bandwidth 33586 max_size 1007580 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 14
+migration: pending size 279490560 max 1007580
+migration: transferred 3357445 time_spent 100 bandwidth 33574 max_size 1007220 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 15
+migration: pending size 275976192 max 1007220
+migration: transferred 3356455 time_spent 100 bandwidth 33564 max_size 1006920 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 16
+migration: pending size 105181184 max 1006920
+migration: transferred 3356446 time_spent 100 bandwidth 33564 max_size 1006920 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 17
+migration: pending size 100257792 max 1006920
+migration: transferred 3357733 time_spent 100 bandwidth 33577 max_size 1007310 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 18
+migration: pending size 96612352 max 1007310
+migration: transferred 3358327 time_spent 100 bandwidth 33583 max_size 1007490 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 19
+migration: pending size 90832896 max 1007490
+migration: transferred 3359425 time_spent 100 bandwidth 33594 max_size 1007820 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 20
+migration: pending size 86417408 max 1007820
+migration: transferred 3357832 time_spent 100 bandwidth 33578 max_size 1007340 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 21
+migration: pending size 82726912 max 1007340
+migration: transferred 3357904 time_spent 100 bandwidth 33579 max_size 1007370 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 22
+migration: pending size 77139968 max 1007370
+migration: transferred 3358867 time_spent 100 bandwidth 33588 max_size 1007640 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 23
+migration: pending size 72978432 max 1007640
+migration: transferred 3358912 time_spent 100 bandwidth 33589 max_size 1007670 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 24
+migration: pending size 68796416 max 1007670
+migration: transferred 3357274 time_spent 100 bandwidth 33572 max_size 1007160 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 25
+migration: pending size 65359872 max 1007160
+migration: transferred 3358120 time_spent 100 bandwidth 33581 max_size 1007430 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 26
+migration: pending size 61538304 max 1007430
+migration: transferred 3357148 time_spent 100 bandwidth 33571 max_size 1007130 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 27
+migration: pending size 58159104 max 1007130
+migration: transferred 3358606 time_spent 100 bandwidth 33586 max_size 1007580 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 28
+migration: pending size 54116352 max 1007580
+migration: transferred 3355870 time_spent 100 bandwidth 33558 max_size 1006740 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 29
+migration: pending size 49455104 max 1006740
+migration: transferred 3357094 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 30
+migration: pending size 46100480 max 1007100
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 31
+migration: pending size 42749952 max 1007100
+migration: transferred 3358552 time_spent 100 bandwidth 33585 max_size 1007550 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 32
+migration: pending size 38731776 max 1007550
+migration: transferred 3355753 time_spent 100 bandwidth 33557 max_size 1006710 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 33
+migration: pending size 34123776 max 1006710
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 34
+migration: pending size 30773248 max 1007100
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 35
+migration: pending size 27422720 max 1007100
+migration: transferred 3359380 time_spent 101 bandwidth 33261 max_size 997830 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 36
+migration: pending size 23027712 max 997830
+migration: transferred 3359137 time_spent 100 bandwidth 33591 max_size 1007730 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 37
+migration: pending size 18743296 max 1007730
+migration: transferred 3355474 time_spent 100 bandwidth 33554 max_size 1006620 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 38
+migration: pending size 14262272 max 1006620
+migration: transferred 3357112 time_spent 100 bandwidth 33571 max_size 1007130 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate 39
+migration: pending size 10899456 max 1007130
+migration: iterate 40
+migration: pending size 9940992 max 1007130
+migration: transferred 3355602 time_spent 100 bandwidth 33556 max_size 1006680 dirty_bytes_rate 2678784 expected_downtime 30
+migration: iterate 41
+migration: pending size 8925184 max 1006680
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 2678784 expected_downtime 79
+migration: iterate 42
+migration: pending size 5574656 max 1007100
+migration: transferred 3358858 time_spent 100 bandwidth 33588 max_size 1007640 dirty_bytes_rate 2678784 expected_downtime 79
+migration: iterate 43
+migration: pending size 1417216 max 1007640
+migration: iterate 44
+migration: pending size 3518464 max 1007640
+migration: transferred 3357107 time_spent 100 bandwidth 33571 max_size 1007130 dirty_bytes_rate 2678784 expected_downtime 79
+migration: iterate 45
+migration: pending size 1581056 max 1007130
+migration: iterate 46
+migration: pending size 3452928 max 1007130
+migration: transferred 3357098 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 2678784 expected_downtime 79
+migration: iterate 47
+migration: pending size 1683456 max 1007100
+migration: iterate 48
+migration: pending size 2953216 max 1007100
+migration: transferred 3357098 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 2678784 expected_downtime 79
+migration: iterate 49
+migration: pending size 1286144 max 1007100
+migration: iterate 50
+migration: pending size 2965504 max 1007100
+migration: transferred 3357098 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 2678784 expected_downtime 79
+migration: iterate 51
+migration: pending size 3112960 max 1007100
+migration: iterate 52
+migration: pending size 282624 max 1007100
+migration: done iterating
+migration: closing file
+
