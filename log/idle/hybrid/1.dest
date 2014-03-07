@@ -1,0 +1,447 @@
+6162:6162 postcopy_incoming_loadvm_init:1226: postcopy_incoming_loadvm_init
+6162:6162 postcopy_incoming_loadvm_init:1255: detected POSTCOPY precpoy 1
+arch_init: total_ram_bytes 40890000
+arch_init: Completed load of VM with exit code 0 seq iteration 1
+6162:6162 postcopy_incoming_umem_block_from_stream:1869: idstr: pc.ram len 6
+arch_init: Completed load of VM with exit code 0 seq iteration 2
+arch_init: Completed load of VM with exit code 0 seq iteration 3
+arch_init: Completed load of VM with exit code 0 seq iteration 4
+arch_init: Completed load of VM with exit code 0 seq iteration 5
+arch_init: Completed load of VM with exit code 0 seq iteration 6
+arch_init: Completed load of VM with exit code 0 seq iteration 7
+arch_init: Completed load of VM with exit code 0 seq iteration 8
+arch_init: Completed load of VM with exit code 0 seq iteration 9
+arch_init: Completed load of VM with exit code 0 seq iteration 10
+arch_init: Completed load of VM with exit code 0 seq iteration 11
+arch_init: Completed load of VM with exit code 0 seq iteration 12
+arch_init: Completed load of VM with exit code 0 seq iteration 13
+arch_init: Completed load of VM with exit code 0 seq iteration 14
+arch_init: Completed load of VM with exit code 0 seq iteration 15
+arch_init: Completed load of VM with exit code 0 seq iteration 16
+arch_init: Completed load of VM with exit code 0 seq iteration 17
+arch_init: Completed load of VM with exit code 0 seq iteration 18
+arch_init: Completed load of VM with exit code 0 seq iteration 19
+arch_init: Completed load of VM with exit code 0 seq iteration 20
+arch_init: Completed load of VM with exit code 0 seq iteration 21
+arch_init: Completed load of VM with exit code 0 seq iteration 22
+arch_init: Completed load of VM with exit code 0 seq iteration 23
+arch_init: Completed load of VM with exit code 0 seq iteration 24
+arch_init: Completed load of VM with exit code 0 seq iteration 25
+arch_init: Completed load of VM with exit code 0 seq iteration 26
+arch_init: Completed load of VM with exit code 0 seq iteration 27
+arch_init: Completed load of VM with exit code 0 seq iteration 28
+arch_init: Completed load of VM with exit code 0 seq iteration 29
+arch_init: Completed load of VM with exit code 0 seq iteration 30
+arch_init: Completed load of VM with exit code 0 seq iteration 31
+arch_init: Completed load of VM with exit code 0 seq iteration 32
+arch_init: Completed load of VM with exit code 0 seq iteration 33
+arch_init: Completed load of VM with exit code 0 seq iteration 34
+arch_init: Completed load of VM with exit code 0 seq iteration 35
+arch_init: Completed load of VM with exit code 0 seq iteration 36
+arch_init: Completed load of VM with exit code 0 seq iteration 37
+arch_init: Completed load of VM with exit code 0 seq iteration 38
+arch_init: Completed load of VM with exit code 0 seq iteration 39
+arch_init: Completed load of VM with exit code 0 seq iteration 40
+arch_init: Completed load of VM with exit code 0 seq iteration 41
+6162:6162 postcopy_incoming_umem_block_from_stream:1869: idstr: vga.vram len 8
+6162:6162 postcopy_incoming_umem_block_from_stream:1869: idstr: 0000:03.0/virtio-net-pci.rom len 28
+6162:6162 postcopy_incoming_umem_block_from_stream:1869: idstr: pc.bios len 7
+arch_init: Completed load of VM with exit code 0 seq iteration 42
+6162:6162 postcopy_incoming_umem_block_from_stream:1869: idstr: pc.rom len 6
+6162:6162 postcopy_incoming_umem_block_from_stream:1869: idstr: 0000:02.0/cirrus_vga.rom len 24
+6162:6162 postcopy_incoming_umem_block_from_stream:1869: idstr: pc.ram len 6
+arch_init: Completed load of VM with exit code 0 seq iteration 43
+arch_init: Completed load of VM with exit code 0 seq iteration 44
+6162:6162 postcopy_incoming_loadvm_section_full:1425: size 0x37dc
+6173:6173 postcopy_incoming_create_umemd:1327: fork child daemon
+6174:6174 postcopy_incoming_umemd:2673: daemon pid: 6174
+6174:6176 postcopy_incoming_umemd_thread:2642: loop 6174 0x7f2feb5386b0 0x7f2feb537c00
+6174:6176 postcopy_incoming_umemd_read_clean_bitmap:2326: bitmap pc.ram 0x0 0x40000000 0x8000
+6174:6176 postcopy_incoming_umemd_read_clean_bitmap:2326: bitmap vga.vram 0x40040000 0x800000 0x100
+6174:6176 postcopy_incoming_umemd_read_clean_bitmap:2326: bitmap 0000:03.0/virtio-net-pci.rom 0x40850000 0x40000 0x8
+6174:6176 postcopy_incoming_umemd_read_clean_bitmap:2326: bitmap pc.bios 0x40000000 0x20000 0x8
+6174:6176 postcopy_incoming_umemd_read_clean_bitmap:2326: bitmap pc.rom 0x40020000 0x20000 0x8
+6174:6176 postcopy_incoming_umemd_read_clean_bitmap:2326: bitmap 0000:02.0/cirrus_vga.rom 0x40840000 0x10000 0x8
+6174:6176 postcopy_file_incoming_umemd_read_clean_bitmap:2359: bitmap done
+6174:6176 postcopy_incoming_umemd_mig_read_init:2402: bitmap 985035 nsec
+6174:6178 postcopy_incoming_umemd_fault_clean_bitmap:2204: faulting clean bitmap
+6174:6178 postcopy_incoming_umemd_fault_clean_bitmap:2210: idstr 0000:02.0/cirrus_vga.rom
+6174:6177 postcopy_incoming_umemd_thread:2642: loop 6174 (nil) 0x7f2feb537460
+6174:6176 postcopy_incoming_umem_ram_load:2041: RAM_SAVE_FLAG_EOS
+6174:6176 postcopy_incoming_umem_req_eoc:1715: |= UMEM_STATE_EOC_SEND_REQ
+6174:6176 postcopy_incoming_umem_queue_quit_locked:1680: |= UMEM_STATE_QUIT_QUEUED
+6174:6176 postcopy_incoming_umem_eos_received:2016: |= UMEM_STATE_EOS_RECEIVED
+6174:6176 postcopy_incoming_umemd_thread:2661: func 0x7f2feb537c00 error = -22
+6174:6179 postcopy_incoming_umemd_thread:2642: loop 6174 0x7f2feb536f90 0x7f2feb536bc0
+umem_write_cmd:222 write cmd R
+6174:6178 postcopy_incoming_umemd_fault_clean_bitmap:2210: idstr pc.rom
+6174:6178 postcopy_incoming_umemd_fault_clean_bitmap:2210: idstr pc.bios
+6174:6178 postcopy_incoming_umemd_fault_clean_bitmap:2210: idstr 0000:03.0/virtio-net-pci.rom
+6174:6178 postcopy_incoming_umemd_fault_clean_bitmap:2210: idstr vga.vram
+6174:6178 postcopy_incoming_umemd_fault_clean_bitmap:2210: idstr pc.ram
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umem_mark_pending_clean:1898: EAGAIN
+6174:6178 postcopy_incoming_umemd_fault_clean_bitmap:2259: faulting clean bitmap done
+6174:6180 postcopy_incoming_umemd_pending_clean_thread:2139: postcopy_incoming_umemd_pending_clean_thread starts
+umem_read_cmd:248 read cmd R
+umem_write_cmd:222 write cmd r
+umem_read_cmd:248 read cmd r
+migration: successfully loaded vm state
+6174:6177 postcopy_incoming_umem_check_eoc_req:1695: |= UMEM_STATE_EOC_SENDING
+6174:6177 postcopy_incoming_send_req_one:103: cmd 1 nr 32559
+6174:6177 postcopy_incoming_umem_check_eoc_req:1707: |= UMEM_STATE_EOC_SENT
+6174:6179 postcopy_incoming_umemd_pipe_loop:2544: |= UMEM_STATE_QUIT_SENDING
+6174:6179 postcopy_incoming_umemd_pipe_loop:2554: |= UMEM_STATE_QUIT_SENT
+6162:6162 postcopy_incoming_qemu_handle_req:1524: cmd Q
+6162:6162 postcopy_incoming_qemu_recv_quit:1487: |= PIS_STATE_QUIT_RECEIVED
+6162:6162 postcopy_incoming_qemu_queue_quit:1514: |= PIS_STATE_QUIT_QUEUED
+6162:6162 postcopy_incoming_qemu_check_quite_queued:1499: |= PIS_STATE_QUIT_SENT
+6174:6179 postcopy_incoming_umemd_pipe_loop:2513: cmd q 0x71
+6174:6179 postcopy_incoming_umem_recv_quit:1660: |= UMEM_STATE_QUIT_RECEIVED
+6174:6179 postcopy_incoming_umem_recv_quit:1669: |= UMEM_STATE_QUIT_HANDLED
+6174:6179 postcopy_incoming_umem_req_eoc:1715: |= UMEM_STATE_EOC_SEND_REQ
+6174:6179 postcopy_incoming_umemd_thread:2654: loop out 0x7f2feb536bc0
+6174:6177 postcopy_incoming_umemd_thread:2654: loop out 0x7f2feb537460
+6174:6180 postcopy_incoming_umemd_pending_clean_thread:2177: postcopy_incoming_umemd_pending_clean_thread exits
+6174:6175 postcopy_incoming_umemd_fault_thread:2625: postcopy_incoming_umemd_fault_thread exits
+6174:6174 postcopy_incoming_umemd:2750: umemd done
+

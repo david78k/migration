@@ -1,0 +1,266 @@
+(qemu) migration: beginning savevm
+migration: setup complete
+migration: iterate
+migration: pending size 1082720256 max 0
+arch_init: idstr pc.ram
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3355498 time_spent 101 bandwidth 33222 max_size 996660 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 1065271296 max 996660
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357103 time_spent 100 bandwidth 33571 max_size 1007130 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 1061912576 max 1007130
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3359056 time_spent 100 bandwidth 33590 max_size 1007700 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 1057665024 max 1007700
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3356392 time_spent 100 bandwidth 33563 max_size 1006890 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 1052766208 max 1006890
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 1049415680 max 1007100
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357085 time_spent 101 bandwidth 33238 max_size 997140 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 1046065152 max 997140
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 1042714624 max 1007100
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357085 time_spent 101 bandwidth 33238 max_size 997140 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 1039364096 max 997140
+arch_init: big wait: 51 milliseconds, 46272 iterations
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: iterate
+migration: pending size 849829888 max 997140
+arch_init: big wait: 51 milliseconds, 47488 iterations
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 1527749 time_spent 102 bandwidth 14977 max_size 449310 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 655314944 max 449310
+arch_init: big wait: 51 milliseconds, 47232 iterations
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: iterate
+migration: pending size 461848576 max 449310
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3355658 time_spent 100 bandwidth 33556 max_size 1006680 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 287338496 max 1006680
+arch_init: big wait: 108 milliseconds, 448 iterations
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 1646149 time_spent 109 bandwidth 15102 max_size 453060 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 285499392 max 453060
+arch_init: big wait: 57 milliseconds, 448 iterations
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: iterate
+migration: pending size 283660288 max 453060
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3358502 time_spent 100 bandwidth 33585 max_size 1007550 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 281509888 max 1007550
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3355627 time_spent 100 bandwidth 33556 max_size 1006680 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 276959232 max 1006680
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357256 time_spent 101 bandwidth 33240 max_size 997200 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 273530880 max 997200
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3356563 time_spent 100 bandwidth 33565 max_size 1006950 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 102686720 max 1006950
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357301 time_spent 100 bandwidth 33573 max_size 1007190 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 95510528 max 1007190
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3355879 time_spent 100 bandwidth 33558 max_size 1006740 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 90845184 max 1006740
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357886 time_spent 101 bandwidth 33246 max_size 997380 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 87130112 max 997380
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357850 time_spent 101 bandwidth 33246 max_size 997380 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 81567744 max 997380
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3358849 time_spent 100 bandwidth 33588 max_size 1007640 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 77414400 max 1007640
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3358984 time_spent 100 bandwidth 33589 max_size 1007670 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 73199616 max 1007670
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357175 time_spent 100 bandwidth 33571 max_size 1007130 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 69808128 max 1007130
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357562 time_spent 100 bandwidth 33575 max_size 1007250 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 66240512 max 1007250
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357679 time_spent 100 bandwidth 33576 max_size 1007280 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 62619648 max 1007280
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357238 time_spent 100 bandwidth 33572 max_size 1007160 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 59199488 max 1007160
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357265 time_spent 100 bandwidth 33572 max_size 1007160 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 55767040 max 1007160
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357850 time_spent 100 bandwidth 33578 max_size 1007340 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 50204672 max 1007340
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357319 time_spent 100 bandwidth 33573 max_size 1007190 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 46747648 max 1007190
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357085 time_spent 101 bandwidth 33238 max_size 997140 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 43397120 max 997140
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3358489 time_spent 100 bandwidth 33584 max_size 1007520 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 39407616 max 1007520
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357211 time_spent 100 bandwidth 33572 max_size 1007160 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 35999744 max 1007160
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3359065 time_spent 100 bandwidth 33590 max_size 1007700 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 31748096 max 1007700
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 28397568 max 1007100
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357085 time_spent 100 bandwidth 33570 max_size 1007100 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 25047040 max 1007100
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3356950 time_spent 100 bandwidth 33569 max_size 1007070 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 19894272 max 1007070
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3358993 time_spent 100 bandwidth 33589 max_size 1007670 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 15675392 max 1007670
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3357724 time_spent 100 bandwidth 33577 max_size 1007310 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 12034048 max 1007310
+arch_init: idstr vga.vram
+arch_init: idstr 0000:03.0/virtio-net-pci.rom
+arch_init: idstr pc.bios
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: transferred 3359300 time_spent 100 bandwidth 33593 max_size 1007790 dirty_bytes_rate 0 expected_downtime 30
+migration: iterate
+migration: pending size 3637248 max 1007790
+arch_init: idstr pc.rom
+arch_init: idstr 0000:02.0/cirrus_vga.rom
+arch_init: idstr pc.ram
+14073:14094 postcopy_outgoing_ram_save_iterate:362: precopy worked
+migration: iterate
+migration: pending size 0 max 1007790
+migration: done iterating
+qemu_savevm_state_complete:2061
+qemu_savevm_state_complete:2073 idstr: ram
+qemu_savevm_state_complete:2108 idstr: timer
+qemu_savevm_state_complete:2125 idstr: timer done
+qemu_savevm_state_complete:2108 idstr: cpu_common
+qemu_savevm_state_complete:2125 idstr: cpu_common done
+qemu_savevm_state_complete:2108 idstr: cpu
+qemu_savevm_state_complete:2125 idstr: cpu done
+qemu_savevm_state_complete:2108 idstr: kvm-tpr-opt
+qemu_savevm_state_complete:2125 idstr: kvm-tpr-opt done
+qemu_savevm_state_complete:2108 idstr: apic
+qemu_savevm_state_complete:2125 idstr: apic done
+qemu_savevm_state_complete:2108 idstr: kvmclock
+qemu_savevm_state_complete:2125 idstr: kvmclock done
+qemu_savevm_state_complete:2108 idstr: fw_cfg
+qemu_savevm_state_complete:2125 idstr: fw_cfg done
+qemu_savevm_state_complete:2108 idstr: PCIBUS
+qemu_savevm_state_complete:2125 idstr: PCIBUS done
+qemu_savevm_state_complete:2108 idstr: 0000:00.0/I440FX
+qemu_savevm_state_complete:2125 idstr: 0000:00.0/I440FX done
+qemu_savevm_state_complete:2108 idstr: 0000:01.0/PIIX3
+qemu_savevm_state_complete:2125 idstr: 0000:01.0/PIIX3 done
+qemu_savevm_state_complete:2108 idstr: i8259
+qemu_savevm_state_complete:2125 idstr: i8259 done
+qemu_savevm_state_complete:2108 idstr: i8259
+qemu_savevm_state_complete:2125 idstr: i8259 done
+qemu_savevm_state_complete:2108 idstr: ioapic
+qemu_savevm_state_complete:2125 idstr: ioapic done
+qemu_savevm_state_complete:2108 idstr: 0000:02.0/cirrus_vga
+qemu_savevm_state_complete:2125 idstr: 0000:02.0/cirrus_vga done
+qemu_savevm_state_complete:2108 idstr: hpet
+qemu_savevm_state_complete:2125 idstr: hpet done
+qemu_savevm_state_complete:2108 idstr: mc146818rtc
+qemu_savevm_state_complete:2125 idstr: mc146818rtc done
+qemu_savevm_state_complete:2108 idstr: i8254
+qemu_savevm_state_complete:2125 idstr: i8254 done
+qemu_savevm_state_complete:2108 idstr: serial
+qemu_savevm_state_complete:2125 idstr: serial done
+qemu_savevm_state_complete:2108 idstr: ps2kbd
+qemu_savevm_state_complete:2125 idstr: ps2kbd done
+qemu_savevm_state_complete:2108 idstr: ps2mouse
+qemu_savevm_state_complete:2125 idstr: ps2mouse done
+qemu_savevm_state_complete:2108 idstr: pckbd
+qemu_savevm_state_complete:2125 idstr: pckbd done
+qemu_savevm_state_complete:2108 idstr: vmmouse
+qemu_savevm_state_complete:2125 idstr: vmmouse done
+qemu_savevm_state_complete:2108 idstr: port92
+qemu_savevm_state_complete:2125 idstr: port92 done
+qemu_savevm_state_complete:2108 idstr: dma
+qemu_savevm_state_complete:2125 idstr: dma done
+qemu_savevm_state_complete:2108 idstr: dma
+qemu_savevm_state_complete:2125 idstr: dma done
+qemu_savevm_state_complete:2108 idstr: fdc
+qemu_savevm_state_complete:2125 idstr: fdc done
+qemu_savevm_state_complete:2108 idstr: 0000:01.1/ide
+qemu_savevm_state_complete:2125 idstr: 0000:01.1/ide done
+qemu_savevm_state_complete:2108 idstr: i2c_bus
+qemu_savevm_state_complete:2125 idstr: i2c_bus done
+qemu_savevm_state_complete:2108 idstr: 0000:01.3/piix4_pm
+qemu_savevm_state_complete:2125 idstr: 0000:01.3/piix4_pm done
+qemu_savevm_state_complete:2108 idstr: 0000:03.0/virtio-net
+qemu_savevm_state_complete:2125 idstr: 0000:03.0/virtio-net done
+qemu_savevm_state_complete:2129 QEMU_VM_EOF
+14073:14094 postcopy_outgoing_begin:637: outgoing begin
+14073:14094 postcopy_outgoing_send_clean_bitmap:590: dirty bitmap pc.ram 0x0 0x40000000 0x8000
+14073:14094 postcopy_outgoing_send_clean_bitmap:590: dirty bitmap vga.vram 0x40040000 0x800000 0x100
+14073:14094 postcopy_outgoing_send_clean_bitmap:590: dirty bitmap 0000:03.0/virtio-net-pci.rom 0x40850000 0x40000 0x8
+14073:14094 postcopy_outgoing_send_clean_bitmap:590: dirty bitmap pc.bios 0x40000000 0x20000 0x8
+14073:14094 postcopy_outgoing_send_clean_bitmap:590: dirty bitmap pc.rom 0x40020000 0x20000 0x8
+14073:14094 postcopy_outgoing_send_clean_bitmap:590: dirty bitmap 0000:02.0/cirrus_vga.rom 0x40840000 0x10000 0x8
+14073:14094 postcopy_outgoing_send_clean_bitmap:631: sent dirty bitmap
+14073:14094 postcopy_outgoing:846: postcopy outgoing prefault forward 0 backward 0
+14073:14094 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 2725613 time_spent 283845934389973 bandwidth 0 max_size 0 dirty_bytes_rate 888832 expected_downtime 30
+14073:14094 postcopy_outgoing_ram_save_background:729: outgoing background all sent
+14073:14094 postcopy_outgoing_ram_all_sent:676: sent RAM_SAVE_FLAG_EOS
+14073:14094 postcopy_outgoing_ram_save_background:769: done
+14073:14094 postcopy_outgoing_recv_handler:515: called
+14073:14094 postcopy_outgoing_recv_req:262: cmd 1
+14073:14094 postcopy_outgoing_handle_req:445: cmd 1 state 3
+14073:14094 postcopy_outgoing_handle_req:451: -> PO_STATE_COMPLETED
+14073:14094 postcopy_outgoing_recv_handler:556: PO_STATE_COMPLETED
+14073:14094 postcopy_outgoing_recv_handler:558: done
+migration: closing file
+
