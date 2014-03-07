@@ -9,8 +9,9 @@ vcpu=$2
 qemudir=/root/qemu
 #version=qemu-kvm-1.2.0
 #version=qemu-1.6.0
-version=qemu-1.5.50
+#version=qemu-1.5.50
 #version=qemu-postcopy # qemu 1.1.50
+version=hybrid # qemu 1.6.50
 
 #./qemu-postcopy/x86_64-softmmu/qemu-system-x86_64 \
 #./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \

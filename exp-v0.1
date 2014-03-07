@@ -9,9 +9,9 @@
 #bench=memtouch
 #bench=kernelcompile
 #bench=kcbench
-#bench=apachebench
+bench=apachebench
 #bench=svm
-bench=idle
+#bench=idle
 #bench=hadoop
 
 #ram=128
@@ -210,7 +210,7 @@ function migrate() {
 		bootup=30
 	fi
 	if [ $bench == "apachebench" ]; then
-		bootup=40
+		bootup=30
 	fi
 
 	echo waiting $bootup seconds for VM bootup ...
@@ -253,7 +253,7 @@ function migrate() {
 
 	echo starting migration ...
 
-#	cpusage
+	cpusage
 	#vcpusage
 
 	#./ncmigrate-postcopy > log/mt_${prefix}.log
@@ -265,7 +265,7 @@ function migrate() {
 	ncmigrate > $migfile
 	#logsave $migfile ncmigrate
 
-#	cpusage >> $migfile
+	cpusage >> $migfile
 	#vcpusage >> $migfile
 
 	egrep -a "total time:|downtime:|transferred|bytes|pages|mbps|cache size|cache miss|overflow|CPU" $migfile > $logfile
@@ -302,7 +302,7 @@ function migrate() {
 	kill -9 `ps -ef | grep $vm | awk '{print \$2}'`
 
 	if [ $bench == "apachebench" ]; then
-		# plot access.log: takes too long time
+		# plot access.log
 		plotaccess="./apachebench/plotaccess"
 		$plotaccess $accesslog
 	fi
