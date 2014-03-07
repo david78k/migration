@@ -1,0 +1,468 @@
+5897:5897 postcopy_incoming_loadvm_init:1226: postcopy_incoming_loadvm_init
+5897:5897 postcopy_incoming_loadvm_init:1255: detected POSTCOPY precpoy 0
+5897:5897 postcopy_incoming_ram_load:1051: incoming ram load
+5897:5897 postcopy_incoming_ram_load:1065: addr 0x40890000 flags 0x4
+arch_init: total_ram_bytes 40890000
+5897:5897 postcopy_incoming_ram_load:1092: done
+5897:5897 postcopy_incoming_ram_load:1051: incoming ram load
+5897:5897 postcopy_incoming_ram_load:1065: addr 0x0 flags 0x10
+5897:5897 postcopy_incoming_ram_load:1071: EOS
+5897:5897 postcopy_incoming_loadvm_section_full:1425: size 0x37b6
+5906:5906 postcopy_incoming_create_umemd:1327: fork child daemon
+5907:5907 postcopy_incoming_umemd:2673: daemon pid: 5907
+5907:5910 postcopy_incoming_umemd_thread:2642: loop 5907 0x7fcff725c6b0 0x7fcff725bc00
+5907:5911 postcopy_incoming_umemd_thread:2642: loop 5907 (nil) 0x7fcff725b460
+5907:5912 postcopy_incoming_umemd_pending_clean_thread:2139: postcopy_incoming_umemd_pendi                                                                                          ng_clean_thread starts
+5907:5910 postcopy_incoming_umem_block_from_stream:1869: idstr: pc.ram len 6
+5907:5913 postcopy_incoming_umemd_thread:2642: loop 5907 0x7fcff725af90 0x7fcff725abc0
+umem_write_cmd:222 write cmd R
+umem_read_cmd:248 read cmd R
+umem_write_cmd:222 write cmd r
+umem_read_cmd:248 read cmd r
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0xca 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0xca 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 2 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2ff79 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2ff79 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2fe29 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2fe29 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2f942 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2f942 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x1620 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x1620 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+migration: successfully loaded vm state
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2ff78 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2ff78 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2ff7a 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2ff7a 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d599 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d599 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d549 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d549 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d453 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d453 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d593 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d593 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d5c9 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d5c9 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2fcb3 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2fcb3 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d7fb 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d7fb 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9d3 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9d3 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2fd6f 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2fd6f 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2ffcf 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2ffcf 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d789 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d789 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d85e 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d85e 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d5c8 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d5c8 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa67 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa67 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d788 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d788 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2fcb2 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2fcb2 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d85f 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d85f 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2fd6e 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2fd6e 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f801 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f801 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f803 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f803 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9eb 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9eb 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9d6 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9d6 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9ea 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9ea 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2fdaf 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2fdaf 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa09 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa09 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d627 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d627 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d657 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d657 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2fea8 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2fea8 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d432 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d432 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x2ffc1 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x2ffc1 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f99f 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f99f 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9b3 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9b3 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e7ee 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3e7ee 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d782 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d782 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3ac81 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3ac81 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e0bf 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3e0bf 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3ac83 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3ac83 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e083 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3e083 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d5b8 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d5b8 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d512 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d512 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d28e 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d28e 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f813 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f813 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f814 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f814 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f815 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f815 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab0 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab0 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e7c4 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3e7c4 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e7c4 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 0 offs 0x3e7c4 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3ac84 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3ac84 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3ac82 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3ac82 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3ac82 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 0 offs 0x3ac82 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9fc 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9fc 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa06 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa06 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9fd 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9fd 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa07 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa07 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa04 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa04 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e00d 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3e00d 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f22f 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f22f 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3ba76 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3ba76 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3ba34 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3ba34 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3ba37 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3ba37 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f2db 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f2db 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f833 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f833 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9ae 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9ae 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9af 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9af 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9f2 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9f2 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9f3 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9f3 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa02 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa02 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa03 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa03 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa1f 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa1f 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f209 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f209 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d540 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d540 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d541 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d541 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d63c 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d63c 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d62c 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d62c 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e0a7 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3e0a7 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3c538 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3c538 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3c537 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3c537 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3c537 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 0 offs 0x3c537 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f26b 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f26b 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f283 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f283 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d5ca 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d5ca 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d5af 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d5af 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d405 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d405 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d77a 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d77a 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fe4e 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fe4e 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e7f3 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3e7f3 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d8c5 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d8c5 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d5c4 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d5c4 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab1 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab1 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fc1d 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fc1d 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fc01 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fc01 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab2 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab2 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d2a1 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d2a1 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d4fc 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d4fc 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa08 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa08 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f2c7 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f2c7 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab3 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab3 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d29b 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d29b 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fae3 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fae3 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d7a9 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d7a9 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fa61 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fa61 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d242 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d242 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d285 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d285 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d243 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d243 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab4 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab4 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d246 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d246 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d247 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d247 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab5 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab5 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d24a 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d24a 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d24b 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d24b 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab6 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab6 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d2a2 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d2a2 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d5d1 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d5d1 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fae0 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fae0 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d5ef 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d5ef 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab7 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab7 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fe44 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fe44 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fcfb 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fcfb 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab8 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab8 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f2ce 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f2ce 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3d85a 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3d85a 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e0a1 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3e0a1 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3e0a0 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3e0a0 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f2cc 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f2cc 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f210 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f210 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f211 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f211 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f212 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f212 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f213 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f213 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fab9 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fab9 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3faba 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3faba 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fabb 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fabb 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3fabc 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3fabc 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5911 postcopy_incoming_umem_send_page_req:1735: id pc.ram nr 1 offs 0x3f9d9 0x0
+5907:5911 postcopy_incoming_umem_send_page_req:1809: id pc.ram nr 1 offs 0x3f9d9 0x0
+5907:5911 postcopy_incoming_send_req_one:103: cmd 3 nr 1
+5907:5910 postcopy_incoming_umem_block_from_stream:1869: idstr: vga.vram len 8
+5907:5910 postcopy_incoming_umem_block_from_stream:1869: idstr: 0000:03.0/virtio-net-pci.r                                                                                          om len 28
+5907:5910 postcopy_incoming_umem_block_from_stream:1869: idstr: pc.bios len 7
+5907:5910 postcopy_incoming_umem_block_from_stream:1869: idstr: pc.rom len 6
+5907:5910 postcopy_incoming_umem_block_from_stream:1869: idstr: 0000:02.0/cirrus_vga.rom l                                                                                          en 24
+5907:5910 postcopy_incoming_umem_ram_load:2041: RAM_SAVE_FLAG_EOS
+5907:5910 postcopy_incoming_umem_req_eoc:1715: |= UMEM_STATE_EOC_SEND_REQ
+5907:5910 postcopy_incoming_umem_queue_quit_locked:1680: |= UMEM_STATE_QUIT_QUEUED
+5907:5910 postcopy_incoming_umem_eos_received:2016: |= UMEM_STATE_EOS_RECEIVED
+5907:5910 postcopy_incoming_umemd_thread:2661: func 0x7fcff725bc00 error = -22
+5907:5911 postcopy_incoming_umem_check_eoc_req:1695: |= UMEM_STATE_EOC_SENDING
+5907:5911 postcopy_incoming_send_req_one:103: cmd 1 nr 1
+5907:5911 postcopy_incoming_umem_check_eoc_req:1707: |= UMEM_STATE_EOC_SENT
+5907:5913 postcopy_incoming_umemd_pipe_loop:2544: |= UMEM_STATE_QUIT_SENDING
+5907:5913 postcopy_incoming_umemd_pipe_loop:2554: |= UMEM_STATE_QUIT_SENT
+5897:5897 postcopy_incoming_qemu_handle_req:1524: cmd Q
+5897:5897 postcopy_incoming_qemu_recv_quit:1487: |= PIS_STATE_QUIT_RECEIVED
+5897:5897 postcopy_incoming_qemu_queue_quit:1514: |= PIS_STATE_QUIT_QUEUED
+5897:5897 postcopy_incoming_qemu_check_quite_queued:1499: |= PIS_STATE_QUIT_SENT
+5907:5913 postcopy_incoming_umemd_pipe_loop:2513: cmd q 0x71
+5907:5913 postcopy_incoming_umem_recv_quit:1660: |= UMEM_STATE_QUIT_RECEIVED
+5907:5913 postcopy_incoming_umem_recv_quit:1669: |= UMEM_STATE_QUIT_HANDLED
+5907:5913 postcopy_incoming_umem_req_eoc:1715: |= UMEM_STATE_EOC_SEND_REQ
+5907:5913 postcopy_incoming_umemd_thread:2654: loop out 0x7fcff725abc0
+5907:5911 postcopy_incoming_umemd_thread:2654: loop out 0x7fcff725b460
+5907:5912 postcopy_incoming_umemd_pending_clean_thread:2177: postcopy_incoming_umemd_pendi                                                                                          ng_clean_thread exits
+5907:5909 postcopy_incoming_umemd_fault_thread:2625: postcopy_incoming_umemd_fault_thread                                                                                           exits
+5907:5907 postcopy_incoming_umemd:2750: umemd done
+

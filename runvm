@@ -18,6 +18,7 @@ qemudir=/root/qemu
 version=qemu-1.7.0
 #version=qemu-1.5.50
 #version=qemu-postcopy # qemu 1.1.50
+version=qemu-postcopy-sep-27-2013 # qemu 1.6.50
 sshport=5555
 #sshport=5554
 network=local
