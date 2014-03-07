@@ -1,0 +1,355 @@
+migration: iterate 0
+migration: pending size 0 max 0
+migration: done iterating
+qemu_savevm_state_complete:2061
+qemu_savevm_state_complete:2073 idstr: ram
+qemu_savevm_state_complete:2108 idstr: timer
+qemu_savevm_state_complete:2125 idstr: timer done
+qemu_savevm_state_complete:2108 idstr: cpu_common
+qemu_savevm_state_complete:2125 idstr: cpu_common done
+qemu_savevm_state_complete:2108 idstr: cpu
+qemu_savevm_state_complete:2125 idstr: cpu done
+qemu_savevm_state_complete:2108 idstr: kvm-tpr-opt
+qemu_savevm_state_complete:2125 idstr: kvm-tpr-opt done
+qemu_savevm_state_complete:2108 idstr: apic
+qemu_savevm_state_complete:2125 idstr: apic done
+qemu_savevm_state_complete:2108 idstr: kvmclock
+qemu_savevm_state_complete:2125 idstr: kvmclock done
+qemu_savevm_state_complete:2108 idstr: fw_cfg
+qemu_savevm_state_complete:2125 idstr: fw_cfg done
+qemu_savevm_state_complete:2108 idstr: PCIBUS
+qemu_savevm_state_complete:2125 idstr: PCIBUS done
+qemu_savevm_state_complete:2108 idstr: 0000:00.0/I440FX
+qemu_savevm_state_complete:2125 idstr: 0000:00.0/I440FX done
+qemu_savevm_state_complete:2108 idstr: 0000:01.0/PIIX3
+qemu_savevm_state_complete:2125 idstr: 0000:01.0/PIIX3 done
+qemu_savevm_state_complete:2108 idstr: i8259
+qemu_savevm_state_complete:2125 idstr: i8259 done
+qemu_savevm_state_complete:2108 idstr: i8259
+qemu_savevm_state_complete:2125 idstr: i8259 done
+qemu_savevm_state_complete:2108 idstr: ioapic
+qemu_savevm_state_complete:2125 idstr: ioapic done
+qemu_savevm_state_complete:2108 idstr: 0000:02.0/cirrus_vga
+qemu_savevm_state_complete:2125 idstr: 0000:02.0/cirrus_vga done
+qemu_savevm_state_complete:2108 idstr: hpet
+qemu_savevm_state_complete:2125 idstr: hpet done
+qemu_savevm_state_complete:2108 idstr: mc146818rtc
+qemu_savevm_state_complete:2125 idstr: mc146818rtc done
+qemu_savevm_state_complete:2108 idstr: i8254
+qemu_savevm_state_complete:2125 idstr: i8254 done
+qemu_savevm_state_complete:2108 idstr: serial
+qemu_savevm_state_complete:2125 idstr: serial done
+qemu_savevm_state_complete:2108 idstr: ps2kbd
+qemu_savevm_state_complete:2125 idstr: ps2kbd done
+qemu_savevm_state_complete:2108 idstr: ps2mouse
+qemu_savevm_state_complete:2125 idstr: ps2mouse done
+qemu_savevm_state_complete:2108 idstr: pckbd
+qemu_savevm_state_complete:2125 idstr: pckbd done
+qemu_savevm_state_complete:2108 idstr: vmmouse
+qemu_savevm_state_complete:2125 idstr: vmmouse done
+qemu_savevm_state_complete:2108 idstr: port92
+qemu_savevm_state_complete:2125 idstr: port92 done
+qemu_savevm_state_complete:2108 idstr: dma
+qemu_savevm_state_complete:2125 idstr: dma done
+qemu_savevm_state_complete:2108 idstr: dma
+qemu_savevm_state_complete:2125 idstr: dma done
+qemu_savevm_state_complete:2108 idstr: fdc
+qemu_savevm_state_complete:2125 idstr: fdc done
+qemu_savevm_state_complete:2108 idstr: 0000:01.1/ide
+qemu_savevm_state_complete:2125 idstr: 0000:01.1/ide done
+qemu_savevm_state_complete:2108 idstr: i2c_bus
+qemu_savevm_state_complete:2125 idstr: i2c_bus done
+qemu_savevm_state_complete:2108 idstr: 0000:01.3/piix4_pm
+qemu_savevm_state_complete:2125 idstr: 0000:01.3/piix4_pm done
+qemu_savevm_state_complete:2108 idstr: 0000:03.0/virtio-net
+qemu_savevm_state_complete:2125 idstr: 0000:03.0/virtio-net done
+qemu_savevm_state_complete:2129 QEMU_VM_EOF
+14520:14538 postcopy_outgoing_begin:637: outgoing begin
+14520:14538 postcopy_outgoing:846: postcopy outgoing prefault forward 0 backward 0
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 14469 time_spent 285829727918408 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+arch_init: idstr pc.ram
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_recv_handler:515: called
+14520:14538 postcopy_outgoing_recv_req:262: cmd 2
+14520:14538 postcopy_outgoing_handle_req:445: cmd 2 state 1
+14520:14538 postcopy_outgoing_handle_req:458: idstr: pc.ram
+14520:14538 postcopy_outgoing_handle_req:466: nr 1
+14520:14538 postcopy_outgoing_handle_req:471: pgoffs[0] 0xca
+14520:14538 postcopy_outgoing_recv_handler:558: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 136906 time_spent 7881071 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131643 time_spent 2012415 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1548873 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1320140 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 926056 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1033934 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1033506 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 393984 time_spent 2984397 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1031662 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1031085 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1067670 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1002322 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1032739 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1011833 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 924839 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1131175 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 852831 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_recv_handler:515: called
+14520:14538 postcopy_outgoing_recv_req:262: cmd 3
+14520:14538 postcopy_outgoing_handle_req:445: cmd 3 state 1
+14520:14538 postcopy_outgoing_handle_req:466: nr 1
+14520:14538 postcopy_outgoing_handle_req:471: pgoffs[0] 0x2f975
+14520:14538 postcopy_outgoing_recv_handler:558: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 135432 time_spent 1047611 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_recv_handler:515: called
+14520:14538 postcopy_outgoing_recv_req:262: cmd 3
+14520:14538 postcopy_outgoing_handle_req:445: cmd 3 state 1
+14520:14538 postcopy_outgoing_handle_req:466: nr 1
+14520:14538 postcopy_outgoing_handle_req:471: pgoffs[0] 0x2f8e1
+14520:14538 postcopy_outgoing_recv_handler:558: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 43659 time_spent 2667514 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 281097 time_spent 4910601 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_recv_handler:515: called
+14520:14538 postcopy_outgoing_recv_req:262: cmd 3
+14520:14538 postcopy_outgoing_handle_req:445: cmd 3 state 1
+14520:14538 postcopy_outgoing_handle_req:466: nr 1
+14520:14538 postcopy_outgoing_handle_req:471: pgoffs[0] 0x3d770
+14520:14538 postcopy_outgoing_recv_handler:558: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 266760 time_spent 3874150 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 12464402 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1130926 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 949296 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1055928 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 860460 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1010408 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1018262 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1033800 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_recv_handler:515: called
+14520:14538 postcopy_outgoing_recv_req:262: cmd 3
+14520:14538 postcopy_outgoing_handle_req:445: cmd 3 state 1
+14520:14538 postcopy_outgoing_handle_req:466: nr 1
+14520:14538 postcopy_outgoing_handle_req:471: pgoffs[0] 0x1620
+14520:14538 postcopy_outgoing_recv_handler:558: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 8208 time_spent 51363 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 978284 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+...
+migration: transferred 131328 time_spent 1033153 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1163726 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_recv_handler:515: called
+14520:14538 postcopy_outgoing_recv_req:262: cmd 3
+14520:14538 postcopy_outgoing_handle_req:445: cmd 3 state 1
+14520:14538 postcopy_outgoing_handle_req:466: nr 1
+14520:14538 postcopy_outgoing_handle_req:471: pgoffs[0] 0x3ffd4
+14520:14538 postcopy_outgoing_recv_handler:558: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 135432 time_spent 1176633 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1039579 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1161751 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1037906 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1178254 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131337 time_spent 1172433 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1033644 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1178238 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1053110 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1183155 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1162217 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131337 time_spent 1035840 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1182432 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 991642 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1181998 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1036608 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1164339 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1209580 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131337 time_spent 1010819 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1162081 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131328 time_spent 1062742 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 131337 time_spent 1153355 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+arch_init: idstr vga.vram
+arch_init: idstr 0000:03.0/virtio-net-pci.rom
+arch_init: idstr pc.bios
+14520:14538 postcopy_outgoing_ram_save_background:748: pending request
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_recv_handler:515: called
+14520:14538 postcopy_outgoing_recv_req:262: cmd 3
+14520:14538 postcopy_outgoing_handle_req:445: cmd 3 state 1
+14520:14538 postcopy_outgoing_handle_req:466: nr 1
+14520:14538 postcopy_outgoing_handle_req:471: pgoffs[0] 0x3ffd5
+14520:14538 postcopy_outgoing_recv_handler:558: done
+14520:14538 postcopy_outgoing_ram_save_background:687: called
+migration: transferred 334540 time_spent 5690763 bandwidth 0 max_size 0 dirty_bytes_rate 0 expected_downtime 30
+arch_init: idstr pc.rom
+arch_init: idstr 0000:02.0/cirrus_vga.rom
+14520:14538 postcopy_outgoing_ram_save_background:729: outgoing background all sent
+14520:14538 postcopy_outgoing_ram_all_sent:676: sent RAM_SAVE_FLAG_EOS
+14520:14538 postcopy_outgoing_ram_save_background:769: done
+14520:14538 postcopy_outgoing_recv_handler:515: called
+14520:14538 postcopy_outgoing_recv_req:262: cmd 1
+14520:14538 postcopy_outgoing_handle_req:445: cmd 1 state 3
+14520:14538 postcopy_outgoing_handle_req:451: -> PO_STATE_COMPLETED
+14520:14538 postcopy_outgoing_recv_handler:556: PO_STATE_COMPLETED
+14520:14538 postcopy_outgoing_recv_handler:558: done
+migration: closing file
+
