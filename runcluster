@@ -1,5 +1,13 @@
 # filename ram vcpu telnetport vncport
-#./runvm-daemon master.qcow2 1024 1 4446 1
-./runvm-daemon slave1.qcow2 1024 1 4447 2
-#./runvm-daemon slave2.qcow2 1024 1
-#./runvm-daemon slave3.qcow2 1024 1
+
+# master 10.244.36.132 (old 10.244.39.141)
+./runvm-daemon master.qcow2 1024 1 4436 1
+
+# slave1 10.244.37.1
+#./runvm-daemon slave1.qcow2 1024 1 4447 2
+
+# slave2 10.244.38.71
+#./runvm-daemon slave2.qcow2 1024 1 4448 3
+
+# slave3 10.244.38.70
+#./runvm-daemon slave3.qcow2 1024 1 4449 4

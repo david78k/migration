@@ -17,7 +17,10 @@ qemudir=/root/qemu
 #version=qemu-postcopy # qemu 1.1.50
 version=hybrid # qemu 1.6.50
 
-echo $file $ram $vcpu $telnetport :$vncport
+# generate a random mac address for the qemu nic
+mac=`printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))`
+
+echo $file $ram $vcpu $telnetport :$vncport $mac
 
 #./qemu-postcopy/x86_64-softmmu/qemu-system-x86_64 \
 #./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
@@ -28,7 +31,7 @@ $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
 	-smp $vcpu \
 	-monitor telnet:0:$telnetport,server,nowait \
 	-vnc :$vncport \
-        -device virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \
+        -device virtio-net-pci,netdev=hn0,id=nic1,mac=$mac -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \
 	-daemonize 
 
         #-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \

@@ -1,1 +1,11 @@
 vm ip address: 10.244.39.141
+
+/root/qemu/hybrid/x86_64-softmmu/qemu-system-x86_64 -drive file=/var/lib/libvirt/images/nfs/c11node9/master.qcow2 -enable-kvm -m 1024 -smp 1 -monitor telnet:0:4436,server,nowait -vnc :1 -device virtio-net-pci,netdev=hn0,id=nic1,mac=DE:AD:BE:EF:0C:0F -netdev tap,helper=/root/qemu/hybrid/qemu-bridge-helper,id=hn0 -daemonize
+
+/root/qemu/hybrid/x86_64-softmmu/qemu-system-x86_64 -drive file=/var/lib/libvirt/images/nfs/c11node9/slave3.qcow2 -enable-kvm -m 1024 -smp 1 -monitor telnet:0:4449,server,nowait -vnc :4 -device virtio-net-pci,netdev=hn0,id=nic1,mac=DE:AD:BE:EF:A6:75 -netdev tap,helper=/root/qemu/hybrid/qemu-bridge-helper,id=hn0 -daemonize
+
+/root/qemu/hybrid/x86_64-softmmu/qemu-system-x86_64 -drive file=/var/lib/libvirt/images/nfs/c11node9/slave1.qcow2 -enable-kvm -m 1024 -smp 1 -monitor telnet:0:4447,server,nowait -vnc :2 -device virtio-net-pci,netdev=hn0,id=nic1,mac=DE:AD:BE:EF:FA:3A -netdev tap,helper=/root/qemu/hybrid/qemu-bridge-helper,id=hn0 -daemonize
+
+/root/qemu/hybrid/x86_64-softmmu/qemu-system-x86_64 -drive file=/var/lib/libvirt/images/nfs/c11node9/slave2.qcow2 -enable-kvm -m 1024 -smp 1 -monitor telnet:0:4448,server,nowait -vnc :3 -device virtio-net-pci,netdev=hn0,id=nic1,mac=DE:AD:BE:EF:FF:57 -netdev tap,helper=/root/qemu/hybrid/qemu-bridge-helper,id=hn0 -daemonize
+
+

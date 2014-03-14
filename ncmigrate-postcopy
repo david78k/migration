@@ -1,8 +1,12 @@
-nc localhost 4446 << EOF
+#!/bin/bash
+
+telnetport=4436
+nc localhost $telnetport << EOF
 info status
 info version
 info kvm
-migrate -p tcp:c11node10:4444
+migrate_set_capatility postcopy on
+migrate tcp:c11node10:4444
 EOF
 echo
 
