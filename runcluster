@@ -31,19 +31,19 @@ function startcluster() {
 }
 
 function migrate() {
-	postcopy=on
+	postcopy=off
 	./ncmigrate-postcopy master.qcow2 1024 1 4436 1 5436 $postcopy
-	postcopy=on
+	postcopy=off
 	./ncmigrate-postcopy slave1.qcow2 1024 1 4447 2 5447 $postcopy
-	postcopy=on
+	postcopy=off
 	./ncmigrate-postcopy slave2.qcow2 1024 1 4448 3 5448 $postcopy
-	postcopy=on
+	postcopy=off
 	./ncmigrate-postcopy slave3.qcow2 1024 1 4449 4 5449 $postcopy
 }
 
 #./listen-daemon master.qcow2 1024 1 4436 1 5436
 
-function finish() {
+function check() {
 	#while [ $remain -gt 0 ]; 
 	while [ 1 ]; 
 	do
@@ -78,8 +78,23 @@ function finish() {
 	done
 }
 
-startcluster
-sleep $preptime
-migrate
-finish
+function finish() {
+	for port in ${ports[@]}; 
+	do
+		echo $port
+
+		./stopvm localhost $port
+		./stopvm c11node10 $port
+	done
+}
+
+function migratecluster() {
+	startcluster
+	sleep $preptime
+	migrate
+	check
+}
+
+migratecluster
+#finish
 
