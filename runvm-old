@@ -1,0 +1,58 @@
+#name=migbench.img
+#name=migbench.andrea.img
+name=master.qcow2 # works with centos 6.5, 200G, java, hadoop
+#name=hadoop.qcow2 # works with centos 6.5, 200G, java, hadoop
+#name=centos6.5-200G-shrunk.qcow2 # works with centos 6.5
+#name=centos6.5-200G.qcow2 # works with centos 6.5
+#name=centos6.5-30G.qcow2 # works with centos 6.5
+#name=centos6-30G-shrunk-2.qcow2 # works with centos 6.4
+#name=centos.qcow2 # works
+#name=vm512-29-2013-8-14
+image=/var/lib/libvirt/images/nfs/c11node9/$name
+#image=/home/images/$name.img
+#ram=536
+ram=1024
+#ram=4096
+#ram=128
+#ram=$1
+vcpu=1
+qemudir=/root/qemu
+#version=qemu-kvm-1.2.0
+#version=qemu-1.6.0
+version=qemu-1.7.0
+#version=qemu-1.5.50
+#version=qemu-postcopy # qemu 1.1.50
+version=qemu-postcopy-sep-27-2013 # qemu 1.6.50
+sshport=5555
+#sshport=5554
+network=local
+network=public
+
+nic="virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0"
+
+if [ $network == "local" ]; then
+	nic="e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::$sshport-:22,hostfwd=tcp::80-:80"
+fi
+
+#./qemu-postcopy/x86_64-softmmu/qemu-system-x86_64 \
+#./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
+$qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
+	-drive file=$image \
+	-enable-kvm \
+	-m $ram \
+	-smp $vcpu \
+	-device $nic \
+	-nographic 
+
+#nic="-device virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \"
+#nic="-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::$sshport-:22,hostfwd=tcp::80-:80 \"
+
+	#-device rtl8139,netdev=hostnet0,id=net0 \
+	#-name $name \
+#	-monitor telnet:0:4446,server,nowait \
+#	-daemonize 
+
+#	-monitor telnet:0:4446 \
+	#-qmp tcp:0:4445,server --monitor stdio \
+	#-qmp tcp:0:4446,server \
+#	-monitor stdio \
