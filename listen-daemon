@@ -1,24 +1,24 @@
 #ram=1024
+#ram=$1
 ram=$1
 vcpu=$2
-name=migbench
-#name=vm512-29
-image=/var/lib/libvirt/images/nfs/c11node9/$name.img
+file=master.qcow2
+#name=migbench
+image=/var/lib/libvirt/images/nfs/c11node9/$file
 qemudir=/root/qemu
-#version=qemu-kvm-1.2.0
-version=qemu-1.5.50
-#version=qemu-postcopy
+version=hybrid # qemu 1.6.50
+listenport=4444
+telnetport=4436
+vncport=1
 
-#./qemu-postcopy/qemu-system-x86_64 \
-#./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
 $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
         -drive file=$image \
         -enable-kvm \
-        -incoming tcp:0:4444 \
+        -incoming tcp:0:$listenport \
         -m $ram \
         -smp $vcpu \
-        -monitor telnet:0:4446,server,nowait \
+        -monitor telnet:0:$telnetport,server,nowait \
+        -vnc :$vncport \
         -device virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \
         -daemonize
 
-        #-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \
