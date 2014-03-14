@@ -5,27 +5,36 @@ preptime=90
 
 # sleep interval
 sleeptime=5
-ports=( 4436 4447 )
+ports=( 4436 4447 4448 4449 )
 remain=${#ports[@]}
 
 function startcluster() {
+	# generate a random mac address for the qemu nic
+	#mac=`printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))`
+
 	# filename ram vcpu telnetport vncport listenport postcopy
 	# master 10.244.36.132 (old 10.244.39.141)
-	./runvm-daemon master.qcow2 1024 1 4436 1
+	mac=DE:AD:BE:EF:0C:0F
+	./runvm-daemon master.qcow2 1024 1 4436 1 $mac
 
 	# slave1 10.244.37.1
-	#./runvm-daemon slave1.qcow2 1024 1 4447 2 DE:AD:BE:EF:A6:75
+	mac=DE:AD:BE:EF:FA:3A
+	./runvm-daemon slave1.qcow2 1024 1 4447 2 $mac
 
 	# slave2 10.244.38.71
-	#./runvm-daemon slave2.qcow2 1024 1 4448 3
+	mac=DE:AD:BE:EF:FF:57
+	./runvm-daemon slave2.qcow2 1024 1 4448 3 $mac
 
 	# slave3 10.244.38.70
-	#./runvm-daemon slave3.qcow2 1024 1 4449 4
+	mac=DE:AD:BE:EF:A6:75
+	./runvm-daemon slave3.qcow2 1024 1 4449 4 $mac
 }
 
 function migrate() {
 	./ncmigrate-postcopy master.qcow2 1024 1 4436 1 5436 off
 	./ncmigrate-postcopy slave1.qcow2 1024 1 4447 2 5447 off
+	./ncmigrate-postcopy slave2.qcow2 1024 1 4448 3 5448 off
+	./ncmigrate-postcopy slave3.qcow2 1024 1 4449 4 5449 off
 }
 
 #./listen-daemon master.qcow2 1024 1 4436 1 5436
@@ -49,22 +58,23 @@ function finish() {
 			echo $status
 
 			if [[ $status == *completed* ]]; then
-				./stopvm localhost $port
-				./stopvm c11node10 $port
+			#	./stopvm localhost $port
+			#	./stopvm c11node10 $port
 				(( remain -- ))
 				continue
 			fi
 
 		done
 
-		if [ $remain -le 0 ]; then
-			break
-		fi
+		echo remaining: $remain
+	#	if [ $remain -le 0 ]; then
+	#		break
+	#	fi
 		sleep $sleeptime
 	done
 }
 
-#startcluster
-#sleep $preptime
-#migrate
+startcluster
+sleep $preptime
+migrate
 finish
