@@ -1,7 +1,13 @@
-# filename ram vcpu telnetport vncport
+# sleep interval
+sleep=5
+
+# filename ram vcpu telnetport vncport listenport postcopy
 
 # master 10.244.36.132 (old 10.244.39.141)
 ./runvm-daemon master.qcow2 1024 1 4436 1
+sleep 90
+./ncmigrate-postcopy master.qcow2 1024 1 4436 1 5436 off
+#./listen-daemon master.qcow2 1024 1 4436 1 5436
 
 # slave1 10.244.37.1
 #./runvm-daemon slave1.qcow2 1024 1 4447 2
@@ -11,3 +17,23 @@
 
 # slave3 10.244.38.70
 #./runvm-daemon slave3.qcow2 1024 1 4449 4
+
+while [ 1 ]; 
+do
+	info=`./checkstatus localhost 4436`
+	if [[ -z $info ]]; then
+		break
+	fi
+
+	echo "$info"
+	./checkstatus c11node10 4436
+	status=`echo "$info" | grep -a complete | awk '{print $3}'`
+	echo $status
+
+	if [[ $status == *completed* ]]; then
+		./stopvm localhost 4436
+		./stopvm c11node10 4436
+		break
+	fi
+	sleep 5
+done

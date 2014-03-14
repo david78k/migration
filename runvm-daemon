@@ -18,9 +18,8 @@ qemudir=/root/qemu
 version=hybrid # qemu 1.6.50
 
 # generate a random mac address for the qemu nic
-#mac=`printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))`
-
-mac=
+mac=`printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))`
+mac=DE:AD:BE:EF:0C:0F
 
 echo $file $ram $vcpu $telnetport :$vncport $mac
 
@@ -35,6 +34,8 @@ $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
 	-vnc :$vncport \
         -device virtio-net-pci,netdev=hn0,id=nic1,mac=$mac -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \
 	-daemonize 
+
+        #-incoming tcp:0:$listenport \
 
         #-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \
 	#-device rtl8139,netdev=hostnet0,id=net0 \

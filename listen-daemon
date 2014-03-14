@@ -1,24 +1,48 @@
-#ram=1024
-#ram=$1
-ram=$1
-vcpu=$2
-file=master.qcow2
-#name=migbench
+#file=migbench.img
+file=$1
+#file=vm512-29.img
 image=/var/lib/libvirt/images/nfs/c11node9/$file
+#ram=536
+#ram=1024
+#ram=128
+ram=$2 
+vcpu=$3 # 1-8
+telnetport=$4 # starting 4436 
+vncport=$5 # starting 1 (5901)
+listenport=$6 # starting 5436 
+
 qemudir=/root/qemu
+#version=qemu-kvm-1.2.0
+#version=qemu-1.6.0
+#version=qemu-1.5.50
+#version=qemu-postcopy # qemu 1.1.50
 version=hybrid # qemu 1.6.50
-listenport=4444
-telnetport=4436
-vncport=1
 
+# generate a random mac address for the qemu nic
+#mac=`printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))`
+
+echo $file $ram $vcpu $telnetport :$vncport tcp:0:$listenport
+
+#./qemu-postcopy/x86_64-softmmu/qemu-system-x86_64 \
+#./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
 $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
-        -drive file=$image \
-        -enable-kvm \
+	-drive file=$image \
+	-enable-kvm \
+	-m $ram \
+	-smp $vcpu \
+	-monitor telnet:0:$telnetport,server,nowait \
+	-vnc :$vncport \
         -incoming tcp:0:$listenport \
-        -m $ram \
-        -smp $vcpu \
-        -monitor telnet:0:$telnetport,server,nowait \
-        -vnc :$vncport \
         -device virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0 \
-        -daemonize
+	-daemonize 
 
+        #-device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::5555-:22 \
+	#-device rtl8139,netdev=hostnet0,id=net0 \
+	#-name $name \
+
+	#-qmp tcp:0:4445,server --monitor stdio \
+	#-qmp tcp:0:4446,server \
+
+#echo access VM: telnet localhost 4446
+#echo script: nc localhost 4446
+#echo Do not enter \'quit\' unless you want to stop the VM

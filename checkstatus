@@ -1,0 +1,19 @@
+#!/bin/bash
+
+target=$1
+telnetport=$2
+#vncport=$5
+#listenport=$6
+
+# prepare incoming migration at target
+#ssh $target /root/qemu/listen-daemon $file $ram $vcpu $telnetport $vncport $listenport 
+
+# stop vm
+nc $target $telnetport << EOF
+info migrate
+info status
+EOF
+echo
+
+#quit
+#info migrate_capabilities
