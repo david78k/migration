@@ -1,39 +1,70 @@
+#!/bin/bash
+
+# boot up vm 
+preptime=90
+
 # sleep interval
-sleep=5
+sleeptime=5
+ports=( 4436 4447 )
+remain=${#ports[@]}
 
-# filename ram vcpu telnetport vncport listenport postcopy
+function startcluster() {
+	# filename ram vcpu telnetport vncport listenport postcopy
+	# master 10.244.36.132 (old 10.244.39.141)
+	./runvm-daemon master.qcow2 1024 1 4436 1
 
-# master 10.244.36.132 (old 10.244.39.141)
-./runvm-daemon master.qcow2 1024 1 4436 1
-sleep 90
-./ncmigrate-postcopy master.qcow2 1024 1 4436 1 5436 off
+	# slave1 10.244.37.1
+	#./runvm-daemon slave1.qcow2 1024 1 4447 2 DE:AD:BE:EF:A6:75
+
+	# slave2 10.244.38.71
+	#./runvm-daemon slave2.qcow2 1024 1 4448 3
+
+	# slave3 10.244.38.70
+	#./runvm-daemon slave3.qcow2 1024 1 4449 4
+}
+
+function migrate() {
+	./ncmigrate-postcopy master.qcow2 1024 1 4436 1 5436 off
+	./ncmigrate-postcopy slave1.qcow2 1024 1 4447 2 5447 off
+}
+
 #./listen-daemon master.qcow2 1024 1 4436 1 5436
 
-# slave1 10.244.37.1
-#./runvm-daemon slave1.qcow2 1024 1 4447 2
+function finish() {
+	#while [ $remain -gt 0 ]; 
+	while [ 1 ]; 
+	do
+		for port in ${ports[@]}; 
+		do
+			echo $port
+			info=`./checkstatus localhost $port`
+			if [[ -z $info ]]; then
+				(( remain -- ))
+				continue
+			fi
 
-# slave2 10.244.38.71
-#./runvm-daemon slave2.qcow2 1024 1 4448 3
+			echo "$info"
+			./checkstatus c11node10 $port
+			status=`echo "$info" | grep -a complete | awk '{print $3}'`
+			echo $status
 
-# slave3 10.244.38.70
-#./runvm-daemon slave3.qcow2 1024 1 4449 4
+			if [[ $status == *completed* ]]; then
+				./stopvm localhost $port
+				./stopvm c11node10 $port
+				(( remain -- ))
+				continue
+			fi
 
-while [ 1 ]; 
-do
-	info=`./checkstatus localhost 4436`
-	if [[ -z $info ]]; then
-		break
-	fi
+		done
 
-	echo "$info"
-	./checkstatus c11node10 4436
-	status=`echo "$info" | grep -a complete | awk '{print $3}'`
-	echo $status
+		if [ $remain -le 0 ]; then
+			break
+		fi
+		sleep $sleeptime
+	done
+}
 
-	if [[ $status == *completed* ]]; then
-		./stopvm localhost 4436
-		./stopvm c11node10 4436
-		break
-	fi
-	sleep 5
-done
+#startcluster
+#sleep $preptime
+#migrate
+finish
