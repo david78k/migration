@@ -32,13 +32,13 @@ function startcluster() {
 
 function migrate() {
 	postcopy=off
-	./ncmigrate-postcopy master.qcow2 1024 1 4436 1 5436 $postcopy
+	./ncmigrate master.qcow2 1024 1 4436 1 5436 $postcopy
 	postcopy=off
-	./ncmigrate-postcopy slave1.qcow2 1024 1 4447 2 5447 $postcopy
+	./ncmigrate slave1.qcow2 1024 1 4447 2 5447 $postcopy
 	postcopy=off
-	./ncmigrate-postcopy slave2.qcow2 1024 1 4448 3 5448 $postcopy
+	./ncmigrate slave2.qcow2 1024 1 4448 3 5448 $postcopy
 	postcopy=off
-	./ncmigrate-postcopy slave3.qcow2 1024 1 4449 4 5449 $postcopy
+	./ncmigrate slave3.qcow2 1024 1 4449 4 5449 $postcopy
 }
 
 #./listen-daemon master.qcow2 1024 1 4436 1 5436
