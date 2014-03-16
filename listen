@@ -2,17 +2,19 @@
 ram=1024
 #ram=128
 vcpu=1
-name=migbench
+file=slave1.qcow2
+#file=master.qcow2
+#file=migbench.img
 #name=vm512-29
-image=/var/lib/libvirt/images/nfs/c11node9/$name.img
+image=/var/lib/libvirt/images/nfs/c11node9/$file
 qemudir=/root/qemu
 #version=qemu-kvm-1.2.0
-version=qemu-1.5.50
+#version=qemu-1.5.50
 #version=qemu-postcopy
+version=hybrid
 
-#./qemu-postcopy/qemu-system-x86_64 \
 #./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
-./$version/x86_64-softmmu/qemu-system-x86_64 \
+$qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
         -drive file=$image \
         -enable-kvm \
         -incoming tcp:0:4444 \
