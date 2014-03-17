@@ -7,7 +7,7 @@ preptime=90
 
 # sleep interval
 sleeptime=5
-ports=( 4436 4447 4448 4449 )
+ports=( 4446 4447 4448 4449 )
 remain=${#ports[@]}
 
 function startcluster() {
@@ -17,7 +17,7 @@ function startcluster() {
 	# filename ram vcpu telnetport vncport listenport postcopy
 	# master 10.244.36.132 (old 10.244.39.141)
 	mac=DE:AD:BE:EF:0C:0F
-	./runvm-daemon master.qcow2 1024 1 4436 1 $mac
+	./runvm-daemon master.qcow2 1024 1 4446 1 $mac
 
 	# slave1 10.244.37.1
 	mac=DE:AD:BE:EF:FA:3A
@@ -34,16 +34,14 @@ function startcluster() {
 
 function migrate() {
 	postcopy=off
-	./ncmigrate master.qcow2 1024 1 4436 1 5436 $postcopy
+	./ncmigrate master.qcow2 1024 1 4446 1 5446 $postcopy
 	postcopy=off
-	./ncmigrate slave1.qcow2 1024 1 4447 2 5447 $postcopy
+	#./ncmigrate slave1.qcow2 1024 1 4447 2 5447 $postcopy
 	postcopy=off
-	./ncmigrate slave2.qcow2 1024 1 4448 3 5448 $postcopy
+	#./ncmigrate slave2.qcow2 1024 1 4448 3 5448 $postcopy
 	postcopy=off
-	./ncmigrate slave3.qcow2 1024 1 4449 4 5449 $postcopy
+	#./ncmigrate slave3.qcow2 1024 1 4449 4 5449 $postcopy
 }
-
-#./listen-daemon master.qcow2 1024 1 4436 1 5436
 
 function check() {
 	#while [ $remain -gt 0 ]; 
@@ -65,7 +63,7 @@ function check() {
 			echo $status
 
 			if [[ $status == *completed* ]]; then
-				#./stopvm localhost $port
+				./stopvm localhost $port
 				#./stopvm $target $port
 				(( remain -- ))
 				continue
@@ -74,9 +72,9 @@ function check() {
 		done
 
 		echo remaining: $remain
-	#	if [ $remain -le 0 ]; then
-	#		break
-	#	fi
+		if [ $remain -le 0 ]; then
+			break
+		fi
 		sleep $sleeptime
 	done
 }
@@ -92,10 +90,10 @@ function finish() {
 }
 
 function migratecluster() {
-	startcluster
+#	startcluster
 #	sleep $preptime
-#	migrate
-#	check
+	migrate
+	check
 }
 
 migratecluster

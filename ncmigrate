@@ -14,6 +14,10 @@ postcopy=$7
 # start vm
 ssh $target /root/qemu/listen-daemon $file $ram $vcpu $telnetport $vncport $listenport 
 
+#if [ $file == "master.qcow2" ]; then
+#	telnetport=4436
+#fi
+
 # migrate
 nc localhost $telnetport << EOF
 info status
