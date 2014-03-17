@@ -9,6 +9,7 @@ vncport=$5
 listenport=$6
 postcopy=$7
 speed=125
+background=on
 #mac=$3
 
 # prepare incoming migration at target
@@ -25,6 +26,7 @@ info status
 info version
 info kvm
 migrate_set_capability postcopy $postcopy
+migrate_set_capability postcopy-move-background $background
 migrate_set_speed $speed
 migrate tcp:$target:$listenport
 EOF
