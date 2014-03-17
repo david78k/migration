@@ -35,11 +35,11 @@ function startcluster() {
 function migrate() {
 	postcopy=off
 	./ncmigrate master.qcow2 1024 1 4446 1 5446 $postcopy
-	postcopy=off
+	postcopy=on
 	./ncmigrate slave1.qcow2 1024 1 4447 2 5447 $postcopy
-	postcopy=off
+	postcopy=on
 	./ncmigrate slave2.qcow2 1024 1 4448 3 5448 $postcopy
-	postcopy=off
+	postcopy=on
 	./ncmigrate slave3.qcow2 1024 1 4449 4 5449 $postcopy
 }
 
