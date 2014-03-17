@@ -1,7 +1,8 @@
 #!/bin/bash
 
 target=c11node10
-postcopy=off
+postcopy=on
+#postcopy=off
 
 # boot up vm 
 preptime=90
