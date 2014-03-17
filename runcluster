@@ -35,11 +35,11 @@ function startcluster() {
 function migrate() {
 	postcopy=off
 	./ncmigrate master.qcow2 1024 1 4446 1 5446 $postcopy
-	postcopy=on
+	postcopy=off
 	./ncmigrate slave1.qcow2 1024 1 4447 2 5447 $postcopy
-	postcopy=on
+	postcopy=off
 	./ncmigrate slave2.qcow2 1024 1 4448 3 5448 $postcopy
-	postcopy=on
+	postcopy=off
 	./ncmigrate slave3.qcow2 1024 1 4449 4 5449 $postcopy
 }
 
@@ -50,7 +50,6 @@ function check() {
 		remain=${#ports[@]}
 		for port in ${ports[@]}; 
 		do
-			echo $port
 			info=`./checkstatus localhost $port`
 			if [[ -z $info ]]; then
 				(( remain -- ))
@@ -61,6 +60,7 @@ function check() {
 			#echo $status
 
 			if [[ $status == *completed* ]]; then
+				echo $port
 				echo "$info"
 				./stopvm localhost $port
 				#./stopvm $target $port

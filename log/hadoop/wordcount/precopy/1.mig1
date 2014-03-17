@@ -1,0 +1,102 @@
+4447
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 607
+total time: 41579 milliseconds
+downtime: 6442 milliseconds
+stop time: 6438 milliseconds
+copy time: 4 milliseconds
+setup: 17 milliseconds
+transferred ram: 931897 kbytes
+throughput: 225.07 mbps
+remaining ram: 0 kbytes
+total ram: 1057344 kbytes
+duplicate: 116253 pages
+skipped: 0 pages
+normal: 232264 pages
+normal bytes: 929056 kbytes
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu)
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu) info version
+1.6.50
+(qemu) quit
+
+4448
+4449
+remaining: 3
+4446
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 630
+total time: 40278 milliseconds
+downtime: 3001 milliseconds
+stop time: 2983 milliseconds
+copy time: 18 milliseconds
+setup: 8 milliseconds
+transferred ram: 1002422 kbytes
+throughput: 268.57 mbps
+remaining ram: 0 kbytes
+total ram: 1057344 kbytes
+duplicate: 29067 pages
+skipped: 0 pages
+normal: 250052 pages
+normal bytes: 1000208 kbytes
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu)
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu) info version
+1.6.50
+(qemu) quit
+
+4447
+4448
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 674
+total time: 44881 milliseconds
+downtime: 3397 milliseconds
+stop time: 3394 milliseconds
+copy time: 3 milliseconds
+setup: 14 milliseconds
+transferred ram: 1141295 kbytes
+throughput: 265.91 mbps
+remaining ram: 0 kbytes
+total ram: 1057344 kbytes
+duplicate: 33432 pages
+skipped: 0 pages
+normal: 284693 pages
+normal bytes: 1138772 kbytes
+
+4449
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 1335
+total time: 149128 milliseconds
+downtime: 45827 milliseconds
+stop time: 45824 milliseconds
+copy time: 3 milliseconds
+setup: 15 milliseconds
+transferred ram: 3103957 kbytes
+throughput: 268.57 mbps
+remaining ram: 0 kbytes
+total ram: 1057344 kbytes
+duplicate: 119081 pages
+skipped: 0 pages
+normal: 774213 pages
+normal bytes: 3096852 kbytes
+
