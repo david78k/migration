@@ -36,11 +36,11 @@ function migrate() {
 	postcopy=off
 	./ncmigrate master.qcow2 1024 1 4446 1 5446 $postcopy
 	postcopy=off
-	#./ncmigrate slave1.qcow2 1024 1 4447 2 5447 $postcopy
+	./ncmigrate slave1.qcow2 1024 1 4447 2 5447 $postcopy
 	postcopy=off
-	#./ncmigrate slave2.qcow2 1024 1 4448 3 5448 $postcopy
+	./ncmigrate slave2.qcow2 1024 1 4448 3 5448 $postcopy
 	postcopy=off
-	#./ncmigrate slave3.qcow2 1024 1 4449 4 5449 $postcopy
+	./ncmigrate slave3.qcow2 1024 1 4449 4 5449 $postcopy
 }
 
 function check() {
@@ -57,18 +57,18 @@ function check() {
 				continue
 			fi
 
-			echo "$info"
-			./checkstatus $target $port
 			status=`echo "$info" | grep -a complete | awk '{print $3}'`
-			echo $status
+			#echo $status
 
 			if [[ $status == *completed* ]]; then
+				echo "$info"
 				./stopvm localhost $port
 				#./stopvm $target $port
 				(( remain -- ))
 				continue
 			fi
 
+		#	./checkstatus $target $port
 		done
 
 		echo remaining: $remain
