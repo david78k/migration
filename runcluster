@@ -1,5 +1,7 @@
 #!/bin/bash
 
+target=c11node10
+
 # boot up vm 
 preptime=90
 
@@ -23,11 +25,11 @@ function startcluster() {
 
 	# slave2 10.244.38.71
 	mac=DE:AD:BE:EF:FF:57
-	./runvm-daemon slave2.qcow2 1024 1 4448 3 $mac
+#	./runvm-daemon slave2.qcow2 1024 1 4448 3 $mac
 
 	# slave3 10.244.38.70
 	mac=DE:AD:BE:EF:A6:75
-	./runvm-daemon slave3.qcow2 1024 1 4449 4 $mac
+#	./runvm-daemon slave3.qcow2 1024 1 4449 4 $mac
 }
 
 function migrate() {
@@ -47,6 +49,7 @@ function check() {
 	#while [ $remain -gt 0 ]; 
 	while [ 1 ]; 
 	do
+		remain=${#ports[@]}
 		for port in ${ports[@]}; 
 		do
 			echo $port
@@ -57,13 +60,13 @@ function check() {
 			fi
 
 			echo "$info"
-			./checkstatus c11node10 $port
+			./checkstatus $target $port
 			status=`echo "$info" | grep -a complete | awk '{print $3}'`
 			echo $status
 
 			if [[ $status == *completed* ]]; then
 				#./stopvm localhost $port
-				#./stopvm c11node10 $port
+				#./stopvm $target $port
 				(( remain -- ))
 				continue
 			fi
@@ -84,15 +87,15 @@ function finish() {
 		echo $port
 
 		./stopvm localhost $port
-		./stopvm c11node10 $port
+#		./stopvm $target $port
 	done
 }
 
 function migratecluster() {
 	startcluster
-	sleep $preptime
-	migrate
-	check
+#	sleep $preptime
+#	migrate
+#	check
 }
 
 migratecluster
