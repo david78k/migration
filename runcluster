@@ -2,8 +2,8 @@
 
 #target=c11node10
 target=10.5.147.210
-#postcopy=on
-postcopy=off
+postcopy=on
+#postcopy=off
 
 ram=2048
 vcpu=2
@@ -99,7 +99,7 @@ function migratecluster() {
 	check
 }
 
-startcluster
-#migratecluster
+#startcluster
+migratecluster
 #finish
 
