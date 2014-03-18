@@ -1,8 +1,12 @@
 #!/bin/bash
 
-target=c11node10
-postcopy=on
-#postcopy=off
+#target=c11node10
+target=10.5.147.210
+#postcopy=on
+postcopy=off
+
+ram=2048
+vcpu=2
 
 # boot up vm 
 preptime=90
@@ -19,30 +23,31 @@ function startcluster() {
 	# filename ram vcpu telnetport vncport listenport postcopy
 	# master 10.244.36.132 (old 10.244.39.141)
 	mac=DE:AD:BE:EF:0C:0F
-	./runvm-daemon master.qcow2 1024 1 4446 1 $mac
+	#./runvm-daemon master.qcow2 $ram $vcpu 4446 1 $mac
 
 	# slave1 10.244.37.1
 	mac=DE:AD:BE:EF:FA:3A
-	./runvm-daemon slave1.qcow2 1024 1 4447 2 $mac
+	./runvm-daemon slave1.qcow2 $ram $vcpu 4447 2 $mac
 
 	# slave2 10.244.38.71
-	mac=DE:AD:BE:EF:FF:57
-#	./runvm-daemon slave2.qcow2 1024 1 4448 3 $mac
+	#mac=DE:AD:BE:EF:FF:57
+	#./runvm-daemon slave2.qcow2 $ram $vcpu 4448 3 $mac
 
 	# slave3 10.244.38.70
 	mac=DE:AD:BE:EF:A6:75
-#	./runvm-daemon slave3.qcow2 1024 1 4449 4 $mac
+	#mac=DE:AD:BE:EF:92:C8
+	#./runvm-daemon slave3.qcow2 $ram $vcpu 4449 4 $mac
 }
 
 function migrate() {
 	#postcopy=off
-	./ncmigrate master.qcow2 1024 1 4446 1 5446 off
+	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 off
 	#postcopy=$1
-	./ncmigrate slave1.qcow2 1024 1 4447 2 5447 $postcopy
+	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy
 	#postcopy=$1
-	./ncmigrate slave2.qcow2 1024 1 4448 3 5448 $postcopy
+	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy
 	#postcopy=$1
-	./ncmigrate slave3.qcow2 1024 1 4449 4 5449 $postcopy
+	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy
 }
 
 function check() {
@@ -92,10 +97,10 @@ function finish() {
 }
 
 function migratecluster() {
-#	startcluster
+	startcluster
 #	sleep $preptime
-	migrate 
-	check
+#	migrate 
+#	check
 }
 
 migratecluster

@@ -6,7 +6,8 @@ port=$2
 
 nc $host $port << EOF
 info status
-info version
 quit
 EOF
 echo
+
+#info version

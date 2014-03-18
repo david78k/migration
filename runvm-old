@@ -1,6 +1,6 @@
-#name=migbench.img
+name=migbench.img
 #name=migbench.andrea.img
-name=master.qcow2 # works with centos 6.5, 200G, java, hadoop
+#name=master.qcow2 # works with centos 6.5, 200G, java, hadoop
 #name=hadoop.qcow2 # works with centos 6.5, 200G, java, hadoop
 #name=centos6.5-200G-shrunk.qcow2 # works with centos 6.5
 #name=centos6.5-200G.qcow2 # works with centos 6.5
@@ -22,10 +22,10 @@ qemudir=/root/qemu
 version=qemu-1.7.0
 #version=qemu-1.5.50
 #version=qemu-postcopy # qemu 1.1.50
-version=qemu-postcopy-sep-27-2013 # qemu 1.6.50
+#version=qemu-postcopy-sep-27-2013 # qemu 1.6.50
 sshport=5555
 #sshport=5554
-network=local
+#network=local
 network=public
 
 nic="virtio-net-pci,netdev=hn0,id=nic1 -netdev tap,helper=$qemudir/$version/qemu-bridge-helper,id=hn0"

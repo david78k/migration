@@ -9,7 +9,7 @@ vncport=$5
 listenport=$6
 postcopy=$7
 speed=125
-background=on
+background=off
 #mac=$3
 
 # prepare incoming migration at target
@@ -22,15 +22,15 @@ ssh $target /root/qemu/listen-daemon $file $ram $vcpu $telnetport $vncport $list
 
 # migrate
 nc localhost $telnetport << EOF
-info status
-info version
-info kvm
 migrate_set_capability postcopy $postcopy
 migrate_set_capability postcopy-move-background $background
 migrate_set_speed $speed
 migrate tcp:$target:$listenport
 EOF
 echo
+
+#info version
+#info kvm
 
 #sleep 5
 
