@@ -10,7 +10,8 @@ vncport=$5
 listenport=$6
 postcopy=$7
 speed=125
-background=off
+#background=off
+background=on
 #mac=$3
 
 # prepare incoming migration at target

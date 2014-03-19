@@ -31,17 +31,17 @@ function startcluster() {
 
 	# slave2 10.244.38.71
 	mac=DE:AD:BE:EF:FF:57
-	./runvm-daemon slave2.qcow2 $ram $vcpu 4448 3 $mac
+#	./runvm-daemon slave2.qcow2 $ram $vcpu 4448 3 $mac
 
 	# slave3 10.244.38.70
 	mac=DE:AD:BE:EF:A6:75
 	#mac=DE:AD:BE:EF:92:C8
-#	./runvm-daemon slave3.qcow2 $ram $vcpu 4449 4 $mac
+	./runvm-daemon slave3.qcow2 $ram $vcpu 4449 4 $mac
 }
 
 function migrate() {
-	#postcopy=off
-	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 off
+	masterpost=on
+	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost
 	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy
 	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy
 	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy

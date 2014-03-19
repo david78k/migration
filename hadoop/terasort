@@ -1,0 +1,38 @@
+hadoopcmd=bin/hadoop
+
+jarfile=examples.jar
+
+#blockcount=100000x100byte (10MB)
+#blockcount=100000
+#blockcount=500000x100byte (50MB)
+#blockcount=500000
+# 100MB
+#blockcount=1000000
+# 500MB
+blockcount=5000000
+# 1GB
+#blockcount=10000000
+# 5GB
+#blockcount=50000000
+# 10GB
+#blockcount=100000000
+
+$hadoopcmd fs -rmr tera-input
+#rm -rf tera-input
+$hadoopcmd jar $jarfile teragen $blockcount tera-input
+
+
+$hadoopcmd fs -rmr tera-output
+#rm -rf tera-output
+time -p $hadoopcmd jar $jarfile terasort tera-input tera-output
+
+#$hadoopcmd fs -rmr tera-valid
+#rm -rf tera-valid
+#$hadoopcmd jar $jarfile teravalidate tera-input tera-valid
+
+$hadoopcmd fs -rmr tera-input
+#$hadoopcmd fs -rmr tera-output
+
+hadoop job -history all tera-output
+hadoop job -history all tera-output | grep "Finished At: "
+hadoop job -history all tera-output | egrep "Setup|Map|Reduce|Cleanup" | tail -4
