@@ -1,0 +1,93 @@
+Setup   1       1               0       0       19-Mar-2014 20:22:03    19-Mar-2014 20:22:05 (1sec)
+Map     9       8               0       1       19-Mar-2014 20:22:05    19-Mar-2014 20:23:38 (1mins, 33sec)
+Reduce  1       1               0       0       19-Mar-2014 20:22:34    19-Mar-2014 20:24:19 (1mins, 45sec)
+Cleanup 1       1               0       0       19-Mar-2014 20:24:19    19-Mar-2014 20:24:22 (2sec)
+Finished At: 19-Mar-2014 20:24:50 (2mins, 18sec)
+
+Setup   1       1               0       0       19-Mar-2014 20:15:30    19-Mar-2014 20:15:31 (1sec)
+Map     8       8               0       0       19-Mar-2014 20:15:31    19-Mar-2014 20:17:18 (1mins, 46sec)
+Reduce  1       1               0       0       19-Mar-2014 20:15:47    19-Mar-2014 20:18:03 (2mins, 16sec)
+Cleanup 1       1               0       0       19-Mar-2014 20:18:03    19-Mar-2014 20:18:54 (50sec)
+Finished At: 19-Mar-2014 20:19:15 (3mins, 17sec)
+
+Setup   1       1               0       0       19-Mar-2014 20:10:44    19-Mar-2014 20:10:46 (1sec)
+Map     8       8               0       0       19-Mar-2014 20:10:46    19-Mar-2014 20:11:09 (22sec)
+Reduce  1       1               0       0       19-Mar-2014 20:10:54    19-Mar-2014 20:12:29 (1mins, 35sec)
+Cleanup 1       1               0       0       19-Mar-2014 20:12:30    19-Mar-2014 20:12:31 (1sec)
+Finished At: 19-Mar-2014 20:13:00 (1mins, 47sec)
+
+Setup   1       1               0       0       19-Mar-2014 14:53:39    19-Mar-2014 14:53:41 (1sec)
+Map     8       8               0       0       19-Mar-2014 14:53:41    19-Mar-2014 14:54:49 (1mins, 8sec)
+Reduce  1       1               0       0       19-Mar-2014 14:54:32    19-Mar-2014 14:55:51 (1mins, 19sec)
+Cleanup 1       1               0       0       19-Mar-2014 14:55:51    19-Mar-2014 14:55:54 (2sec)
+Finished At: 19-Mar-2014 14:04:34 (1mins, 55sec)
+
+Setup   1       1               0       0       19-Mar-2014 15:12:49    19-Mar-2014 15:12:50 (1sec)
+Map     8       8               0       0       19-Mar-2014 15:12:32    19-Mar-2014 15:13:11 (39sec)
+Reduce  1       1               0       0       19-Mar-2014 15:13:03    19-Mar-2014 15:14:28 (1mins, 25sec)
+Cleanup 1       1               0       0       19-Mar-2014 15:14:29    19-Mar-2014 15:14:41 (12sec)
+Finished At: 19-Mar-2014 14:23:17 (1mins, 48sec)
+
+Setup   1       1               0       0       19-Mar-2014 15:16:50    19-Mar-2014 15:16:52 (1sec)
+Map     9       8               0       1       19-Mar-2014 15:16:52    19-Mar-2014 15:18:22 (1mins, 30sec)
+Reduce  1       1               0       0       19-Mar-2014 15:17:19    19-Mar-2014 15:18:27 (1mins, 8sec)
+Cleanup 1       1               0       0       19-Mar-2014 15:18:27    19-Mar-2014 15:18:33 (5sec)
+Finished At: 19-Mar-2014 14:27:14 (1mins, 24sec)
+
+Setup   1       1               0       0       19-Mar-2014 15:20:14    19-Mar-2014 15:20:43 (28sec)
+Map     8       8               0       0       19-Mar-2014 15:20:40    19-Mar-2014 15:21:09 (29sec)
+Reduce  1       1               0       0       19-Mar-2014 15:20:52    19-Mar-2014 15:22:16 (1mins, 24sec)
+Cleanup 1       1               0       0       19-Mar-2014 15:22:16    19-Mar-2014 15:22:46 (29sec)
+Finished At: 19-Mar-2014 14:31:21 (2mins, 32sec)
+
+2mins, 42sec
+2mins, 22sec
+
+Setup   1       1               0       0       19-Mar-2014 16:03:57    19-Mar-2014 16:03:59 (1sec)
+Map     8       8               0       0       19-Mar-2014 16:03:59    19-Mar-2014 16:55:27 (51mins, 27sec)
+Reduce  1       1               0       0       19-Mar-2014 16:04:07    19-Mar-2014 16:05:20 (1mins, 12sec)
+Cleanup 1       1               0       0       19-Mar-2014 16:05:20    19-Mar-2014 16:06:03 (43sec)
+Finished At: 19-Mar-2014 16:06:03 (2mins, 6sec)
+
+Setup   1       1               0       0       19-Mar-2014 18:56:42    19-Mar-2014 18:56:44 (1sec)
+Map     8       8               0       0       19-Mar-2014 18:56:40    19-Mar-2014 18:57:43 (1mins, 2sec)
+Reduce  1       1               0       0       19-Mar-2014 18:56:48    19-Mar-2014 18:58:10 (1mins, 22sec)
+Cleanup 1       1               0       0       19-Mar-2014 18:58:10    19-Mar-2014 18:59:16 (1mins, 5sec)
+Finished At: 19-Mar-2014 18:59:40 (2mins, 39sec)
+
+Setup   1       1               0       0       19-Mar-2014 19:10:00    19-Mar-2014 19:10:01 (1sec)
+Map     8       8               0       0       19-Mar-2014 19:10:02    19-Mar-2014 19:10:22 (20sec)
+Reduce  1       1               0       0       19-Mar-2014 19:10:10    19-Mar-2014 19:11:30 (1mins, 20sec)
+Cleanup 1       1               0       0       19-Mar-2014 19:11:30    19-Mar-2014 19:11:32 (2sec)
+Finished At: 19-Mar-2014 19:11:56 (1mins, 33sec)
+
+Setup   1       1               0       0       19-Mar-2014 19:17:23    19-Mar-2014 19:17:25 (1sec)
+Map     8       8               0       0       19-Mar-2014 19:17:25    19-Mar-2014 20:18:40 (1hrs, 1mins, 14sec)
+Reduce  1       1               0       0       19-Mar-2014 19:17:34    19-Mar-2014 19:18:57 (1mins, 23sec)
+Cleanup 1       1               0       0       19-Mar-2014 19:18:57    19-Mar-2014 19:19:45 (47sec)
+Finished At: 19-Mar-2014 19:20:09 (2mins, 22sec)
+
+Setup   1       1               0       0       19-Mar-2014 19:23:49    19-Mar-2014 19:23:51 (1sec)
+Map     8       8               0       0       19-Mar-2014 19:23:47    19-Mar-2014 20:24:23 (1hrs, 36sec)
+Reduce  1       1               0       0       19-Mar-2014 19:23:59    19-Mar-2014 19:25:51 (1mins, 51sec)
+Cleanup 1       1               0       0       19-Mar-2014 19:25:51    19-Mar-2014 19:25:54 (2sec)
+Finished At: 19-Mar-2014 19:26:13 (2mins, 5sec)
+
+Setup   1       1               0       0       19-Mar-2014 19:29:09    19-Mar-2014 19:29:11 (1sec)
+Map     10      8               0       2       19-Mar-2014 19:29:11    19-Mar-2014 19:30:25 (1mins, 13sec)
+Reduce  1       1               0       0       19-Mar-2014 19:29:24    19-Mar-2014 19:31:19 (1mins, 55sec)
+Cleanup 1       1               0       0       19-Mar-2014 19:31:19    19-Mar-2014 19:31:23 (4sec)
+Finished At: 19-Mar-2014 19:31:42 (2mins, 9sec)
+
+Setup   1       1               0       0       19-Mar-2014 19:35:09    19-Mar-2014 19:35:10 (1sec)
+Map     8       8               0       0       19-Mar-2014 19:35:11    19-Mar-2014 19:36:02 (51sec)
+Reduce  1       1               0       0       19-Mar-2014 19:35:19    19-Mar-2014 19:37:30 (2mins, 11sec)
+Cleanup 1       1               0       0       19-Mar-2014 19:37:30    19-Mar-2014 19:37:33 (2sec)
+Finished At: 19-Mar-2014 19:37:56 (2mins, 24sec)
+
+Setup   1       1               0       0       19-Mar-2014 19:47:32    19-Mar-2014 19:47:42 (10sec)
+Map     10      8               0       2       19-Mar-2014 19:47:42    19-Mar-2014 19:49:00 (1mins, 18sec)
+Reduce  1       1               0       0       19-Mar-2014 19:47:50    19-Mar-2014 19:49:33 (1mins, 42sec)
+Cleanup 1       1               0       0       19-Mar-2014 19:49:33    19-Mar-2014 19:50:00 (27sec)
+Finished At: 19-Mar-2014 19:50:24 (2mins, 28sec)
+

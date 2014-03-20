@@ -2,8 +2,8 @@
 
 #target=c11node10
 target=10.5.147.210
-postcopy=on
-#postcopy=off
+#postcopy=on
+postcopy=off
 
 ram=2048
 vcpu=2
@@ -40,7 +40,8 @@ function startcluster() {
 }
 
 function migrate() {
-	masterpost=on
+	#masterpost=on
+	masterpost=off
 	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost
 	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy
 	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy
