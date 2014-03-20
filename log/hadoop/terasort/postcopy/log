@@ -1,0 +1,12 @@
+Setup   1       1               0       0       19-Mar-2014 21:20:08    19-Mar-2014 21:20:09 (1sec)
+Map     10      8               0       2       19-Mar-2014 21:19:50    19-Mar-2014 21:21:54 (2mins, 3sec)
+Reduce  1       1               0       0       19-Mar-2014 21:19:59    19-Mar-2014 21:22:09 (2mins, 9sec)
+Cleanup 1       1               0       0       19-Mar-2014 21:22:09    19-Mar-2014 21:22:12 (3sec)
+Finished At: 19-Mar-2014 21:22:52 (2mins, 26sec)
+
+Setup   1       1               0       0       19-Mar-2014 21:08:29    19-Mar-2014 21:08:30 (1sec)
+Map     11      8               0       3       19-Mar-2014 21:08:08    19-Mar-2014 21:10:08 (1mins, 59sec)
+Reduce  1       1               0       0       19-Mar-2014 21:08:38    19-Mar-2014 21:10:37 (1mins, 58sec)
+Cleanup 1       1               0       0       19-Mar-2014 21:10:37    19-Mar-2014 21:10:42 (5sec)
+Finished At: 19-Mar-2014 21:10:49 (2mins, 13sec)
+
