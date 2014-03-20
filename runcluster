@@ -2,10 +2,10 @@
 
 #target=c11node10
 target=10.5.147.210
-postcopy=on
-#postcopy=off
-masterpost=on
-#masterpost=off
+#postcopy=on
+postcopy=off
+#masterpost=on
+masterpost=off
 
 ram=2048
 vcpu=2
