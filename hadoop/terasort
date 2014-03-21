@@ -21,7 +21,6 @@ $hadoopcmd fs -rmr tera-input
 #rm -rf tera-input
 $hadoopcmd jar $jarfile teragen $blockcount tera-input
 
-
 $hadoopcmd fs -rmr tera-output
 #rm -rf tera-output
 time -p $hadoopcmd jar $jarfile terasort tera-input tera-output
