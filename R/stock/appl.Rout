@@ -33,30 +33,6 @@ Loading required package: devEMF
 > #write.csv(aapl, file = "appl.csv")
 > #write.table(aapl, file = "appl.tab")
 > 
-> plot(aapl[3,6], header = TRUE, col = aapl[2])
-Warning messages:
-1: In plot.window(...) : "header" is not a graphical parameter
-2: In plot.xy(xy, type, ...) :
-  supplied color is neither numeric nor character
-3: In plot.xy(xy, type, ...) : "header" is not a graphical parameter
-4: In axis(side = side, at = at, labels = labels, ...) :
-  "header" is not a graphical parameter
-5: In axis(side = side, at = at, labels = labels, ...) :
-  "header" is not a graphical parameter
-6: In box(...) : "header" is not a graphical parameter
-7: In title(...) : "header" is not a graphical parameter
-> 
-> # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-> #benchmark <- read.table("", header = TRUE, row.names = "vwnd", check.names = FALSE)
-> 
-> # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
-> #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
-> #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (DAY)", ylab = "STOCK PRICE")
-> 
-> # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-> #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
-> 
-> 
-> proc.time()
-   user  system elapsed 
-  0.692   0.038   0.826 
+> axis = (1, aapl[2])
+Error: unexpected ',' in "axis = (1,"
+Execution halted
