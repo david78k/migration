@@ -287,16 +287,8 @@ Loading required package: devEMF
 > #write.table(aapl, file = "appl.tab")
 > 
 > #axis = (2, aapl[2])
-> plot(aapl[5], header = TRUE, col="blue")
-Warning messages:
-1: In plot.window(...) : "header" is not a graphical parameter
-2: In plot.xy(xy, type, ...) : "header" is not a graphical parameter
-3: In axis(side = side, at = at, labels = labels, ...) :
-  "header" is not a graphical parameter
-4: In title(xlab = xlab, ylab = ylab, ...) :
-  "header" is not a graphical parameter
-5: In plot.xy(xy.coords(x, y), type = type, ...) :
-  "header" is not a graphical parameter
+> plot(aapl[5], col="blue")
+> #plot(aapl[5], header = TRUE, col="blue")
 > #plot(aapl[2], aapl[3,6], header = TRUE)
 > #plot(aapl[2], aapl[6], header = TRUE)
 > #plot(aapl[2], aapl[3,6])
@@ -336,4 +328,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
-  0.707   0.037   0.827 
+  0.698   0.039   0.864 
