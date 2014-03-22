@@ -34,7 +34,8 @@ Loading required package: devEMF
 > #write.table(aapl, file = "appl.tab")
 > 
 > #axis = (1, aapl[2])
-> plot(aapl[2], aapl[3,6], header = TRUE)
+> #plot(aapl[2], aapl[3,6], header = TRUE)
+> plot(aapl[2], aapl[3,6])
 Error in stripchart.default(x1, ...) : invalid plotting method
 Calls: plot ... plot.data.frame -> stripchart -> stripchart.default
 Execution halted
