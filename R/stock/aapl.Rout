@@ -61,7 +61,7 @@ Loading required package: devEMF
 > #write.table(aapl, file = "appl.tab")
 > 
 > #axis = (2, aapl[2])
-> plot(aapl[5], col="blue")
+> plot(aapl[,5], col="blue")
 > #plot(aapl[5], header = TRUE, col="blue")
 > #plot(aapl[2], aapl[3,6], header = TRUE)
 > #plot(aapl[2], aapl[6], header = TRUE)
@@ -102,4 +102,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.703   0.033   0.892 
+  0.711   0.023   0.881 
