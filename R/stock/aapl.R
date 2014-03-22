@@ -13,7 +13,7 @@ print(aapl[, 5])
 #write.table(aapl, file = "appl.tab")
 
 #axis = (2, aapl[2])
-plot(aapl[,5], col="blue")
+plot(aapl[,5], col="red")
 #plot(aapl[5], header = TRUE, col="blue")
 #plot(aapl[2], aapl[3,6], header = TRUE)
 #plot(aapl[2], aapl[6], header = TRUE)
