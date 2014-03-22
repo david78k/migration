@@ -7,7 +7,7 @@ aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuse
 
 #print(aapl)
 #print(aapl.google)
-print(aapl[5])
+print(aapl[, 5])
 
 #write.csv(aapl, file = "appl.csv")
 #write.table(aapl, file = "appl.tab")
