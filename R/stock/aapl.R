@@ -12,7 +12,7 @@ aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuse
 #write.table(aapl, file = "appl.tab")
 
 #axis = (2, aapl[2])
-plot(aapl[6], header = TRUE)
+plot(c(aapl[6]), header = TRUE)
 #plot(aapl[2], aapl[3,6], header = TRUE)
 #plot(aapl[2], aapl[6], header = TRUE)
 #plot(aapl[2], aapl[3,6])
