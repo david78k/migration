@@ -23,15 +23,15 @@ y <- c(1.5,2,7,8,15)
 plot(x,y, pch=15, col="blue")
 
 # Example 2. Draw a plot, set a bunch of parameters.
-plot(x,y, xlab="x axis", ylab="y axis", main="my plot", ylim=c(0,20), xlim=c(0,20), pch=15, col="blue")
+#plot(x,y, xlab="x axis", ylab="y axis", main="my plot", ylim=c(0,20), xlim=c(0,20), pch=15, col="blue")
 # fit a line to the points
-myline.fit <- lm(y ~ x)
+#myline.fit <- lm(y ~ x)
 
 # get information about the fit
-summary(myline.fit)
+#summary(myline.fit)
 
 # draw the fit line on the plot
-abline(myline.fit)
+#abline(myline.fit)
 
 # add some more points to the graph
 #x2 <- c(0.5, 3, 5, 8, 12)
