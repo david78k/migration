@@ -34,10 +34,10 @@ summary(myline.fit)
 abline(myline.fit)
 
 # add some more points to the graph
-x2 <- c(0.5, 3, 5, 8, 12)
-y2 <- c(0.8, 1, 2, 4, 6)
+#x2 <- c(0.5, 3, 5, 8, 12)
+#y2 <- c(0.8, 1, 2, 4, 6)
 
-points(x2, y2, pch=16, col="green")
+#points(x2, y2, pch=16, col="green")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("", header = TRUE, row.names = "vwnd", check.names = FALSE)

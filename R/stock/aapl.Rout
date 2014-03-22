@@ -75,10 +75,10 @@ F-statistic: 41.13 on 1 and 3 DF,  p-value: 0.007683
 > abline(myline.fit)
 > 
 > # add some more points to the graph
-> x2 <- c(0.5, 3, 5, 8, 12)
-> y2 <- c(0.8, 1, 2, 4, 6)
+> #x2 <- c(0.5, 3, 5, 8, 12)
+> #y2 <- c(0.8, 1, 2, 4, 6)
 > 
-> points(x2, y2, pch=16, col="green")
+> #points(x2, y2, pch=16, col="green")
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 > #benchmark <- read.table("", header = TRUE, row.names = "vwnd", check.names = FALSE)
@@ -93,4 +93,4 @@ F-statistic: 41.13 on 1 and 3 DF,  p-value: 0.007683
 > 
 > proc.time()
    user  system elapsed 
-  0.722   0.032   0.848 
+  0.714   0.032   0.845 
