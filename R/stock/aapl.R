@@ -11,9 +11,10 @@ aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuse
 #write.csv(aapl, file = "appl.csv")
 #write.table(aapl, file = "appl.tab")
 
-#axis = (1, aapl[2])
+axis = (2, aapl[2])
+plot(aapl[3,6], header = TRUE)
 #plot(aapl[2], aapl[3,6], header = TRUE)
-plot(aapl[2], aapl[3,6])
+#plot(aapl[2], aapl[3,6])
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("", header = TRUE, row.names = "vwnd", check.names = FALSE)
