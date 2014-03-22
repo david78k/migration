@@ -17,9 +17,16 @@ aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuse
 #plot(aapl[2], aapl[6], header = TRUE)
 #plot(aapl[2], aapl[3,6])
 
+# simple example
 x <- c(1,3,6,9,12)
 y <- c(1.5,2,7,8,15)
 plot(x,y)
+
+# add some more points to the graph
+x2 <- c(0.5, 3, 5, 8, 12)
+y2 <- c(0.8, 1, 2, 4, 6)
+
+points(x2, y2, pch=16, col="green")
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("", header = TRUE, row.names = "vwnd", check.names = FALSE)
