@@ -50,7 +50,7 @@ aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuse
 #write.csv(aapl, file = "appl.csv")
 #write.table(aapl, file = "appl.tab")
 
-plot(aapl)
+plot(aapl, header = TRUE)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("$data", header = TRUE, row.names = "vwnd", check.names = FALSE)

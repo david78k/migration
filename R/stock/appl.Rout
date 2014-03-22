@@ -33,7 +33,8 @@ Loading required package: devEMF
 > #write.csv(aapl, file = "appl.csv")
 > #write.table(aapl, file = "appl.tab")
 > 
-> plot(aapl)
+> plot(aapl, header = TRUE)
+There were 50 or more warnings (use warnings() to see the first 50)
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 > #benchmark <- read.table("", header = TRUE, row.names = "vwnd", check.names = FALSE)
@@ -48,4 +49,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.729   0.039   0.930 
+  0.751   0.039   1.120 
