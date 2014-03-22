@@ -10,8 +10,8 @@ name=appl
 
 #data=${name}.dat
 #data=$1
-prefix=${data%\.*}
-name=$prefix
+#prefix=${data%\.*}
+#name=$prefix
 script=${name}.R
 png=${name}.png
 emf=${name}.emf
