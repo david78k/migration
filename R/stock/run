@@ -7,8 +7,8 @@ fi
 
 #name=$1
 #name=fuck
-#name=aapl
-name=damn
+name=aapl
+#name=damn
 
 #data=${name}.dat
 #data=$1
@@ -54,8 +54,9 @@ print(aapl[, 5])
 #write.table(aapl, file = "appl.tab")
 
 #axis = (2, aapl[2])
-plot(aapl[,1], aapl[,5], type = "l", col="red")
-#plot(aapl[,5], type = "l", col="blue")
+#plot(aapl[,1], aapl[,5], type = "l", col="red")
+plot(aapl[,5], type = "l", col="blue")
+lines(aapl[,2], type = "l", col="red")
 #plot(aapl[,5], type = "l", col="red")
 #plot(aapl[5], header = TRUE, col="blue")
 #plot(aapl[2], aapl[3,6], header = TRUE)
