@@ -46,13 +46,13 @@ aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuse
 
 #print(aapl)
 #print(aapl.google)
-print(aapl[6])
+print(aapl[5])
 
 #write.csv(aapl, file = "appl.csv")
 #write.table(aapl, file = "appl.tab")
 
 #axis = (2, aapl[2])
-plot(aapl[6], header = TRUE, col="blue")
+plot(aapl[5], header = TRUE, col="blue")
 #plot(aapl[2], aapl[3,6], header = TRUE)
 #plot(aapl[2], aapl[6], header = TRUE)
 #plot(aapl[2], aapl[3,6])
