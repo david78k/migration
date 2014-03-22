@@ -53,8 +53,12 @@ aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuse
 #axis = (2, aapl[2])
 #plot(aapl[6], header = TRUE, type = "l")
 #plot(aapl[2], aapl[3,6], header = TRUE)
-plot(aapl[2], aapl[6], header = TRUE)
+#plot(aapl[2], aapl[6], header = TRUE)
 #plot(aapl[2], aapl[3,6])
+
+x <- c(1,3,6,9,12)
+y <- c(1.5,2,7,8,15)
+plot(x,y)
 
 # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 #benchmark <- read.table("$data", header = TRUE, row.names = "vwnd", check.names = FALSE)
