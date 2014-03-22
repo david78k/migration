@@ -1,7 +1,7 @@
 library(ggplot2)
 
 require(devEMF)
-emf('appl.emf')
+emf('aapl.emf')
 
 aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
 

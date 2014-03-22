@@ -6,7 +6,7 @@ if [ $# -lt 0 ]; then
 fi
 
 #name=$1
-name=appl
+name=aapl
 
 #data=${name}.dat
 #data=$1
