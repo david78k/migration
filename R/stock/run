@@ -1,0 +1,3 @@
+script=stock.R
+
+R CMD BATCH $script
