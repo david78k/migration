@@ -34,8 +34,8 @@ Loading required package: devEMF
 > #write.table(aapl, file = "appl.tab")
 > 
 > #axis = (2, aapl[2])
-> plot(c(aapl[6]), header = TRUE)
-Error in xy.coords(x, y, xlabel, ylabel, log) : 
-  'x' is a list, but does not have components 'x' and 'y'
-Calls: plot -> plot.default -> xy.coords
+> plot(aapl[6], header = TRUE, type="o", col="blue")
+Error in plot.default(xlim, ylim, type = "n", ann = FALSE, axes = FALSE,  : 
+  formal argument "type" matched by multiple actual arguments
+Calls: plot ... stripchart -> stripchart.default -> plot -> plot.default
 Execution halted
