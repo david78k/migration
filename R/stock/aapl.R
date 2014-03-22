@@ -20,8 +20,8 @@ plot(aapl[5], col="blue")
 #plot(aapl[2], aapl[3,6])
 
 # simple example
-x <- c(1,3,6,9,12)
-y <- c(1.5,2,7,8,15)
+#x <- c(1,3,6,9,12)
+#y <- c(1.5,2,7,8,15)
 #plot(x,y, pch=15, col="blue")
 
 # Example 2. Draw a plot, set a bunch of parameters.
