@@ -44,6 +44,38 @@ Loading required package: devEMF
 > y <- c(1.5,2,7,8,15)
 > plot(x,y)
 > 
+> # Example 2. Draw a plot, set a bunch of parameters.
+> plot(x,y, xlab="x axis", ylab="y axis", main="my plot", ylim=c(0,20), xlim=c(0,20), pch=15, col="blue")
+Warning message:
+In plot.new() : Multiple pages not available for EMF device
+> # fit a line to the points
+> myline.fit <- lm(y ~ x)
+> 
+> # get information about the fit
+> summary(myline.fit)
+
+Call:
+lm(formula = y ~ x)
+
+Residuals:
+      1       2       3       4       5 
+ 0.9898 -0.8909  0.5381 -2.0330  1.3959 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept)  -0.6802     1.3665  -0.498  0.65285   
+x             1.1904     0.1856   6.413  0.00768 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.648 on 3 degrees of freedom
+Multiple R-squared:  0.932,	Adjusted R-squared:  0.9094 
+F-statistic: 41.13 on 1 and 3 DF,  p-value: 0.007683
+
+> 
+> # draw the fit line on the plot
+> abline(myline.fit)
+> 
 > # add some more points to the graph
 > x2 <- c(0.5, 3, 5, 8, 12)
 > y2 <- c(0.8, 1, 2, 4, 6)
@@ -63,4 +95,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.704   0.033   0.828 
+  0.716   0.037   0.837 
