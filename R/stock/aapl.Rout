@@ -34,30 +34,8 @@ Loading required package: devEMF
 > #write.table(aapl, file = "appl.tab")
 > 
 > #axis = (2, aapl[2])
-> plot(aapl[6], header = TRUE)
-Warning messages:
-1: In plot.window(...) : "header" is not a graphical parameter
-2: In plot.xy(xy, type, ...) : "header" is not a graphical parameter
-3: In axis(side = side, at = at, labels = labels, ...) :
-  "header" is not a graphical parameter
-4: In title(xlab = xlab, ylab = ylab, ...) :
-  "header" is not a graphical parameter
-5: In plot.xy(xy.coords(x, y), type = type, ...) :
-  "header" is not a graphical parameter
-> #plot(aapl[2], aapl[3,6], header = TRUE)
-> #plot(aapl[2], aapl[3,6])
-> 
-> # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
-> #benchmark <- read.table("", header = TRUE, row.names = "vwnd", check.names = FALSE)
-> 
-> # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
-> #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
-> #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (DAY)", ylab = "STOCK PRICE")
-> 
-> # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-> #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))
-> 
-> 
-> proc.time()
-   user  system elapsed 
-  0.693   0.039   0.823 
+> plot(aapl[6], header = TRUE, type = "l")
+Error in plot.default(xlim, ylim, type = "n", ann = FALSE, axes = FALSE,  : 
+  formal argument "type" matched by multiple actual arguments
+Calls: plot ... stripchart -> stripchart.default -> plot -> plot.default
+Execution halted
