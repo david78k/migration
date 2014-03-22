@@ -59,7 +59,7 @@ aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuse
 # simple example
 x <- c(1,3,6,9,12)
 y <- c(1.5,2,7,8,15)
-plot(x,y)
+#plot(x,y)
 
 # Example 2. Draw a plot, set a bunch of parameters.
 plot(x,y, xlab="x axis", ylab="y axis", main="my plot", ylim=c(0,20), xlim=c(0,20), pch=15, col="blue")
