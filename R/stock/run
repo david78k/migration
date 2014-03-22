@@ -1,3 +1,78 @@
-script=stock.R
+#!/bin/bash
 
-R CMD BATCH $script
+if [ $# -lt 0 ]; then
+	echo "usage: $0 data"	
+	exit
+fi
+
+#name=$1
+name=appl
+
+#data=${name}.dat
+#data=$1
+prefix=${data%\.*}
+name=$prefix
+script=${name}.R
+png=${name}.png
+emf=${name}.emf
+eps=${name}.eps
+
+xlabel="TIME (DAY)"
+ylabel="STOCK PRICE"
+
+colors=6
+
+function genplot() {
+	cmd="emf($emf)"
+
+	if [ $1 == "png" ]; then
+		figure=$png
+		cmd="png('$figure')"
+	elif [ $1 == "eps" ]; then
+		figure=$eps
+		cmd="postscript('$figure')"
+	elif [ $1 == "emf" ]; then
+		figure=$emf
+		cmd="emf('$figure')"
+	fi
+
+cat >$script << EOF
+library(ggplot2)
+
+require(devEMF)
+$cmd
+
+aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
+
+#print(aapl)
+#print(aapl.google)
+
+#write.csv(aapl, file = "appl.csv")
+#write.table(aapl, file = "appl.tab")
+
+plot(appl)
+
+# header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
+#benchmark <- read.table("$data", header = TRUE, row.names = "vwnd", check.names = FALSE)
+
+# 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
+#barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors))
+#barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors($colors), xlab = "$xlabel", ylab = "$ylabel")
+
+# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
+#legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors($colors))
+
+EOF
+
+	R CMD BATCH $script
+}
+
+genplot png
+
+genplot eps
+
+genplot emf
+
+git add .
+git commit -a -m $script
+git push
