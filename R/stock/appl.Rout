@@ -33,8 +33,16 @@ Loading required package: devEMF
 > #write.csv(aapl, file = "appl.csv")
 > #write.table(aapl, file = "appl.tab")
 > 
-> plot(aapl, header = TRUE)
-There were 50 or more warnings (use warnings() to see the first 50)
+> plot(aapl[6], header = TRUE)
+Warning messages:
+1: In plot.window(...) : "header" is not a graphical parameter
+2: In plot.xy(xy, type, ...) : "header" is not a graphical parameter
+3: In axis(side = side, at = at, labels = labels, ...) :
+  "header" is not a graphical parameter
+4: In title(xlab = xlab, ylab = ylab, ...) :
+  "header" is not a graphical parameter
+5: In plot.xy(xy.coords(x, y), type = type, ...) :
+  "header" is not a graphical parameter
 > 
 > # header = TRUE ignores the first line, check.names = FALSE allows '+' in 'C++'
 > #benchmark <- read.table("", header = TRUE, row.names = "vwnd", check.names = FALSE)
@@ -49,4 +57,4 @@ There were 50 or more warnings (use warnings() to see the first 50)
 > 
 > proc.time()
    user  system elapsed 
-  0.751   0.039   1.120 
+  0.710   0.040   0.836 
