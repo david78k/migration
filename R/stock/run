@@ -6,8 +6,9 @@ if [ $# -lt 0 ]; then
 fi
 
 #name=$1
-name=aapl
 #name=fuck
+#name=aapl
+name=damn
 
 #data=${name}.dat
 #data=$1
