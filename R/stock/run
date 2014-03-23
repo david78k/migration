@@ -21,8 +21,8 @@ png=${name}.png
 emf=${name}.emf
 eps=${name}.eps
 
-xlabel="TIME (DAY)"
-ylabel="STOCK PRICE"
+xlabel="DATE"
+ylabel="CLOSE VALUE"
 
 colors=6
 
@@ -47,6 +47,7 @@ require(devEMF)
 $cmd
 
 aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
+aapl = aapl[nrow(aapl):1, ]
 
 #print(aapl)
 #print(aapl.google)
