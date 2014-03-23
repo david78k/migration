@@ -4,10 +4,11 @@ require(devEMF)
 emf('aapl.emf')
 
 aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
+aapl = aapl[nrow(aapl):1, ]
 
 #print(aapl)
 #print(aapl.google)
-print(aapl[, 5])
+print(aapl[, 1])
 
 #write.csv(aapl, file = "appl.csv")
 #write.table(aapl, file = "appl.tab")
@@ -16,11 +17,19 @@ print(aapl[, 5])
 #axis = (2, aapl[2])
 #box()
 
+# close value
 #matplot(aapl[,1], aapl[,5], type = "l", col="red")
 #plot(aapl[,5], type = "l", col="blue")
-plot(aapl[,1], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
+#plot(aapl[,1], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
+#plot(aapl[,0], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
+plot(aapl[,5], xlab = "DATE", ylab = "STOCK VALUE ($)", type = "l", col="blue")
+
+# open value
+lines(aapl[,2], type = "l", col="red")
+
+#plot(aapl[c(1:40), 1], aapl[c(1:40),5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
+#plot(aapl[c(1:40),5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
 #plot(aapl[,1], aapl[,5], type = "l", col="blue")
-#lines(aapl[,2], type = "l", col="red")
 #plot(aapl[,5], type = "l", col="red")
 #plot(aapl[5], header = TRUE, col="blue")
 #plot(aapl[2], aapl[3,6], header = TRUE)
@@ -53,7 +62,7 @@ plot(aapl[,1], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blu
 
 # 't()' is matrix tranposition, 'beside = TRUE' separates the benchmarks, 'heat' provides nice colors
 #barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6))
-#barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "TIME (DAY)", ylab = "STOCK PRICE")
+#barplot(t(as.matrix(benchmark)), beside = TRUE, col = heat.colors(6), xlab = "DATE", ylab = "STOCK VALUE ($)")
 
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 #legend("topright", names(benchmark), cex = 0.9, bty = "n", fill = heat.colors(6))

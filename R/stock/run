@@ -9,8 +9,8 @@ fi
 #name=fuck
 #name=aapl1
 #name=aapl2
-#name=aapl
-name=damn
+name=aapl
+#name=damn
 
 #data=${name}.dat
 #data=$1
@@ -22,7 +22,8 @@ emf=${name}.emf
 eps=${name}.eps
 
 xlabel="DATE"
-ylabel="CLOSE VALUE"
+ylabel="STOCK VALUE ($)"
+#ylabel="CLOSE VALUE"
 
 colors=6
 
@@ -65,7 +66,7 @@ print(aapl[, 1])
 #plot(aapl[,5], type = "l", col="blue")
 #plot(aapl[,1], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
 #plot(aapl[,0], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
-plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
+plot(aapl[,5], xlab = "$xlabel", ylab = "$ylabel", type = "l", col="blue")
 
 # open value
 lines(aapl[,2], type = "l", col="red")
