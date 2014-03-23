@@ -12,7 +12,7 @@ print(aapl[, 5])
 #write.csv(aapl, file = "appl.csv")
 #write.table(aapl, file = "appl.tab")
 
-axis = (1, lab = aapl[2])
+#axis = (1, lab = aapl[2])
 #axis = (2, aapl[2])
 #box()
 

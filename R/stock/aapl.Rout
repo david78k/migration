@@ -60,6 +60,17 @@ Loading required package: devEMF
 > #write.csv(aapl, file = "appl.csv")
 > #write.table(aapl, file = "appl.tab")
 > 
-> axis = (1, lab = aapl[2])
-Error: unexpected ',' in "axis = (1,"
+> #axis = (1, lab = aapl[2])
+> #axis = (2, aapl[2])
+> #box()
+> 
+> matplot(aapl[,1], aapl[,5], type = "l", col="red")
+Error in plot.window(...) : need finite 'xlim' values
+Calls: matplot -> plot -> plot.default -> localWindow -> plot.window
+In addition: Warning messages:
+1: In xy.coords(x, y, xlabel, ylabel, log = log) :
+  NAs introduced by coercion
+2: In min(x) : no non-missing arguments to min; returning Inf
+3: In max(x) : no non-missing arguments to max; returning -Inf
+4: In xy.coords(x, y, xlabel, ylabel, log) : NAs introduced by coercion
 Execution halted
