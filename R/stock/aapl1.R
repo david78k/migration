@@ -7,7 +7,7 @@ aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuse
 
 #print(aapl)
 #print(aapl.google)
-print(aapl[, 5])
+print(aapl[, 1])
 
 #write.csv(aapl, file = "appl.csv")
 #write.table(aapl, file = "appl.tab")
@@ -20,7 +20,7 @@ print(aapl[, 5])
 #plot(aapl[,5], type = "l", col="blue")
 #plot(aapl[,1], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
 #plot(aapl[,0], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
-plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
+plot(aapl[c(1:40),5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
 #plot(aapl[,1], aapl[,5], type = "l", col="blue")
 #lines(aapl[,2], type = "l", col="red")
 #plot(aapl[,5], type = "l", col="red")
