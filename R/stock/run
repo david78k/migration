@@ -7,10 +7,10 @@ fi
 
 #name=$1
 #name=fuck
-#name=aapl1
+name=aapl1
 #name=aapl2
 #name=aapl
-name=damn
+#name=damn
 
 #data=${name}.dat
 #data=$1
