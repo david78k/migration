@@ -66,7 +66,8 @@ Loading required package: devEMF
 > 
 > #matplot(aapl[,1], aapl[,5], type = "l", col="red")
 > #plot(aapl[,5], type = "l", col="blue")
-> plot(aapl[,1], aapl[,5], type = "l", col="blue")
+> plot(aapl[,1], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
+> #plot(aapl[,1], aapl[,5], type = "l", col="blue")
 > #lines(aapl[,2], type = "l", col="red")
 > #plot(aapl[,5], type = "l", col="red")
 > #plot(aapl[5], header = TRUE, col="blue")
@@ -108,4 +109,4 @@ Loading required package: devEMF
 > 
 > proc.time()
    user  system elapsed 
-  0.847   0.042   0.968 
+  0.845   0.033   0.973 
