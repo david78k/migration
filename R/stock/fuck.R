@@ -1,7 +1,7 @@
 library(ggplot2)
 
 require(devEMF)
-emf('aapl2.emf')
+emf('fuck.emf')
 
 aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
 
@@ -18,7 +18,8 @@ print(aapl[, 5])
 
 #matplot(aapl[,1], aapl[,5], type = "l", col="red")
 #plot(aapl[,5], type = "l", col="blue")
-plot(aapl[,1], aapl[,5], type = "l", col="blue")
+plot(aapl[,1], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
+#plot(aapl[,1], aapl[,5], type = "l", col="blue")
 #lines(aapl[,2], type = "l", col="red")
 #plot(aapl[,5], type = "l", col="red")
 #plot(aapl[5], header = TRUE, col="blue")
