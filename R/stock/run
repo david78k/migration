@@ -7,7 +7,8 @@ fi
 
 #name=$1
 #name=fuck
-name=aapl2
+#name=aapl2
+name=aapl
 #name=damn
 
 #data=${name}.dat
@@ -53,7 +54,10 @@ print(aapl[, 5])
 #write.csv(aapl, file = "appl.csv")
 #write.table(aapl, file = "appl.tab")
 
+axis = (1, lab = aapl[2])
 #axis = (2, aapl[2])
+box()
+
 #plot(aapl[,1], aapl[,5], type = "l", col="red")
 plot(aapl[,5], type = "l", col="blue")
 lines(aapl[,2], type = "l", col="red")
