@@ -21,7 +21,8 @@ png=${name}.png
 emf=${name}.emf
 eps=${name}.eps
 
-xlabel="DATE"
+#xlabel="DATE"
+xlabel="DAY"
 ylabel="STOCK VALUE ($)"
 #ylabel="CLOSE VALUE"
 
