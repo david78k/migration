@@ -1,0 +1,57 @@
+4447
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off                                                                                                    postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy                                                                                                   -rdma-compress: off
+Migration status: completed
+iterations: 599
+total time: 33128 milliseconds
+downtime: 16 milliseconds
+stop time: 0 milliseconds
+copy time: 16 milliseconds
+setup: 15 milliseconds
+transferred ram: 1950758 kbytes
+throughput: 940.24 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 51007 pages
+skipped: 0 pages
+normal: 486626 pages
+normal bytes: 1946504 kbytes
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu)
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu) quit
+
+4449
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off                                                                                                    postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy                                                                                                   -rdma-compress: off
+Migration status: completed
+iterations: 595
+total time: 32450 milliseconds
+downtime: 23 milliseconds
+stop time: 0 milliseconds
+copy time: 23 milliseconds
+setup: 16 milliseconds
+transferred ram: 1852993 kbytes
+throughput: 465.07 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 72115 pages
+skipped: 0 pages
+normal: 462186 pages
+normal bytes: 1848744 kbytes
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu)
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu) quit
+
+remaining: 0
+CPU: 1 %
+

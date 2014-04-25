@@ -1,0 +1,39 @@
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 614
+total time: 33271 milliseconds
+downtime: 30 milliseconds
+stop time: 1 milliseconds
+copy time: 29 milliseconds
+setup: 17 milliseconds
+transferred ram: 1951594 kbytes
+throughput: 952.87 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 51172 pages
+skipped: 0 pages
+normal: 486834 pages
+normal bytes: 1947336 kbytes
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu)
+[root@c11node9 migration]# ./checkstatus localhost 4449
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 602
+total time: 32553 milliseconds
+downtime: 6 milliseconds
+stop time: 1 milliseconds
+copy time: 5 milliseconds
+setup: 17 milliseconds
+transferred ram: 1868732 kbytes
+throughput: 490.47 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 72109 pages
+skipped: 0 pages
+normal: 466113 pages
+normal bytes: 1864452 kbytes
