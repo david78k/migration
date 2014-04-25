@@ -1,0 +1,78 @@
+4446
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 1066
+total time: 55574 milliseconds
+downtime: 5 milliseconds
+stop time: 1 milliseconds
+copy time: 4 milliseconds
+setup: 17 milliseconds
+transferred ram: 1706702 kbytes
+throughput: 251.83 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 110219 pages
+skipped: 0 pages
+normal: 425600 pages
+normal bytes: 1702400 kbytes
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu)
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu) quit
+
+remaining: 2
+remaining: 2
+4447
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 921
+total time: 63717 milliseconds
+downtime: 4 milliseconds
+stop time: 0 milliseconds
+copy time: 4 milliseconds
+setup: 18 milliseconds
+transferred ram: 1957630 kbytes
+throughput: 251.86 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 51447 pages
+skipped: 0 pages
+normal: 488339 pages
+normal bytes: 1953356 kbytes
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu)
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu) quit
+
+4448
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 1083
+total time: 63804 milliseconds
+downtime: 4 milliseconds
+stop time: 0 milliseconds
+copy time: 4 milliseconds
+setup: 17 milliseconds
+transferred ram: 1960177 kbytes
+throughput: 251.86 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 50208 pages
+skipped: 0 pages
+normal: 488977 pages
+normal bytes: 1955908 kbytes
+
+CPU: 1 %
+
