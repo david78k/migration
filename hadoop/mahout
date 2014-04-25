@@ -1,0 +1,6 @@
+# 1. canopy clustering
+# 2. kmeans clustering
+# 3. fuzzykmeans clustering
+#./examples/bin/cluster-syntheticcontrol.sh 1
+./examples/bin/cluster-syntheticcontrol.sh 2
+#./examples/bin/cluster-syntheticcontrol.sh 3

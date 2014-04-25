@@ -1,0 +1,7 @@
+# reset hdfs
+rm -rf /tmp/hadoop-root*
+ssh slave1 rm -rf /tmp/hadoop-root*
+ssh slave2 rm -rf /tmp/hadoop-root*
+ssh slave3 rm -rf /tmp/hadoop-root*
+
+hadoop namenode -format
