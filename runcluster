@@ -17,11 +17,11 @@ preptime=90
 sleeptime=5
 ports=( 4446 4447 4448 4449 )
 #nports=${#ports[@]}
-#nports=1
-nports=3
+nports=1
+#nports=3
 remain=$nports
-migspeed=30
-#migspeed=125
+#migspeed=30
+migspeed=125
 
 # for cpu utilization
 PREV_TOTAL=0
@@ -51,10 +51,10 @@ function startcluster() {
 }
 
 function migrate() {
-	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost $migspeed
-	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
-	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
-	#./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
+	#./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost $migspeed
+	#./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
+	#./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
+	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
 }
 
 function check() {

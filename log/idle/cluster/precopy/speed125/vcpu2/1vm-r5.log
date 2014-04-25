@@ -1,0 +1,17 @@
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off                                                                                                    postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy                                                                                                   -rdma-compress: off
+Migration status: completed
+iterations: 279
+total time: 14746 milliseconds
+downtime: 9 milliseconds
+stop time: 0 milliseconds
+copy time: 9 milliseconds
+setup: 15 milliseconds
+transferred ram: 1688847 kbytes
+throughput: 948.35 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 111355 pages
+skipped: 0 pages
+normal: 421144 pages
+normal bytes: 1684576 kbytes
