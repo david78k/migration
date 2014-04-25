@@ -54,15 +54,15 @@ memtouchdirtyrate=100 # MB/s
 
 loghome=log
 
-# for cpu utilization
-PREV_TOTAL=0
-PREV_IDLE=0
-
 ################################################################
 #
 #                       functions  
 #
 ################################################################
+
+# for cpu utilization
+PREV_TOTAL=0
+PREV_IDLE=0
 
 function cpusage() {
   CPU=(`grep '^cpu ' /proc/stat`) # Get the total CPU statistics.

@@ -16,7 +16,13 @@ preptime=90
 # sleep interval
 sleeptime=5
 ports=( 4446 4447 4448 4449 )
-remain=${#ports[@]}
+#nports=${#ports[@]}
+nports=1
+remain=$nports
+
+# for cpu utilization
+PREV_TOTAL=0
+PREV_IDLE=0
 
 function startcluster() {
 	# generate a random mac address for the qemu nic
@@ -42,9 +48,9 @@ function startcluster() {
 }
 
 function migrate() {
-	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost
-	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy
-	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy
+#	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost
+#	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy
+#	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy
 	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy
 }
 
@@ -52,7 +58,8 @@ function check() {
 	#while [ $remain -gt 0 ]; 
 	while [ 1 ]; 
 	do
-		remain=${#ports[@]}
+		#remain=${#ports[@]}
+		remain=$nports
 		for port in ${ports[@]}; 
 		do
 			info=`./checkstatus localhost $port`
@@ -94,13 +101,40 @@ function finish() {
 	done
 }
 
+# average cpu usage since the last measurement
+function cpusage() {
+  CPU=(`grep '^cpu ' /proc/stat`) # Get the total CPU statistics.
+  unset CPU[0]                          # Discard the "cpu" prefix.
+  IDLE=${CPU[4]}                        # Get the idle CPU time.
+  # Calculate the total CPU time.
+  TOTAL=0
+  for VALUE in "${CPU[@]}"; do
+    let "TOTAL=$TOTAL+$VALUE"
+  done
+
+  # Calculate the CPU usage since we last checked.
+  let "DIFF_IDLE=${IDLE}-${PREV_IDLE}"
+  let "DIFF_TOTAL=${TOTAL}-${PREV_TOTAL}"
+  let "DIFF_USAGE=(1000*(${DIFF_TOTAL}-${DIFF_IDLE})/${DIFF_TOTAL}+5)/10"
+  #echo -e "$DIFF_USAGE"
+  echo -e "CPU: $DIFF_USAGE %"
+  #echo -e "\rCPU: $DIFF_USAGE %  \b\b"
+
+  # Remember the total and idle CPU times for the next check.
+  PREV_TOTAL="$TOTAL"
+  PREV_IDLE="$IDLE"
+}
+
 function migratecluster() {
 #	sleep $preptime
 	migrate 
 	check
 }
 
+cpusage
+
 #startcluster
 migratecluster
 #finish
 
+cpusage
