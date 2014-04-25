@@ -143,6 +143,7 @@ function migratecluster() {
         ssh $target "pgrep -fl dstat| awk '{print $1}' | xargs kill -9"
 
         # plot host cpu/net usage
+	# fix to add both send/receive
         plotcpu="./plotcpu"
         plotnet="./plotnet"
         $plotcpu $dstatfile

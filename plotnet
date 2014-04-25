@@ -24,7 +24,9 @@ fi
 
 tmp=$(mktemp)
 #echo $tmp
-more +8 $data | awk -F '|' '{print $4}' | sed 's/- /0/g' | sed 's/M/000000/g' | sed 's/k/000/g' | sed 's/0 |/0|/g' > $tmp
+# starting at 8 sample times
+#more +8 $data | awk -F '|' '{print $4}' | sed 's/- /0/g' | sed 's/M/000000/g' | sed 's/k/000/g' | sed 's/0 |/0|/g' > $tmp
+more $data | awk -F '|' '{print $4}' | sed 's/- /0/g' | sed 's/M/000000/g' | sed 's/k/000/g' | sed 's/0 |/0|/g' > $tmp
 #awk -F '|' '{print $4}' $data > $tmp
 #cat $tmp
 data=$tmp
