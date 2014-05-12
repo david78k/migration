@@ -1,4 +1,4 @@
-prefix=0.4
+prefix=2
 infile=$prefix.log
 outfile=$prefix.sum
 
