@@ -1,20 +1,17 @@
 Log of ./run 
-Sun May 11 22:11:38 2014
+Sun May 11 23:11:32 2014
 
 Stopping bandwidth shaping: RTNETLINK answers: No such file or directory
 done
 RTNETLINK answers: No such file or directory
-Stopping bandwidth shaping: RTNETLINK answers: No such file or directory
-RTNETLINK answers: No such file or directory
-done
-Delaying 2ms ...
+Delaying 5ms ...
 RTNETLINK answers: No such file or directory
 RTNETLINK answers: No such file or directory
 done
+rm: cannot remove `5ms.log': No such file or directory
 Stopping bandwidth shaping: done
-kill: can't find process "iperf"
-kill: can't find process "-s"
-./run died with exit status 255
-
-Sun May 11 23:03:50 2014
-----------------
+Delaying 10ms ...
+RTNETLINK answers: No such file or directory
+RTNETLINK answers: No such file or directory
+done
+rm: cannot remove `10ms.log': No such file or directory
