@@ -1,4 +1,4 @@
-prefix=180ms
+prefix=80ms
 infile=$prefix.log
 outfile=$prefix.sum
 

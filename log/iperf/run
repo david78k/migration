@@ -5,8 +5,8 @@ server=c11node10
 router=c11node28
 
 # RTT (ms), LAN=0.3-0.5ms
-RTTs=( 20 80 180 ) # 40tcps failed
-#RTTs=( 10 ) # 30tcp failed
+#RTTs=( 20 80 180 ) # 40tcps failed
+RTTs=( 80 ) # 30tcp failed
 #RTTs=( 10 )
 #RTTs=( LAN 2 )
 #RTTs=( 80 180 )
@@ -15,8 +15,8 @@ RTTs=( 20 80 180 ) # 40tcps failed
 # number of parallel TCP connections
 #Ns=( 1 2 3 4 5 6 7 8 9 10 12 14 16 18 20 30 40 )
 #Ns=( 1 2 )
-Ns=( 40 )
-#Ns=( 30 )
+#Ns=( 40 )
+Ns=( 30 )
 
 ssh $router service tc stop
 ssh $server pkill iperf  
