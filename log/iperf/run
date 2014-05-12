@@ -5,12 +5,14 @@ server=c11node10
 router=c11node28
 
 # RTT (ms), LAN=0.3-0.5ms
-RTTs=( LAN )
+RTTs=( 2 )
+#RTTs=( LAN 2 )
 #RTTs=( LAN 2 5 10 20 80 180 )
 
 # number of parallel TCP connections
 #Ns=( 1 2 3 4 5 6 7 8 9 10 12 14 16 18 20 30 40 )
-Ns=( 1 )
+#Ns=( 1 2 )
+Ns=( 40 )
 
 ssh $router service tc stop
 ssh $server iperf -s > server.log &
@@ -23,9 +25,12 @@ do
 		ssh $router service tc delay $RTT
 	fi
 
+	logfile=${RTT}ms.log
+	rm $logfile
+
 	for N in ${Ns[@]}
 	do
-		iperf -c $server -P $N		
+		iperf -c $server -P $N >> $logfile
 	done
 	ssh $router service tc stop
 done

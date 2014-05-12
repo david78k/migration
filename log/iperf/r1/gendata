@@ -1,0 +1,5 @@
+prefix=0.4
+infile=$prefix.log
+outfile=$prefix.sum
+
+grep SUM $infile  | awk '{print $6}' > $outfile
