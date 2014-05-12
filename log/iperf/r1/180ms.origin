@@ -5,7 +5,6 @@ TCP window size: 22.5 KByte (default)
 [  4] local 10.244.34.4 port 50391 connected with 10.244.34.5 port 5001
 [ ID] Interval       Transfer     Bandwidth
 [  4]  0.0-10.1 sec  2.38 MBytes  1.96 Mbits/sec
-[SUM]  0.0-10.1 sec  2.38 MBytes  1.96 Mbits/sec
 ------------------------------------------------------------
 Client connecting to c11node10, TCP port 5001
 TCP window size: 22.5 KByte (default)

@@ -1,19 +1,25 @@
 Log of ./run 
-Sun May 11 23:30:48 2014
+Mon May 12 00:07:03 2014
 
+Stopping bandwidth shaping: done
+Delaying 10ms ...
+RTNETLINK answers: No such file or directory
+RTNETLINK answers: No such file or directory
+done
 Stopping bandwidth shaping: done
 Delaying 80ms ...
 RTNETLINK answers: No such file or directory
 RTNETLINK answers: No such file or directory
 done
-rm: cannot remove `80ms.log': No such file or directory
 Stopping bandwidth shaping: done
 Delaying 180ms ...
 RTNETLINK answers: No such file or directory
 RTNETLINK answers: No such file or directory
 done
-rm: cannot remove `180ms.log': No such file or directory
-./rundied with signal 2
+Stopping bandwidth shaping: done
+kill: can't find process "iperf"
+kill: can't find process "-s"
+./run died with exit status 255
 
-Sun May 11 23:43:07 2014
+Mon May 12 00:08:48 2014
 ----------------
