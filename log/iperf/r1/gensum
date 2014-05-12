@@ -1,5 +1,9 @@
-prefix=2ms
+prefix=180ms
 infile=$prefix.log
 outfile=$prefix.sum
 
+echo RTT = $prefix
+
 grep SUM $infile  | awk '{print $6}' > $outfile
+
+nl $outfile
