@@ -1,0 +1,19 @@
+Log of ./run 
+Sun May 11 21:45:09 2014
+
+Stopping bandwidth shaping: RTNETLINK answers: No such file or directory
+RTNETLINK answers: No such file or directory
+done
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+Stopping bandwidth shaping: RTNETLINK answers: No such file or directory
+done
+RTNETLINK answers: No such file or directory
+kill: can't find process "iperf"
+kill: can't find process "-s"
+./run died with exit status 255
+
+Sun May 11 21:45:10 2014
+----------------
