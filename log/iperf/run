@@ -13,7 +13,7 @@ RTTs=( LAN )
 Ns=( 1 )
 
 ssh $router service tc stop
-ssh $server iperf -s &
+ssh $server iperf -s > server.log &
 
 sleep 3
 

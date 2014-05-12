@@ -1,19 +1,22 @@
 Log of ./run 
-Sun May 11 21:45:09 2014
+Sun May 11 21:49:06 2014
 
 Stopping bandwidth shaping: RTNETLINK answers: No such file or directory
-RTNETLINK answers: No such file or directory
 done
+RTNETLINK answers: No such file or directory
 ------------------------------------------------------------
-Server listening on TCP port 5001
-TCP window size: 85.3 KByte (default)
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
 ------------------------------------------------------------
+[  4] local 10.244.34.4 port 49013 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0-10.0 sec  1.09 GBytes   935 Mbits/sec
 Stopping bandwidth shaping: RTNETLINK answers: No such file or directory
-done
 RTNETLINK answers: No such file or directory
+done
 kill: can't find process "iperf"
 kill: can't find process "-s"
 ./run died with exit status 255
 
-Sun May 11 21:45:10 2014
+Sun May 11 21:49:20 2014
 ----------------
