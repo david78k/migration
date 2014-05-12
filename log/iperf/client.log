@@ -1,17 +1,19 @@
 Log of ./run 
-Sun May 11 23:11:32 2014
+Sun May 11 23:30:48 2014
 
-Stopping bandwidth shaping: RTNETLINK answers: No such file or directory
-done
-RTNETLINK answers: No such file or directory
-Delaying 5ms ...
-RTNETLINK answers: No such file or directory
-RTNETLINK answers: No such file or directory
-done
-rm: cannot remove `5ms.log': No such file or directory
 Stopping bandwidth shaping: done
-Delaying 10ms ...
+Delaying 80ms ...
 RTNETLINK answers: No such file or directory
 RTNETLINK answers: No such file or directory
 done
-rm: cannot remove `10ms.log': No such file or directory
+rm: cannot remove `80ms.log': No such file or directory
+Stopping bandwidth shaping: done
+Delaying 180ms ...
+RTNETLINK answers: No such file or directory
+RTNETLINK answers: No such file or directory
+done
+rm: cannot remove `180ms.log': No such file or directory
+./rundied with signal 2
+
+Sun May 11 23:43:07 2014
+----------------
