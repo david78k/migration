@@ -2,65 +2,45 @@
 Server listening on TCP port 5001
 TCP window size: 85.3 KByte (default)
 ------------------------------------------------------------
-[  4] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51070
-[  5] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51071
-[  6] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51072
-[  7] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51073
-[  8] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51074
-[  9] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51075
-[ 10] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51076
-[ 13] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51079
-[ 11] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51077
-[ 12] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51078
-[ 14] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51080
-[ 15] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51081
-[ 16] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51082
-[ 17] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51083
-[ 18] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51084
-[ 19] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51085
-[ 20] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51086
-[ 21] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51087
-[ 22] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51088
-[ 23] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51089
-[ 24] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51090
-[ 25] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51091
-[ 26] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51092
-[ 27] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51093
-[ 28] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51094
-[ 29] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51095
-[ 30] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51097
-[ 31] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51096
-[ 33] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51099
-[ 32] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51098
+[  4] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51109
+[  5] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51110
+[  6] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51111
+[  7] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51112
+[  8] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51113
+[  9] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51114
+[ 10] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51115
+[ 11] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51116
+[ 12] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51117
+[ 13] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51118
+[ 14] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51119
+[ 15] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51120
+[ 16] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51121
+[ 18] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51123
+[ 17] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51122
+[ 19] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51124
+[ 20] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51125
+[ 21] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51127
+[ 22] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51128
+[ 23] local 10.244.34.5 port 5001 connected with 10.244.34.4 port 51126
 [ ID] Interval       Transfer     Bandwidth
-[  6]  0.0-10.2 sec  16.8 MBytes  13.8 Mbits/sec
-[ 12]  0.0-10.2 sec  19.1 MBytes  15.7 Mbits/sec
-[  5]  0.0-10.3 sec  18.2 MBytes  14.8 Mbits/sec
-[  4]  0.0-10.3 sec  18.9 MBytes  15.3 Mbits/sec
-[ 20]  0.0-10.4 sec  15.2 MBytes  12.3 Mbits/sec
-[ 23]  0.0-10.4 sec  14.1 MBytes  11.4 Mbits/sec
-[ 11]  0.0-10.5 sec  21.2 MBytes  17.0 Mbits/sec
-[ 10]  0.0-10.5 sec  18.2 MBytes  14.5 Mbits/sec
-[  7]  0.0-10.5 sec  12.9 MBytes  10.2 Mbits/sec
-[ 13]  0.0-10.6 sec  16.1 MBytes  12.8 Mbits/sec
-[ 30]  0.0-10.6 sec  14.9 MBytes  11.8 Mbits/sec
-[  9]  0.0-10.6 sec  12.1 MBytes  9.59 Mbits/sec
-[ 14]  0.0-10.7 sec  20.0 MBytes  15.7 Mbits/sec
-[ 16]  0.0-10.7 sec  17.1 MBytes  13.4 Mbits/sec
-[  8]  0.0-10.7 sec  24.2 MBytes  19.0 Mbits/sec
-[ 19]  0.0-10.7 sec  12.8 MBytes  9.98 Mbits/sec
-[ 15]  0.0-10.7 sec  16.4 MBytes  12.8 Mbits/sec
-[ 26]  0.0-10.7 sec  16.0 MBytes  12.5 Mbits/sec
-[ 29]  0.0-10.7 sec  17.9 MBytes  14.0 Mbits/sec
-[ 32]  0.0-10.8 sec  14.9 MBytes  11.6 Mbits/sec
-[ 24]  0.0-10.8 sec  17.8 MBytes  13.8 Mbits/sec
-[ 22]  0.0-10.9 sec  13.2 MBytes  10.2 Mbits/sec
-[ 33]  0.0-11.0 sec  17.1 MBytes  13.0 Mbits/sec
-[ 28]  0.0-11.1 sec  17.4 MBytes  13.2 Mbits/sec
-[ 25]  0.0-11.1 sec  12.9 MBytes  9.75 Mbits/sec
-[ 27]  0.0-11.2 sec  12.9 MBytes  9.63 Mbits/sec
-[ 31]  0.0-11.2 sec  19.5 MBytes  14.6 Mbits/sec
-[ 17]  0.0-11.7 sec  14.4 MBytes  10.3 Mbits/sec
-[ 21]  0.0-11.7 sec  12.0 MBytes  8.58 Mbits/sec
-[ 18]  0.0-11.8 sec  13.9 MBytes  9.89 Mbits/sec
-[SUM]  0.0-11.8 sec   488 MBytes   348 Mbits/sec
+[ 16]  0.0-10.1 sec  59.6 MBytes  49.7 Mbits/sec
+[ 23]  0.0-10.1 sec  41.0 MBytes  34.1 Mbits/sec
+[  4]  0.0-10.1 sec  67.5 MBytes  56.2 Mbits/sec
+[  6]  0.0-10.1 sec  64.1 MBytes  53.4 Mbits/sec
+[ 13]  0.0-10.1 sec  48.8 MBytes  40.6 Mbits/sec
+[ 15]  0.0-10.1 sec  60.1 MBytes  50.0 Mbits/sec
+[ 17]  0.0-10.1 sec  47.5 MBytes  39.5 Mbits/sec
+[ 19]  0.0-10.1 sec  49.4 MBytes  41.1 Mbits/sec
+[  8]  0.0-10.1 sec  63.1 MBytes  52.5 Mbits/sec
+[ 11]  0.0-10.1 sec  47.6 MBytes  39.6 Mbits/sec
+[  9]  0.0-10.1 sec  61.1 MBytes  50.7 Mbits/sec
+[ 14]  0.0-10.1 sec  51.4 MBytes  42.6 Mbits/sec
+[ 18]  0.0-10.1 sec  39.9 MBytes  33.1 Mbits/sec
+[ 21]  0.0-10.1 sec  73.0 MBytes  60.5 Mbits/sec
+[  5]  0.0-10.1 sec  52.2 MBytes  43.3 Mbits/sec
+[  7]  0.0-10.1 sec  62.9 MBytes  52.0 Mbits/sec
+[ 20]  0.0-10.1 sec  70.2 MBytes  58.1 Mbits/sec
+[ 10]  0.0-10.1 sec  43.9 MBytes  36.3 Mbits/sec
+[ 22]  0.0-10.1 sec  53.8 MBytes  44.4 Mbits/sec
+[ 12]  0.0-10.2 sec  68.2 MBytes  56.3 Mbits/sec
+[SUM]  0.0-10.2 sec  1.10 GBytes   928 Mbits/sec
