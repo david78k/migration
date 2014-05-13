@@ -6,9 +6,9 @@ router=c11node28
 
 # RTT (ms), LAN=0.3-0.5ms
 # IMPORTANT: RTT should be halved later
-#RTTs=( 20 80 180 ) # 40tcps failed
+#RTTs=( 80 ) # 40tcps failed
 #RTTs=( 10 ) # 30tcp failed
-RTTs=( 80 )
+RTTs=( 180 )
 #RTTs=( LAN 2 )
 #RTTs=( 2 80 180 )
 #RTTs=( LAN 2 5 10 20 80 180 )
@@ -16,7 +16,7 @@ RTTs=( 80 )
 # number of parallel TCP connections
 #Ns=( 1 2 3 4 5 6 7 8 9 10 12 14 16 18 20 30 40 )
 #Ns=( 1 2 )
-Ns=( 40 )
+Ns=( 30 40 )
 #Ns=( 1 )
 
 ssh $router service tc stop
@@ -27,6 +27,7 @@ sleep 3
 
 for RTT in ${RTTs[@]};
 do
+	echo RTT = ${RTT}ms
 	if [ $RTT != "LAN" ]; then
 		# IMPORTANT: RTT should be halved 
 		ssh $router service tc delay `expr $RTT / 2`
@@ -38,6 +39,7 @@ do
 
 	for N in ${Ns[@]}
 	do
+		echo N = $N
 		iperf -c $server -P $N >> $logfile
 	done
 	ssh $router service tc stop
