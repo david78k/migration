@@ -1,9 +1,10 @@
-prefix=10ms
+prefix=180ms
 infile=$prefix.log
 outfile=$prefix.sum
 
 echo RTT = $prefix
 
+grep " bits" $infile
 grep SUM $infile  | awk '{print $6}' > $outfile
 
 nl $outfile

@@ -1,0 +1,512 @@
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[  3] local 10.244.34.4 port 53579 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-10.0 sec  1.06 GBytes   912 Mbits/sec
+[SUM]  0.0-10.0 sec  1.06 GBytes   912 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[  4] local 10.244.34.4 port 53581 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53580 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0-10.0 sec   620 MBytes   520 Mbits/sec
+[  3]  0.0-10.0 sec   476 MBytes   399 Mbits/sec
+[SUM]  0.0-10.0 sec  1.07 GBytes   919 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[  4] local 10.244.34.4 port 53584 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53582 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53583 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-10.0 sec   337 MBytes   282 Mbits/sec
+[  4]  0.0-10.0 sec   249 MBytes   209 Mbits/sec
+[  5]  0.0-10.0 sec   522 MBytes   438 Mbits/sec
+[SUM]  0.0-10.0 sec  1.08 GBytes   929 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[  5] local 10.244.34.4 port 53588 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53585 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53586 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53587 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-10.0 sec   305 MBytes   256 Mbits/sec
+[  5]  0.0-10.0 sec   243 MBytes   203 Mbits/sec
+[  4]  0.0-10.0 sec   346 MBytes   290 Mbits/sec
+[  6]  0.0-10.0 sec   215 MBytes   181 Mbits/sec
+[SUM]  0.0-10.0 sec  1.08 GBytes   929 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[  6] local 10.244.34.4 port 53592 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53589 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53590 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53591 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53593 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  6]  0.0-10.0 sec   260 MBytes   218 Mbits/sec
+[  3]  0.0-10.0 sec   204 MBytes   171 Mbits/sec
+[  4]  0.0-10.0 sec   260 MBytes   218 Mbits/sec
+[  7]  0.0-10.0 sec   186 MBytes   155 Mbits/sec
+[  5]  0.0-10.0 sec   203 MBytes   170 Mbits/sec
+[SUM]  0.0-10.0 sec  1.09 GBytes   932 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[  7] local 10.244.34.4 port 53596 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53594 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53595 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53598 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53597 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53599 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  5]  0.0-10.0 sec   185 MBytes   155 Mbits/sec
+[  4]  0.0-10.0 sec   201 MBytes   168 Mbits/sec
+[  7]  0.0-10.0 sec   174 MBytes   145 Mbits/sec
+[  3]  0.0-10.0 sec   152 MBytes   127 Mbits/sec
+[  6]  0.0-10.0 sec   241 MBytes   202 Mbits/sec
+[  8]  0.0-10.0 sec   164 MBytes   137 Mbits/sec
+[SUM]  0.0-10.0 sec  1.09 GBytes   934 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[  9] local 10.244.34.4 port 53605 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53600 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53601 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53602 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53603 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53604 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53606 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  9]  0.0-10.0 sec   170 MBytes   143 Mbits/sec
+[  4]  0.0-10.0 sec   193 MBytes   161 Mbits/sec
+[  3]  0.0-10.0 sec   130 MBytes   109 Mbits/sec
+[  6]  0.0-10.0 sec   146 MBytes   122 Mbits/sec
+[  8]  0.0-10.0 sec   186 MBytes   156 Mbits/sec
+[  7]  0.0-10.0 sec   153 MBytes   128 Mbits/sec
+[  5]  0.0-10.0 sec   140 MBytes   117 Mbits/sec
+[SUM]  0.0-10.0 sec  1.09 GBytes   935 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 10] local 10.244.34.4 port 53614 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53607 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53608 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53609 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53610 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53611 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53613 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53612 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-10.0 sec   167 MBytes   140 Mbits/sec
+[  4]  0.0-10.0 sec   142 MBytes   119 Mbits/sec
+[  6]  0.0-10.0 sec   153 MBytes   128 Mbits/sec
+[  5]  0.0-10.0 sec   141 MBytes   118 Mbits/sec
+[  9]  0.0-10.0 sec   128 MBytes   108 Mbits/sec
+[ 10]  0.0-10.0 sec   173 MBytes   145 Mbits/sec
+[  7]  0.0-10.0 sec   109 MBytes  90.9 Mbits/sec
+[  8]  0.0-10.0 sec   105 MBytes  88.1 Mbits/sec
+[SUM]  0.0-10.0 sec  1.09 GBytes   936 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 11] local 10.244.34.4 port 53623 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53615 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53616 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53617 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53618 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53619 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53620 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53621 connected with 10.244.34.5 port 5001
+[ 10] local 10.244.34.4 port 53622 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  5]  0.0-10.0 sec  96.9 MBytes  81.3 Mbits/sec
+[  4]  0.0-10.0 sec   157 MBytes   132 Mbits/sec
+[  3]  0.0-10.0 sec   201 MBytes   168 Mbits/sec
+[  8]  0.0-10.0 sec   116 MBytes  97.2 Mbits/sec
+[  7]  0.0-10.0 sec   105 MBytes  88.3 Mbits/sec
+[  9]  0.0-10.0 sec   112 MBytes  93.7 Mbits/sec
+[ 11]  0.0-10.0 sec  96.9 MBytes  81.1 Mbits/sec
+[  6]  0.0-10.0 sec  93.5 MBytes  78.3 Mbits/sec
+[ 10]  0.0-10.0 sec   140 MBytes   117 Mbits/sec
+[SUM]  0.0-10.0 sec  1.09 GBytes   935 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 12] local 10.244.34.4 port 53633 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53624 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53625 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53626 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53627 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53629 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53628 connected with 10.244.34.5 port 5001
+[ 10] local 10.244.34.4 port 53631 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53630 connected with 10.244.34.5 port 5001
+[ 11] local 10.244.34.4 port 53632 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-10.0 sec   108 MBytes  90.9 Mbits/sec
+[  5]  0.0-10.0 sec  94.4 MBytes  79.1 Mbits/sec
+[  8]  0.0-10.0 sec   123 MBytes   103 Mbits/sec
+[ 10]  0.0-10.0 sec   104 MBytes  87.5 Mbits/sec
+[  9]  0.0-10.0 sec   113 MBytes  94.9 Mbits/sec
+[ 12]  0.0-10.0 sec   108 MBytes  90.7 Mbits/sec
+[  4]  0.0-10.0 sec   122 MBytes   102 Mbits/sec
+[  7]  0.0-10.0 sec  85.6 MBytes  71.7 Mbits/sec
+[ 11]  0.0-10.0 sec  88.0 MBytes  73.7 Mbits/sec
+[  6]  0.0-10.0 sec   169 MBytes   141 Mbits/sec
+[SUM]  0.0-10.0 sec  1.09 GBytes   933 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 14] local 10.244.34.4 port 53645 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53634 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53635 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53636 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53638 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53637 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53639 connected with 10.244.34.5 port 5001
+[ 11] local 10.244.34.4 port 53640 connected with 10.244.34.5 port 5001
+[ 10] local 10.244.34.4 port 53641 connected with 10.244.34.5 port 5001
+[ 13] local 10.244.34.4 port 53642 connected with 10.244.34.5 port 5001
+[ 12] local 10.244.34.4 port 53643 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53644 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0-10.0 sec  84.4 MBytes  70.7 Mbits/sec
+[  5]  0.0-10.0 sec   126 MBytes   105 Mbits/sec
+[  6]  0.0-10.0 sec  99.2 MBytes  83.2 Mbits/sec
+[ 13]  0.0-10.0 sec   133 MBytes   112 Mbits/sec
+[ 14]  0.0-10.0 sec  92.8 MBytes  77.7 Mbits/sec
+[ 11]  0.0-10.0 sec  85.0 MBytes  71.1 Mbits/sec
+[ 12]  0.0-10.0 sec  78.9 MBytes  66.0 Mbits/sec
+[  9]  0.0-10.0 sec   110 MBytes  92.0 Mbits/sec
+[  3]  0.0-10.0 sec  67.9 MBytes  56.8 Mbits/sec
+[  8]  0.0-10.0 sec  75.8 MBytes  63.4 Mbits/sec
+[ 10]  0.0-10.0 sec  91.5 MBytes  76.5 Mbits/sec
+[  7]  0.0-10.0 sec  75.0 MBytes  62.7 Mbits/sec
+[SUM]  0.0-10.0 sec  1.09 GBytes   935 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 15] local 10.244.34.4 port 53656 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53646 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53647 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53648 connected with 10.244.34.5 port 5001
+[ 10] local 10.244.34.4 port 53651 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53653 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53649 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53650 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53652 connected with 10.244.34.5 port 5001
+[ 14] local 10.244.34.4 port 53657 connected with 10.244.34.5 port 5001
+[ 16] local 10.244.34.4 port 53658 connected with 10.244.34.5 port 5001
+[ 11] local 10.244.34.4 port 53659 connected with 10.244.34.5 port 5001
+[ 13] local 10.244.34.4 port 53655 connected with 10.244.34.5 port 5001
+[ 12] local 10.244.34.4 port 53654 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 15]  0.0-10.0 sec  75.4 MBytes  63.2 Mbits/sec
+[  8]  0.0-10.0 sec  60.4 MBytes  50.6 Mbits/sec
+[  4]  0.0-10.0 sec  80.1 MBytes  67.1 Mbits/sec
+[  5]  0.0-10.0 sec  83.6 MBytes  70.0 Mbits/sec
+[ 10]  0.0-10.0 sec  69.9 MBytes  58.5 Mbits/sec
+[  7]  0.0-10.0 sec  71.8 MBytes  60.1 Mbits/sec
+[  3]  0.0-10.0 sec  85.4 MBytes  71.5 Mbits/sec
+[  6]  0.0-10.0 sec  74.2 MBytes  62.1 Mbits/sec
+[  9]  0.0-10.0 sec  88.1 MBytes  73.7 Mbits/sec
+[ 14]  0.0-10.0 sec  60.4 MBytes  50.5 Mbits/sec
+[ 16]  0.0-10.0 sec  79.4 MBytes  66.4 Mbits/sec
+[ 11]  0.0-10.0 sec   107 MBytes  89.7 Mbits/sec
+[ 13]  0.0-10.0 sec  74.9 MBytes  62.6 Mbits/sec
+[ 12]  0.0-10.0 sec   109 MBytes  91.1 Mbits/sec
+[SUM]  0.0-10.0 sec  1.09 GBytes   936 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 18] local 10.244.34.4 port 53675 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53660 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53661 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53662 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53663 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53665 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53664 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53666 connected with 10.244.34.5 port 5001
+[ 10] local 10.244.34.4 port 53667 connected with 10.244.34.5 port 5001
+[ 11] local 10.244.34.4 port 53668 connected with 10.244.34.5 port 5001
+[ 12] local 10.244.34.4 port 53669 connected with 10.244.34.5 port 5001
+[ 13] local 10.244.34.4 port 53670 connected with 10.244.34.5 port 5001
+[ 14] local 10.244.34.4 port 53672 connected with 10.244.34.5 port 5001
+[ 15] local 10.244.34.4 port 53671 connected with 10.244.34.5 port 5001
+[ 16] local 10.244.34.4 port 53673 connected with 10.244.34.5 port 5001
+[ 17] local 10.244.34.4 port 53674 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  7]  0.0-10.0 sec  62.2 MBytes  52.2 Mbits/sec
+[  4]  0.0-10.0 sec  70.1 MBytes  58.8 Mbits/sec
+[  6]  0.0-10.0 sec  69.4 MBytes  58.2 Mbits/sec
+[ 10]  0.0-10.0 sec  93.6 MBytes  78.5 Mbits/sec
+[ 15]  0.0-10.0 sec  88.8 MBytes  74.4 Mbits/sec
+[  5]  0.0-10.0 sec  64.4 MBytes  53.9 Mbits/sec
+[ 13]  0.0-10.0 sec  74.9 MBytes  62.7 Mbits/sec
+[ 17]  0.0-10.0 sec  48.6 MBytes  40.7 Mbits/sec
+[ 18]  0.0-10.0 sec  59.1 MBytes  49.5 Mbits/sec
+[  9]  0.0-10.0 sec  97.1 MBytes  81.2 Mbits/sec
+[ 11]  0.0-10.0 sec  77.6 MBytes  64.9 Mbits/sec
+[ 14]  0.0-10.0 sec  56.9 MBytes  47.6 Mbits/sec
+[  3]  0.0-10.0 sec  74.2 MBytes  62.1 Mbits/sec
+[ 12]  0.0-10.0 sec  55.0 MBytes  46.0 Mbits/sec
+[ 16]  0.0-10.0 sec  54.2 MBytes  45.3 Mbits/sec
+[  8]  0.0-10.1 sec  74.0 MBytes  61.7 Mbits/sec
+[SUM]  0.0-10.1 sec  1.09 GBytes   934 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 20] local 10.244.34.4 port 53693 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53676 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53677 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53679 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53678 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53680 connected with 10.244.34.5 port 5001
+[ 10] local 10.244.34.4 port 53681 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53682 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53683 connected with 10.244.34.5 port 5001
+[ 12] local 10.244.34.4 port 53684 connected with 10.244.34.5 port 5001
+[ 14] local 10.244.34.4 port 53685 connected with 10.244.34.5 port 5001
+[ 11] local 10.244.34.4 port 53686 connected with 10.244.34.5 port 5001
+[ 13] local 10.244.34.4 port 53687 connected with 10.244.34.5 port 5001
+[ 17] local 10.244.34.4 port 53688 connected with 10.244.34.5 port 5001
+[ 16] local 10.244.34.4 port 53689 connected with 10.244.34.5 port 5001
+[ 18] local 10.244.34.4 port 53690 connected with 10.244.34.5 port 5001
+[ 19] local 10.244.34.4 port 53691 connected with 10.244.34.5 port 5001
+[ 15] local 10.244.34.4 port 53692 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-10.0 sec  69.5 MBytes  58.3 Mbits/sec
+[  5]  0.0-10.0 sec  71.9 MBytes  60.2 Mbits/sec
+[ 10]  0.0-10.0 sec  79.2 MBytes  66.4 Mbits/sec
+[  7]  0.0-10.0 sec  66.0 MBytes  55.3 Mbits/sec
+[ 14]  0.0-10.0 sec  64.2 MBytes  53.8 Mbits/sec
+[ 11]  0.0-10.0 sec  63.5 MBytes  53.2 Mbits/sec
+[ 16]  0.0-10.0 sec  69.0 MBytes  57.8 Mbits/sec
+[ 15]  0.0-10.0 sec  68.4 MBytes  57.3 Mbits/sec
+[ 20]  0.0-10.0 sec  53.1 MBytes  44.5 Mbits/sec
+[  9]  0.0-10.0 sec  67.4 MBytes  56.4 Mbits/sec
+[ 13]  0.0-10.0 sec  54.1 MBytes  45.3 Mbits/sec
+[  4]  0.0-10.0 sec  56.5 MBytes  47.2 Mbits/sec
+[ 12]  0.0-10.0 sec  43.1 MBytes  36.0 Mbits/sec
+[  6]  0.0-10.0 sec  62.9 MBytes  52.5 Mbits/sec
+[ 17]  0.0-10.1 sec  54.8 MBytes  45.7 Mbits/sec
+[ 18]  0.0-10.1 sec  71.8 MBytes  59.9 Mbits/sec
+[ 19]  0.0-10.1 sec  55.9 MBytes  46.6 Mbits/sec
+[  8]  0.0-10.3 sec  51.2 MBytes  41.8 Mbits/sec
+[SUM]  0.0-10.3 sec  1.10 GBytes   916 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 20] local 10.244.34.4 port 53712 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53694 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53695 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53696 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53697 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53698 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53700 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53699 connected with 10.244.34.5 port 5001
+[ 10] local 10.244.34.4 port 53701 connected with 10.244.34.5 port 5001
+[ 13] local 10.244.34.4 port 53702 connected with 10.244.34.5 port 5001
+[ 12] local 10.244.34.4 port 53703 connected with 10.244.34.5 port 5001
+[ 15] local 10.244.34.4 port 53705 connected with 10.244.34.5 port 5001
+[ 11] local 10.244.34.4 port 53704 connected with 10.244.34.5 port 5001
+[ 14] local 10.244.34.4 port 53706 connected with 10.244.34.5 port 5001
+[ 17] local 10.244.34.4 port 53707 connected with 10.244.34.5 port 5001
+[ 16] local 10.244.34.4 port 53708 connected with 10.244.34.5 port 5001
+[ 18] local 10.244.34.4 port 53709 connected with 10.244.34.5 port 5001
+[ 21] local 10.244.34.4 port 53711 connected with 10.244.34.5 port 5001
+[ 19] local 10.244.34.4 port 53710 connected with 10.244.34.5 port 5001
+[ 22] local 10.244.34.4 port 53713 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  9]  0.0-10.0 sec  51.4 MBytes  43.1 Mbits/sec
+[ 11]  0.0-10.0 sec  55.9 MBytes  46.9 Mbits/sec
+[  3]  0.0-10.0 sec  60.9 MBytes  51.0 Mbits/sec
+[ 12]  0.0-10.0 sec  52.5 MBytes  44.0 Mbits/sec
+[ 15]  0.0-10.0 sec  88.0 MBytes  73.8 Mbits/sec
+[ 18]  0.0-10.0 sec  60.6 MBytes  50.8 Mbits/sec
+[ 20]  0.0-10.0 sec  49.2 MBytes  41.2 Mbits/sec
+[ 10]  0.0-10.0 sec  45.4 MBytes  38.0 Mbits/sec
+[ 21]  0.0-10.0 sec  84.0 MBytes  70.2 Mbits/sec
+[ 22]  0.0-10.0 sec  55.0 MBytes  46.0 Mbits/sec
+[  4]  0.0-10.0 sec  47.1 MBytes  39.4 Mbits/sec
+[  5]  0.0-10.0 sec  45.9 MBytes  38.3 Mbits/sec
+[  6]  0.0-10.0 sec  49.5 MBytes  41.4 Mbits/sec
+[  7]  0.0-10.0 sec  56.5 MBytes  47.2 Mbits/sec
+[ 17]  0.0-10.0 sec  49.4 MBytes  41.3 Mbits/sec
+[ 16]  0.0-10.0 sec  60.8 MBytes  50.8 Mbits/sec
+[ 19]  0.0-10.0 sec  41.5 MBytes  34.7 Mbits/sec
+[ 14]  0.0-10.1 sec  64.6 MBytes  53.9 Mbits/sec
+[  8]  0.0-10.1 sec  52.2 MBytes  43.5 Mbits/sec
+[ 13]  0.0-10.1 sec  53.6 MBytes  44.7 Mbits/sec
+[SUM]  0.0-10.1 sec  1.10 GBytes   936 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 32] local 10.244.34.4 port 53743 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53714 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53715 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53716 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53717 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53718 connected with 10.244.34.5 port 5001
+[ 10] local 10.244.34.4 port 53719 connected with 10.244.34.5 port 5001
+[ 11] local 10.244.34.4 port 53720 connected with 10.244.34.5 port 5001
+[ 13] local 10.244.34.4 port 53722 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53721 connected with 10.244.34.5 port 5001
+[ 14] local 10.244.34.4 port 53724 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53723 connected with 10.244.34.5 port 5001
+[ 12] local 10.244.34.4 port 53725 connected with 10.244.34.5 port 5001
+[ 17] local 10.244.34.4 port 53726 connected with 10.244.34.5 port 5001
+[ 16] local 10.244.34.4 port 53727 connected with 10.244.34.5 port 5001
+[ 18] local 10.244.34.4 port 53728 connected with 10.244.34.5 port 5001
+[ 19] local 10.244.34.4 port 53729 connected with 10.244.34.5 port 5001
+[ 20] local 10.244.34.4 port 53730 connected with 10.244.34.5 port 5001
+[ 23] local 10.244.34.4 port 53731 connected with 10.244.34.5 port 5001
+[ 21] local 10.244.34.4 port 53732 connected with 10.244.34.5 port 5001
+[ 25] local 10.244.34.4 port 53734 connected with 10.244.34.5 port 5001
+[ 24] local 10.244.34.4 port 53735 connected with 10.244.34.5 port 5001
+[ 22] local 10.244.34.4 port 53733 connected with 10.244.34.5 port 5001
+[ 28] local 10.244.34.4 port 53737 connected with 10.244.34.5 port 5001
+[ 26] local 10.244.34.4 port 53736 connected with 10.244.34.5 port 5001
+[ 27] local 10.244.34.4 port 53738 connected with 10.244.34.5 port 5001
+[ 15] local 10.244.34.4 port 53739 connected with 10.244.34.5 port 5001
+[ 29] local 10.244.34.4 port 53740 connected with 10.244.34.5 port 5001
+[ 31] local 10.244.34.4 port 53742 connected with 10.244.34.5 port 5001
+[ 30] local 10.244.34.4 port 53741 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  9]  0.0-10.0 sec  34.0 MBytes  28.5 Mbits/sec
+[ 25]  0.0-10.0 sec  37.8 MBytes  31.6 Mbits/sec
+[ 24]  0.0-10.0 sec  36.6 MBytes  30.7 Mbits/sec
+[ 32]  0.0-10.0 sec  49.8 MBytes  41.7 Mbits/sec
+[  4]  0.0-10.0 sec  44.6 MBytes  37.4 Mbits/sec
+[ 13]  0.0-10.0 sec  36.8 MBytes  30.8 Mbits/sec
+[ 22]  0.0-10.0 sec  37.9 MBytes  31.7 Mbits/sec
+[ 12]  0.0-10.0 sec  37.1 MBytes  31.0 Mbits/sec
+[ 17]  0.0-10.0 sec  36.6 MBytes  30.6 Mbits/sec
+[ 16]  0.0-10.0 sec  46.5 MBytes  38.9 Mbits/sec
+[ 20]  0.0-10.0 sec  39.8 MBytes  33.2 Mbits/sec
+[ 27]  0.0-10.0 sec  31.2 MBytes  26.1 Mbits/sec
+[ 30]  0.0-10.0 sec  33.1 MBytes  27.7 Mbits/sec
+[  6]  0.0-10.0 sec  34.8 MBytes  29.0 Mbits/sec
+[ 23]  0.0-10.0 sec  36.9 MBytes  30.8 Mbits/sec
+[ 31]  0.0-10.0 sec  38.6 MBytes  32.3 Mbits/sec
+[  3]  0.0-10.1 sec  36.5 MBytes  30.5 Mbits/sec
+[ 10]  0.0-10.0 sec  35.8 MBytes  29.8 Mbits/sec
+[  8]  0.0-10.0 sec  45.1 MBytes  37.7 Mbits/sec
+[ 28]  0.0-10.0 sec  30.8 MBytes  25.7 Mbits/sec
+[  7]  0.0-10.1 sec  33.4 MBytes  27.8 Mbits/sec
+[ 11]  0.0-10.1 sec  43.0 MBytes  35.9 Mbits/sec
+[ 21]  0.0-10.1 sec  28.0 MBytes  23.4 Mbits/sec
+[ 15]  0.0-10.1 sec  33.2 MBytes  27.7 Mbits/sec
+[ 29]  0.0-10.1 sec  39.0 MBytes  32.5 Mbits/sec
+[ 14]  0.0-10.1 sec  35.0 MBytes  29.2 Mbits/sec
+[ 18]  0.0-10.1 sec  40.2 MBytes  33.5 Mbits/sec
+[ 19]  0.0-10.1 sec  37.5 MBytes  31.2 Mbits/sec
+[ 26]  0.0-10.1 sec  38.5 MBytes  32.0 Mbits/sec
+[  5]  0.0-10.1 sec  37.1 MBytes  30.8 Mbits/sec
+[SUM]  0.0-10.1 sec  1.10 GBytes   935 Mbits/sec
+------------------------------------------------------------
+Client connecting to c11node10, TCP port 5001
+TCP window size: 22.5 KByte (default)
+------------------------------------------------------------
+[ 27] local 10.244.34.4 port 53767 connected with 10.244.34.5 port 5001
+[  4] local 10.244.34.4 port 53744 connected with 10.244.34.5 port 5001
+[  5] local 10.244.34.4 port 53745 connected with 10.244.34.5 port 5001
+[  3] local 10.244.34.4 port 53746 connected with 10.244.34.5 port 5001
+[  7] local 10.244.34.4 port 53747 connected with 10.244.34.5 port 5001
+[  6] local 10.244.34.4 port 53748 connected with 10.244.34.5 port 5001
+[  8] local 10.244.34.4 port 53749 connected with 10.244.34.5 port 5001
+[ 12] local 10.244.34.4 port 53750 connected with 10.244.34.5 port 5001
+[ 10] local 10.244.34.4 port 53751 connected with 10.244.34.5 port 5001
+[  9] local 10.244.34.4 port 53752 connected with 10.244.34.5 port 5001
+[ 13] local 10.244.34.4 port 53753 connected with 10.244.34.5 port 5001
+[ 11] local 10.244.34.4 port 53754 connected with 10.244.34.5 port 5001
+[ 17] local 10.244.34.4 port 53755 connected with 10.244.34.5 port 5001
+[ 16] local 10.244.34.4 port 53756 connected with 10.244.34.5 port 5001
+[ 15] local 10.244.34.4 port 53757 connected with 10.244.34.5 port 5001
+[ 14] local 10.244.34.4 port 53758 connected with 10.244.34.5 port 5001
+[ 19] local 10.244.34.4 port 53759 connected with 10.244.34.5 port 5001
+[ 20] local 10.244.34.4 port 53760 connected with 10.244.34.5 port 5001
+[ 18] local 10.244.34.4 port 53761 connected with 10.244.34.5 port 5001
+[ 22] local 10.244.34.4 port 53762 connected with 10.244.34.5 port 5001
+[ 23] local 10.244.34.4 port 53763 connected with 10.244.34.5 port 5001
+[ 24] local 10.244.34.4 port 53764 connected with 10.244.34.5 port 5001
+[ 26] local 10.244.34.4 port 53765 connected with 10.244.34.5 port 5001
+[ 25] local 10.244.34.4 port 53768 connected with 10.244.34.5 port 5001
+[ 31] local 10.244.34.4 port 53769 connected with 10.244.34.5 port 5001
+[ 29] local 10.244.34.4 port 53770 connected with 10.244.34.5 port 5001
+[ 33] local 10.244.34.4 port 53771 connected with 10.244.34.5 port 5001
+[ 30] local 10.244.34.4 port 53772 connected with 10.244.34.5 port 5001
+[ 32] local 10.244.34.4 port 53773 connected with 10.244.34.5 port 5001
+[ 34] local 10.244.34.4 port 53774 connected with 10.244.34.5 port 5001
+[ 28] local 10.244.34.4 port 53775 connected with 10.244.34.5 port 5001
+[ 35] local 10.244.34.4 port 53776 connected with 10.244.34.5 port 5001
+[ 36] local 10.244.34.4 port 53777 connected with 10.244.34.5 port 5001
+[ 37] local 10.244.34.4 port 53779 connected with 10.244.34.5 port 5001
+[ 38] local 10.244.34.4 port 53778 connected with 10.244.34.5 port 5001
+[ 40] local 10.244.34.4 port 53781 connected with 10.244.34.5 port 5001
+[ 39] local 10.244.34.4 port 53780 connected with 10.244.34.5 port 5001
+[ 41] local 10.244.34.4 port 53782 connected with 10.244.34.5 port 5001
+[ 42] local 10.244.34.4 port 53783 connected with 10.244.34.5 port 5001
+[ 21] local 10.244.34.4 port 53766 connected with 10.244.34.5 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 13]  0.0- 9.0 sec  34.1 MBytes  31.8 Mbits/sec
+[ 18]  0.0- 9.0 sec  30.8 MBytes  28.6 Mbits/sec
+[ 41]  0.0- 9.0 sec  28.0 MBytes  26.0 Mbits/sec
+[  3]  0.0- 9.0 sec  26.0 MBytes  24.1 Mbits/sec
+[ 25]  0.0- 9.0 sec  31.9 MBytes  29.6 Mbits/sec
+[  4]  0.0- 9.0 sec  23.9 MBytes  22.1 Mbits/sec
+[  5]  0.0- 9.0 sec  23.6 MBytes  21.9 Mbits/sec
+[ 12]  0.0- 9.0 sec  27.2 MBytes  25.3 Mbits/sec
+[ 11]  0.0- 9.0 sec  24.4 MBytes  22.6 Mbits/sec
+[ 14]  0.0- 9.0 sec  20.5 MBytes  19.0 Mbits/sec
+[ 26]  0.0- 9.0 sec  21.2 MBytes  19.7 Mbits/sec
+[ 29]  0.0- 9.0 sec  25.4 MBytes  23.5 Mbits/sec
+[ 32]  0.0- 9.0 sec  34.9 MBytes  32.4 Mbits/sec
+[ 28]  0.0- 9.0 sec  28.6 MBytes  26.6 Mbits/sec
+[ 36]  0.0- 9.0 sec  26.2 MBytes  24.4 Mbits/sec
+[  7]  0.0- 9.0 sec  20.5 MBytes  19.0 Mbits/sec
+[  8]  0.0- 9.1 sec  28.5 MBytes  26.4 Mbits/sec
+[ 19]  0.0- 9.0 sec  23.4 MBytes  21.7 Mbits/sec
+[ 30]  0.0- 9.1 sec  23.8 MBytes  22.0 Mbits/sec
+[ 34]  0.0- 9.0 sec  28.6 MBytes  26.5 Mbits/sec
+[ 10]  0.0- 9.1 sec  27.1 MBytes  25.1 Mbits/sec
+[ 40]  0.0- 9.1 sec  26.6 MBytes  24.6 Mbits/sec
+[  6]  0.0- 9.1 sec  28.2 MBytes  26.1 Mbits/sec
+[ 16]  0.0- 9.1 sec  21.6 MBytes  20.0 Mbits/sec
+[ 31]  0.0- 9.1 sec  25.4 MBytes  23.5 Mbits/sec
+[ 33]  0.0- 9.1 sec  20.2 MBytes  18.7 Mbits/sec
+[ 35]  0.0- 9.1 sec  20.1 MBytes  18.6 Mbits/sec
+[ 42]  0.0- 9.1 sec  23.1 MBytes  21.4 Mbits/sec
+[ 17]  0.0- 9.1 sec  25.5 MBytes  23.5 Mbits/sec
+[ 15]  0.0- 9.1 sec  26.2 MBytes  24.2 Mbits/sec
+[ 23]  0.0- 9.1 sec  34.4 MBytes  31.7 Mbits/sec
+[ 37]  0.0- 9.1 sec  18.8 MBytes  17.3 Mbits/sec
+[  9]  0.0- 9.1 sec  25.4 MBytes  23.4 Mbits/sec
+[ 20]  0.0- 9.1 sec  20.2 MBytes  18.7 Mbits/sec
+[ 22]  0.0- 9.1 sec  21.6 MBytes  19.9 Mbits/sec
+[ 39]  0.0- 9.1 sec  22.2 MBytes  20.5 Mbits/sec
+[ 38]  0.0- 9.2 sec  29.4 MBytes  26.8 Mbits/sec
+[ 24]  0.0- 9.3 sec  31.0 MBytes  27.9 Mbits/sec
+[ 27]  0.0-10.0 sec  28.8 MBytes  24.1 Mbits/sec
+[ 21]  0.0-10.0 sec  29.9 MBytes  25.0 Mbits/sec
+[SUM]  0.0-10.0 sec  1.01 GBytes   869 Mbits/sec
