@@ -6,7 +6,7 @@ router=c11node28
 
 # RTT (ms), LAN=0.3-0.5ms
 # IMPORTANT: RTT should be halved later
-RTTs=( 80 ) # 40tcps failed
+RTTs=( 120 ) # 40tcps failed
 #RTTs=( 180 ) # 30tcp failed
 #RTTs=( LAN 2 )
 #RTTs=( 2 80 180 )
