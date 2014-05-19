@@ -6,8 +6,8 @@ router=c11node28
 
 # RTT (ms), LAN=0.3-0.5ms
 # IMPORTANT: RTT should be halved later
-RTTs=( 5 ) # 40tcps failed
-#RTTs=( 180 ) # 30tcp failed
+#RTTs=( 5 ) # 40tcps failed
+RTTs=( 180 ) # 30tcp failed
 #RTTs=( LAN 2 )
 #RTTs=( 2 80 180 )
 #RTTs=( LAN 2 5 10 20 80 180 )
@@ -19,7 +19,8 @@ Ns=( 1 2 3 4 5 6 7 8 9 10 12 14 16 18 20 30 40 )
 #Ns=( 30 40 )
 #Ns=( 1 )
 
-totaltime=60
+# total run time in seconds
+totaltime=120
 
 ssh $router service tc stop
 ssh $server pkill iperf  
