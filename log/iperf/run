@@ -7,7 +7,7 @@ router=c11node28
 # RTT (ms), LAN=0.3-0.5ms
 # IMPORTANT: RTT should be halved later
 #RTTs=( 5 ) # 40tcps failed
-RTTs=( 180 ) # 30tcp failed
+RTTs=( 200 ) # 30tcp failed
 #RTTs=( LAN 2 )
 #RTTs=( 2 80 180 )
 #RTTs=( LAN 2 5 10 20 80 180 )
@@ -44,6 +44,7 @@ do
 	for N in ${Ns[@]}
 	do
 		echo N = $N
+		echo N = $N >> $logfile
 		#iperf3 -c $server -P $N -t 30 -O 45 >> $logfile
 		iperf -c $server -P $N -t $totaltime >> $logfile
 	done
