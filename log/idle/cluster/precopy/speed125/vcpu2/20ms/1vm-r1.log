@@ -1,0 +1,22 @@
+QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info status
+VM status: paused (postmigrate)
+(qemu) info migr
+migrate               migrate_cache_size    migrate_capabilities
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: offf
+Migration status: completed
+iterations: 353
+total time: 21103 milliseconds
+downtime: 6 milliseconds
+stop time: 0 milliseconds
+copy time: 6 milliseconds
+setup: 15 milliseconds
+transferred ram: 1949910 kbytes
+throughput: 849.68 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 50492 pages
+skipped: 0 pages
+normal: 486416 pages
+normal bytes: 1945664 kbytes

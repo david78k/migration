@@ -34,12 +34,12 @@ function startcluster() {
 
 	# filename ram vcpu telnetport vncport listenport mac_address
 	# tomcat 10.244.38.13
-	mac=DE:AD:BE:EF:30:80
+	mac=DE:AD:BE:EF:30:80 
 	./runvm-daemon "rubis/tomcat.qcow2" $ram $vcpu ${ports[0]} 5 $mac
 
-	# slave1 10.244.37.1
-	mac=DE:AD:BE:EF:FA:3A
-#	./runvm-daemon slave1.qcow2 $ram $vcpu 4447 2 $mac
+	# jboss 10.244.37.74
+	mac=DE:AD:BE:EF:CA:8B
+	#./runvm-daemon "rubis/jboss.qcow2" $ram $vcpu ${ports[1]} 6 $mac
 
 	# slave2 10.244.38.71
 	mac=DE:AD:BE:EF:FF:57
@@ -53,8 +53,8 @@ function startcluster() {
 
 function migrate() {
 	# filename ram vcpu telnetport vncport listenport postcopy migration_speed
-	./ncmigrate tomcat.qcow2 $ram $vcpu ${ports[0]} 5 5446 $masterpost $migspeed
-	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
+	./ncmigrate "rubis/tomcat.qcow2" $ram $vcpu ${ports[0]} 5 5450 $masterpost $migspeed
+	./ncmigrate "rubis/jboss.qcow2" $ram $vcpu ${ports[1]} 6 5451 $postcopy $migspeed
 	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
 	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
 }
