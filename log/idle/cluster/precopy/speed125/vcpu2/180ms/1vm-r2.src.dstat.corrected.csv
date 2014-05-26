@@ -1,9 +1,4 @@
-#"Dstat 0.7.0 CSV output"
-#"Author:","Dag Wieers <dag@wieers.com>",,,,"URL:","http://dag.wieers.com/home-made/dstat/"
-#"Host:","c11node9",,,,"User:","root"
-#"Cmdline:","dstat -cnmdgy -N eth0,eth1,total --noheaders -o src.dstat.csv",,,,"Date:","26 May 2014 19:32:55 EDT"
-
-#"total cpu usage",,,,,,"net/eth0",,"net/eth1",,"net/total",,"memory usage",,,,"dsk/total",,"paging",,"system",
+"total cpu usage",,,,,,"net/eth0",,"net/eth1",,"net/total",,"memory usage",,,,"dsk/total",,"paging",,"system",
 "usr","sys","idl","wai","hiq","siq","recv","send","recv","send","recv","send","used","buff","cach","free","read","writ","in","out","int","csw"
 1.139,1.616,97.211,0.032,0.000,0.002,0.0,0.0,0.0,0.0,0.0,0.0,8387457024.0,412016640.0,5164961792.0,11358863360.0,168.220,2240.371,0.0,0.0,848.580,755.358
 0.250,0.125,99.562,0.063,0.0,0.0,64.0,0.0,2591.0,6317.0,10486.0,14503.0,8387457024.0,412016640.0,5164961792.0,11358863360.0,0.0,102400.0,0.0,0.0,841.0,1406.0
