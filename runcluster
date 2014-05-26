@@ -52,9 +52,9 @@ function startcluster() {
 
 function migrate() {
 	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost $migspeed
-	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
-	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
-	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
+	#./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
+	#./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
+	#./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
 }
 
 function check() {
@@ -128,11 +128,15 @@ function cpusage() {
   PREV_IDLE="$IDLE"
 }
 
+function iperftest() {
+	logsave 1vm-r1.iperf iperf -c c11node10 -f M -t 30
+}
+
 function migratecluster() {
 	dstatfile=src.dstat
 	dstatdest=dest.dstat
-        dstat -cmdngy -N eth0 --noheaders > $dstatfile &
-        ssh $target "dstat -cmdngy -N eth0 --noheaders" > $dstatdest &
+        dstat -cmdngy -N eth0,eth1,total --noheaders > $dstatfile &
+        ssh $target "dstat -cmdngy -N eth0,eth1,total --noheaders" > $dstatdest &
 
 #	sleep $preptime
 	migrate 

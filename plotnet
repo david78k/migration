@@ -90,7 +90,7 @@ set yr [0:]
 
 #plot data using (\$2/1000000) title 'eth1' smooth freq with linespoints
 
-plot data using (\$2/1000000) notitle smooth freq with lines
+plot data using (\$14/1000000) notitle smooth freq with lines
 #plot data using (\$2/1000000) notitle smooth freq with linespoints
 
 #plot data every ::3 using (\$14!=0 ? \$14 : \$13) notitle smooth freq with linespoints
