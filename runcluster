@@ -7,6 +7,8 @@ postcopy=off
 #masterpost=on
 masterpost=off
 
+prefix=1vm-r2
+
 ram=2048
 vcpu=2
 
@@ -15,10 +17,11 @@ preptime=90
 
 # sleep interval
 sleeptime=5
-ports=( 4446 4447 4448 4449 )
-#nports=${#ports[@]}
-#nports=1
-nports=4
+#ports=( 4446 4447 4448 4449 )
+ports=( 4448 )
+nports=${#ports[@]}
+##nports=1
+#nports=4
 remain=$nports
 #migspeed=30
 migspeed=125
@@ -52,12 +55,13 @@ function startcluster() {
 
 function migrate() {
 	#./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost $migspeed
-	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
-	#./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
+	#./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
+	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
 	#./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
 }
 
 function check() {
+	rm -rf migrate.log
 	#while [ $remain -gt 0 ]; 
 	while [ 1 ]; 
 	do
@@ -77,6 +81,8 @@ function check() {
 			if [[ $status == *completed* ]]; then
 				echo $port
 				echo "$info"
+				echo $info >> migrate.log
+
 				./stopvm localhost $port
 				#./stopvm $target $port
 				(( remain -- ))
@@ -132,11 +138,26 @@ function iperftest() {
 	logsave 1vm-r1.iperf iperf -c c11node10 -f M -t 30
 }
 
+function download() {
+	min=2min
+	wget -O $prefix.net.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=network_report"
+	wget -O $prefix.net.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=network_report&csv=1"
+	wget -O $prefix.cpu.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=network_report"
+	wget -O $prefix.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=network_report&csv=1"
+	wget -O $prefix.net.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=network_report"
+	wget -O $prefix.net.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=network_report&csv=1"
+	wget -O $prefix.cpu.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=network_report"
+	wget -O $prefix.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=network_report&csv=1"
+}
+
 function migratecluster() {
-	dstatfile=src.dstat
-	dstatdest=dest.dstat
-        dstat -cmdngy -N eth0,eth1,total --noheaders > $dstatfile &
-        ssh $target "dstat -cmdngy -N eth0,eth1,total --noheaders" > $dstatdest &
+	dstatfile=src.dstat.csv
+	dstatdest=dest.dstat.csv
+        dstatcmd="dstat -cnmdgy -N eth0,eth1,total --noheaders -o "
+        $dstatcmd $dstatfile &
+        #dstat -cmdngy -N eth0,eth1,total --noheaders > $dstatfile &
+	ssh $dstatcmd $dstatdest &
+        #ssh $target "dstat -cmdngy -N eth0,eth1,total --noheaders" > $dstatdest &
 
 #	sleep $preptime
 	migrate 
@@ -145,6 +166,8 @@ function migratecluster() {
         # stop dstat
         pgrep -fl dstat| awk '{print $1}' | xargs kill -9
         ssh $target "pgrep -fl dstat| awk '{print $1}' | xargs kill -9"
+
+	download
 
         # plot host cpu/net usage
 	# fix to add both send/receive
