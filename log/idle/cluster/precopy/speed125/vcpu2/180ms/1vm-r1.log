@@ -1,0 +1,18 @@
+▒▒▒▒▒▒▒▒QEMU 1.6.50 monitor - type 'help' for more information
+(qemu) info migrate
+capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off
+Migration status: completed
+iterations: 600
+total time: 113527 milliseconds
+downtime: 4 milliseconds
+stop time: 0 milliseconds
+copy time: 4 milliseconds
+setup: 15 milliseconds
+transferred ram: 1692063 kbytes
+throughput: 147.84 mbps
+remaining ram: 0 kbytes
+total ram: 2105920 kbytes
+duplicate: 114038 pages
+skipped: 0 pages
+normal: 421940 pages
+normal bytes: 1687760 kbytes
