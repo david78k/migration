@@ -1,5 +1,6 @@
 #!/bin/bash
 
+target=c11node10
 prefix=4vms-r1
 min=3min
 
