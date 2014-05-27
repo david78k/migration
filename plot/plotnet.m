@@ -11,6 +11,8 @@ startrow = 7;
 recvcol = 8;
 sendcol = 9;
 
+fontsize = 14;
+
 %prefix = "rand-6-r2"
 data = strcat(prefix, postfix)
 %data = strcat(prefix, ".dstat");
@@ -25,11 +27,13 @@ A = csvread(prefix, startrow, recvcol);
 figure;
 output = data
 x = 1:1:length(A);
-plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--');
+plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--rs', 'LineWidth', 2);
+%plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--');
 %plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
-xlabel('TIME (SEC)');
-ylabel('THROUGHPUT (MB/s)');
-legend('RECEIVE', 'SEND');
+xlabel('TIME (SEC)', 'FontSize', fontsize);
+ylabel('THROUGHPUT (MB/s)', 'FontSize', fontsize);
+lgnd = legend('RECEIVE', 'SEND');
+set(lgnd, 'FontSize', fontsize);
 
 saveas (1, strcat(output, ".png"));
 saveas (1, strcat(output, ".eps"));
