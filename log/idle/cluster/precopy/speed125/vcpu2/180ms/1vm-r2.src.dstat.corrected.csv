@@ -1,5 +1,4 @@
 "Dstat 0.7.0 CSV output"
-"Author:","Dag Wieers <dag@wieers.com>",,,,"URL:","http://dag.wieers.com/home-made/dstat/"
 "Host:","c11node9",,,,"User:","root"
 "Cmdline:","dstat -cnmdgy -N eth0,eth1,total --noheaders -o src.dstat.csv",,,,"Date:","26 May 2014 19:32:55 EDT"
 
