@@ -12,6 +12,7 @@ data = strcat(prefix, postfix);
 %A = dlmread(data, ' ', 2, 0);
 % prefix.net
 A = load (data);
+% load .csv file
 
 % both receive and send
 figure;
@@ -28,7 +29,7 @@ saveas (1, strcat(output, ".emf"));
 
 % receive 
 figure;
-output = strcat(data, ".recv");
+output = strcat(prefix, ".recv");
 x = 1:1:length(A);
 %plot(x, A(:,1)/1000000, x, A(:,1)/(1000000*N), '-.*');
 plot(x, A(:,1)/1000000);
@@ -42,7 +43,7 @@ saveas (1, strcat(output, ".emf"));
 
 % send
 figure;
-output = strcat(data, ".send");
+output = strcat(prefix, ".send");
 x = 1:1:length(A);
 %plot(x, A(:,2)/1000000, x, A(:,2)/(N*1000000), '-.*');
 plot(x, A(:,2)/1000000);
