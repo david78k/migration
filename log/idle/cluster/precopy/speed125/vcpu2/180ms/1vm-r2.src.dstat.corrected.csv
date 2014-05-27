@@ -1,5 +1,4 @@
 "Dstat 0.7.0 CSV output"
-"Cmdline:","dstat -cnmdgy -N eth0,eth1,total --noheaders -o src.dstat.csv",,,,"Date:","26 May 2014 19:32:55 EDT"
 
 "total cpu usage",,,,,,"net/eth0",,"net/eth1",,"net/total",,"memory usage",,,,"dsk/total",,"paging",,"system",
 "usr","sys","idl","wai","hiq","siq","recv","send","recv","send","recv","send","used","buff","cach","free","read","writ","in","out","int","csw"
