@@ -52,7 +52,7 @@ saveas (1, strcat(output, ".emf"));
 figure;
 output = strcat(prefix, ".send");
 x = 1:1:length(A);
-plot(x, A(:,2)/1000000, x, A(:,2)/(N*1000000), '-.*');
+plot(x, A(:,2)/1000000, x, A(:,2)/(1000000*N), '-.*');
 %plot(x, A(:,2)/1000000);
 %plot(x, A(:,2)/1000000, '-.*');
 xlabel('TIME (SEC)');
