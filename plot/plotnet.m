@@ -25,7 +25,8 @@ A = csvread(prefix, startrow, recvcol);
 figure;
 output = data
 x = 1:1:length(A);
-plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
+plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--');
+%plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
 xlabel('TIME (SEC)');
 ylabel('THROUGHPUT (MB/s)');
 legend('RECEIVE', 'SEND');
@@ -38,7 +39,7 @@ saveas (1, strcat(output, ".emf"));
 figure;
 output = strcat(prefix, ".recv");
 x = 1:1:length(A);
-plot(x, A(:,1)/1000000, x, A(:,1)/(1000000*N), '-.*');
+plot(x, A(:,1)/1000000, x, A(:,1)/(1000000*N), ':');
 %plot(x, A(:,1)/1000000);
 xlabel('TIME (SEC)');
 ylabel('THROUGHPUT (MB/s)');
