@@ -12,7 +12,7 @@ recvcol = 8;
 sendcol = 9;
 
 %prefix = "rand-6-r2"
-data = strcat(prefix, postfix);
+data = strcat(prefix, postfix)
 %data = strcat(prefix, ".dstat");
 
 %A = dlmread(data, ' ', 2, 0);
