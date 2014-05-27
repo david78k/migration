@@ -1,0 +1,25 @@
+#!/bin/bash
+
+target=c11node10
+
+min=3min
+
+function download() {
+        wget -O $prefix.src.net.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=network_report"
+        wget -O $prefix.src.net.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=network_report&csv=1"
+        wget -O $prefix.src.cpu.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=cpu_report"
+        wget -O $prefix.src.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=cpu_report&csv=1"
+        wget -O $prefix.dest.net.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=network_report"
+        wget -O $prefix.dest.net.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=network_report&csv=1"
+        wget -O $prefix.dest.cpu.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report"
+        wget -O $prefix.dest.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report&csv=1"
+}
+
+# c11node9 to c11nodd10
+#./cluster
+
+# c11node10 to c11node9
+ssh $target /root/qemu/cluster
+download
+#./download
+
