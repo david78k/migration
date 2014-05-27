@@ -62,8 +62,9 @@ function migrate() {
 }
 
 function check() {
-	miglog=$prefix.migrate.log
-	rm -rf migrate.log
+	miglog=$prefix.log
+	migtxt=$prefix.mig
+	rm -rf $miglog
 	#while [ $remain -gt 0 ]; 
 	while [ 1 ]; 
 	do
@@ -83,7 +84,7 @@ function check() {
 			if [[ $status == *completed* ]]; then
 				echo $port
 				echo "$info"
-				echo $info >> migrate.log
+				echo $info >> $miglog
 
 				./stopvm localhost $port
 				#./stopvm $target $port
@@ -101,7 +102,7 @@ function check() {
 		sleep $sleeptime
 	done
 	# convert mac format to unix
-	tr '\r' '\n' < migrate.log > migrate.txt
+	tr '\r' '\n' < $miglog > $migtxt
 }
 
 function finish() {
