@@ -5,14 +5,21 @@ prefix = args{1}
 N = str2num(args{2})
 postfix = ".net"
 
+startrow = 7;
+
+% receive and send column starting 0
+recvcol = 8;
+sendcol = 9;
+
 %prefix = "rand-6-r2"
 data = strcat(prefix, postfix);
 %data = strcat(prefix, ".dstat");
 
 %A = dlmread(data, ' ', 2, 0);
 % prefix.net
-A = load (data);
+%A = load (data);
 % load .csv file
+A = csvread(prefix, startrow, recvcol);
 
 % both receive and send
 figure;
