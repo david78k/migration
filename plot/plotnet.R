@@ -7,6 +7,9 @@
 src = "4vms-r1.dest.dstat.csv"
 prefix = paste0(src, ".recv")
 
+startcol = 8
+startrow = 7
+
 fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
 #fontsize = 1.7 # big
@@ -41,8 +44,8 @@ genplot <- function (type) {
 }
 
 #aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
-aapl <- read.csv(src, sep=",", skip = 6, header=1)
-aapl = aapl[nrow(aapl):9, ]
+aapl <- read.csv(src, sep=",", skip = startcol, header=1)
+aapl = aapl[nrow(aapl):startrow, ]
 #aapl = aapl[nrow(aapl):1, ]
 
 #print(aapl)
