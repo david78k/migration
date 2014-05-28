@@ -13,6 +13,8 @@ startcol = 9
 startrow = 6
 
 linewidth = 2.5
+# second line type: 2 for dashed, 3 for dotted, 4 for dotdash, 5 for longdash, 6 for twodash
+secondlty = 3
 
 fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
@@ -45,7 +47,7 @@ genplot <- function (type) {
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
 	# per VM. lty 5 for longdash, lty 2 for dashed
-	lines(data[,startcol]/1000000/N, type = "l", lty = 2, col="red", lwd = linewidth)
+	lines(data[,startcol]/1000000/N, type = "l", lty = secondlty, col="red", lwd = linewidth)
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
@@ -54,7 +56,7 @@ genplot <- function (type) {
 	# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 	# lty for line types, lwd for line width
 	#legend("center", names, cex = 1.5)
-	legend("center", names, lty = c(1, 2), col=c("blue", "red"), lwd = c(linewidth, linewidth), bty = 'n',  cex = 1.5)
+	legend("center", names, lty = c(1, secondlty), col=c("blue", "red"), lwd = c(linewidth, linewidth), bty = 'n',  cex = 1.5)
 	#legend("topright", names, lty = 1, bty = 'n',  cex = 1.5)
 }
 
