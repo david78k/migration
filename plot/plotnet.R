@@ -12,6 +12,8 @@ startcol = 9
 #integer: the number of lines of the data file to skip before beginning to read data.
 startrow = 6
 
+linewidth = 2
+
 fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
 #fontsize = 1.7 # big
@@ -39,11 +41,11 @@ genplot <- function (type) {
 
 	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
-	plot(data[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize, lwd = 3)
+	plot(data[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize, lwd = linewidth)
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
 	# per VM
-	lines(data[,startcol]/1000000/N, type = "l", lty = 5, col="red", lwd = 3)
+	lines(data[,startcol]/1000000/N, type = "l", lty = 5, col="red", lwd = linewidth)
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
@@ -52,7 +54,7 @@ genplot <- function (type) {
 	# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 	# lty for line types, lwd for line width
 	#legend("center", names, cex = 1.5)
-	legend("center", names, lty = c(1, 5), col=c("blue", "red"), lwd = c(3,3), bty = 'n',  cex = 1.5)
+	legend("center", names, lty = c(1, 5), col=c("blue", "red"), lwd = c(linewidth, linewidth), bty = 'n',  cex = 1.5)
 	#legend("topright", names, lty = 1, bty = 'n',  cex = 1.5)
 }
 
