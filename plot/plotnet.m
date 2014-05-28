@@ -76,12 +76,12 @@ xlabel('TIME (SEC)');
 ylabel('THROUGHPUT (MB/s)');
 legend('AGGREGATE', 'PER VM');
 
-set(gca,'FontSize',fontsize)
-set(findall(gcf,'type','text'),'FontSize',fontsize)
-
 yh = get(gca, 'YLabel')
 p=get(yh,'position')
 set(yh,'position',[p(1)+5 p(2)])
+
+set(gca,'FontSize',fontsize)
+set(findall(gcf,'type','text'),'FontSize',fontsize)
 
 %ylabh = get(gca,'YLabel');
 %set(ylabh, 'Units', 'Normalized', 'Position', [-0.1, 0.5, 0]);
