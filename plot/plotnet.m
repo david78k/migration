@@ -32,7 +32,7 @@ A = csvread(prefix, startrow, recvcol);
 figure;
 output = data
 x = 1:1:length(A);
-pl = plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-*', 'LineWidth', linewidth, 'MarkerSize', markersize);
+pl = plot(x, A(:,1)/1000000, x, A(:,2)/1000000, ':', 'LineWidth', linewidth, 'MarkerSize', markersize);
 %pl = plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-*-', 'LineWidth', linewidth);
 %plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--rs');
 %plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
@@ -79,7 +79,7 @@ saveas (1, strcat(output, ".emf"));
 figure;
 output = strcat(prefix, ".send");
 x = 1:1:length(A);
-pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '-.*', 'MarkerSize', markersize);
+pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '.', 'MarkerSize', markersize);
 %pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '---.', 'LineWidth', linewidth);
 %pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '--..', 'LineWidth', linewidth);
 %plot(x, A(:,2)/1000000);
