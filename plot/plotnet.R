@@ -43,7 +43,7 @@ genplot <- function (type) {
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
 	# per VM
-	lines(aapl[,startcol]/1000000/N, type = "l", col="red")
+	lines(aapl[,startcol]/1000000/N, type = "l", lty = 5, col="red")
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
@@ -54,12 +54,11 @@ aapl <- read.csv(src, sep=",", skip = startrow, header=1)
 #aapl = aapl[, startcol]
 #aapl = aapl[nrow(aapl):1, ]
 
-print(aapl)
-#print(aapl[, 1])
+#print(aapl)
 
 genplot("png")
-#genplot("emf")
-#genplot("eps")
+genplot("eps")
+genplot("emf")
 
 # barplot
 #emf('1.dest.emf')
