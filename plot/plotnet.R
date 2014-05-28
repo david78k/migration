@@ -47,6 +47,10 @@ genplot <- function (type) {
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
+	
+	names <- c("AGGREGATE", "PER VM")
+	# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
+	legend("topright", names, cex = 0.9, bty = "n", fill = heat.colors(6))
 }
 
 #aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
@@ -59,10 +63,6 @@ data <- read.csv(src, sep=",", skip = startrow, header=1)
 genplot("png")
 genplot("eps")
 genplot("emf")
-
-names <- c("AGGREGATE", "PER VM")
-# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-legend("topright", names, cex = 0.9, bty = "n", fill = heat.colors(6))
 
 # barplot
 #emf('1.dest.emf')
