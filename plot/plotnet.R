@@ -17,8 +17,9 @@ aapl = aapl[nrow(aapl):1, ]
 #print(aapl[, 1])
 
 #matplot(aapl[,1], aapl[,5], type = "l", col="red")
+plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = 1.5, cex.lab = 1.5)
 #plot(aapl[,0], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
-plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
+#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
 
 # open value
 lines(aapl[,2], type = "l", col="red")
