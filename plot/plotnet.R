@@ -1,6 +1,6 @@
 #!/usr/bin/Rscript
 
-src = ""
+prefix = "aapl"
 
 fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
@@ -12,7 +12,8 @@ library(ggplot2)
 
 require(devEMF)
 
-png("aapl.png")
+png(paste0(prefix, ".png"))
+#png("aapl.png")
 #postscript("aapl.eps")
 #emf('aapl.emf')
 
