@@ -39,13 +39,15 @@ genplot <- function (type) {
 		png(paste0(prefix, ".png"))
 	} else if (type == "eps") {
 		#png("aapl.png")
-		postscript(paste0(prefix, ".eps"), res = resolution)
-		#postscript(paste0(prefix, ".eps"))
+		#postscript(paste0(prefix, ".eps"), res = resolution)
+		postscript(paste0(prefix, ".eps"))
 	} else if (type == "emf") {
 		#postscript("aapl.eps")
 		emf(paste0(prefix, ".emf"))
 		#emf('aapl.emf')
 	}
+
+	par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 
 	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
