@@ -60,7 +60,7 @@ genplot("png")
 genplot("eps")
 genplot("emf")
 
-names = ["AGGREGATE", "PER VM"]
+names <- c("AGGREGATE", "PER VM")
 # 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 legend("topright", names, cex = 0.9, bty = "n", fill = heat.colors(6))
 
