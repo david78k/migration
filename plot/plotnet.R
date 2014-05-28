@@ -49,7 +49,7 @@ genplot <- function (type) {
 
 	# c(bottom, left, top, right)
 	par(oma=c(1,1,1,1))               # Set outer margin areas (only necessary in order to plot extra y-axis)
-	par(mar=c(5,5,5,5))
+	par(mar=c(1,5,1,1))
 
 	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
