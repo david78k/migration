@@ -12,8 +12,8 @@ recvcol = 8;
 sendcol = 9;
 
 %fontsize = 16;
-fontsize = 18;
-%fontsize = 20; % too close distance between axis and axis labels
+%fontsize = 18;
+fontsize = 20; % too close distance between axis and axis labels
 
 linewidth = 5;
 
