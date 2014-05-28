@@ -8,14 +8,24 @@ fontsize = 1.5 # works
 #fontsize = 1.8 # too big
 #fontsize = 2 # too big, outside the box
 
+#function.names <- c("png", "eps", "emf")
+
 library(ggplot2)
 
 require(devEMF)
 
-png(paste0(prefix, ".png"))
+genplot <- function (type) {
+if(type == "png") {
+	#type(paste0(prefix, sep = ".", type))
+	png(paste0(prefix, ".png"))
+} else if (type == "eps") {
 #png("aapl.png")
+postscript(paste0(prefix, ".eps"))
+} else if (type == "emf") {
 #postscript("aapl.eps")
+emf(paste0(prefix, ".emf"))
 #emf('aapl.emf')
+}
 
 aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
 aapl = aapl[nrow(aapl):1, ]
@@ -30,6 +40,11 @@ plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.ax
 
 # open value
 lines(aapl[,2], type = "l", col="red")
+}
+
+genplot("png")
+genplot("emf")
+genplot("eps")
 
 # barplot
 #emf('1.dest.emf')
