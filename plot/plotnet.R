@@ -1,6 +1,11 @@
 #!/usr/bin/Rscript
 
-prefix = "aapl"
+#args <- commandArgs(trailingOnly = TRUE)
+#rnorm(n=as.numeric(args[1]), mean=as.numeric(args[2]))
+
+#prefix = "aapl"
+src = "4vms-r1.dest.dstat.csv"
+prefix = paste0(src, ".recv")
 
 fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
@@ -15,36 +20,37 @@ library(ggplot2)
 require(devEMF)
 
 genplot <- function (type) {
-if(type == "png") {
-	#type(paste0(prefix, sep = ".", type))
-	png(paste0(prefix, ".png"))
-} else if (type == "eps") {
-#png("aapl.png")
-postscript(paste0(prefix, ".eps"))
-} else if (type == "emf") {
-#postscript("aapl.eps")
-emf(paste0(prefix, ".emf"))
-#emf('aapl.emf')
+	if(type == "png") {
+		#type(paste0(prefix, sep = ".", type))
+		png(paste0(prefix, ".png"))
+	} else if (type == "eps") {
+		#png("aapl.png")
+		postscript(paste0(prefix, ".eps"))
+	} else if (type == "emf") {
+		#postscript("aapl.eps")
+		emf(paste0(prefix, ".emf"))
+		#emf('aapl.emf')
+	}
+
+	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
+	plot(aapl[,8], xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
+	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
+
+	# open value
+	#lines(aapl[,2], type = "l", col="red")
 }
 
-aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
-aapl = aapl[nrow(aapl):1, ]
+#aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
+aapl <- read.csv(src, sep=",", skip = 6, header=1)
+aapl = aapl[nrow(aapl):7, ]
+#aapl = aapl[nrow(aapl):1, ]
 
 #print(aapl)
 #print(aapl[, 1])
 
-#matplot(aapl[,1], aapl[,5], type = "l", col="red")
-plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
-#plot(aapl[,0], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
-#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
-
-# open value
-lines(aapl[,2], type = "l", col="red")
-}
-
 genplot("png")
-genplot("emf")
-genplot("eps")
+#genplot("emf")
+#genplot("eps")
 
 # barplot
 #emf('1.dest.emf')
