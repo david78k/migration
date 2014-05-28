@@ -37,7 +37,7 @@ genplot <- function (type) {
 	}
 
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
-	plot(aapl[,startcol], xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
+	plot(aapl[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
 	# open value
