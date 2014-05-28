@@ -31,7 +31,7 @@ A = csvread(prefix, startrow, recvcol);
 figure;
 output = data
 x = 1:1:length(A);
-pl = plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.', 'LineWidth', linewidth);
+pl = plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-*', 'LineWidth', linewidth, 'MarkerSize', 2);
 %pl = plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-*-', 'LineWidth', linewidth);
 %plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--rs');
 %plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
