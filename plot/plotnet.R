@@ -6,16 +6,15 @@ library(ggplot2)
 
 require(devEMF)
 
-#png("aapl.png")
-postscript("aapl.eps")
+png("aapl.png")
+#postscript("aapl.eps")
 #emf('aapl.emf')
 
 aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
 aapl = aapl[nrow(aapl):1, ]
 
 #print(aapl)
-#print(aapl.google)
-print(aapl[, 1])
+#print(aapl[, 1])
 
 #matplot(aapl[,1], aapl[,5], type = "l", col="red")
 #plot(aapl[,0], aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue")
