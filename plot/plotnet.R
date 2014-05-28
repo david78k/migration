@@ -2,7 +2,8 @@
 
 src = ""
 
-fontsize = 1.8
+fontsize = 1.7
+#fontsize = 1.8 # too big
 #fontsize = 2 # too big, outside the box
 
 library(ggplot2)
