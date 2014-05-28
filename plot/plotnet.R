@@ -47,12 +47,13 @@ genplot <- function (type) {
 		#emf('aapl.emf')
 	}
 
-	# margins: 3 lines of outer margin, 4 lines of inside margin
+	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
 	# c(bottom, left, top, right)
 	par(oma=c(0,0,0,0))               
 	#par(oma=c(1,1,1,1))               # Set outer margin areas (only necessary in order to plot extra y-axis)
-	par(mar=c(6,6,0,0))
 	#par(mar=c(5,5,0,0)) # good
+	par(mar=c(4,4,0,0))
+	#par(mar=c(6,6,0,0)) # bit wide
 
 	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
