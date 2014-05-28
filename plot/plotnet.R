@@ -44,8 +44,8 @@ genplot <- function (type) {
 	plot(data[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize, lwd = linewidth)
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
-	# per VM
-	lines(data[,startcol]/1000000/N, type = "l", lty = 5, col="red", lwd = linewidth)
+	# per VM. lty 5 for longdash, lty 2 for dashed
+	lines(data[,startcol]/1000000/N, type = "l", lty = 2, col="red", lwd = linewidth)
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
@@ -54,7 +54,7 @@ genplot <- function (type) {
 	# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 	# lty for line types, lwd for line width
 	#legend("center", names, cex = 1.5)
-	legend("center", names, lty = c(1, 5), col=c("blue", "red"), lwd = c(linewidth, linewidth), bty = 'n',  cex = 1.5)
+	legend("center", names, lty = c(1, 2), col=c("blue", "red"), lwd = c(linewidth, linewidth), bty = 'n',  cex = 1.5)
 	#legend("topright", names, lty = 1, bty = 'n',  cex = 1.5)
 }
 
