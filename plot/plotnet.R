@@ -6,8 +6,8 @@ library(ggplot2)
 
 require(devEMF)
 
-png("aapl.png")
-#postscript("aapl.eps")
+#png("aapl.png")
+postscript("aapl.eps")
 #emf('aapl.emf')
 
 aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
