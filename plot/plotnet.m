@@ -15,7 +15,7 @@ sendcol = 9;
 %fontsize = 18;
 fontsize = 20; % too close distance between axis and axis labels
 
-linewidth = 5;
+linewidth = 3;
 
 %prefix = "rand-6-r2"
 data = strcat(prefix, postfix)
@@ -31,12 +31,15 @@ A = csvread(prefix, startrow, recvcol);
 figure;
 output = data
 x = 1:1:length(A);
-plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--', 'LineWidth', linewidth);
+pl = plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.-', 'LineWidth', linewidth);
 %plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--rs');
 %plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
 xlabel('TIME (SEC)');
 ylabel('THROUGHPUT (MB/S)');
 legend('RECEIVE', 'SEND');
+
+set(pl(1), 'LineWidth', linewidth);
+set(pl(2), 'LineWidth', linewidth);
 
 set(gca,'FontSize',fontsize)
 set(findall(gcf,'type','text'),'FontSize',fontsize)
@@ -49,11 +52,14 @@ saveas (1, strcat(output, ".emf"));
 figure;
 output = strcat(prefix, ".recv");
 x = 1:1:length(A);
-plot(x, A(:,1)/1000000, x, A(:,1)/(1000000*N), '--', 'LineWidth', linewidth);
+pl = plot(x, A(:,1)/1000000, x, A(:,1)/(1000000*N), '--', 'LineWidth', linewidth);
 %plot(x, A(:,1)/1000000, x, A(:,1)/(1000000*N), ':');
 xlabel('TIME (SEC)');
 ylabel('THROUGHPUT (MB/s)');
 legend('AGGREGATE', 'PER VM');
+
+set(pl(1), 'LineWidth', linewidth);
+set(pl(2), 'LineWidth', linewidth);
 
 set(get(gca, 'YLabel'), 'Position', [-1, 5, 0]);
 %set(get(gca, 'YLabel'), 'Units', 'Normalized', 'Position', [-0.1, 0.5, 0]);
@@ -71,7 +77,7 @@ saveas (1, strcat(output, ".emf"));
 figure;
 output = strcat(prefix, ".send");
 x = 1:1:length(A);
-pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '--', 'LineWidth', linewidth);
+pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '- -', 'LineWidth', linewidth);
 %plot(x, A(:,2)/1000000);
 %plot(x, A(:,2)/1000000, '-.*');
 xlabel('TIME (SEC)');
