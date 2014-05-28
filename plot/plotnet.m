@@ -11,8 +11,8 @@ startrow = 7;
 recvcol = 8;
 sendcol = 9;
 
-fontsize = 16;
-%fontsize = 18;
+%fontsize = 16;
+fontsize = 18;
 %fontsize = 20; % too close distance between axis and axis labels
 
 %prefix = "rand-6-r2"
@@ -79,6 +79,10 @@ legend('AGGREGATE', 'PER VM');
 set(gca,'FontSize',fontsize)
 set(findall(gcf,'type','text'),'FontSize',fontsize)
 
+yh = get(gca, 'YLabel')
+p=get(yh,'position')
+set(yh,'position',[p(1)+5 p(2)])
+
 %ylabh = get(gca,'YLabel');
 %set(ylabh, 'Units', 'Normalized', 'Position', [-0.1, 0.5, 0]);
 %%set(get(gca, 'YLabel'), 'Position', [-2, 5, 0]);
@@ -87,8 +91,8 @@ set(findall(gcf,'type','text'),'FontSize',fontsize)
 
 %xlabh = get(gca,'XLabel');
 %set(xlabh,'Position',get(xlabh,'Position') - [0 .2 0])
-ylabh = get(gca,'YLabel');
-set(ylabh,'Position',get(ylabh,'Position') - [0.5 0.5 0])
+%ylabh = get(gca,'YLabel');
+%set(ylabh,'Position',get(ylabh,'Position') - [0.5 0.5 0])
 
 saveas (1, strcat(output, ".png"));
 saveas (1, strcat(output, ".eps"));
