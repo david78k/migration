@@ -50,7 +50,7 @@ genplot <- function (type) {
 	
 	names <- c("AGGREGATE", "PER VM")
 	# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
-	legend("topright", names, cex = 1.5)
+	legend("topright", names, lty = 1, bty = 'n',  cex = 1.5)
 }
 
 #aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
