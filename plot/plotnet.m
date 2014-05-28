@@ -71,7 +71,7 @@ saveas (1, strcat(output, ".emf"));
 figure;
 output = strcat(prefix, ".send");
 x = 1:1:length(A);
-plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '--', 'LineWidth', linewidth);
+pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '--', 'LineWidth', linewidth);
 %plot(x, A(:,2)/1000000);
 %plot(x, A(:,2)/1000000, '-.*');
 xlabel('TIME (SEC)');
@@ -85,6 +85,9 @@ set(yh,'position',[p(1)+5 p(2)])
 set(gca,'FontSize',fontsize)
 set(findall(gcf,'type','text'),'FontSize',fontsize)
 
+set(pl(1), 'LineWidth', linewidth);
+set(pl(2), 'LineWidth', linewidth);
+ 
 %ylabh = get(gca,'YLabel');
 %set(ylabh, 'Units', 'Normalized', 'Position', [-0.1, 0.5, 0]);
 %%set(get(gca, 'YLabel'), 'Position', [-2, 5, 0]);
