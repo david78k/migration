@@ -79,7 +79,7 @@ set(findall(gcf,'type','text'),'FontSize',fontsize)
 
 %ylabh = get(gca,'YLabel');
 %set(ylabh, 'Units', 'Normalized', 'Position', [-0.1, 0.5, 0]);
-set(get(gca, 'YLabel'), 'Units', 'Normalized', 'Position', [-0.1, 0.5, 0]);
+set(get(gca, 'YLabel'), 'Units', 'Normalized', 'Position', [-1, 1, 0]);
 
 saveas (1, strcat(output, ".png"));
 saveas (1, strcat(output, ".eps"));
