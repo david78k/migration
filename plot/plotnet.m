@@ -11,7 +11,8 @@ startrow = 7;
 recvcol = 8;
 sendcol = 9;
 
-fontsize = 18;
+fontsize = 16;
+%fontsize = 18;
 %fontsize = 20; % too close distance between axis and axis labels
 
 %prefix = "rand-6-r2"
