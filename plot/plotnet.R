@@ -5,6 +5,7 @@
 
 #prefix = "aapl"
 src = "4vms-r1.dest.dstat.csv"
+N = 4 # number of parallel migrations
 prefix = paste0(src, ".recv")
 
 startcol = 9
@@ -36,9 +37,13 @@ genplot <- function (type) {
 		#emf('aapl.emf')
 	}
 
+	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
 	plot(aapl[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
+
+	# per VM
+	lines(aapl[,startcol]/1000000/N, type = "l", col="red")
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
