@@ -75,6 +75,9 @@ legend('AGGREGATE', 'PER VM');
 set(gca,'FontSize',fontsize)
 set(findall(gcf,'type','text'),'FontSize',fontsize)
 
+ylabh = get(gca,'YLabel');
+set(ylabh, 'Units', 'Normalized', 'Position', [-0.1, 0.5, 0]);
+
 saveas (1, strcat(output, ".png"));
 saveas (1, strcat(output, ".eps"));
 saveas (1, strcat(output, ".emf"));
