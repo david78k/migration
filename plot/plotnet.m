@@ -16,7 +16,7 @@ sendcol = 9;
 fontsize = 20; % too close distance between axis and axis labels
 
 linewidth = 3;
-markersize = 3;
+markersize = 5;
 
 %prefix = "rand-6-r2"
 data = strcat(prefix, postfix)
@@ -79,7 +79,7 @@ saveas (1, strcat(output, ".emf"));
 figure;
 output = strcat(prefix, ".send");
 x = 1:1:length(A);
-pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '-*', 'LineWidth', linewidth, 'MarkerSize', markersize);
+pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '-.*', 'MarkerSize', markersize);
 %pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '---.', 'LineWidth', linewidth);
 %pl = plot(x, A(:,2)/1000000, x, 'LineWidth', linewidth, A(:,2)/(1000000*N), '--..', 'LineWidth', linewidth);
 %plot(x, A(:,2)/1000000);
@@ -95,8 +95,8 @@ set(yh,'position',[p(1)+5 p(2)])
 set(gca,'FontSize',fontsize)
 set(findall(gcf,'type','text'),'FontSize',fontsize)
 
-set(pl(1), 'LineWidth', linewidth);
-set(pl(2), 'LineWidth', linewidth);
+%set(pl(1), 'LineWidth', linewidth);
+%set(pl(2), 'LineWidth', linewidth);
  
 %ylabh = get(gca,'YLabel');
 %set(ylabh, 'Units', 'Normalized', 'Position', [-0.1, 0.5, 0]);
