@@ -2,8 +2,9 @@
 
 src = ""
 
-#fontsize = 1.6 # works
-fontsize = 1.7 # works
+fontsize = 1.5 # works
+#fontsize = 1.6 # a little bit big
+#fontsize = 1.7 # big
 #fontsize = 1.8 # too big
 #fontsize = 2 # too big, outside the box
 
