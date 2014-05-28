@@ -39,18 +39,18 @@ genplot <- function (type) {
 
 	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
-	plot(aapl[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
+	plot(data[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
 	# per VM
-	lines(aapl[,startcol]/1000000/N, type = "l", lty = 5, col="red")
+	lines(data[,startcol]/1000000/N, type = "l", lty = 5, col="red")
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
 }
 
 #aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
-aapl <- read.csv(src, sep=",", skip = startrow, header=1)
+data <- read.csv(src, sep=",", skip = startrow, header=1)
 #aapl = aapl[, startcol]
 #aapl = aapl[nrow(aapl):1, ]
 
@@ -59,6 +59,10 @@ aapl <- read.csv(src, sep=",", skip = startrow, header=1)
 genplot("png")
 genplot("eps")
 genplot("emf")
+
+names = ["AGGREGATE", "PER VM"]
+# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
+legend("topright", names, cex = 0.9, bty = "n", fill = heat.colors(6))
 
 # barplot
 #emf('1.dest.emf')
