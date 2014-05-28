@@ -20,10 +20,10 @@ secondlty = 5 # best
 #secondlty = 3 # too pale
 
 #fontsize = 1.5 # works
-fontsize = 1.6 # a little bit big
+#fontsize = 1.6 # a little bit big
 #fontsize = 1.7 # big
 #fontsize = 1.8 # too big
-#fontsize = 2 # too big, outside the box
+fontsize = 2 # too big, outside the box
 
 resolution = 72
 
@@ -47,9 +47,10 @@ genplot <- function (type) {
 		#emf('aapl.emf')
 	}
 
+	# margins: 3 lines of outer margin, 3 lines of inside margin
 	# c(bottom, left, top, right)
 	par(oma=c(1,1,1,1))               # Set outer margin areas (only necessary in order to plot extra y-axis)
-	par(mar=c(1,5,1,1))
+	par(mar=c(5,5,1,1))
 
 	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
