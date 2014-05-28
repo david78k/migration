@@ -22,8 +22,8 @@ secondlty = 5 # best
 #fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
 #fontsize = 1.7 # big
-#fontsize = 1.8 # too big
-fontsize = 2 # too big, outside the box
+fontsize = 1.8 # too big
+#fontsize = 2 # too big, outside the box
 
 resolution = 72
 
@@ -64,7 +64,7 @@ genplot <- function (type) {
 	# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 	# lty for line types, lwd for line width
 	#legend("center", names, cex = 1.5)
-	legend("center", names, lty = c(1, secondlty), col=c("blue", "red"), lwd = c(linewidth, linewidth), bty = 'n',  cex = 1.5)
+	legend("center", names, lty = c(1, secondlty), col=c("blue", "red"), lwd = c(linewidth, linewidth), bty = 'n',  cex = fontsize)
 	#legend("topright", names, lty = 1, bty = 'n',  cex = 1.5)
 }
 
