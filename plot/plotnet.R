@@ -42,7 +42,7 @@ genplot <- function (type) {
 
 #aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
 aapl <- read.csv(src, sep=",", skip = 6, header=1)
-aapl = aapl[nrow(aapl):7, ]
+aapl = aapl[nrow(aapl):9, ]
 #aapl = aapl[nrow(aapl):1, ]
 
 #print(aapl)
