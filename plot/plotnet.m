@@ -52,8 +52,10 @@ legend('AGGREGATE', 'PER VM');
 %figurehandle = gcf;
 %set(findall(figureHandle,'type','text'),'fontSize',fontsize,'fontWeight','bold')
 
-set(gca,'FontSize',30,'fontWeight','bold')
-set(findall(gcf,'type','text'),'FontSize',30,'fontWeight','bold')
+set(gca,'FontSize',fontsize)
+set(findall(gcf,'type','text'),'FontSize',fontsize)
+%set(gca,'FontSize',fontsize,'fontWeight','bold')
+%set(findall(gcf,'type','text'),'FontSize',fontsize,'fontWeight','bold')
 
 saveas (1, strcat(output, ".png"));
 saveas (1, strcat(output, ".eps"));
@@ -63,12 +65,15 @@ saveas (1, strcat(output, ".emf"));
 figure;
 output = strcat(prefix, ".send");
 x = 1:1:length(A);
-plot(x, A(:,2)/1000000, x, A(:,2)/(1000000*N), '-.*');
+plot(x, A(:,2)/1000000, x, A(:,2)/(1000000*N), '--', 'LineWidth', 3);
 %plot(x, A(:,2)/1000000);
 %plot(x, A(:,2)/1000000, '-.*');
 xlabel('TIME (SEC)');
 ylabel('THROUGHPUT (MB/s)');
 legend('AGGREGATE', 'PER VM');
+
+set(gca,'FontSize',fontsize)
+set(findall(gcf,'type','text'),'FontSize',fontsize)
 
 saveas (1, strcat(output, ".png"));
 saveas (1, strcat(output, ".eps"));
