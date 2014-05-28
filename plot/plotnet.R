@@ -39,11 +39,11 @@ genplot <- function (type) {
 
 	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
-	plot(data[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
+	plot(data[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize, lwd = 3)
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
 	# per VM
-	lines(data[,startcol]/1000000/N, type = "l", lty = 5, col="red")
+	lines(data[,startcol]/1000000/N, type = "l", lty = 5, col="red", lwd = 3)
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
