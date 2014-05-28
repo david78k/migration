@@ -51,7 +51,7 @@ genplot <- function (type) {
 	names <- c("AGGREGATE", "PER VM")
 	# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 	#legend("center", names, cex = 1.5)
-	legend("center", names, lty = 1, bty = 'n',  cex = 1.5)
+	legend("center", names, lty = c(1, 5), col=c("blue", "red"), bty = 'n',  cex = 1.5)
 	#legend("topright", names, lty = 1, bty = 'n',  cex = 1.5)
 }
 
