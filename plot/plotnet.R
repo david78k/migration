@@ -7,8 +7,9 @@
 src = "4vms-r1.dest.dstat.csv"
 prefix = paste0(src, ".recv")
 
-startcol = 8
-startrow = 1
+startcol = 9
+#integer: the number of lines of the data file to skip before beginning to read data.
+startrow = 6
 
 fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
@@ -36,7 +37,7 @@ genplot <- function (type) {
 	}
 
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
-	plot(aapl[,8], xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
+	plot(aapl[,startcol], xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
 	# open value
@@ -44,8 +45,8 @@ genplot <- function (type) {
 }
 
 #aapl <- read.csv("http://www.google.com/finance/historical?q=NASDAQ:AAPL&authuser=0&output=csv ", sep=",", header=1)
-aapl <- read.csv(src, sep=",", skip = startcol, header=1)
-aapl = aapl[nrow(aapl):startrow, ]
+aapl <- read.csv(src, sep=",", skip = startrow, header=1)
+#aapl = aapl[, startcol]
 #aapl = aapl[nrow(aapl):1, ]
 
 print(aapl)
