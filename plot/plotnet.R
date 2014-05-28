@@ -25,6 +25,8 @@ fontsize = 1.5 # works
 #fontsize = 1.8 # too big
 #fontsize = 2 # too big, outside the box
 
+resolution = 72
+
 #function.names <- c("png", "eps", "emf")
 
 library(ggplot2)
@@ -37,7 +39,8 @@ genplot <- function (type) {
 		png(paste0(prefix, ".png"))
 	} else if (type == "eps") {
 		#png("aapl.png")
-		postscript(paste0(prefix, ".eps"))
+		postscript(paste0(prefix, ".eps"), res = resolution)
+		#postscript(paste0(prefix, ".eps"))
 	} else if (type == "emf") {
 		#postscript("aapl.eps")
 		emf(paste0(prefix, ".emf"))
