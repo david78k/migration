@@ -14,7 +14,8 @@ startrow = 6
 
 linewidth = 2.5
 # second line type: 2 for dashed, 3 for dotted, 4 for dotdash, 5 for longdash, 6 for twodash
-secondlty = 3
+secondlty = 2 
+#secondlty = 3 # too pale
 
 fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
