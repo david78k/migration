@@ -8,7 +8,7 @@ src = "4vms-r1.dest.dstat.csv"
 prefix = paste0(src, ".recv")
 
 startcol = 8
-startrow = 7
+startrow = 1
 
 fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
@@ -48,7 +48,7 @@ aapl <- read.csv(src, sep=",", skip = startcol, header=1)
 aapl = aapl[nrow(aapl):startrow, ]
 #aapl = aapl[nrow(aapl):1, ]
 
-#print(aapl)
+print(aapl)
 #print(aapl[, 1])
 
 genplot("png")
