@@ -11,7 +11,8 @@ startrow = 7;
 recvcol = 8;
 sendcol = 9;
 
-fontsize = 20;
+fontsize = 18;
+%fontsize = 20; % too close distance between axis and axis labels
 
 %prefix = "rand-6-r2"
 data = strcat(prefix, postfix)
@@ -30,10 +31,12 @@ x = 1:1:length(A);
 plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--rs', 'LineWidth', 2);
 %plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '--');
 %plot(x, A(:,1)/1000000, x, A(:,2)/1000000, '-.*');
-xlabel('TIME (SEC)', 'FontSize', fontsize);
-ylabel('THROUGHPUT (MB/s)', 'FontSize', fontsize);
-lgnd = legend('RECEIVE', 'SEND');
-set(lgnd, 'FontSize', fontsize);
+xlabel('TIME (SEC)');
+ylabel('THROUGHPUT (MB/s)');
+legend('RECEIVE', 'SEND');
+
+set(gca,'FontSize',fontsize)
+set(findall(gcf,'type','text'),'FontSize',fontsize)
 
 saveas (1, strcat(output, ".png"));
 saveas (1, strcat(output, ".eps"));
@@ -48,9 +51,6 @@ plot(x, A(:,1)/1000000, x, A(:,1)/(1000000*N), ':');
 xlabel('TIME (SEC)');
 ylabel('THROUGHPUT (MB/s)');
 legend('AGGREGATE', 'PER VM');
-
-%figurehandle = gcf;
-%set(findall(figureHandle,'type','text'),'fontSize',fontsize,'fontWeight','bold')
 
 set(gca,'FontSize',fontsize)
 set(findall(gcf,'type','text'),'FontSize',fontsize)
