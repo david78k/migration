@@ -12,7 +12,7 @@ startcol = 9
 #integer: the number of lines of the data file to skip before beginning to read data.
 startrow = 6
 
-linewidth = 2
+linewidth = 2.5
 
 fontsize = 1.5 # works
 #fontsize = 1.6 # a little bit big
