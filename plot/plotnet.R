@@ -38,6 +38,16 @@ data <- read.csv(src, sep=",", skip = startrow, header=1)
 #aapl = aapl[nrow(aapl):1, ]
 #print(aapl)
 
+	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
+	# c(bottom, left, top, right)
+	#par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
+	par(mar=c(5,5,0,0)) # good but bottom is a bit wide
+	#par(mar=c(4,5,0,0))  # perfect, both tight
+	#par(mar=c(4,6,0,0)) # bottom good, left wide
+	#par(mar=c(6,6,0,0)) # bit wide
+
+	# aggregate throughput
+
 genplot <- function (type) {
 # EXAMPLE CODE FOR DRAWING A LINE PLOT IN R
 # 2 February 2008
@@ -64,7 +74,7 @@ genplot <- function (type) {
 # Plot the y1 data
 #par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 
-plot(data[,startcol]/1000000.0/N,            # Data to plot - x, y
+plot(data[,startcol]/1000000.0,            # Data to plot - x, y
      type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
 #     main="Time series plot",     # Main title for the plot
      xlab="TIME (SEC)",                 # Label for the x-axis
@@ -117,15 +127,6 @@ legend("topleft",                       # x-y coordinates for location of the le
        lwd=c(1,1),                    # Line width
        cex = fontsize
 )
-	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
-	# c(bottom, left, top, right)
-	#par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
-	#par(mar=c(5,5,0,0)) # good but bottom is a bit wide
-	#par(mar=c(4,5,0,0))  # perfect, both tight
-	#par(mar=c(4,6,0,0)) # bottom good, left wide
-	#par(mar=c(6,6,0,0)) # bit wide
-
-	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
 	#plot(data[,startcol]/1000000.0, xlab = "TIME (SEC)", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize, lwd = linewidth)
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
