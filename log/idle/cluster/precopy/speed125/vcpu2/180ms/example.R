@@ -7,8 +7,8 @@
 rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
-#pdf("example.pdf")
-png("example.png")
+prefix = "example"
+#png("example.png")
 #postscript("example.eps")
 
 # cex
@@ -24,6 +24,23 @@ y3 = seq(80,110,length.out=50) + rnorm(50)  # Generate 50 stochastic data points
 #par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 # c(bottom,left,top,right)
 par(mar=c(5,5,1,1))
+
+genplot <- function (type) {
+        if(type == "png") {
+                #type(paste0(prefix, sep = ".", type))
+                png(paste0(prefix, ".png"))
+        } else if (type == "pdf") {
+                pdf(paste0(prefix, ".pdf"))
+        } else if (type == "eps") {
+                #png("aapl.png")
+                #postscript(paste0(prefix, ".eps"), res = resolution)
+                postscript(paste0(prefix, ".eps"))
+        } else if (type == "emf") {
+		require(devEMF)
+                #postscript("aapl.eps")
+                emf(paste0(prefix, ".emf"))
+                #emf('aapl.emf')
+        }
 
 plot(ti, y1,                      # Data to plot - x, y
      type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
@@ -91,4 +108,9 @@ legend("topleft",                       # x-y coordinates for location of the le
 
 # Tufte tip:
 # Minimize the non-data clutter in labels, axes etc.
+}
+
+genplot("png")
+genplot("pdf")
+genplot("emf")
 
