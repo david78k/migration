@@ -18,6 +18,9 @@ startrow = 6
 
 linewidth = 2.5
 
+# second line color
+secondlc = "red"
+
 # second line type: 2 for dashed, 3 for dotted, 4 for dotdash, 5 for longdash, 6 for twodash
 secondlty = 5 # best
 #secondlty = 2 # good 
@@ -60,7 +63,7 @@ genplot <- function (type) {
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
 	# per VM. lty 5 for longdash, lty 2 for dashed
-	lines(data[,startcol]/1000000.0/N, type = "l", lty = secondlty, col="green", lwd = linewidth)
+	lines(data[,startcol]/1000000.0/N, type = "l", lty = secondlty, col=secondlc, lwd = linewidth)
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
@@ -68,7 +71,7 @@ genplot <- function (type) {
 	names <- c("AGGREGATE", "PER VM")
 	# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 	# lty for line types, lwd for line width
-	legend("center", names, lty = c(1, secondlty), col=c("blue", "green"), lwd = c(linewidth, linewidth), bty = 'n',  cex = fontsize)
+	legend("center", names, lty = c(1, secondlty), col=c("blue", secondlc), lwd = c(linewidth, linewidth), bty = 'n',  cex = fontsize)
 	#legend("topright", names, lty = 1, bty = 'n',  cex = 1.5)
 }
 
