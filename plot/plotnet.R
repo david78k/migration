@@ -76,6 +76,8 @@ genplot <- function (type) {
 	#par(mar=c(4,6,0,0)) # bottom good, left wide
 	#par(mar=c(6,6,0,0)) # bit wide
 
+layout(rbind(1,2), heights=c(7,1))  # put legend on bottom 1/8th of the chart
+
 # aggregate throughput
 plot(data[,startcol]/1000000.0,            # Data to plot - x, y
      type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
@@ -123,7 +125,7 @@ points(data[,startcol]/1000000.0/N,
 
 # Add a legend to the plot
 #legend("topleft",                       # x-y coordinates for location of the legend
-legend("bottom",                       # x-y coordinates for location of the legend
+legend("center",                       # x-y coordinates for location of the legend
        legend=c("AGGREGATE", "PER VM"),      # Legend labels
        col=c("black", "red"),   # Color of points or lines
        pch=c(21,19),                 # Point type
