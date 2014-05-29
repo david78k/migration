@@ -7,8 +7,8 @@
 rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
-#pdf("example.pdf")
-png("example.png")
+pdf("example.pdf")
+#png("example.png")
 #postscript("example.eps")
 
 # Generate sample time series data
