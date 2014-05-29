@@ -38,16 +38,6 @@ data <- read.csv(src, sep=",", skip = startrow, header=1)
 #aapl = aapl[nrow(aapl):1, ]
 #print(aapl)
 
-	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
-	# c(bottom, left, top, right)
-	par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
-	par(mar=c(5,5,0,0)) # good but bottom is a bit wide
-	#par(mar=c(4,5,0,0))  # perfect, both tight
-	#par(mar=c(4,6,0,0)) # bottom good, left wide
-	#par(mar=c(6,6,0,0)) # bit wide
-
-	# aggregate throughput
-
 genplot <- function (type) {
 # EXAMPLE CODE FOR DRAWING A LINE PLOT IN R
 # 2 February 2008
@@ -74,6 +64,15 @@ genplot <- function (type) {
 # Plot the y1 data
 #par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 
+	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
+	# c(bottom, left, top, right)
+	par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
+	par(mar=c(5,5,0,0)) # good but bottom is a bit wide
+	#par(mar=c(4,5,0,0))  # perfect, both tight
+	#par(mar=c(4,6,0,0)) # bottom good, left wide
+	#par(mar=c(6,6,0,0)) # bit wide
+
+# aggregate throughput
 plot(data[,startcol]/1000000.0,            # Data to plot - x, y
      type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
 #     main="Time series plot",     # Main title for the plot
