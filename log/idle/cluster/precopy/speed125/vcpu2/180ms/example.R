@@ -54,6 +54,7 @@ plot(ti, y1,                      # Data to plot - x, y
      ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
      xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
 #     bty="l"                     # Box around plot to contain only left and lower lines
+     las = 1
 )
 
 # Add y2 data to the same plot
@@ -65,7 +66,7 @@ points(ti, y2,
        pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
        col="red")                 # Color of the plotted data
 
-axis(side = 2, las = 1)
+#axis(side = 2, las = 1)
 
 # Add y3 data to the same plot, but on a different axis
 #par(new=T,                        # The next high-level plotting command (actually plot.new) should not clean the frame before drawing ìas if it was on a new deviceî.

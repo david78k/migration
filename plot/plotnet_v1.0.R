@@ -39,6 +39,8 @@ genplot <- function (type) {
 	if(type == "png") {
 		#type(paste0(prefix, sep = ".", type))
 		png(paste0(prefix, ".png"))
+	} else if (type == "pdf") {
+		pdf(paste0(prefix, ".pdf"))
 	} else if (type == "eps") {
 		#png("aapl.png")
 		#postscript(paste0(prefix, ".eps"), res = resolution)
@@ -83,7 +85,8 @@ data <- read.csv(src, sep=",", skip = startrow, header=1)
 #print(aapl)
 
 genplot("png")
-genplot("eps")
+genplot("pdf")
+#genplot("eps")
 genplot("emf")
 
 # barplot
