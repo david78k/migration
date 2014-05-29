@@ -167,11 +167,11 @@ function migratecluster() {
 	
         dstatcmd="dstat -cnmd -N eth0,eth1,total --noheaders -o "
         #dstat -cmdngy -N eth0,eth1,total --noheaders > $dstatfile &
-        $dstatcmd $dstatfile > $srccsv &
+        $dstatcmd $srccsv > $dstatfile &
         #ssh $target "dstat -cmdngy -N eth0,eth1,total --noheaders" > $dstatdest &
-	ssh $target $dstatcmd $dstatdest > $destcsv &
+	ssh $target $dstatcmd $destcsv > $dstatdest &
 	#ssh $target "$dstatcmd $dstatdest" &
-	ssh $router $dstatcmd $dstatrouter > $routercsv &
+	ssh $router $dstatcmd $routercsv > $dstatrouter &
 
 #	sleep $preptime
 	migrate 
