@@ -39,6 +39,13 @@ data <- read.csv(src, sep=",", skip = startrow, header=1)
 #print(aapl)
 
 genplot <- function (type) {
+# EXAMPLE CODE FOR DRAWING A LINE PLOT IN R
+# 2 February 2008
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#rm(list = ls())      # Clear all variables
+#graphics.off()    # Close graphics windows
+
 	if(type == "png") {
 		#type(paste0(prefix, sep = ".", type))
 		png(paste0(prefix, ".png"))
@@ -53,13 +60,6 @@ genplot <- function (type) {
 		emf(paste0(prefix, ".emf"))
 		#emf('aapl.emf')
 	}
-
-# EXAMPLE CODE FOR DRAWING A LINE PLOT IN R
-# 2 February 2008
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#rm(list = ls())      # Clear all variables
-graphics.off()    # Close graphics windows
 
 # Generate sample time series data
 #ti = 1:50                                   # Generate 50 sample time steps
