@@ -39,8 +39,6 @@ plot(ti, y1,                      # Data to plot - x, y
 #     bty="l"                     # Box around plot to contain only left and lower lines
 )
 
-axis(side = 2, las = 1)
-
 # Add y2 data to the same plot
 points(ti, y2,
        type="b",                  # Plot lines and points
@@ -49,6 +47,8 @@ points(ti, y2,
        cex = fontsize,
        pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
        col="red")                 # Color of the plotted data
+
+axis(side = 2, las = 1)
 
 # Add y3 data to the same plot, but on a different axis
 #par(new=T,                        # The next high-level plotting command (actually plot.new) should not clean the frame before drawing ìas if it was on a new deviceî.
