@@ -1,11 +1,15 @@
 #!/usr/bin/Rscript
 
-#args <- commandArgs(trailingOnly = TRUE)
-#rnorm(n=as.numeric(args[1]), mean=as.numeric(args[2]))
+#options(echo=TRUE)
+# trailingOnly=TRUE means that only your arguments are returned
+args <- commandArgs(trailingOnly = TRUE)
+print(args)
+src <- args[1]
+N <- as.numeric(args[2])
 
 #prefix = "aapl"
-src = "4vms-r1.dest.dstat.csv"
-N = 4 # number of parallel migrations
+#src = "4vms-r1.dest.dstat.csv"
+#N = 4 # number of parallel migrations
 prefix = paste0(src, ".recv")
 
 startcol = 9
@@ -25,12 +29,7 @@ secondlty = 5 # best
 #fontsize = 1.8 # too big
 fontsize = 2 # too big, outside the box
 
-resolution = 72
-
-#function.names <- c("png", "eps", "emf")
-
 library(ggplot2)
-
 require(devEMF)
 
 genplot <- function (type) {
@@ -49,8 +48,7 @@ genplot <- function (type) {
 
 	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
 	# c(bottom, left, top, right)
-	par(oma=c(0,0,0,0))               
-	#par(oma=c(1,1,1,1))               # Set outer margin areas (only necessary in order to plot extra y-axis)
+	par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 	par(mar=c(5,5,0,0)) # good but bottom is a bit wide
 	#par(mar=c(4,5,0,0))  # perfect, both tight
 	#par(mar=c(4,6,0,0)) # bottom good, left wide
@@ -58,11 +56,11 @@ genplot <- function (type) {
 
 	# aggregate throughput
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
-	plot(data[,startcol]/1000000.0, xlab = "TIME", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize, lwd = linewidth)
+	plot(data[,startcol]/1000000.0, xlab = "TIME (SEC)", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize, lwd = linewidth)
 	#plot(aapl[,5], xlab = "TIME", ylab = "PRICE ($)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize)
 
 	# per VM. lty 5 for longdash, lty 2 for dashed
-	lines(data[,startcol]/1000000/N, type = "l", lty = secondlty, col="red", lwd = linewidth)
+	lines(data[,startcol]/1000000.0/N, type = "l", lty = secondlty, col="green", lwd = linewidth)
 
 	# open value
 	#lines(aapl[,2], type = "l", col="red")
@@ -70,8 +68,7 @@ genplot <- function (type) {
 	names <- c("AGGREGATE", "PER VM")
 	# 'cex' stands for 'character expansion', 'bty' for 'box type' (we don't want borders)
 	# lty for line types, lwd for line width
-	#legend("center", names, cex = 1.5)
-	legend("center", names, lty = c(1, secondlty), col=c("blue", "red"), lwd = c(linewidth, linewidth), bty = 'n',  cex = fontsize)
+	legend("center", names, lty = c(1, secondlty), col=c("blue", "green"), lwd = c(linewidth, linewidth), bty = 'n',  cex = fontsize)
 	#legend("topright", names, lty = 1, bty = 'n',  cex = 1.5)
 }
 
