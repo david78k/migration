@@ -1,3 +1,5 @@
+#!/usr/bin/Rscript
+
 # EXAMPLE CODE FOR DRAWING A LINE PLOT IN R
 # 2 February 2008
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -5,7 +7,7 @@
 rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
-pdf("examaple.pdf")
+pdf("example.pdf")
 #png("example.png")
 #postscript("example.eps")
 
@@ -37,26 +39,26 @@ points(ti, y2,
        col="red")                 # Color of the plotted data
 
 # Add y3 data to the same plot, but on a different axis
-par(new=T,                        # The next high-level plotting command (actually plot.new) should not clean the frame before drawing ìas if it was on a new deviceî.
-    oma=c(2,2,2,4))               # Increase the size of the outer margins to accomodate second y axis
+#par(new=T,                        # The next high-level plotting command (actually plot.new) should not clean the frame before drawing ìas if it was on a new deviceî.
+#    oma=c(2,2,2,4))               # Increase the size of the outer margins to accomodate second y axis
 
-plot(ti, y3,
-       yaxt="n",                  # Do not plot the y-axis
-       ylab="",                   # Do not plot the y-axis label
-       xlab="",                   # Do not plot the x-axis label
-       type="b",                  # Plot lines and points
-       lty=1,                     # Line type: 0=blank, 1=solid, 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash
-       lwd=1,                     # Line width
-       pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
-       col="blue")                # Color of the plotted data
+#plot(ti, y3,
+#       yaxt="n",                  # Do not plot the y-axis
+#       ylab="",                   # Do not plot the y-axis label
+#       xlab="",                   # Do not plot the x-axis label
+#       type="b",                  # Plot lines and points
+#       lty=1,                     # Line type: 0=blank, 1=solid, 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash
+#       lwd=1,                     # Line width
+#       pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
+#       col="blue")                # Color of the plotted data
 
-axis(4,                           # Add a second axis: 1=below, 2=left, 3=above and 4=right
-    pretty(range(y3),10))         # Intervals for the second y-axis
+#axis(4,                           # Add a second axis: 1=below, 2=left, 3=above and 4=right
+#    pretty(range(y3),10))         # Intervals for the second y-axis
 
-mtext("Response (y3)",            # Add second y-axis label
-      side=4,                     # Add to right hand side of plot
-      line=3,                     # Add to line 3 from the margin
-      font=2)                     # Print label in bold
+#mtext("Response (y3)",            # Add second y-axis label
+#      side=4,                     # Add to right hand side of plot
+#      line=3,                     # Add to line 3 from the margin
+#      font=2)                     # Print label in bold
 
 # Add a legend to the plot
 legend("topleft",                       # x-y coordinates for location of the legend
