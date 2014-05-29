@@ -7,8 +7,8 @@
 rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
-pdf("example.pdf")
-#png("example.png")
+#pdf("example.pdf")
+png("example.png")
 #postscript("example.eps")
 
 # Generate sample time series data
@@ -22,8 +22,8 @@ par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in or
 
 plot(ti, y1,                      # Data to plot - x, y
      type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
-     main="Time series plot",     # Main title for the plot
-     xlab="Time",                 # Label for the x-axis
+#     main="Time series plot",     # Main title for the plot
+     xlab="TIME (SEC)",                 # Label for the x-axis
      ylab="Response (y1 & y2)",   # Label for the y-axis
      font.lab=2,                  # Font to use for the axis labels: 1=plain text, 2=bold, 3=italic, 4=bold italic
      ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
@@ -62,11 +62,11 @@ points(ti, y2,
 
 # Add a legend to the plot
 legend("topleft",                       # x-y coordinates for location of the legend
-       legend=c("y1", "y2", "y3"),      # Legend labels
-       col=c("black", "red", "blue"),   # Color of points or lines
-       pch=c(21,19,19),                 # Point type
-       lty=c(1,1,1),                    # Line type
-       lwd=c(1,1,1),                    # Line width
+       legend=c("y1", "y2"),      # Legend labels
+       col=c("black", "red"),   # Color of points or lines
+       pch=c(21,19),                 # Point type
+       lty=c(1,1),                    # Line type
+       lwd=c(1,1),                    # Line width
        title="Time series")             # Legend title
 
 
