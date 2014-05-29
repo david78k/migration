@@ -26,8 +26,8 @@ plot(ti, y1,                      # Data to plot - x, y
      xlab="TIME (SEC)",                 # Label for the x-axis
      ylab="THROUGHPUT (MB/S)",   # Label for the y-axis
      font.lab=2,                  # Font to use for the axis labels: 1=plain text, 2=bold, 3=italic, 4=bold italic
-     #ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
-     #xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
+     ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
+     xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
      bty="l")                     # Box around plot to contain only left and lower lines
 
 # Add y2 data to the same plot
@@ -67,8 +67,8 @@ legend("topleft",                       # x-y coordinates for location of the le
        pch=c(21,19),                 # Point type
        lty=c(1,1),                    # Line type
        lwd=c(1,1),                    # Line width
-       title="Time series")             # Legend title
-
+      # title="Time series"             # Legend title
+)
 
 # For further information and options see help on:
 # "plot" - plot function
