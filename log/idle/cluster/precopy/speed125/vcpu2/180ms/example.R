@@ -7,11 +7,11 @@
 rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
-pdf("example.pdf")
-#png("example.png")
+#pdf("example.pdf")
+png("example.png")
 #postscript("example.eps")
 
-fontsize = 1.5
+fontsize = 1.2
 
 # Generate sample time series data
 ti = 1:50                                   # Generate 50 sample time steps
