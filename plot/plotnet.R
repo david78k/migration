@@ -40,7 +40,7 @@ data <- read.csv(src, sep=",", skip = startrow, header=1)
 
 	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
 	# c(bottom, left, top, right)
-	#par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
+	par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 	par(mar=c(5,5,0,0)) # good but bottom is a bit wide
 	#par(mar=c(4,5,0,0))  # perfect, both tight
 	#par(mar=c(4,6,0,0)) # bottom good, left wide
