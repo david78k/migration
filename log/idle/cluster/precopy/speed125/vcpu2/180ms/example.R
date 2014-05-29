@@ -7,9 +7,11 @@
 rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
-pdf("example.pdf")
-#png("example.png")
+#pdf("example.pdf")
+png("example.png")
 #postscript("example.eps")
+
+fontsize = 1.5
 
 # Generate sample time series data
 ti = 1:50                                   # Generate 50 sample time steps
@@ -20,7 +22,7 @@ y3 = seq(80,110,length.out=50) + rnorm(50)  # Generate 50 stochastic data points
 # Plot the y1 data
 #par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 # c(bottom,left,top,right)
-par(mar=c(5,5,0,0))
+#par(mar=c(5,5,0,0))
 
 plot(ti, y1,                      # Data to plot - x, y
      type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
@@ -28,9 +30,9 @@ plot(ti, y1,                      # Data to plot - x, y
      xlab="TIME (SEC)",                 # Label for the x-axis
      ylab="THROUGHPUT (MB/S)",   # Label for the y-axis
      font.lab=2,                  # Font to use for the axis labels: 1=plain text, 2=bold, 3=italic, 4=bold italic
-     cex = 2,
-     cex.axis = 2,
-     cex.lab = 2,
+#     cex = 2,
+     cex.axis = fontsize,
+     cex.lab = fontsize,
      ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
      xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
      bty="l")                     # Box around plot to contain only left and lower lines
@@ -40,7 +42,7 @@ points(ti, y2,
        type="b",                  # Plot lines and points
        lty=1,                     # Line type: 0=blank, 1=solid, 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash
        lwd=1,                     # Line width
-       cex = 2,
+       cex = fontsize,
        pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
        col="red")                 # Color of the plotted data
 
@@ -73,7 +75,7 @@ legend("topleft",                       # x-y coordinates for location of the le
        pch=c(21,19),                 # Point type
        lty=c(1,1),                    # Line type
        lwd=c(1,1),                    # Line width
-       cex = 2
+       cex = fontsize
       # title="Time series"             # Legend title
 )
 
