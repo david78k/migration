@@ -11,7 +11,8 @@ graphics.off()    # Close graphics windows
 png("example.png")
 #postscript("example.eps")
 
-fontsize = 1.2
+# cex
+fontsize = 1
 
 # Generate sample time series data
 ti = 1:50                                   # Generate 50 sample time steps
