@@ -39,6 +39,8 @@ plot(ti, y1,                      # Data to plot - x, y
 #     bty="l"                     # Box around plot to contain only left and lower lines
 )
 
+axis(side = 2, las = 1)
+
 # Add y2 data to the same plot
 points(ti, y2,
        type="b",                  # Plot lines and points
