@@ -18,7 +18,7 @@ y2 = seq(10,15,length.out=50) + rnorm(50)   # Generate 50 stochastic data points
 y3 = seq(80,110,length.out=50) + rnorm(50)  # Generate 50 stochastic data points for time series y3
 
 # Plot the y1 data
-par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
+#par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 
 plot(ti, y1,                      # Data to plot - x, y
      type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
