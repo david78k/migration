@@ -66,7 +66,7 @@ legend("topleft",                       # x-y coordinates for location of the le
        col=c("black", "red"),   # Color of points or lines
        pch=c(21,19),                 # Point type
        lty=c(1,1),                    # Line type
-       lwd=c(1,1)#,                    # Line width
+       lwd=c(1,1),                    # Line width
       # title="Time series"             # Legend title
 )
 
