@@ -26,8 +26,8 @@ Type 'q()' to quit R.
 > rm(list = ls())      # Clear all variables
 > graphics.off()    # Close graphics windows
 > 
-> png("example.png")
-> #postscript("example.eps")
+> #png("example.png")
+> postscript("example.eps")
 > 
 > # Generate sample time series data
 > ti = 1:50                                   # Generate 50 sample time steps
@@ -100,4 +100,4 @@ Type 'q()' to quit R.
 > 
 > proc.time()
    user  system elapsed 
-  0.312   0.026   0.325 
+  0.343   0.021   0.353 
