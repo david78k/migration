@@ -6,6 +6,7 @@ rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
 png("example.png")
+#postscript("example.eps")
 
 # Generate sample time series data
 ti = 1:50                                   # Generate 50 sample time steps
