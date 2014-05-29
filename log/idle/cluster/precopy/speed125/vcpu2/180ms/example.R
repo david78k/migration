@@ -26,6 +26,7 @@ plot(ti, y1,                      # Data to plot - x, y
      xlab="TIME (SEC)",                 # Label for the x-axis
      ylab="THROUGHPUT (MB/S)",   # Label for the y-axis
      font.lab=2,                  # Font to use for the axis labels: 1=plain text, 2=bold, 3=italic, 4=bold italic
+     cex = 2,
      ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
      xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
      bty="l")                     # Box around plot to contain only left and lower lines
@@ -35,6 +36,7 @@ points(ti, y2,
        type="b",                  # Plot lines and points
        lty=1,                     # Line type: 0=blank, 1=solid, 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash
        lwd=1,                     # Line width
+       cex = 2,
        pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
        col="red")                 # Color of the plotted data
 
