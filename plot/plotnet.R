@@ -10,7 +10,8 @@ N <- as.numeric(args[2])
 #prefix = "aapl"
 #src = "4vms-r1.dest.dstat.csv"
 #N = 4 # number of parallel migrations
-prefix = paste0(src, ".recv")
+#prefix = paste0(src, ".recv")
+prefix = paste0(src, ".send")
 
 # for receiver
 #startcol = 9
