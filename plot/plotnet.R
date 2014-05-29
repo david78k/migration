@@ -61,12 +61,6 @@ genplot <- function (type) {
 		#emf('aapl.emf')
 	}
 
-# Generate sample time series data
-#ti = 1:50                                   # Generate 50 sample time steps
-#y1 = 8 + rnorm(50)                          # Generate 50 stochastic data points for time series y1
-#y2 = seq(10,15,length.out=50) + rnorm(50)   # Generate 50 stochastic data points for time series y2
-#y3 = seq(80,110,length.out=50) + rnorm(50)  # Generate 50 stochastic data points for time series y3
-
 # Plot the y1 data
 #par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 
@@ -78,8 +72,8 @@ plot(data[,startcol]/1000000.0/N,            # Data to plot - x, y
      font.lab=2,                  # Font to use for the axis labels: 1=plain text, 2=bold, 3=italic, 4=bold italic
      cex.axis = fontsize,
      cex.lab = fontsize,
-     ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
-     xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
+#     ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
+#     xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
 #     bty="l",                     # Box around plot to contain only left and lower lines
      las = 1                      # labels are parallel (=0) or perpendicular(=2) to axis, 1 for x-axis = 0 and y-axis = 1
 )
