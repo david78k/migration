@@ -12,7 +12,10 @@ N <- as.numeric(args[2])
 #N = 4 # number of parallel migrations
 prefix = paste0(src, ".recv")
 
-startcol = 9
+# for receiver
+#startcol = 9
+# for sender
+startcol = 10
 #integer: the number of lines of the data file to skip before beginning to read data.
 startrow = 6
 
@@ -66,7 +69,7 @@ genplot <- function (type) {
 
 	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
 	# c(bottom, left, top, right)
-	par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
+#	par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 	par(mar=c(5,5,0,0)) # good but bottom is a bit wide
 	#par(mar=c(4,5,0,0))  # perfect, both tight
 	#par(mar=c(4,6,0,0)) # bottom good, left wide
@@ -118,7 +121,8 @@ points(data[,startcol]/1000000.0/N,
 #      font=2)                     # Print label in bold
 
 # Add a legend to the plot
-legend("topleft",                       # x-y coordinates for location of the legend
+#legend("topleft",                       # x-y coordinates for location of the legend
+legend("center",                       # x-y coordinates for location of the legend
        legend=c("AGGREGATE", "PER VM"),      # Legend labels
        col=c("black", "red"),   # Color of points or lines
        pch=c(21,19),                 # Point type
