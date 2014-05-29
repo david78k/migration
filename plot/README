@@ -1,0 +1,2 @@
+create symlink
+ln -s /root/migration/plot/plot* /usr/bin/

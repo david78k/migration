@@ -1,3 +1,5 @@
+#!/usr/bin/Rscript
+
 # EXAMPLE CODE FOR DRAWING A LINE PLOT IN R
 # 2 February 2008
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
