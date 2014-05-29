@@ -69,6 +69,7 @@ legend("topleft",                       # x-y coordinates for location of the le
        pch=c(21,19),                 # Point type
        lty=c(1,1),                    # Line type
        lwd=c(1,1),                    # Line width
+       cex = 2
       # title="Time series"             # Legend title
 )
 
