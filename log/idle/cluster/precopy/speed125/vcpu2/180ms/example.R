@@ -27,6 +27,8 @@ plot(ti, y1,                      # Data to plot - x, y
      ylab="THROUGHPUT (MB/S)",   # Label for the y-axis
      font.lab=2,                  # Font to use for the axis labels: 1=plain text, 2=bold, 3=italic, 4=bold italic
      cex = 2,
+     cex.axis = 2,
+     cex.lab = 2,
      ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
      xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
      bty="l")                     # Box around plot to contain only left and lower lines
