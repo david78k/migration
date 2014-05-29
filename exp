@@ -1,8 +1,11 @@
 #!/bin/bash
 
 target=c11node10
+router=c11node28
+
+# RTT = delay*2
 delay=90
-prefix=4vms-r1
+prefix=3vms-r1
 
 # last minutes for ganglia metrics
 min=3min
@@ -19,11 +22,14 @@ function download() {
         wget -O $prefix.dest.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report&csv=1"
 }
 
+ssh $router service tc delaly $delay
+
 # c11node9 to c11nodd10
-#./cluster
+./cluster
 
 # c11node10 to c11node9
-ssh $target "cd /root/qemu/; ./cluster"
-download
+#ssh $target "cd /root/qemu/; ./cluster"
+#download
 #./download
 
+ssh $router service tc stop
