@@ -7,7 +7,7 @@
 rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
-pdf("examaple.pdf")
+pdf("example.pdf")
 #png("example.png")
 #postscript("example.eps")
 
