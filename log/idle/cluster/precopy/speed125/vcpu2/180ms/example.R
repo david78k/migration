@@ -55,8 +55,8 @@ plot(ti, y1,                      # Data to plot - x, y
      cex.lab = fontsize,
      ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
      xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
-#     bty="l",                     # Box around plot to contain only left and lower lines
-#     las = 1			  # labels are parallel (=0) or perpendicular(=2) to axis, 1 for x-axis = 0 and y-axis = 1
+     bty="l",                     # Box around plot to contain only left and lower lines
+     las = 1			  # labels are parallel (=0) or perpendicular(=2) to axis, 1 for x-axis = 0 and y-axis = 1
 )
 
 # Add y2 data to the same plot
