@@ -23,7 +23,8 @@ y3 = seq(80,110,length.out=50) + rnorm(50)  # Generate 50 stochastic data points
 # Plot the y1 data
 #par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 # c(bottom,left,top,right)
-par(mar=c(5,5,1,1))
+par(mar=c(5,5,0,0))
+#par(mar=c(5,5,1,1))
 
 genplot <- function (type) {
         if(type == "png") {
