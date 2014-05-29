@@ -7,8 +7,8 @@
 rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
-pdf("example.pdf")
-#png("example.png")
+#pdf("example.pdf")
+png("example.png")
 #postscript("example.eps")
 
 # Generate sample time series data
@@ -20,7 +20,7 @@ y3 = seq(80,110,length.out=50) + rnorm(50)  # Generate 50 stochastic data points
 # Plot the y1 data
 #par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
 # c(bottom,left,top,right)
-par(mar=c(5,3,0,0))
+par(mar=c(5,5,0,0))
 
 plot(ti, y1,                      # Data to plot - x, y
      type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
