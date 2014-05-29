@@ -22,10 +22,10 @@ y3 = seq(80,110,length.out=50) + rnorm(50)  # Generate 50 stochastic data points
 
 # Plot the y1 data
 #par(oma=c(2,2,2,4))               # Set outer margin areas (only necessary in order to plot extra y-axis)
-par(oma=c(0,0,0,0))
+#par(oma=c(0,0,0,0))
 # c(bottom,left,top,right)
-par(mar=c(5,7,0,0))
-#par(mar=c(5,5,1,1))
+#par(mar=c(5,7,0,0))
+par(mar=c(5,5,1,1))
 
 genplot <- function (type) {
         if(type == "png") {
@@ -56,7 +56,7 @@ plot(ti, y1,                      # Data to plot - x, y
      ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
      xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
 #     bty="l",                     # Box around plot to contain only left and lower lines
-     las = 1			  # labels are parallel (=0) or perpendicular(=2) to axis, 1 for x-axis = 0 and y-axis = 1
+#     las = 1			  # labels are parallel (=0) or perpendicular(=2) to axis, 1 for x-axis = 0 and y-axis = 1
 )
 
 # Add y2 data to the same plot
