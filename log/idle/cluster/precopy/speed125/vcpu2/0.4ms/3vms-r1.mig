@@ -2,20 +2,20 @@
  (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo m[K[D[D[D[D[D[Dinfo mi[K[D[D[D[D[D[D[Dinfo mig[K[D[D[D[D[D[D[D[Dinfo migr[K[D[D[D[D[D[D[D[D[Dinfo migra[K[D[D[D[D[D[D[D[D[D[Dinfo migrat[K[D[D[D[D[D[D[D[D[D[D[Dinfo migrate[K
  capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off 
  Migration status: completed
- iterations: 1033
- total time: 113081 milliseconds
+ iterations: 884
+ total time: 49871 milliseconds
  downtime: 5 milliseconds
- stop time: 1 milliseconds
- copy time: 4 milliseconds
- setup: 14 milliseconds
- transferred ram: 1697976 kbytes
- throughput: 161.74 mbps
+ stop time: 0 milliseconds
+ copy time: 5 milliseconds
+ setup: 16 milliseconds
+ transferred ram: 1958271 kbytes
+ throughput: 466.38 mbps
  remaining ram: 0 kbytes
  total ram: 2105920 kbytes
- duplicate: 113779 pages
+ duplicate: 50069 pages
  skipped: 0 pages
- normal: 423415 pages
- normal bytes: 1693660 kbytes
+ normal: 488502 pages
+ normal bytes: 1954008 kbytes
  (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo s[K[D[D[D[D[D[Dinfo st[K[D[D[D[D[D[D[Dinfo sta[K[D[D[D[D[D[D[D[Dinfo stat[K[D[D[D[D[D[D[D[D[Dinfo statu[K[D[D[D[D[D[D[D[D[D[Dinfo status[K
  VM status: paused (postmigrate)
  (qemu)
@@ -23,20 +23,20 @@
  (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo m[K[D[D[D[D[D[Dinfo mi[K[D[D[D[D[D[D[Dinfo mig[K[D[D[D[D[D[D[D[Dinfo migr[K[D[D[D[D[D[D[D[D[Dinfo migra[K[D[D[D[D[D[D[D[D[D[Dinfo migrat[K[D[D[D[D[D[D[D[D[D[D[Dinfo migrate[K
  capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off 
  Migration status: completed
- iterations: 977
- total time: 130620 milliseconds
+ iterations: 841
+ total time: 47553 milliseconds
  downtime: 4 milliseconds
  stop time: 0 milliseconds
  copy time: 4 milliseconds
  setup: 14 milliseconds
- transferred ram: 1969356 kbytes
- throughput: 165.22 mbps
+ transferred ram: 1870936 kbytes
+ throughput: 339.58 mbps
  remaining ram: 0 kbytes
  total ram: 2105920 kbytes
- duplicate: 51315 pages
+ duplicate: 72799 pages
  skipped: 0 pages
- normal: 491265 pages
- normal bytes: 1965060 kbytes
+ normal: 466661 pages
+ normal bytes: 1866644 kbytes
  (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo s[K[D[D[D[D[D[Dinfo st[K[D[D[D[D[D[D[Dinfo sta[K[D[D[D[D[D[D[D[Dinfo stat[K[D[D[D[D[D[D[D[D[Dinfo statu[K[D[D[D[D[D[D[D[D[D[Dinfo status[K
  VM status: paused (postmigrate)
  (qemu)
@@ -44,41 +44,20 @@
  (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo m[K[D[D[D[D[D[Dinfo mi[K[D[D[D[D[D[D[Dinfo mig[K[D[D[D[D[D[D[D[Dinfo migr[K[D[D[D[D[D[D[D[D[Dinfo migra[K[D[D[D[D[D[D[D[D[D[Dinfo migrat[K[D[D[D[D[D[D[D[D[D[D[Dinfo migrate[K
  capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off 
  Migration status: completed
- iterations: 1104
- total time: 124900 milliseconds
- downtime: 117 milliseconds
+ iterations: 904
+ total time: 51124 milliseconds
+ downtime: 6 milliseconds
  stop time: 0 milliseconds
- copy time: 117 milliseconds
- setup: 18 milliseconds
- transferred ram: 1879907 kbytes
- throughput: 130.46 mbps
+ copy time: 6 milliseconds
+ setup: 17 milliseconds
+ transferred ram: 1957423 kbytes
+ throughput: 647.94 mbps
  remaining ram: 0 kbytes
  total ram: 2105920 kbytes
- duplicate: 72750 pages
+ duplicate: 51125 pages
  skipped: 0 pages
- normal: 468899 pages
- normal bytes: 1875596 kbytes
- (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo s[K[D[D[D[D[D[Dinfo st[K[D[D[D[D[D[D[Dinfo sta[K[D[D[D[D[D[D[D[Dinfo stat[K[D[D[D[D[D[D[D[D[Dinfo statu[K[D[D[D[D[D[D[D[D[D[Dinfo status[K
- VM status: paused (postmigrate)
- (qemu)
-ÿûÿûÿûÿýQEMU 1.6.50 monitor - type 'help' for more information
- (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo m[K[D[D[D[D[D[Dinfo mi[K[D[D[D[D[D[D[Dinfo mig[K[D[D[D[D[D[D[D[Dinfo migr[K[D[D[D[D[D[D[D[D[Dinfo migra[K[D[D[D[D[D[D[D[D[D[Dinfo migrat[K[D[D[D[D[D[D[D[D[D[D[Dinfo migrate[K
- capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off 
- Migration status: completed
- iterations: 697
- total time: 131400 milliseconds
- downtime: 4 milliseconds
- stop time: 0 milliseconds
- copy time: 4 milliseconds
- setup: 18 milliseconds
- transferred ram: 1967283 kbytes
- throughput: 153.20 mbps
- remaining ram: 0 kbytes
- total ram: 2105920 kbytes
- duplicate: 50060 pages
- skipped: 0 pages
- normal: 490751 pages
- normal bytes: 1963004 kbytes
+ normal: 488288 pages
+ normal bytes: 1953152 kbytes
  (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo s[K[D[D[D[D[D[Dinfo st[K[D[D[D[D[D[D[Dinfo sta[K[D[D[D[D[D[D[D[Dinfo stat[K[D[D[D[D[D[D[D[D[Dinfo statu[K[D[D[D[D[D[D[D[D[D[Dinfo status[K
  VM status: paused (postmigrate)
  (qemu)
