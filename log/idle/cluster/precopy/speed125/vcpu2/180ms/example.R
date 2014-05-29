@@ -7,8 +7,8 @@
 rm(list = ls())      # Clear all variables
 graphics.off()    # Close graphics windows
 
-pdf("example.pdf")
-#png("example.png")
+#pdf("example.pdf")
+png("example.png")
 #postscript("example.eps")
 
 # cex
@@ -36,7 +36,8 @@ plot(ti, y1,                      # Data to plot - x, y
      cex.lab = fontsize,
      ylim=c(0,20),                # Range for the y-axis; "xlim" does same for x-axis
      xaxp=c(0,50,5),              # X-axis min, max and number of intervals; "yaxp" does same for y-axis
-     bty="l")                     # Box around plot to contain only left and lower lines
+#     bty="l"                     # Box around plot to contain only left and lower lines
+)
 
 # Add y2 data to the same plot
 points(ti, y2,
