@@ -35,7 +35,8 @@ secondlty = 2 # good
 #secondlty = 3 # too pale
 
 #legendpos = "bottom"
-legendpos = "center"
+#legendpos = "center"
+legendpos = "topright"
 
 # cex
 fontsize = 1
