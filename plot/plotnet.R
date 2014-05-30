@@ -52,6 +52,7 @@ genplot <- function (type) {
 
 	if(type == "png") {
 		#type(paste0(prefix, sep = ".", type))
+	#	png(paste0(prefix, ".png"), height=3.5, width=5)
 		png(paste0(prefix, ".png"))
 	} else if (type == "pdf") {
 		pdf(paste0(prefix, ".pdf"))
@@ -70,11 +71,12 @@ genplot <- function (type) {
 
 	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
 	# c(bottom, left, top, right)
-#	par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
-	par(mar=c(5,5,1,1)) # good fit
+	#par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
+#	par(mar=c(5,5,1,1)) # good fit
 	#par(mar=c(4,5,0,0))  # both too tight
 	#par(mar=c(4,6,0,0)) # bottom good, left wide
 	#par(mar=c(6,6,0,0)) # bit wide
+	par(mar=c(4.2, 3.8, 0.2, 0.2))
 
 #layout(rbind(1,2), heights=c(7,1))  # put legend on bottom 1/8th of the chart
 
@@ -98,8 +100,8 @@ plot(data[,startcol]/1024.0/1024.0,            # Data to plot - x, y
 # Add y2 data to the same plot
 #points(data[,startcol]/1000000.0/N,
 points(data[,startcol]/1024.0/1024.0/N,
-       type="b",                  # Plot lines and points
-       lty=1,                     # Line type: 0=blank, 1=solid, 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash
+       type="l",                  # Plot lines and points
+       lty=3,                     # Line type: 0=blank, 1=solid, 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash
        lwd=1,                     # Line width
        pch=20,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
 #       pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
