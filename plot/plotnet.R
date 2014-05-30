@@ -20,6 +20,10 @@ startcol = 10
 #integer: the number of lines of the data file to skip before beginning to read data.
 startrow = 6
 
+# figure size
+fheight = 200
+fwidth = 300
+
 linewidth = 2.5
 
 # second line color
@@ -53,18 +57,18 @@ genplot <- function (type) {
 
 	if(type == "png") {
 		#type(paste0(prefix, sep = ".", type))
-		png(paste0(prefix, ".png"), height=200, width=300)
+		png(paste0(prefix, ".png"), height=fheight, width=fwidth)
 		#png(paste0(prefix, ".png"), height=300, width=400)
 	#	png(paste0(prefix, ".png"))
 	} else if (type == "pdf") {
-		pdf(paste0(prefix, ".pdf"))
+		pdf(paste0(prefix, ".pdf"), height=fheight, width=fwidth)
 	} else if (type == "eps") {
 		#png("aapl.png")
 		#postscript(paste0(prefix, ".eps"), res = resolution)
 		postscript(paste0(prefix, ".eps"))
 	} else if (type == "emf") {
 		#postscript("aapl.eps")
-		emf(paste0(prefix, ".emf"))
+		emf(paste0(prefix, ".emf"), height=fheight, width=fwidth)
 		#emf('aapl.emf')
 	}
 
