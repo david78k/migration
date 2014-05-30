@@ -161,7 +161,7 @@ function download() {
 
 	for node in master slave1 slave2 slave3
         do
-                for resource in cpu net
+                for resource in cpu network
                 do
                         #for filetype in png csv
                         #do
