@@ -135,7 +135,7 @@ legend("bottom",                       # x-y coordinates for location of the leg
        col=c("black", "red"),   # Color of points or lines
 #       pch=c(NA,20),                 # Point type
        #pch=c(21,19),                 # Point type
-       lty=c(1,1),                    # Line type
+       lty=c(1,3),                    # Line type
        lwd=c(1,1),                    # Line width
        cex = fontsize,
 	bty = 'n'
