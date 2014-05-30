@@ -130,8 +130,8 @@ points(data[,startcol]/1024.0/1024.0/N,
 #      font=2)                     # Print label in bold
 
 # Add a legend to the plot
-legend("topright",                       # x-y coordinates for location of the legend
-#legend("bottom",                       # x-y coordinates for location of the legend
+#legend("topright",                       # x-y coordinates for location of the legend
+legend("bottom",                       # x-y coordinates for location of the legend
        legend=c("AGGREGATE", "PER VM"),      # Legend labels
        col=c("black", "red"),   # Color of points or lines
        pch=c(NA,20),                 # Point type
