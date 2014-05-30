@@ -30,8 +30,8 @@ linewidth = 2.5
 secondlc = "red"
 
 # second line type: 2 for dashed, 3 for dotted, 4 for dotdash, 5 for longdash, 6 for twodash
-secondlty = 5 # best
-#secondlty = 2 # good 
+#secondlty = 5 # best
+secondlty = 2 # good 
 #secondlty = 3 # too pale
 
 # cex
@@ -110,7 +110,7 @@ points(data[,startcol]/1024.0/1024.0/N,
        lwd=2,                     # Line width
 #       pch=20,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
 #       pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
-       col="red")                 # Color of the plotted data
+       col=secondlc)                 # Color of the plotted data
 
 # Add y3 data to the same plot, but on a different axis
 #par(new=T,                        # The next high-level plotting command (actually plot.new) should not clean the frame before drawing ìas if it was on a new deviceî.
@@ -139,7 +139,7 @@ points(data[,startcol]/1024.0/1024.0/N,
 #legend("bottom",                       # x-y coordinates for location of the legend
 legend("center",                       # x-y coordinates for location of the legend
        legend=c("AGGREGATE", "PER VM"),      # Legend labels
-       col=c("black", "red"),   # Color of points or lines
+       col=c("black", secondlc),   # Color of points or lines
 #       pch=c(NA,20),                 # Point type
        #pch=c(21,19),                 # Point type
        lty=c(1,secondlty),                    # Line type
