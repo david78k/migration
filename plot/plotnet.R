@@ -136,7 +136,8 @@ legend("topright",                       # x-y coordinates for location of the l
        #pch=c(21,19),                 # Point type
        lty=c(1,1),                    # Line type
        lwd=c(1,1),                    # Line width
-       cex = fontsize
+       cex = fontsize,
+	bty = 'n'
 )
 	#matplot(aapl[,1], aapl[,5], type = "l", col="red")
 	#plot(data[,startcol]/1000000.0, xlab = "TIME (SEC)", ylab = "THROUGHPUT (MB/S)", type = "l", col="blue", cex.axis = fontsize, cex.lab = fontsize, lwd = linewidth)
