@@ -80,7 +80,8 @@ genplot <- function (type) {
 
 # aggregate throughput
 plot(data[,startcol]/1000000.0,            # Data to plot - x, y
-     type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
+#   type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
+     type="l",                    # Plot lines and points. Use "p" for points only, "l" for lines only
 #     main="Time series plot",     # Main title for the plot
      xlab="TIME (SEC)",                 # Label for the x-axis
      ylab="THROUGHPUT (MB/S)",   # Label for the y-axis
@@ -98,7 +99,8 @@ points(data[,startcol]/1000000.0/N,
        type="b",                  # Plot lines and points
        lty=1,                     # Line type: 0=blank, 1=solid, 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash
        lwd=1,                     # Line width
-       pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
+       pch=20,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
+#       pch=19,                    # Point type: pch=19 - solid circle, pch=20 - bullet (smaller circle), pch=21 - circle, pch=22 - square, pch=23 - diamond, pch=24 - triangle point-up, pch=25 - triangle point down.
        col="red")                 # Color of the plotted data
 
 # Add y3 data to the same plot, but on a different axis
