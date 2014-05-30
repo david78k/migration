@@ -3,14 +3,16 @@
 router=c11node28
 target=c11node10
 #target=10.5.147.210
+ganglia=10.244.36.20
+
 #postcopy=on
 postcopy=off
 #masterpost=on
 masterpost=off
 
-prefix=1vm-r3
+#prefix=1vm-r3
 #prefix=2vms-r2
-#prefix=3vms-r1
+prefix=4vms-r1
 
 ram=2048
 vcpu=2
@@ -20,8 +22,8 @@ preptime=90
 
 # sleep interval
 sleeptime=5
-#ports=( 4446 4447 4448 4449 )
-ports=( 4446 )
+ports=( 4446 4447 4448 4449 )
+#ports=( 4446 )
 #ports=( 4447 4448 4449 )
 nports=${#ports[@]}
 ##nports=1
@@ -59,9 +61,9 @@ function startcluster() {
 
 function migrate() {
 	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost $migspeed
-	#./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
-	#./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
-	#./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
+	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
+	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
+	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
 }
 
 function check() {
@@ -156,6 +158,18 @@ function download() {
 	wget -O $prefix.dest.net.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=network_report&csv=1"
 	wget -O $prefix.dest.cpu.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report"
 	wget -O $prefix.dest.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report&csv=1"
+
+	for node in master slave1 slave2 slave3
+        do
+                for resource in cpu net
+                do
+                        #for filetype in png csv
+                        #do
+                                wget -O $prefix.$node.$resource.png "http://${ganglia}/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${node}&s=by+name&g=${resource}_report"
+                                wget -O $prefix.$node.$resource.csv "http://${ganglia}/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${node}&s=by+name&g=${resource}_report&csv=1"
+                        #done
+                done
+        done
 }
 
 function migratecluster() {

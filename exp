@@ -6,8 +6,9 @@ router=c11node28
 ganglia=10.244.36.20
 
 # RTT = delay*2
-#delay=90	# 180ms RTT
-delay=10	# 20ms RTT
+delay=90	# 180ms RTT
+#delay=40	# 80ms RTT
+#delay=10	# 20ms RTT
 prefix=4vms-r1
 
 # last minutes for ganglia metrics
@@ -24,20 +25,29 @@ function download() {
         wget -O $prefix.dest.cpu.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report"
         wget -O $prefix.dest.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report&csv=1"
 
-	# for master, slave
-	#	for cpu, net
-	#		for png, csv
-        #wget -O $prefix.dest.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report&csv=1"
-	
+	for node in master slave1 slave2 slave3
+	do
+		for resource in cpu net
+		do
+			#for filetype in png csv
+			#do
+	        		wget -O $prefix.$node.$resource.png "http://${ganglia}/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${node}&s=by+name&g=${resource}_report"
+	        		wget -O $prefix.$node.$resource.csv "http://${ganglia}/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${node}&s=by+name&g=${resource}_report&csv=1"
+			#done
+		done
+	done
 }
 
 ssh $router service tc delay $delay
 
+# run workload: wordcount, terasort, kmeans, fuzzy kmeans, LDA
+ssh master "cd /root/mahout; ./run" &
+
 # c11node9 to c11nodd10
-./cluster
+#./cluster
 
 # c11node10 to c11node9
-#ssh $target "cd /root/qemu/; ./cluster"
-#download
+ssh $target "cd /root/qemu/; ./cluster"
+download
 
 ssh $router service tc stop

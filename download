@@ -2,7 +2,7 @@
 
 target=c11node10
 prefix=4vms-r1
-min=5min
+min=7min
 
 function download() {
         wget -O $prefix.src.net.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=network_report"
