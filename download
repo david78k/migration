@@ -1,8 +1,11 @@
 #!/bin/bash
 
 target=c11node10
-prefix=4vms-r1
-min=7min
+ganglia=10.244.36.20
+
+prefix=test-r1
+#prefix=4vms-r1
+min=5min
 
 function download() {
         wget -O $prefix.src.net.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=c11node9&s=by+name&g=network_report"
@@ -13,6 +16,18 @@ function download() {
         wget -O $prefix.dest.net.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=network_report&csv=1"
         wget -O $prefix.dest.cpu.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report"
         wget -O $prefix.dest.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report&csv=1"
+
+        for node in master slave1 slave2 slave3
+        do
+                for resource in cpu net
+                do
+                        #for filetype in png csv
+                        #do
+                                wget -O $prefix.$node.$resource.png "http://${ganglia}/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${node}&s=by+name&g=${resource}_report"
+                                wget -O $prefix.$node.$resource.csv "http://${ganglia}/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${node}&s=by+name&g=${resource}_report&csv=1"
+                        #done
+                done
+        done	
 }
 
 download
