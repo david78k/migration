@@ -20,7 +20,7 @@ startcol = 10
 #integer: the number of lines of the data file to skip before beginning to read data.
 startrow = 6
 
-# figure size
+# figure size in pixel
 fheight = 200
 fwidth = 300
 
@@ -68,7 +68,7 @@ genplot <- function (type) {
 		postscript(paste0(prefix, ".eps"))
 	} else if (type == "emf") {
 		#postscript("aapl.eps")
-		emf(paste0(prefix, ".emf"), height=fheight, width=fwidth)
+		emf(paste0(prefix, ".emf"), height=1.5*fheight/100.0, width=1.5*fwidth/100.0)
 		#emf('aapl.emf')
 	}
 
