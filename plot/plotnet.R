@@ -53,7 +53,8 @@ genplot <- function (type) {
 
 	if(type == "png") {
 		#type(paste0(prefix, sep = ".", type))
-		png(paste0(prefix, ".png"), height=300, width=400)
+		png(paste0(prefix, ".png"), height=200, width=300)
+		#png(paste0(prefix, ".png"), height=300, width=400)
 	#	png(paste0(prefix, ".png"))
 	} else if (type == "pdf") {
 		pdf(paste0(prefix, ".pdf"))
