@@ -4,8 +4,9 @@ target=c11node10
 router=c11node28
 
 # RTT = delay*2
-delay=90
-prefix=3vms-r1
+#delay=90	# 180ms RTT
+delay=10	# 20ms RTT
+prefix=1vms-r3
 
 # last minutes for ganglia metrics
 min=3min
