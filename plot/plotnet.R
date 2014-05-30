@@ -53,8 +53,8 @@ genplot <- function (type) {
 
 	if(type == "png") {
 		#type(paste0(prefix, sep = ".", type))
-	#	png(paste0(prefix, ".png"), height=3.5, width=5)
-		png(paste0(prefix, ".png"))
+		png(paste0(prefix, ".png"), height=300, width=400)
+	#	png(paste0(prefix, ".png"))
 	} else if (type == "pdf") {
 		pdf(paste0(prefix, ".pdf"))
 	} else if (type == "eps") {
@@ -73,7 +73,7 @@ genplot <- function (type) {
 	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
 	# c(bottom, left, top, right)
 	#par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
-	par(mar=c(5,5,1,1)) # good fit
+#	par(mar=c(5,5,1,1)) # good fit
 	#par(mar=c(4,5,0,0))  # both too tight
 	#par(mar=c(4,6,0,0)) # bottom good, left wide
 	#par(mar=c(6,6,0,0)) # bit wide
