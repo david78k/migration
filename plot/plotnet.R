@@ -79,7 +79,8 @@ genplot <- function (type) {
 #layout(rbind(1,2), heights=c(7,1))  # put legend on bottom 1/8th of the chart
 
 # aggregate throughput
-plot(data[,startcol]/1000000.0,            # Data to plot - x, y
+#plot(data[,startcol]/1000000.0,            # Data to plot - x, y
+plot(data[,startcol]/1024.0/1024.0,            # Data to plot - x, y
 #   type="b",                    # Plot lines and points. Use "p" for points only, "l" for lines only
      type="l",                    # Plot lines and points. Use "p" for points only, "l" for lines only
 #     main="Time series plot",     # Main title for the plot
@@ -95,7 +96,8 @@ plot(data[,startcol]/1000000.0,            # Data to plot - x, y
 )
 
 # Add y2 data to the same plot
-points(data[,startcol]/1000000.0/N,
+#points(data[,startcol]/1000000.0/N,
+points(data[,startcol]/1024.0/1024.0/N,
        type="b",                  # Plot lines and points
        lty=1,                     # Line type: 0=blank, 1=solid, 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash
        lwd=1,                     # Line width
@@ -130,7 +132,8 @@ points(data[,startcol]/1000000.0/N,
 legend("bottom",                       # x-y coordinates for location of the legend
        legend=c("AGGREGATE", "PER VM"),      # Legend labels
        col=c("black", "red"),   # Color of points or lines
-       pch=c(21,19),                 # Point type
+       pch=c("-",20),                 # Point type
+       #pch=c(21,19),                 # Point type
        lty=c(1,1),                    # Line type
        lwd=c(1,1),                    # Line width
        cex = fontsize
