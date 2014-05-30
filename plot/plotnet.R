@@ -34,6 +34,8 @@ secondlc = "red"
 secondlty = 2 # good 
 #secondlty = 3 # too pale
 
+legendpos = "bottom"
+
 # cex
 fontsize = 1
 #fontsize = 1.5 
@@ -137,7 +139,7 @@ points(data[,startcol]/1024.0/1024.0/N,
 # Add a legend to the plot
 #legend("topright",                       # x-y coordinates for location of the legend
 #legend("bottom",                       # x-y coordinates for location of the legend
-legend("center",                       # x-y coordinates for location of the legend
+legend(legendpos,                       # x-y coordinates for location of the legend
        legend=c("AGGREGATE", "PER VM"),      # Legend labels
        col=c("black", secondlc),   # Color of points or lines
 #       pch=c(NA,20),                 # Point type
