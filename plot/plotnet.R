@@ -132,7 +132,7 @@ points(data[,startcol]/1024.0/1024.0/N,
 legend("bottom",                       # x-y coordinates for location of the legend
        legend=c("AGGREGATE", "PER VM"),      # Legend labels
        col=c("black", "red"),   # Color of points or lines
-       pch=c("-",20),                 # Point type
+       pch=c(NA,20),                 # Point type
        #pch=c(21,19),                 # Point type
        lty=c(1,1),                    # Line type
        lwd=c(1,1),                    # Line width
