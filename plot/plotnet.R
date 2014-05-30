@@ -61,7 +61,7 @@ genplot <- function (type) {
 		#png(paste0(prefix, ".png"), height=300, width=400)
 	#	png(paste0(prefix, ".png"))
 	} else if (type == "pdf") {
-		pdf(paste0(prefix, ".pdf"), height=fheight, width=fwidth)
+		pdf(paste0(prefix, ".pdf"), height=fheight/100.0, width=fwidth/100.0)
 	} else if (type == "eps") {
 		#png("aapl.png")
 		#postscript(paste0(prefix, ".eps"), res = resolution)
