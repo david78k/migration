@@ -3,10 +3,12 @@
 target=c11node10
 router=c11node28
 
+ganglia=10.244.36.20
+
 # RTT = delay*2
 #delay=90	# 180ms RTT
 delay=10	# 20ms RTT
-prefix=1vms-r3
+prefix=4vms-r1
 
 # last minutes for ganglia metrics
 min=3min
@@ -21,6 +23,12 @@ function download() {
         wget -O $prefix.dest.net.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=network_report&csv=1"
         wget -O $prefix.dest.cpu.png "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report"
         wget -O $prefix.dest.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report&csv=1"
+
+	# for master, slave
+	#	for cpu, net
+	#		for png, csv
+        #wget -O $prefix.dest.cpu.csv "http://10.244.36.20/ganglia/graph.php?r=${min}&z=medium&c=Hadoop&h=${target}&s=by+name&g=cpu_report&csv=1"
+	
 }
 
 ssh $router service tc delay $delay
