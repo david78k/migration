@@ -1,0 +1,11 @@
+# 180ms: no impact of migration, precopy too late - migration completes after job is done
+255000 ms (Minutes: 4.25)
+
+# 80ms
+313756 ms (Minutes: 5.229266666666667)
+
+# 20ms
+285218 ms (Minutes: 4.753633333333333)
+
+# 0.4ms
+257678 ms (Minutes: 4.2946333333333335)
