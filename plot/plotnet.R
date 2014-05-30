@@ -34,7 +34,8 @@ secondlc = "red"
 secondlty = 2 # good 
 #secondlty = 3 # too pale
 
-legendpos = "bottom"
+#legendpos = "bottom"
+legendpos = "center"
 
 # cex
 fontsize = 1
