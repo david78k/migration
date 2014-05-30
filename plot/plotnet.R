@@ -31,7 +31,8 @@ secondlty = 5 # best
 #secondlty = 3 # too pale
 
 # cex
-fontsize = 1.5 
+fontsize = 1
+#fontsize = 1.5 
 #fontsize = 2 
 
 #library(ggplot2)
@@ -72,7 +73,7 @@ genplot <- function (type) {
 	# margins: oma for the number of lines in outer margin, mar for the number of lines in inside margin
 	# c(bottom, left, top, right)
 	#par(oma=c(0,0,0,0))               # Set outer margin areas (only necessary in order to plot extra y-axis)
-	par(mar=c(5,5,1,1)) # good fit
+#	par(mar=c(5,5,1,1)) # good fit
 	#par(mar=c(4,5,0,0))  # both too tight
 	#par(mar=c(4,6,0,0)) # bottom good, left wide
 	#par(mar=c(6,6,0,0)) # bit wide
