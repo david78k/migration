@@ -30,9 +30,9 @@ linewidth = 2.5
 secondlc = "red"
 
 # second line type: 2 for dashed, 3 for dotted, 4 for dotdash, 5 for longdash, 6 for twodash
-#secondlty = 5 # best
+secondlty = 5 # best
 #secondlty = 2 # good 
-secondlty = 3 # too pale
+#secondlty = 3 # too pale
 
 legendpos = "bottom"
 
