@@ -16,6 +16,9 @@ vcpu=2
 # boot up vm 
 preptime=90
 
+# sleep interval
+sleeptime=5
+
 ports=( 4446 4447 4448 4449 4450 4451 )
 #ports=( 4446 )
 #ports=( 4450 )
@@ -82,10 +85,12 @@ function migrate() {
 	#./ncmigrate master.qcow2 $ram $vcpu $tport $vport $mport $masterpost $migspeed
 	
 	#for i in {1..$nports}
-	for (( i=1; i <=$nports; i++ ))
+	for (( vport=2; vport <$nports; vport++ ))
 	do
 		tport=$(( tport + 1 ))
-		echo $i $tport
+		#vport=$(( vport + 1 ))
+		mport=$(( mport + 1 ))
+		echo $i $tport $vport $mport
 		./ncmigrate slave${i}.qcow2 $ram $vcpu $tport $vport $mport $postcopy $migspeed
 	done
 
@@ -105,7 +110,8 @@ function check() {
 	do
 		#remain=${#ports[@]}
 		remain=$nports
-		for port in ${ports[@]}; 
+		#for port in ${ports[@]}; 
+		for (( port=4446; port <4446 + $nports; port++ ))
 		do
 			info=`./checkstatus localhost $port`
 			if [[ -z $info ]]; then
@@ -230,9 +236,9 @@ function migratecluster() {
 
 	download
 
-	ssh $target mkdir -p $logdir
-	scp $target:/root/$destcsv $prefix
-	scp $router:/root/$routercsv $prefix
+	#ssh $target mkdir -p $logdir
+	#scp $target:$destcsv $prefix
+	#scp $router:$routercsv $prefix
 
         # plot host cpu/net usage
 	# fix to add both send/receive
