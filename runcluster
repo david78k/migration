@@ -36,8 +36,9 @@ rtt=0.4ms
 logbasedir=/root/migration/log/idle/cluster
 logdir=$logbasedir/precopy/speed$migspeed/vcpu$vcpu/$rtt
 
+nvms=5
 #prefix=2vms-r2
-prefix=$logdir/${nports}vms-r${run}
+prefix=$logdir/${nvms}vms-r${run}
 
 mkdir -p $logdir
 
@@ -85,7 +86,7 @@ function migrate() {
 	#./ncmigrate master.qcow2 $ram $vcpu $tport $vport $mport $masterpost $migspeed
 	
 	#for i in {1..$nports}
-	for (( vport=2; vport <$nports; vport++ ))
+	for (( vport=2; vport <$nvms; vport++ ))
 	do
 		tport=$(( tport + 1 ))
 		#vport=$(( vport + 1 ))
@@ -109,9 +110,10 @@ function check() {
 	while [ 1 ]; 
 	do
 		#remain=${#ports[@]}
-		remain=$nports
+		#remain=$nports
+		remain=$nvms
 		#for port in ${ports[@]}; 
-		for (( port=4446; port <4446 + $nports; port++ ))
+		for (( port=4446; port <4446 + $nvms; port++ ))
 		do
 			info=`./checkstatus localhost $port`
 			if [[ -z $info ]]; then
