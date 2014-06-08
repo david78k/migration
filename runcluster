@@ -10,34 +10,35 @@ postcopy=off
 #masterpost=on
 masterpost=off
 
-#prefix=1vm-r3
-#prefix=2vms-r2
-prefix=4vms-r1
-
 ram=2048
 vcpu=2
 
 # boot up vm 
 preptime=90
 
-# sleep interval
-sleeptime=5
 ports=( 4446 4447 4448 4449 4450 4451 )
 #ports=( 4446 )
 #ports=( 4450 )
 #ports=( 4447 4448 4449 )
 nports=${#ports[@]}
-##nports=1
-#nports=4
-remain=$nports
+
+run=1
 #migspeed=30
 migspeed=125
 
-rtt=180ms
+#rtt=180ms
+rtt=0.4ms
 
 # log/idle/cluster/precopy/speed125/vcpu2/180ms/
 logbasedir=/root/migration/log/idle/cluster
 logdir=$logbasedir/precopy/speed$migspeed/$vcpu/$rtt
+
+#prefix=2vms-r2
+prefix=$logdir/${nports}vms-r${run}
+
+mkdir -p $logdir
+
+remain=$nports
 
 # for cpu utilization
 PREV_TOTAL=0
@@ -75,10 +76,20 @@ function startcluster() {
 }
 
 function migrate() {
-	./ncmigrate master.qcow2 $ram $vcpu 4446 1 5446 $masterpost $migspeed
-	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
-	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
-	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
+	tport=4446 # telnet port
+	mport=5446 # migration tcp port
+	vport=1 # vnc port
+	./ncmigrate master.qcow2 $ram $vcpu $tport $vport $mport $masterpost $migspeed
+	
+	for i = 1 to $nports
+	do
+		tport=$(( tport + 1 ))
+		./ncmigrate slave${i}.qcow2 $ram $vcpu $tport $vport $mport $postcopy $migspeed
+	done
+
+#	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
+#	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
+#	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
 	#./ncmigrate slave4.qcow2 $ram $vcpu 4450 5 5450 $postcopy $migspeed
 }
 
@@ -86,6 +97,7 @@ function check() {
 	miglog=$prefix.log
 	migtxt=$prefix.mig
 	rm -rf $miglog
+
 	#while [ $remain -gt 0 ]; 
 	while [ 1 ]; 
 	do
@@ -216,8 +228,9 @@ function migratecluster() {
 
 	download
 
-	scp $target:/root/$destcsv ./
-	scp $router:/root/$routercsv ./	
+	ssh $target mkdir -p $logdir
+	scp $target:/root/$destcsv $prefix
+	scp $router:/root/$routercsv $prefix
 
         # plot host cpu/net usage
 	# fix to add both send/receive
@@ -231,8 +244,8 @@ function migratecluster() {
 
 cpusage
 
-startcluster
-#migratecluster
+#startcluster
+migratecluster
 #migratecluster > migrate.log
 #finish
 
