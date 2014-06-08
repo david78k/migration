@@ -33,6 +33,12 @@ remain=$nports
 #migspeed=30
 migspeed=125
 
+rtt=180ms
+
+# log/idle/cluster/precopy/speed125/vcpu2/180ms/
+logbasedir=/root/migration/log/idle/cluster
+logdir=$logbasedir/precopy/speed$migspeed/$vcpu/$rtt
+
 # for cpu utilization
 PREV_TOTAL=0
 PREV_IDLE=0
