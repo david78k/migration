@@ -37,7 +37,10 @@ echo
 #info kvm
 
 #sleep 5
-
+# check if complete
+#while 
+#do
+#	if complete
 # stop vm
 #nc localhost $telnetport << EOF
 #info migrate
@@ -47,3 +50,7 @@ echo
 
 #quit
 #info migrate_capabilities
+	
+#	fi
+#done
+
