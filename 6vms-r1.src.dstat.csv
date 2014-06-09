@@ -1,0 +1,9 @@
+"Dstat 0.7.0 CSV output"
+"Author:","Dag Wieers <dag@wieers.com>",,,,"URL:","http://dag.wieers.com/home-made/dstat/"
+"Host:","c11node10",,,,"User:","root"
+"Cmdline:","dstat -cnmd -N eth0,eth1,total --noheaders -o 6vms-r1.src.dstat.csv",,,,"Date:","08 Jun 2014 20:24:00 EDT"
+
+"total cpu usage",,,,,,"net/eth0",,"net/eth1",,"net/total",,"memory usage",,,,"dsk/total",
+"usr","sys","idl","wai","hiq","siq","recv","send","recv","send","recv","send","used","buff","cach","free","read","writ"
+0.094,0.054,99.825,0.026,0.000,0.002,0.0,0.0,0.0,0.0,0.0,0.0,10145136640.0,36110336.0,12357021696.0,2785153024.0,322.909,2795.783
+1.134,0.756,97.985,0.0,0.0,0.126,858.0,0.0,239221.0,48622769.0,624145.0,151817501.0,10150477824.0,36110336.0,12357046272.0,2779787264.0,0.0,0.0

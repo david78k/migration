@@ -6,11 +6,11 @@ router=c11node28
 ganglia=10.244.36.20
 
 # RTT = delay*2
-#delay=90	# 180ms RTT
+delay=90	# 180ms RTT
 #delay=40	# 80ms RTT
 #delay=10	# 20ms RTT
-delay=0		# 0.4ms RTT (LAN)
-prefix=4vms-r1
+#delay=0		# 0.4ms RTT (LAN)
+prefix=5vms-r1
 
 # last minutes for ganglia metrics
 min=5min
@@ -42,13 +42,13 @@ function download() {
 ssh $router service tc delay $delay
 
 # run workload: wordcount, terasort, kmeans, fuzzy kmeans, LDA
-ssh master "cd /root/mahout; ./run" &
+#ssh master "cd /root/mahout; ./run" &
 
 # c11node9 to c11nodd10
-./cluster
+#./cluster
 
 # c11node10 to c11node9
-#ssh $target "cd /root/qemu/; ./cluster"
-#download
+ssh $target "cd /root/qemu/; ./cluster"
+download
 
 ssh $router service tc stop
