@@ -25,18 +25,18 @@ ports=( 4446 4447 4448 4449 4450 4451 )
 #ports=( 4447 4448 4449 )
 nports=${#ports[@]}
 
-run=1
 #migspeed=30
 migspeed=125
 
-#rtt=180ms
-rtt=0.4ms
+rtt=180ms
+#rtt=0.4ms
 
 # log/idle/cluster/precopy/speed125/vcpu2/180ms/
 logbasedir=/root/migration/log/idle/cluster
 logdir=$logbasedir/precopy/speed$migspeed/vcpu$vcpu/$rtt
 
 nvms=5
+run=1
 #prefix=2vms-r2
 prefix=$logdir/${nvms}vms-r${run}
 
@@ -83,13 +83,14 @@ function migrate() {
 	tport=4446 # telnet port
 	mport=5446 # migration tcp port
 	vport=1 # vnc port
-	#./ncmigrate master.qcow2 $ram $vcpu $tport $vport $mport $masterpost $migspeed
+	./ncmigrate master.qcow2 $ram $vcpu $tport $vport $mport $masterpost $migspeed
 	
 	#for i in {1..$nports}
-	for (( vport=2; vport <$nvms; vport++ ))
+	#for (( vport=2; vport <=$nvms; vport++ ))
+	for (( i=2; i <=$nvms; i++ ))
 	do
 		tport=$(( tport + 1 ))
-		#vport=$(( vport + 1 ))
+		vport=$(( vport + 1 ))
 		mport=$(( mport + 1 ))
 		echo $i $tport $vport $mport
 		./ncmigrate slave${i}.qcow2 $ram $vcpu $tport $vport $mport $postcopy $migspeed

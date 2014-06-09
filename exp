@@ -44,11 +44,11 @@ ssh $router service tc delay $delay
 # run workload: wordcount, terasort, kmeans, fuzzy kmeans, LDA
 #ssh master "cd /root/mahout; ./run" &
 
-# c11node9 to c11nodd10
-#./cluster
+# c11node9 to c11node10
+./cluster
 
 # c11node10 to c11node9
-ssh $target "cd /root/qemu/; ./cluster"
-download
+#ssh $target "cd /root/qemu/; ./cluster"
+#download
 
 ssh $router service tc stop
