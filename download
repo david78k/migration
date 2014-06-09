@@ -4,7 +4,7 @@ target=c11node10
 ganglia=10.244.36.20
 
 #prefix=test-r1
-prefix=4vms-r1
+prefix=6vms-r1
 min=7min
 
 function download() {

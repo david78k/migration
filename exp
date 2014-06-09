@@ -10,7 +10,7 @@ delay=90	# 180ms RTT
 #delay=40	# 80ms RTT
 #delay=10	# 20ms RTT
 #delay=0		# 0.4ms RTT (LAN)
-prefix=5vms-r1
+prefix=6vms-r1
 
 # last minutes for ganglia metrics
 min=5min
@@ -45,10 +45,10 @@ ssh $router service tc delay $delay
 #ssh master "cd /root/mahout; ./run" &
 
 # c11node9 to c11node10
-./cluster
+#./cluster
 
 # c11node10 to c11node9
-#ssh $target "cd /root/qemu/; ./cluster"
-#download
+ssh $target "cd /root/qemu/; ./cluster"
+download
 
 ssh $router service tc stop
