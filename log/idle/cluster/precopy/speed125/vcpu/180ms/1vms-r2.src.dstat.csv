@@ -1,0 +1,8 @@
+"Dstat 0.7.0 CSV output"
+"Author:","Dag Wieers <dag@wieers.com>",,,,"URL:","http://dag.wieers.com/home-made/dstat/"
+"Host:","c11node9",,,,"User:","root"
+"Cmdline:","dstat -cnmd -N eth0,eth1,total --noheaders -o /root/migration/log/idle/cluster/precopy/speed125/vcpu/180ms/1vms-r2.src.dstat.csv",,,,"Date:","09 Jun 2014 16:13:41 EDT"
+
+"total cpu usage",,,,,,"net/eth0",,"net/eth1",,"net/total",,"memory usage",,,,"dsk/total",
+"usr","sys","idl","wai","hiq","siq","recv","send","recv","send","recv","send","used","buff","cach","free","read","writ"
+0.969,1.403,97.598,0.028,0.000,0.002,0.0,0.0,0.0,0.0,0.0,0.0,2204270592.0,421195776.0,6913019904.0,15784812544.0,159.603,3396.446

@@ -1,0 +1,21 @@
+ÿûÿûÿûÿýQEMU 1.6.50 monitor - type 'help' for more information
+ (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo m[K[D[D[D[D[D[Dinfo mi[K[D[D[D[D[D[D[Dinfo mig[K[D[D[D[D[D[D[D[Dinfo migr[K[D[D[D[D[D[D[D[D[Dinfo migra[K[D[D[D[D[D[D[D[D[D[Dinfo migrat[K[D[D[D[D[D[D[D[D[D[D[Dinfo migrate[K
+ capabilities: xbzrle: off x-rdma-pin-all: off auto-converge: off zero-blocks: off postcopy: off postcopy-no-background: off postcopy-move-background: off postcopy-rdma-compress: off 
+ Migration status: completed
+ iterations: 277
+ total time: 14810 milliseconds
+ downtime: 20 milliseconds
+ stop time: 1 milliseconds
+ copy time: 19 milliseconds
+ setup: 17 milliseconds
+ transferred ram: 1685324 kbytes
+ throughput: 928.19 mbps
+ remaining ram: 0 kbytes
+ total ram: 2105920 kbytes
+ duplicate: 109570 pages
+ skipped: 0 pages
+ normal: 420269 pages
+ normal bytes: 1681076 kbytes
+ (qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo s[K[D[D[D[D[D[Dinfo st[K[D[D[D[D[D[D[Dinfo sta[K[D[D[D[D[D[D[D[Dinfo stat[K[D[D[D[D[D[D[D[D[Dinfo statu[K[D[D[D[D[D[D[D[D[D[Dinfo status[K
+ VM status: paused (postmigrate)
+ (qemu)
