@@ -10,17 +10,14 @@ postcopy=off
 #masterpost=on
 masterpost=off
 
-ports=( 4446 4447 4448 4449 4450 4451 )
-#ports=( 4446 )
-#ports=( 4450 )
-#ports=( 4447 4448 4449 )
-nports=${#ports[@]}
-
 #migspeed=30
 migspeed=125
 
 rtt=180ms
 #rtt=0.4ms
+
+ram=2048
+vcpu=2
 
 # log/idle/cluster/precopy/speed125/vcpu2/180ms/
 logbasedir=/root/migration/log/idle/cluster
@@ -31,8 +28,11 @@ run=2
 #prefix=2vms-r2
 prefix=$logdir/${nvms}vms-r${run}
 
-ram=2048
-vcpu=2
+ports=( 4446 4447 4448 4449 4450 4451 )
+#ports=( 4446 )
+#ports=( 4450 )
+#ports=( 4447 4448 4449 )
+nports=${#ports[@]}
 
 # boot up vm 
 preptime=90

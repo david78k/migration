@@ -1,2 +1,2 @@
 #for FILE in *1.txt; do mv "$FILE" $(echo "$FILE" | sed 's/1/2/'); done
-for FILE in 2vms-r1.*; do mv "$FILE" $(echo "$FILE" | sed 's/2/1/'); done
+for FILE in 1vms-r1.*; do mv "$FILE" $(echo "$FILE" | sed 's/r1/r2/'); done

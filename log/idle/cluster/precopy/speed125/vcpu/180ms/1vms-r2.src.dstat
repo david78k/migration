@@ -1,3 +1,0 @@
-[7l----total-cpu-usage---- --net/eth0- --net/eth1- -net/total- ------memory-usage----- -dsk/total-
-usr sys idl wai hiq siq| recv  send: recv  send: recv  send| used  buff  cach  free| read  writ
-  1   1  98   0   0   0|   0     0 :   0     0 :   0     0 |2102M  402M 6593M 14.7G| 160B 3396B
