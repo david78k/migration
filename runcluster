@@ -23,8 +23,8 @@ vcpu=2
 logbasedir=/root/migration/log/idle/cluster
 logdir=$logbasedir/precopy/speed$migspeed/vcpu$vcpu/$rtt
 
-nvms=6
-run=1
+nvms=$1
+run=$2
 #prefix=2vms-r2
 prefix=$logdir/${nvms}vms-r${run}
 
@@ -81,20 +81,22 @@ function startcluster() {
 	tport=4446 # telnet port
 	mport=5446 # migration tcp port
 	vport=1 # vnc port
-	# master 10.244.36.132 (old 10.244.39.141)
-	mac=DE:AD:BE:EF:0C:0F
-#	./runvm-daemon master.qcow2 $ram $vcpu 4446 1 $mac
 	
+	# slave6 10.244.39.141
+	slaveid=6
+	tport=$(( tport + 6 ))
+	vport=$(( vport + 6 ))
+	mac=DE:AD:BE:EF:48:B4
+	./runvm-daemon slave${slaveid}.qcow2 $ram $vcpu $tport $vport $mac
+
 	#for i in {1..$nports}
-	#for (( vport=2; vport <=$nvms; vport++ ))
-	#for (( i=1; i <$nvms; i++ ))
-	for (( i=100; i <$nvms; i++ ))
+	for (( i=1; i <$nvms; i++ ))
+	#for (( i=100; i <$nvms; i++ ))
 	do
 		tport=$(( tport + 1 ))	# telnet port
 		vport=$(( vport + 1 ))	# vnc port
-		mport=$(( mport + 1 ))	# migration port
-		echo $i $tport $vport $mport
-		./runvm-daemon slave${i}.qcow2 $ram $vcpu $tport $vport $mac
+	#	echo $i $tport $vport 
+#		./runvm-daemon slave${i}.qcow2 $ram $vcpu $tport $vport $mac
 	done
 }
 
@@ -102,12 +104,12 @@ function migrate() {
 	tport=4446 # telnet port
 	mport=5446 # migration tcp port
 	vport=1 # vnc port
-	#./ncmigrate master.qcow2 $ram $vcpu $tport $vport $mport $masterpost $migspeed
+	./ncmigrate master.qcow2 $ram $vcpu $tport $vport $mport $masterpost $migspeed
 	
 	#for i in {1..$nports}
 	#for (( vport=2; vport <=$nvms; vport++ ))
-	#for (( i=1; i <$nvms; i++ ))
-	for (( i=100; i <$nvms; i++ ))
+	#for (( i=100; i <$nvms; i++ ))
+	for (( i=1; i <$nvms; i++ ))
 	do
 		tport=$(( tport + 1 ))
 		vport=$(( vport + 1 ))
@@ -119,7 +121,7 @@ function migrate() {
 #	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
 #	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
 #	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
-	./ncmigrate slave4.qcow2 $ram $vcpu 4450 5 5450 $postcopy $migspeed
+#	./ncmigrate slave4.qcow2 $ram $vcpu 4450 5 5450 $postcopy $migspeed
 }
 
 function check() {
@@ -243,8 +245,10 @@ function migratecluster() {
         #dstat -cmdngy -N eth0,eth1,total --noheaders > $dstatfile &
         $dstatcmd $srccsv > $dstatfile &
         #ssh $target "dstat -cmdngy -N eth0,eth1,total --noheaders" > $dstatdest &
+	ssh $target mkdir -p $logdir
 	ssh $target $dstatcmd $destcsv > $dstatdest &
 	#ssh $target "$dstatcmd $dstatdest" &
+	ssh $router mkdir -p $logdir
 	ssh $router $dstatcmd $routercsv > $dstatrouter &
 
 #	sleep $preptime
@@ -275,8 +279,8 @@ function migratecluster() {
 
 cpusage
 
-startcluster
-#migratecluster
+#startcluster
+migratecluster
 #migratecluster > migrate.log
 #finish
 
