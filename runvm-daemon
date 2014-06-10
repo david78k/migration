@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# vm name
+name=$7
 #file=migbench.img
 file=$1
 #file=vm512-29.img
@@ -22,11 +26,12 @@ version=hybrid # qemu 1.6.50
 #mac=DE:AD:BE:EF:0C:0F
 mac=$6
 
-echo $file $ram $vcpu $telnetport :$vncport $mac
+echo $name $file $ram $vcpu $telnetport :$vncport $mac
 
 #./qemu-postcopy/x86_64-softmmu/qemu-system-x86_64 \
 #./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
 $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
+	-name $name \
 	-drive file=$image \
 	-enable-kvm \
 	-m $ram \

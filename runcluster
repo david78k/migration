@@ -54,11 +54,12 @@ function startcluster() {
 	# filename ram vcpu telnetport vncport listenport postcopy
 	# master 10.244.36.132 (old 10.244.39.141)
 	mac=DE:AD:BE:EF:0C:0F
-	#./runvm-daemon master.qcow2 $ram $vcpu 4446 1 $mac
+	name=master
+	#./runvm-daemon ${name}.qcow2 $ram $vcpu 4446 1 $mac $name
 
 	# slave1 10.244.37.1
 	mac=DE:AD:BE:EF:FA:3A
-	./runvm-daemon slave1.qcow2 $ram $vcpu 4447 2 $mac
+	#./runvm-daemon slave1.qcow2 $ram $vcpu 4447 2 $mac
 
 	# slave2 10.244.38.71
 	mac=DE:AD:BE:EF:FF:57
@@ -87,6 +88,15 @@ function startcluster() {
 	mac=DE:AD:BE:EF:48:B4
 	#./runvm-daemon slave${slaveid}.qcow2 $ram $vcpu $tport $vport $mac
 
+	# slave7 10.244.39.141
+	slaveid=$(( slaveid + 1 ))
+	tport=$(( tport + 1 ))
+	vport=$(( vport + 1 ))
+	#mac=DE:AD:BE:EF:48:B4
+	mac=`printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))`
+	name=slave${slaveid}
+	./runvm-daemon ${name}.qcow2 $ram $vcpu $tport $vport $mac $name
+
 	#for i in {1..$nports}
 	for (( i=1; i <$nvms; i++ ))
 	#for (( i=100; i <$nvms; i++ ))
@@ -102,7 +112,8 @@ function migrate() {
 	tport=4446 # telnet port
 	mport=5446 # migration tcp port
 	vport=1 # vnc port
-	./ncmigrate master.qcow2 $ram $vcpu $tport $vport $mport $masterpost $migspeed
+	name=master
+	./ncmigrate ${name}.qcow2 $ram $vcpu $tport $vport $mport $masterpost $migspeed $name
 	
 	#for i in {1..$nports}
 	#for (( vport=2; vport <=$nvms; vport++ ))
@@ -112,8 +123,9 @@ function migrate() {
 		tport=$(( tport + 1 ))
 		vport=$(( vport + 1 ))
 		mport=$(( mport + 1 ))
+		name=slave$i
 		echo $i $tport $vport $mport
-		./ncmigrate slave${i}.qcow2 $ram $vcpu $tport $vport $mport $postcopy $migspeed
+		./ncmigrate $name.qcow2 $ram $vcpu $tport $vport $mport $postcopy $migspeed $name
 	done
 
 #	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed

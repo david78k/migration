@@ -12,13 +12,15 @@ postcopy=$7
 speed=$8
 #speed=125
 #speed=30
+name=$9
+
 background=off
 #background=on
 #mac=$3
 
 # prepare incoming migration at target
 # start vm
-ssh $target /root/qemu/listen-daemon $file $ram $vcpu $telnetport $vncport $listenport 
+ssh $target /root/qemu/listen-daemon $file $ram $vcpu $telnetport $vncport $listenport $name
 
 #if [ $file == "master.qcow2" ]; then
 #	telnetport=4436
