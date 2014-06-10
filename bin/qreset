@@ -1,1 +1,34 @@
+#!/bin/bash
+
 # reset qcow2 disks
+nfserver=c11node27
+
+pm=c11node10
+imgname=slave3.qcow2
+tport=4449
+
+# image path
+basedir=/var/lib/libvirt/images/c11node9
+img=$basedir/$imgname
+template=$basedir/hadoop.qcow2
+newimg=
+
+# stop VM first
+echo stopvm $pm $tport
+stopvm $pm $tport
+
+echo removing $img ...
+ssh $nfserver rm $img
+
+echo copying from $template ...
+ssh $nfserver cp $template $img
+
+echo done
+
+# post booting
+# check if alive
+#ping $vmname -c 2 
+#ssh $vmname hostname $vmname
+# change the hostname in /etc/sysconfig/network
+# ssh $vmname replace 's/hadoop/$vmname/g' /etc/sysconfig/network
+

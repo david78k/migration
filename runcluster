@@ -59,16 +59,16 @@ function startcluster() {
 
 	# slave1 10.244.37.1
 	mac=DE:AD:BE:EF:FA:3A
-	./runvm-daemon slave1.qcow2 $ram $vcpu 4447 2 $mac
+	#./runvm-daemon slave1.qcow2 $ram $vcpu 4447 2 $mac
 
 	# slave2 10.244.38.71
 	mac=DE:AD:BE:EF:FF:57
-	./runvm-daemon slave2.qcow2 $ram $vcpu 4448 3 $mac
+	#./runvm-daemon slave2.qcow2 $ram $vcpu 4448 3 $mac
 
 	# slave3 10.244.38.70
 	mac=DE:AD:BE:EF:A6:75
 	#mac=DE:AD:BE:EF:92:C8
-	./runvm-daemon slave3.qcow2 $ram $vcpu 4449 4 $mac
+	#./runvm-daemon slave3.qcow2 $ram $vcpu 4449 4 $mac
 
 	# slave4 10.244.37.127
 	mac=DE:AD:BE:EF:5D:A2
@@ -76,7 +76,7 @@ function startcluster() {
 
 	# slave5 10.244.36.115
 	mac=DE:AD:BE:EF:70:62
-	./runvm-daemon slave5.qcow2 $ram $vcpu ${ports[5]} 6 $mac
+	#./runvm-daemon slave5.qcow2 $ram $vcpu ${ports[5]} 6 $mac
 
 	tport=4446 # telnet port
 	mport=5446 # migration tcp port
@@ -87,7 +87,7 @@ function startcluster() {
 	tport=$(( tport + 6 ))
 	vport=$(( vport + 6 ))
 	mac=DE:AD:BE:EF:48:B4
-	./runvm-daemon slave${slaveid}.qcow2 $ram $vcpu $tport $vport $mac
+	#./runvm-daemon slave${slaveid}.qcow2 $ram $vcpu $tport $vport $mac
 
 	#for i in {1..$nports}
 	for (( i=1; i <$nvms; i++ ))
@@ -279,8 +279,8 @@ function migratecluster() {
 
 cpusage
 
-#startcluster
-migratecluster
+startcluster
+#migratecluster
 #migratecluster > migrate.log
 #finish
 
