@@ -8,10 +8,10 @@ ganglia=10.244.36.20
 # RTT = delay*2
 #delay=90	# 180ms RTT
 #delay=40	# 80ms RTT
-#delay=10	# 20ms RTT
-delay=0		# 0.4ms RTT (LAN)
+delay=10	# 20ms RTT
+#delay=0		# 0.4ms RTT (LAN)
 #prefix=4vms-r2
-prefix=2vm-r1
+prefix=1vm-r4
 
 # last minutes for ganglia metrics
 min=3min

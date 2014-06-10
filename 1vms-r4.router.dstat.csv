@@ -1,0 +1,17 @@
+"Dstat 0.7.0 CSV output"
+"Author:","Dag Wieers <dag@wieers.com>",,,,"URL:","http://dag.wieers.com/home-made/dstat/"
+"Host:","c11node28",,,,"User:","root"
+"Cmdline:","dstat -cnmd -N eth0,eth1,total --noheaders -o 1vms-r4.router.dstat.csv",,,,"Date:","09 Jun 2014 19:28:26 EDT"
+
+"total cpu usage",,,,,,"net/eth0",,"net/eth1",,"net/total",,"memory usage",,,,"dsk/total",
+"usr","sys","idl","wai","hiq","siq","recv","send","recv","send","recv","send","used","buff","cach","free","read","writ"
+0.895,0.176,98.843,0.085,0.000,0.001,0.0,0.0,0.0,0.0,0.0,0.0,9975562240.0,61218816.0,1327529984.0,13820506112.0,27923.778,121675.421
+
+
+"Host:","c11node28",,,,"User:","root"
+"Cmdline:","dstat -cnmd -N eth0,eth1,total --noheaders -o 1vms-r4.router.dstat.csv",,,,"Date:","09 Jun 2014 19:29:23 EDT"
+
+"total cpu usage",,,,,,"net/eth0",,"net/eth1",,"net/total",,"memory usage",,,,"dsk/total",
+"usr","sys","idl","wai","hiq","siq","recv","send","recv","send","recv","send","used","buff","cach","free","read","writ"
+0.895,0.176,98.843,0.085,0.000,0.001,0.0,0.0,0.0,0.0,0.0,0.0,9974210560.0,61317120.0,1327538176.0,13821751296.0,27923.588,121675.568
+0.314,0.251,99.435,0.0,0.0,0.0,660.0,212.0,30020.0,31460.0,30810.0,31672.0,9974202368.0,61317120.0,1327538176.0,13821759488.0,0.0,0.0
