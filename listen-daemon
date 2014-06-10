@@ -1,3 +1,5 @@
+#!/bin/bash
+name=$7
 #file=migbench.img
 file=$1
 #file=vm512-29.img
@@ -21,11 +23,12 @@ version=hybrid # qemu 1.6.50
 # generate a random mac address for the qemu nic
 #mac=`printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))`
 
-echo $file $ram $vcpu $telnetport :$vncport tcp:0:$listenport
+echo $name $file $ram $vcpu $telnetport :$vncport tcp:0:$listenport
 
 #./qemu-postcopy/x86_64-softmmu/qemu-system-x86_64 \
 #./qemu-1.5.2/x86_64-softmmu/qemu-system-x86_64 \
 $qemudir/$version/x86_64-softmmu/qemu-system-x86_64 \
+	-name $name \
 	-drive file=$image \
 	-enable-kvm \
 	-m $ram \

@@ -93,7 +93,6 @@ function startcluster() {
 	tport=$(( tport + 1 ))
 	vport=$(( vport + 1 ))
 	#mac=DE:AD:BE:EF:48:B4
-	mac=`printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))`
 	name=slave${slaveid}
 	./runvm-daemon ${name}.qcow2 $ram $vcpu $tport $vport $mac $name
 
@@ -128,10 +127,7 @@ function migrate() {
 		./ncmigrate $name.qcow2 $ram $vcpu $tport $vport $mport $postcopy $migspeed $name
 	done
 
-#	./ncmigrate slave1.qcow2 $ram $vcpu 4447 2 5447 $postcopy $migspeed
 #	./ncmigrate slave2.qcow2 $ram $vcpu 4448 3 5448 $postcopy $migspeed
-#	./ncmigrate slave3.qcow2 $ram $vcpu 4449 4 5449 $postcopy $migspeed
-#	./ncmigrate slave4.qcow2 $ram $vcpu 4450 5 5450 $postcopy $migspeed
 }
 
 function check() {

@@ -12,10 +12,12 @@ delay=90	# 180ms RTT
 #delay=0		# 0.4ms RTT (LAN)
 rtt=$(( delay * 2 ))ms
 
-vwnd=8
-run=1
+vwnd=6
+run=2
 prefix=${vwnd}vms-r${run}
 #prefix=1vm-r4
+
+turn=pong
 
 # last minutes for ganglia metrics
 #min=3min
@@ -51,10 +53,14 @@ ssh $router service tc delay $delay
 #ssh master "cd /root/mahout; ./run" &
 
 # [ping] c11node9 to c11node10
-./cluster $vwnd $run $rtt
+if [[ $turn == "ping" ]]; then
+	./cluster $vwnd $run $rtt
+fi
 
 # [pong] c11node10 to c11node9
-#ssh $target "cd /root/qemu/; ./cluster $vwnd $run"
-#download
+if [[ $turn == "pong" ]]; then
+	ssh $target "cd /root/qemu/; ./cluster $vwnd $run"
+	download
+fi
 
 ssh $router service tc stop
