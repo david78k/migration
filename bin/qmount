@@ -1,0 +1,2 @@
+#alias checkmount="echo -n 'master '; ssh master mount; echo -n 'slave1 '; ssh slave1 mount; echo -n 'slave2 '; ssh slave2 mount; echo -n 'slave3 '; ssh slave3 mount;"
+

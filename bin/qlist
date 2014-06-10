@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#alias qlist="ps -ef | grep qemu | awk '{print \$10,\$12,\$13,\$14,\$15,\$17,\$18,\$19}' | egrep 'slave|master|tomcat|jboss|mysql'"
+cmd="ps -ef | grep qemu | awk '{print \$10,\$12,\$13,\$14,\$15,\$17,\$18,\$19}' | egrep 'slave|master|tomcat|jboss|mysql'"
+
+# list all the VMs including on other PMs
+echo c11node9
+ps -ef | grep qemu | awk '{print $10,$12,$13,$14,$15,$17,$18,$19}' | egrep 'slave|master|tomcat|jboss|mysql'
+#ps -ef | grep qemu -n
+
+echo c11node10
+ssh c11node10 $cmd 
+#ssh c11node10 ps -ef | grep qemu -n

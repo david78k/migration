@@ -1,0 +1,11 @@
+#!/bin/bash
+#alias checkalive="echo -n 'master '; ssh master date; echo -n 'slave1 '; ssh slave1 date; echo -n 'slave2 '; ssh slave2 date; echo -n 'slave3 '; ssh slave3 date;"
+
+nvms=6
+
+echo -n 'master '; ssh master date; 
+
+for (( i = 1; i <= $nvms; i ++ ))
+do
+	echo -n slave$i' '; ssh slave$i date; 
+done

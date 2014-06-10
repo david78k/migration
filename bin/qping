@@ -1,0 +1,10 @@
+#alias qlist="ps -ef | grep qemu | awk '{print \$10,\$12,\$13,\$14,\$15,\$17,\$18,\$19}' | egrep 'slave|master|tomcat|jboss|mysql'"
+#ps -ef | grep qemu | awk '{print $10,$12,$13,$14,$15,$17,$18,$19}' | egrep 'slave|master|tomcat|jboss|mysql'
+count=2
+ping master -c $count -q; echo 
+ping slave1 -c $count -q; echo 
+ping slave2 -c $count -q; echo
+ping slave3 -c $count -q; echo
+ping slave4 -c $count -q; echo
+ping slave5 -c $count -q; echo
+ping slave6 -c $count -q; echo
