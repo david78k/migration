@@ -3,9 +3,10 @@
 # reset qcow2 disks
 nfserver=c11node27
 
-pm=c11node10
-imgname=slave3.qcow2
-tport=4449
+#pm=c11node10
+pm=localhost
+imgname=slave1.qcow2
+tport=4447
 
 # image path
 basedir=/var/lib/libvirt/images/c11node9
