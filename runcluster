@@ -17,8 +17,9 @@ rtt=$3
 #rtt=180ms
 #rtt=0.4ms
 
-ram=2048
-vcpu=2
+#ram=2048
+ram=1800
+vcpu=1
 
 # log/idle/cluster/precopy/speed125/vcpu2/180ms/
 logbasedir=/root/migration/log/idle/cluster
