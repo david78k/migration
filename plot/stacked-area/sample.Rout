@@ -1,0 +1,119 @@
+[1] "data"
+   year castiron    steel  plastic
+1  1984 62800.00 541697.0 139790.0
+2  1985 63185.00 566785.0 149840.0
+3  1986 59100.00 559051.0 158879.0
+4  1987 60559.00 557011.0 179047.0
+5  1988 60754.00 593333.0 206558.0
+6  1989 58474.00 560082.0 217353.0
+7  1990 58292.00 582844.0 311386.0
+8  1991 56120.00 627586.0 255562.0
+9  1992 52917.00 570233.0 267283.0
+10 1993 54190.00 630040.0 293547.0
+11 1994 58148.00 607919.0 333689.0
+12 1995 50625.00 593965.0 353735.0
+13 1996 51542.00 573136.0 350699.0
+14 1997 48699.00 602199.0 416896.0
+15 1998 47587.00 569908.0 400627.0
+16 1999 45865.00 542684.0 415210.0
+17 2000 44750.00 554012.0 449425.0
+18 2001 44283.00 556435.0 498234.0
+19 2002 42025.00 557561.0 532355.0
+20 2003 41091.00 556378.0 505768.0
+21 2004 40604.68 569967.6 542841.1
+22 2005 39645.02 561234.1 560354.9
+23 2006 38704.30 562263.3 582930.6
+24 2007 37720.46 560016.8 602769.7
+25 2008 36812.66 557727.8 612647.7
+26 2009 35622.59 556699.1 626408.8
+27 2010 34603.51 554943.3 633141.0
+28 2011 33628.54 552562.2 645395.3
+29 2012 32374.41 550840.8 661016.3
+            year material    mmiles
+1.castiron  1984 castiron  62800.00
+2.castiron  1985 castiron  63185.00
+3.castiron  1986 castiron  59100.00
+4.castiron  1987 castiron  60559.00
+5.castiron  1988 castiron  60754.00
+6.castiron  1989 castiron  58474.00
+7.castiron  1990 castiron  58292.00
+8.castiron  1991 castiron  56120.00
+9.castiron  1992 castiron  52917.00
+10.castiron 1993 castiron  54190.00
+11.castiron 1994 castiron  58148.00
+12.castiron 1995 castiron  50625.00
+13.castiron 1996 castiron  51542.00
+14.castiron 1997 castiron  48699.00
+15.castiron 1998 castiron  47587.00
+16.castiron 1999 castiron  45865.00
+17.castiron 2000 castiron  44750.00
+18.castiron 2001 castiron  44283.00
+19.castiron 2002 castiron  42025.00
+20.castiron 2003 castiron  41091.00
+21.castiron 2004 castiron  40604.68
+22.castiron 2005 castiron  39645.02
+23.castiron 2006 castiron  38704.30
+24.castiron 2007 castiron  37720.46
+25.castiron 2008 castiron  36812.66
+26.castiron 2009 castiron  35622.59
+27.castiron 2010 castiron  34603.51
+28.castiron 2011 castiron  33628.54
+29.castiron 2012 castiron  32374.41
+1.steel     1984    steel 541697.00
+2.steel     1985    steel 566785.00
+3.steel     1986    steel 559051.00
+4.steel     1987    steel 557011.00
+5.steel     1988    steel 593333.00
+6.steel     1989    steel 560082.00
+7.steel     1990    steel 582844.00
+8.steel     1991    steel 627586.00
+9.steel     1992    steel 570233.00
+10.steel    1993    steel 630040.00
+11.steel    1994    steel 607919.00
+12.steel    1995    steel 593965.00
+13.steel    1996    steel 573136.00
+14.steel    1997    steel 602199.00
+15.steel    1998    steel 569908.00
+16.steel    1999    steel 542684.00
+17.steel    2000    steel 554012.00
+18.steel    2001    steel 556435.00
+19.steel    2002    steel 557561.00
+20.steel    2003    steel 556378.00
+21.steel    2004    steel 569967.60
+22.steel    2005    steel 561234.10
+23.steel    2006    steel 562263.30
+24.steel    2007    steel 560016.80
+25.steel    2008    steel 557727.80
+26.steel    2009    steel 556699.10
+27.steel    2010    steel 554943.30
+28.steel    2011    steel 552562.20
+29.steel    2012    steel 550840.80
+1.plastic   1984  plastic 139790.00
+2.plastic   1985  plastic 149840.00
+3.plastic   1986  plastic 158879.00
+4.plastic   1987  plastic 179047.00
+5.plastic   1988  plastic 206558.00
+6.plastic   1989  plastic 217353.00
+7.plastic   1990  plastic 311386.00
+8.plastic   1991  plastic 255562.00
+9.plastic   1992  plastic 267283.00
+10.plastic  1993  plastic 293547.00
+11.plastic  1994  plastic 333689.00
+12.plastic  1995  plastic 353735.00
+13.plastic  1996  plastic 350699.00
+14.plastic  1997  plastic 416896.00
+15.plastic  1998  plastic 400627.00
+16.plastic  1999  plastic 415210.00
+17.plastic  2000  plastic 449425.00
+18.plastic  2001  plastic 498234.00
+19.plastic  2002  plastic 532355.00
+20.plastic  2003  plastic 505768.00
+21.plastic  2004  plastic 542841.10
+22.plastic  2005  plastic 560354.90
+23.plastic  2006  plastic 582930.60
+24.plastic  2007  plastic 602769.70
+25.plastic  2008  plastic 612647.70
+26.plastic  2009  plastic 626408.80
+27.plastic  2010  plastic 633141.00
+28.plastic  2011  plastic 645395.30
+29.plastic  2012  plastic 661016.30
