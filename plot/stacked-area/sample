@@ -36,4 +36,5 @@ graph = ggplot(data, aes(x = year, y = mmiles, fill = material)) +
               legend.text = element_text(size = 12),
               plot.title = element_text(size = 18, face = 'bold'))
  
+png("sample.png")
 plot(graph)
