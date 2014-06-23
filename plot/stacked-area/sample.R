@@ -23,6 +23,7 @@ print(data)
 library(ggplot2)
 
 graph = ggplot(data, aes(x = year, y = mmiles, fill = material)) + 
+#        geom_area(position = 'stack') 
         geom_area(position = 'stack') +
         labs(x = "Year", 
              y = "Total Miles of Pipeline in Millions",
