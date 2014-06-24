@@ -17,12 +17,13 @@ data <- reshape(data,
                 times = c("castiron", "steel", "plastic"),
                 direction = "long")
  
-data <- subset(data, select = -c(id))
+#data <- subset(data, select = -c(id))
 print(data)
 
 library(ggplot2)
 
-graph = ggplot(data, aes(x = year, y = mmiles, fill = material)) + 
+#graph = ggplot(data, aes(x = year, y = mmiles, fill = material)) + 
+graph = ggplot(data, aes(x = id, y = mmiles, fill = material)) + 
         geom_area() 
 #        geom_area(position = 'stack') +
 #        labs(x = "Year", 
