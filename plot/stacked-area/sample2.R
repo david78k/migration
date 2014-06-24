@@ -7,12 +7,14 @@ print(args)
 src <- args[1]
 #N <- as.numeric(args[2])
 
-data <- read.table(src, na.strings = "NA", fill = TRUE, header=TRUE)
+#data <- read.table(src, na.strings = "NA", fill = TRUE, header=TRUE)
+data <- read.table(src, na.strings = "NA", fill = TRUE)
 print(data)
 
 data <- reshape(data,
-                varying = c("castiron", "steel", "plastic"),
-                v.names = "mmiles",
+                varying = list(names(data)),
+                #varying = c("castiron", "steel", "plastic"),
+                #v.names = "mmiles",
                 timevar = "material",
                 times = c("castiron", "steel", "plastic"),
                 direction = "long")
@@ -23,7 +25,8 @@ print(data)
 library(ggplot2)
 
 #graph = ggplot(data, aes(x = year, y = mmiles, fill = material)) + 
-graph = ggplot(data, aes(x = id, y = mmiles, fill = material)) + 
+#graph = ggplot(data, aes(x = id, y = mmiles, fill = material)) + 
+graph = ggplot(data, aes(x = id, y = V1, fill = material)) + 
         geom_area() 
 #        geom_area(position = 'stack') +
 #        labs(x = "Year", 
