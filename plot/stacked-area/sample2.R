@@ -11,12 +11,16 @@ src <- args[1]
 data <- read.table(src, na.strings = "NA", fill = TRUE)
 print(data)
 
+print(list(names(data)))
+
 data <- reshape(data,
                 varying = list(names(data)),
                 #varying = c("castiron", "steel", "plastic"),
                 #v.names = "mmiles",
                 timevar = "material",
-                times = c("castiron", "steel", "plastic"),
+		times = names(data),
+                #times = c("V1", "V2", "V3"),
+                #times = c("castiron", "steel", "plastic"),
                 direction = "long")
  
 #data <- subset(data, select = -c(id))
