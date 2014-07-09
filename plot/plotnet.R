@@ -1,5 +1,8 @@
 #!/usr/bin/Rscript
 
+# input: csv file
+# output: .send image files
+
 #options(echo=TRUE)
 # trailingOnly=TRUE means that only your arguments are returned
 args <- commandArgs(trailingOnly = TRUE)
